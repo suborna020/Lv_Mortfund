@@ -40,6 +40,8 @@ Route::post('/forgot-password','App\Http\Controllers\Master@emailVerification')-
 Route::post('/abc','App\Http\Controllers\Master@swad')->name('forgot-password');
 Route::post('/abc','App\Http\Controllers\Master@swad')->name('forgot-password');
 
+Route::post('/efg','App\Http\Controllers\Master@swad')->name('forgot-password');
+
 
 
 Route::group(['middleware'=>'authentication'],function(){
