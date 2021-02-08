@@ -37,6 +37,8 @@ Route::get('/logout','App\Http\Controllers\Master@Logout')->name('logout');
 Route::get('/forgot-password','App\Http\Controllers\Master@forgotPassword')->name('forgot-password');
 
 Route::post('/forgot-password','App\Http\Controllers\Master@emailVerification')->name('forgot-password');
+Route::post('/abc','App\Http\Controllers\Master@swad')->name('forgot-password');
+
 
 Route::group(['middleware'=>'authentication'],function(){
     Route::get('/my-account','App\Http\Controllers\Master@userDashboard');
