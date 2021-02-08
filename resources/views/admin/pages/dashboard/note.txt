@@ -9,7 +9,7 @@
 
 # php artisan migrate
 # php artisan serve
-@git 
+@git project sent:
 git add .   
 git commit -m "initial release "
 git pull
