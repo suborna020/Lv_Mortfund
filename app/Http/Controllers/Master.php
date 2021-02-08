@@ -7,11 +7,17 @@ use Validator;
 use Session;
 use Hash;
 use App\Models\User;
+use App\Models\General;
+use App\Models\Navmenu;
+// use App\Models\Currency;
 
 class Master extends Controller
 {
     public function index(){
-    	return view('ui.pages.welcome.welcome');
+        $general = General::where('id',1)->first();
+        $navmenu = Navmenu::where('status',1)->get();
+        // $currency = Currency::where('status',1)->get();
+        return view('ui.pages.welcome.welcome',compact('general','navmenu'));
     }
 
     public function adminDashboard(){
