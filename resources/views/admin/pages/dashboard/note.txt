@@ -15,3 +15,9 @@ git commit -m "initial release "
 git pull
 git push
 
+
+recieve settings:
+1souse control->masssge->cnt+enter>pull
+sent settings:
+1souse control->masssge->cnt+enter>push
+
