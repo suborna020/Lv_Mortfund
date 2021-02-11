@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Navmenu extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'menu_item',
+        'parent',
+        'status',
+    ];
 }

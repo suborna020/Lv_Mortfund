@@ -15,8 +15,13 @@ git commit -m "initial release "
 git pull
 git push
 
+@for project clear :
+php artisan cache:clear
+php artisan route:cache 
+php artisan config:cache
 
-recieve settings:
+
+@recieve settings:
 1souse control->masssge->cnt+enter>pull
 sent settings:
 1souse control->masssge->cnt+enter>push

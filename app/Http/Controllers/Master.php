@@ -20,9 +20,7 @@ class Master extends Controller
         return view('ui.pages.welcome.welcome',compact('general','navmenu'));
     }
 
-    public function adminDashboard(){
-    	return view('admin.pages.dashboard.dashboard');
-    }
+  
 
     public function userDashboard(){
     	return view('ui.pages.users.user.dashboard');
@@ -79,12 +77,14 @@ class Master extends Controller
 
     public function userLogin()
     {
+        $general = General::where('id',1)->first();
+        $navmenu = Navmenu::where('status',1)->get();
         if (Session::get('user_session')) {
-            return redirect(url('my-account'));
+            return redirect(url('myAccount'));
         }
         //session a login thaka kalin user new login page a na giye alwayas dashboard stay korar condition
         //exist session/redicating on dashboard
-        return view('ui.pages.users.account.login');
+        return view('ui.pages.users.account.login',compact('general','navmenu'));
     }
 
 
