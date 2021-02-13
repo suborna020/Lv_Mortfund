@@ -16,6 +16,8 @@ class CreateGeneralsTable extends Migration
         Schema::create('generals', function (Blueprint $table) {
             $table->id();
             $table->string('website_logo');
+            $table->string('short_note_1');
+            $table->string('short_note_2');
             $table->string('website_favicon');
             $table->string('website_title');
             $table->string('base_currency_text');

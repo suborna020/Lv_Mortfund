@@ -1,0 +1,52 @@
+*{
+    font-family: bahnschrift;
+}
+.leftDiv{
+    background: #002C58;
+    background-repeat: no-repeat, repeat;
+    background-image: url(../img/pic1.svg);
+    background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 25%;
+    float: left;
+}
+.rightDiv{
+    background: #002C58;
+    background-repeat: no-repeat, repeat;
+    background-image: url(../img/pic2.svg);
+    background-size: cover;
+    float: left;
+    width: 75%;
+}
+.rightDiv .card{
+    background: inherit !important;
+}
+.rightDiv .card-body{
+    background: inherit !important;
+    padding-top: 0;
+
+}
+.rightDiv .input-group-append{
+    background: white;
+}
+.submitButton{
+    text-align: center;
+}
+.submitButton button{
+    background: #F36A10;
+    width: 44%;
+}
+.loginLogo{
+    width: 58%;
+}
+.login-box-msg{
+    font-size: 22px;
+    color: white;
+
+}

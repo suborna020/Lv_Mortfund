@@ -25,7 +25,12 @@ use App\Models\Currency;
 // use App\Models\Currency;
 
 class Master extends Controller
-{
+{   
+
+    public function __construct()
+    {
+        $general = General::where('id',1)->first();
+    }
     public function index(Request $r){
         $general = General::where('id',1)->first();
         $footer = Footer::where('id',1)->first();
@@ -65,9 +70,7 @@ class Master extends Controller
         return redirect()->back();
     }
 
-    public function adminDashboard(){
-    	return view('admin.pages.dashboard.dashboard');
-    }
+  
 
     public function userDashboard(){
     	return view('ui.pages.users.user.dashboard');
@@ -124,7 +127,9 @@ class Master extends Controller
         echo json_encode($arr);
     }
 
-    public function userLogin(){
+    public function userLogin()
+    {
+
         $general = General::where('id',1)->first();
         $navmenu = Navmenu::where('status',1)->get();
         if (Session::get('user_session')) {

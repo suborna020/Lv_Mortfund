@@ -22,10 +22,20 @@ Route::get('/fundraisers','App\Http\Controllers\Master@fundraisers');
 Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')->name('set-currency-code');
 
 //----------------------- admin routes -----------------------
-Route::get('/aLogin','App\Http\Controllers\AdminController@index')->name('aLogin');
-Route::get('/aSignUp','App\Http\Controllers\AdminController@aSignUpM')->name('aSignUp');
+Route::get('/adminLogin','App\Http\Controllers\AdminController@index')->name('aLogin');
+Route::post('/adminLoginSub','App\Http\Controllers\AdminController@adminLoginSub');
 
-Route::get('/admin','App\Http\Controllers\Master@adminDashboard')->name('admin');
+Route::get('/adminSignUp','App\Http\Controllers\AdminController@aSignUpM')->name('aSignUp');
+Route::post('/adminSignUpSub','App\Http\Controllers\AdminController@aSignUpSub');
+Route::group(['middleware'=>'adminAuthentication'],function(){
+
+    Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
+    Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
+
+
+
+});
+
 //----------------------- user routes -----------------------
 
 Route::get('/sign-up','App\Http\Controllers\Master@userSignup')->name('sign-up');

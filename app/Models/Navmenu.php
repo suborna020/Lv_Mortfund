@@ -12,4 +12,11 @@ class Navmenu extends Model
     public function submenus(){
     	return $this->hasMany('App\Models\Submenu','parent_menu')->where('status',1);
     }
+
+    protected $fillable = [
+        'menu_item',
+        'parent',
+        'status',
+    ];
+
 }
