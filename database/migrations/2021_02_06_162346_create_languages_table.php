@@ -17,7 +17,7 @@ class CreateLanguagesTable extends Migration
             $table->id();
             $table->string('flag_photo');
             $table->string('language_name');
-            $table->string('status');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

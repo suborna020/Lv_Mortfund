@@ -17,6 +17,7 @@ class CreateFooterLinkExploresTable extends Migration
             $table->id();
             $table->string('footer_link_name');
             $table->string('link');
+            $table->integer('status');
             $table->timestamps();
         });
     }

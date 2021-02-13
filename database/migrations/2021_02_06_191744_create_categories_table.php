@@ -17,6 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('category_name');
             $table->string('icon');
+            $table->string('background_image');
+            $table->string('slug');
             $table->string('status');
             $table->timestamps();
         });

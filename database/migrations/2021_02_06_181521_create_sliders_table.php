@@ -18,6 +18,9 @@ class CreateSlidersTable extends Migration
             $table->string('slider_title');
             $table->string('slide_sub_title');
             $table->string('slider_photo');
+            $table->string('button_name');
+            $table->string('button_link');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

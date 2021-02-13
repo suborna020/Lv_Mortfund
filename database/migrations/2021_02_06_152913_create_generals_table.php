@@ -24,6 +24,8 @@ class CreateGeneralsTable extends Migration
             $table->string('base_currency_symbol');
             $table->string('website_email');
             $table->string('website_phone');
+            $table->string('address');
+            $table->string('copyright');
             $table->timestamps();
         });
     }

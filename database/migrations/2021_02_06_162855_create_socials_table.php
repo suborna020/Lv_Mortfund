@@ -18,6 +18,7 @@ class CreateSocialsTable extends Migration
             $table->string('social_name');
             $table->string('link');
             $table->string('social_photo');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class CreateSubmenusTable extends Migration
             $table->string('submenu_name');
             $table->string('parent_menu');
             $table->string('link');
-            $table->string('status');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

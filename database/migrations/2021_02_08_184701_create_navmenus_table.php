@@ -16,8 +16,8 @@ class CreateNavmenusTable extends Migration
         Schema::create('navmenus', function (Blueprint $table) {
             $table->id();
             $table->string('menu_item');
-            $table->string('parent');
-            $table->string('status');
+            $table->string('icon');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

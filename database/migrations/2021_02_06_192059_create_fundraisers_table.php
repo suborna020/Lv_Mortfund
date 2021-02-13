@@ -19,14 +19,18 @@ class CreateFundraisersTable extends Migration
             $table->string('member_id');
             $table->string('location');
             $table->string('title');
+            $table->string('icon');
             $table->string('benificiary_name');
             $table->string('needed_amount');
+            $table->string('raised');
             $table->string('deadline');
-            $table->string('story');
+            $table->longText('story');
             $table->string('thumbnail');
             $table->string('photo');
             $table->string('video');
             $table->string('proof_document');
+            $table->integer('recent')->default(0);
+            $table->integer('project_support')->default(0);
             $table->timestamps();
         });
     }
