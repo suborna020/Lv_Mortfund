@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Navmenu extends Model
 {
     use HasFactory;
+
+    public function submenus(){
+    	return $this->hasMany('App\Models\Submenu','parent_menu')->where('status',1);
+    }
 }

@@ -15,7 +15,11 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('/','App\Http\Controllers\Master@index');
+Route::get('','App\Http\Controllers\Master@index');
+
+Route::get('/fundraisers','App\Http\Controllers\Master@fundraisers');
+
+Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')->name('set-currency-code');
 
 //----------------------- admin routes -----------------------
 Route::get('/aLogin','App\Http\Controllers\AdminController@index')->name('aLogin');
@@ -36,6 +40,7 @@ Route::get('/forgot-password','App\Http\Controllers\Master@forgotPassword')->nam
 
 Route::post('/forgot-password','App\Http\Controllers\Master@emailVerification')->name('forgot-password');
 
+Route::get('/get-session','App\Http\Controllers\Master@getSession');
 
 Route::group(['middleware'=>'authentication'],function(){
 

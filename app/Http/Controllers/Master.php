@@ -9,15 +9,60 @@ use Hash;
 use App\Models\User;
 use App\Models\General;
 use App\Models\Navmenu;
+use App\Models\Footer;
+use App\Models\Social;
+use App\Models\Category;
+use App\Models\FooterLinkAbout;
+use App\Models\FooterLinkExplore;
+use App\Models\Footer_link_category;
+use App\Models\Slider;
+use App\Models\Fundraiser;
+use App\Models\Language;
+use App\Models\Subscribe;
+use App\Models\Counter;
+use App\Models\Submenu;
+use App\Models\Currency;
 // use App\Models\Currency;
 
 class Master extends Controller
 {
-    public function index(){
+    public function index(Request $r){
         $general = General::where('id',1)->first();
-        $navmenu = Navmenu::where('status',1)->get();
+        $footer = Footer::where('id',1)->first();
+        $navmenu = Navmenu::with('submenus')->where('status',1)->get();
+        $socials = Social::where('status',1)->get();
+        $categories = Category::where('status',1)->get();
+        $footer_about = FooterLinkAbout::where('status',1)->take(5)->get();
+        $footer_explore = FooterLinkExplore::where('status',1)->take(5)->get();
+        $footer_cat = Footer_link_category::where('status',1)->take(5)->get();
+        $slider = Slider::where('status',1)->get();
+        $fundraisers = Fundraiser::with('categories','members')->paginate(4,['*'],'all');
+        $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent');
+        $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->paginate(4,['*'],'project-support');
+        $languages = Language::where('status',1)->get();
+        $subscibe = Subscribe::where('id',1)->first();
+        $counters = Counter::all();
+        $currencies = Currency::all();
+        $user_currency = Currency::where('id',2)->first();
+        
         // $currency = Currency::where('status',1)->get();
-        return view('ui.pages.welcome.welcome',compact('general','navmenu'));
+        return view('ui.pages.welcome.welcome',compact('general','navmenu','footer','socials','categories','footer_about','footer_explore','footer_cat','slider','fundraisers','languages','recents','project_supports','subscibe','counters','currencies','user_currency'));
+    }
+
+    public function fundraisers(Request $request){
+        if($request->ajax()){
+        $data = Fundraiser::with('categories','members')->paginate(4);
+        // $data = Product::join('categories', 'categories.id', '=', 'products.category_id')
+        //     ->where('products.product_name', 'like', '%'.$query.'%')
+        //     ->paginate(3,array('products.*', 'categories.category_name'));
+        return view('ui.pages.welcome.fundraisers',compact('data'))->render();
+     }
+    }
+
+    public function setUserCurrency(Request $r){
+        $currency_code = $r->currency_code;
+        $r->session()->put('currency_code', $currency_code);
+        return redirect()->back();
     }
 
     public function adminDashboard(){
@@ -29,12 +74,14 @@ class Master extends Controller
     }
 
     public function userSignup(){
+        $general = General::where('id',1)->first();
+        $navmenu = Navmenu::where('status',1)->get();
     	//session a login thaka kalin user new login page a na giye alwayas dashboard stay korar condition
         //exist session/redicating on dashboard
         if (Session::get('user_session')) {
             return redirect(url('index'));
         }
-    	return view('ui.pages.users.account.signup');
+    	return view('ui.pages.users.account.signup',compact('general','navmenu'));
     }
 
 
@@ -77,14 +124,15 @@ class Master extends Controller
         echo json_encode($arr);
     }
 
-    public function userLogin()
-    {
+    public function userLogin(){
+        $general = General::where('id',1)->first();
+        $navmenu = Navmenu::where('status',1)->get();
         if (Session::get('user_session')) {
-            return redirect(url('my-account'));
+            return redirect(url('myAccount'));
         }
         //session a login thaka kalin user new login page a na giye alwayas dashboard stay korar condition
         //exist session/redicating on dashboard
-        return view('ui.pages.users.account.login');
+        return view('ui.pages.users.account.login',compact('general','navmenu'));
     }
 
 
@@ -96,7 +144,7 @@ class Master extends Controller
                 // $user_info return all data in 0 indexed array . so $user_info child field access a 0 index ullekh korte hobe 
                 $request->session()->put('user_session', $user_info[0]['id']);
                  //user_session a id store kora
-                 $arr = array('status' => 'true', 'message' => 'Login successful', 'reload' => url('my-account')); //after email passwrd match page will redirect into portal/dashboard
+                 $arr = array('status' => 'true', 'message' => 'Login successful', 'reload' => url('myAccount')); //after email passwrd match page will redirect into portal/dashboard
             } else {
                 $arr = array('status' => 'false', 'message' => 'Your Account is Deactived');
             }
@@ -117,5 +165,9 @@ class Master extends Controller
 
     public function emailVerification(){
         return view('ui.pages.users.account.forgotPassword');
+    }
+
+    public function getSession(Request $r){
+        echo $r->session()->get('currency_code');
     }
 }
