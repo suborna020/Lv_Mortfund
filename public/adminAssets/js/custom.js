@@ -9,6 +9,13 @@ jQuery(function ($) {
         $('#passwordShow').html(getHtml);
 
     });
+
+    
+  $('#sidebarCollapse').click(function () {
+    $('body').toggleClass('sidebar-collapse');
+    $('.main-sidebar').toggleClass('sideBarSizeChange');
+    return false;
+  });
   
 
 });

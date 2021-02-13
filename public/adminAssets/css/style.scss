@@ -50,3 +50,37 @@
     color: white;
 
 }
+//common css----------------
+.orange_text{
+    color: #F36A10;
+}
+// dashboard page -------------
+.sideBarSizeChange{
+    margin-left: 0;
+    width: 4.6rem  !important;
+}
+[class*=sidebar-dark-] {
+    background-color: #002C58;
+}
+.brand-link{
+    background-color: white;
+    min-height: 75px;
+}
+.brand-link .fa-bars{
+    font-size: 20px;
+    color: black  ;
+   
+
+}
+.main-header {
+    min-height: 75px;
+
+}
+#sidebarCollapse {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.navHead{
+font-size: 25px;
+    color: black !important;
+}
