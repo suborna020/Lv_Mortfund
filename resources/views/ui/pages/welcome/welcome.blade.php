@@ -96,7 +96,15 @@
                                         <div class="progress-bar bg-success role="progressbar" style="width: {{($fundraiser->raised*100)/$fundraiser->needed_amount}}%;" aria-valuenow="25" aria-valuemin="0"
                                             aria-valuemax="100"><span class="precentage-lebel">{{($fundraiser->raised*100)/$fundraiser->needed_amount}}%</span></div>
                                     </div>
-                                    <p class="custom-card-text"><span class="text-muted">${{$fundraiser->raised}}</span> rised of ${{$fundraiser->needed_amount}}</p>
+                                    @if(session::has('currency_c'))
+                                    @if($user_currency->session_currency == session('currency_c'))
+                                    <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($fundraiser->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($fundraiser->needed_amount)*($user_currency->value)}}</p>
+                                    @endif
+                                    @else
+                                    <p class="custom-card-text"><span class="text-muted">£{{($fundraiser->raised)}}</span> rised of £{{($fundraiser->needed_amount)}}</p>
+                                    
+                                    @endif
+                                    
                                     <div class="row border-top">
                                         <div class="col-8 col-md-8 col-gap">
                                             <div class="media">
@@ -148,7 +156,7 @@
                 <div class="col-md-4">
                     <div class="img-box">
                         <img src="{{$counter->icon}}" alt="">
-                        <h3>{{$counter->quantity}}</h3>
+                        <h3 class="c">{{$counter->quantity}}</h3>
                         <p>{{$counter->title}}</p>
                     </div>
                 </div>
@@ -184,8 +192,14 @@
                                         <div class="progress-bar bg-success role="progressbar" style="width: {{($recent->raised*100)/$recent->needed_amount}}%;" aria-valuenow="25" aria-valuemin="0"
                                             aria-valuemax="100"><span class="precentage-lebel">{{($recent->raised*100)/$recent->needed_amount}}%</span></div>
                                     </div>
+                                    @if(session::has('currency_c'))
+                                    @if($user_currency->session_currency == session('currency_c'))
+                                    <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($recent->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($recent->needed_amount)*($user_currency->value)}}</p>
+                                    @endif
+                                    @else
+                                    <p class="custom-card-text"><span class="text-muted">£{{($recent->raised)}}</span> rised of £{{($recent->needed_amount)}}</p>
                                     
-                                    <p class="custom-card-text"><span class="text-muted">${{$recent->raised}}</span> rised of ${{$recent->needed_amount}}</p>
+                                    @endif
                                     <div class="row border-top">
                                         <div class="col-8 col-md-8 col-gap">
                                             <div class="media">
@@ -253,7 +267,14 @@
                                         <div class="progress-bar bg-success role="progressbar" style="width: {{($project_support->raised*100)/$project_support->needed_amount}}%;" aria-valuenow="25" aria-valuemin="0"
                                             aria-valuemax="100"><span class="precentage-lebel">{{($project_support->raised*100)/$project_support->needed_amount}}%</span></div>
                                     </div>
-                                    <p class="custom-card-text"><span class="text-muted">${{$project_support->raised}}</span> rised of ${{$project_support->needed_amount}}</p>
+                                    @if(session::has('currency_c'))
+                                    @if($user_currency->session_currency == session('currency_c'))
+                                    <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($project_support->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($project_support->needed_amount)*($user_currency->value)}}</p>
+                                    @endif
+                                    @else
+                                    <p class="custom-card-text"><span class="text-muted">£{{($project_support->raised)}}</span> rised of £{{($project_support->needed_amount)}}</p>
+                                    
+                                    @endif
                                     <div class="row border-top">
                                         <div class="col-8 col-md-8 col-gap">
                                             <div class="media">
@@ -317,19 +338,21 @@
     </section>
     <!-- Newsletter Section End -->
 
-    <script type="text/javascript">
-      
-
+  {{--  <script type="text/javascript">
       $( document ).ready(function() {
           $('input.count_due').keyup(function(){   
             var raised = $("#raised").val();
             var needed = $("#needed").val();
             var progress = $("#progress").val();
-            progress = ((parseFloat(raised)*100)/ parseFloat(paying);
+            progress = ((parseFloat(raised)*100)/parseFloat(needed));
             $("#progress").val(parseFloat(progress));
          });
       });
-    </script>
+    </script>--}}
+
+    <script>
+$('.c').countUp();
+</script>    
 
 
  
