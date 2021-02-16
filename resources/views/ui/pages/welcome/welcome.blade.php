@@ -88,7 +88,9 @@
                                     <ul>
                                         <li><i class="{{$fundraiser->icon}}" aria-hidden="true"></i></i> {{$fundraiser->categories->category_name}}</li>
                                     </ul>
-                                    <h5 class="card-title">{{$fundraiser->title}}</h5>
+                                    <h5 class="card-title">
+                                        {{-- {{ $fundraiser->title?? 'title not found'; }} --}}
+                                        {{-- {{ $fundraiser->title }}</h5> --}}
                                     <p class="card-text">{{$fundraiser->story}}</p>
                                     <p id="raised" style="display: none">{{$fundraiser->raised}}</p>
                                     <p id="needed" style="display: none">{{$fundraiser->needed_amount}}</p>
@@ -323,14 +325,19 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="text-area">
-                        <h2>{{$subscibe->title}}</h2>
-                        <p>{{$subscibe->sub_title}}</p>
+                        {{-- <h2>{{$subscibe->title}}</h2> --}}
+                        <h2> {{ $subscibe->title?? 'title not found' }}</h2>
+                       
+                        
+
+                        <p> {{ $subscibe->sub_title?? 'sub_title not found' }}</p>
+                        {{-- <p>{{$subscibe->sub_title}}</p> --}}
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="email">
-                       <input type="email" class="input-field" placeholder="{{$subscibe->input_placeholder}}">
-                       <a href="#" class="btn subscribe-btn">{{$subscibe->submit_button_text}}</a>
+                       <input type="email" class="input-field" placeholder="{{ $subscibe->input_placeholder?? 'null' }}"
+                       <a href="#" class="btn subscribe-btn">{{ $subscibe->submit_button_text?? 'null' }}</a>
                     </div>
                 </div>
             </div>

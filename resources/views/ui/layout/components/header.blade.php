@@ -33,15 +33,15 @@
                     @endif
                     
                     , {{ date('Y') }}</h6>
-                    <p>{{$general->short_note_1}}</p>
+                    <p>{{ $general->short_note_1?? 'Not Found' }}</p>
                   </div>
                 </div>
 
                 <div class="col-md-6 col-lg-8 col-xl-6 col-align2">
                     <div class="address">
                         <ul>
-                            <li class="responsive"><i class="fa fa-map-marker mr-5"></i>{{$general->address}}</li>
-                            <li class="bar responsive"><i class="fa fa-phone mr-5"></i>{{$general->website_phone}}</li>
+                            <li class="responsive"><i class="fa fa-map-marker mr-5"></i>{{ $general->address?? 'Not Found' }}</li>
+                            <li class="bar responsive"><i class="fa fa-phone mr-5"></i>{{ $general->website_phone?? 'Not Found' }}</li>
                             @foreach($socials as $social)
                             <li><a href="{{$social->link}}"><i class="{{$social->social_photo}}"></i></a></li>
                             @endforeach
@@ -69,7 +69,7 @@
         <!-- Navbar Started -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{{url('/')}}"><img src="{{$general->website_logo}}" class="img-fluid" alt="logo"></a>
+            <a class="navbar-brand" href="{{url('/')}}"><img src="{{ $general->website_logo?? 'Not Found' }}" class="img-fluid" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
