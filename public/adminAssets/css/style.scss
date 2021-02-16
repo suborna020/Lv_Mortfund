@@ -1,86 +1,242 @@
-*{
+* {
     font-family: bahnschrift;
 }
-.leftDiv{
-    background: #002C58;
-    background-repeat: no-repeat, repeat;
-    background-image: url(../img/pic1.svg);
-    background-size: cover;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    width: 25%;
-    float: left;
+
+// scrollbar work 
+/* width */
+body::-webkit-scrollbar {
+    width: 15px;
 }
-.rightDiv{
-    background: #002C58;
-    background-repeat: no-repeat, repeat;
-    background-image: url(../img/pic2.svg);
-    background-size: cover;
-    float: left;
-    width: 75%;
+
+/* Track */
+body::-webkit-scrollbar-track {
+    background   : #f1f1f1;
+    border-radius: 10px;
 }
-.rightDiv .card{
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    background   : #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+a,
+a:hover {
+    text-decoration: unset !important;
+    // color: unset !important;
+}
+
+.smallIcon {
+    width       : 14px;
+    margin-right: 3px;
+}
+
+.leftDiv {
+    background       : #002C58;
+    background-repeat: no-repeat, repeat;
+    background-image : url(../img/pic1.svg);
+    background-size  : cover;
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    height           : 100vh;
+    flex-direction   : column;
+    height           : 100vh;
+    justify-content  : center;
+    width            : 25%;
+    float            : left;
+}
+
+.rightDiv {
+    background       : #002C58;
+    background-repeat: no-repeat, repeat;
+    background-image : url(../img/pic2.svg);
+    background-size  : cover;
+    float            : left;
+    width            : 75%;
+}
+
+.rightDiv .card {
     background: inherit !important;
 }
-.rightDiv .card-body{
-    background: inherit !important;
+
+.rightDiv .card-body {
+    background : inherit !important;
     padding-top: 0;
 
 }
-.rightDiv .input-group-append{
+
+.rightDiv .input-group-append {
     background: white;
 }
-.submitButton{
+
+.submitButton {
     text-align: center;
 }
-.submitButton button{
+
+.submitButton button {
     background: #F36A10;
-    width: 44%;
+    width     : 44%;
 }
-.loginLogo{
-    width: 58%;
+
+.loginLogo {
+    width: 66%;
 }
-.login-box-msg{
+
+.login-box-msg {
     font-size: 22px;
-    color: white;
+    color    : white;
 
 }
+
 //common css----------------
-.orange_text{
+.orange_text {
     color: #F36A10;
 }
-// dashboard page -------------
-.sideBarSizeChange{
-    margin-left: 0;
-    width: 4.6rem  !important;
-}
-[class*=sidebar-dark-] {
-    background-color: #002C58;
-}
-.brand-link{
-    background-color: white;
-    min-height: 75px;
-}
-.brand-link .fa-bars{
-    font-size: 20px;
-    color: black  ;
-   
 
+// dashboard page -------------
+.sideBarSizeChange {
+    margin-left: 0;
+    width      : 4.6rem !important;
 }
+
+[class*=sidebar-dark-] {
+    background-image: url(../img/leftBackground.svg);
+
+    // background-color: #002C58;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #dee2e62e !important;
+}
+
+.brand-link {
+    background-color: white;
+    min-height      : 75px;
+}
+
+.brand-link .fa-bars {
+    font-size: 26px;
+    color: black;
+}
+
 .main-header {
     min-height: 75px;
 
 }
+
 #sidebarCollapse {
-    margin-top: auto;
+    margin-top   : auto;
     margin-bottom: auto;
 }
-.navHead{
-font-size: 25px;
-    color: black !important;
+
+.navHead {
+    font-size: 25px;
+    color    : black !important;
+}
+
+.asideBarIcon {
+    width       : 23px;
+    margin-right: 3px;
+}
+
+nav .menu-open .extend_icon {
+    transform: rotate(90deg) !important;
+}
+
+.nav-treeview {
+    margin-left: 30px;
+}
+
+.nav-treeview .nav-item {
+    font-size: 12px;
+}
+
+.adminDashboard .pipeLine {
+    width        : 99.5%;
+    background   : #063D75;
+    height       : 9px;
+    border-radius: 8px;
+    margin-left  : 1px;
+}
+
+.adminDashboard .small-box {
+    min-height: 217px;
+    background: white;
+}
+
+.adminDashboard .small-box>.inner {
+    padding      : 28px;
+    display      : block;
+    /* background: #412e2e; */
+    min-height   : inherit;
+    text-align   : center;
+    text-align   : -webkit-center;
+}
+
+.adminDashboard .smallBoxSpace {
+    height       : 77px;
+    background   : #F36A10;
+    box-sizing   : border-box;
+    width        : 49%;
+    border-radius: 7px;
+    margin-bottom: 17px;
+    display      : grid;
+    place-items  : center;
+}
+
+.adminDashboard .smallBoxIcon {
+    width: 47px;
+}
+
+.adminDashboard .small-box p {
+    font-size: 0.9rem;
+}
+.adminDashboard{
+    flex-wrap: nowrap  !important;
+    overflow: auto;
+    // -webkit-font-smoothing: antialiased;
+}
+.carouselIcon {
+    position: absolute;
+    top: 92px;
+    right: 5px;
+    font-size: 34px;
+    padding: 2px;
+    background: #0000002b;
+    height: 40px;
+    width: 40px;
+    z-index: 2;
+    display: grid;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+
+#adminDashboard::-webkit-scrollbar {
+    width: 5px !important;
+    height: 7px;
+}
+
+/* Track */
+#adminDashboard::-webkit-scrollbar-track {
+    background   : #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle */
+#adminDashboard::-webkit-scrollbar-thumb {
+    background   : #888 ;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+#adminDashboard::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

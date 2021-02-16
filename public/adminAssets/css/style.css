@@ -2,6 +2,38 @@
   font-family: bahnschrift;
 }
 
+/* width */
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a,
+a:hover {
+  text-decoration: unset !important;
+}
+
+.smallIcon {
+  width: 14px;
+  margin-right: 3px;
+}
+
 .leftDiv {
   background: #002C58;
   background-repeat: no-repeat, repeat;
@@ -55,7 +87,7 @@
 }
 
 .loginLogo {
-  width: 58%;
+  width: 66%;
 }
 
 .login-box-msg {
@@ -69,11 +101,16 @@
 
 .sideBarSizeChange {
   margin-left: 0;
-  width: 4.6rem  !important;
+  width: 4.6rem !important;
 }
 
 [class*=sidebar-dark-] {
-  background-color: #002C58;
+  background-image: url(../img/leftBackground.svg);
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background-color: #dee2e62e !important;
 }
 
 .brand-link {
@@ -82,7 +119,7 @@
 }
 
 .brand-link .fa-bars {
-  font-size: 20px;
+  font-size: 26px;
   color: black;
 }
 
@@ -98,5 +135,112 @@
 .navHead {
   font-size: 25px;
   color: black !important;
+}
+
+.asideBarIcon {
+  width: 23px;
+  margin-right: 3px;
+}
+
+nav .menu-open .extend_icon {
+  -webkit-transform: rotate(90deg) !important;
+          transform: rotate(90deg) !important;
+}
+
+.nav-treeview {
+  margin-left: 30px;
+}
+
+.nav-treeview .nav-item {
+  font-size: 12px;
+}
+
+.adminDashboard .pipeLine {
+  width: 99.5%;
+  background: #063D75;
+  height: 9px;
+  border-radius: 8px;
+  margin-left: 1px;
+}
+
+.adminDashboard .small-box {
+  min-height: 217px;
+  background: white;
+}
+
+.adminDashboard .small-box > .inner {
+  padding: 28px;
+  display: block;
+  /* background: #412e2e; */
+  min-height: inherit;
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+.adminDashboard .smallBoxSpace {
+  height: 77px;
+  background: #F36A10;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 49%;
+  border-radius: 7px;
+  margin-bottom: 17px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.adminDashboard .smallBoxIcon {
+  width: 47px;
+}
+
+.adminDashboard .small-box p {
+  font-size: 0.9rem;
+}
+
+.adminDashboard {
+  -ms-flex-wrap: nowrap  !important;
+      flex-wrap: nowrap  !important;
+  overflow: auto;
+}
+
+.carouselIcon {
+  position: absolute;
+  top: 92px;
+  right: 5px;
+  font-size: 34px;
+  padding: 2px;
+  background: #0000002b;
+  height: 40px;
+  width: 40px;
+  z-index: 2;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 100%;
+}
+
+#adminDashboard::-webkit-scrollbar {
+  width: 5px !important;
+  height: 7px;
+}
+
+/* Track */
+#adminDashboard::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+#adminDashboard::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+#adminDashboard::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 /*# sourceMappingURL=style.css.map */
