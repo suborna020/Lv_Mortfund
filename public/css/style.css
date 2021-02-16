@@ -11,7 +11,10 @@
     font-family: myfont;
 }
 
-
+#currency_code{
+    background: #f8f9fa;
+    cursor: pointer;
+}
 
 .topbar{
     height: 50px;
@@ -703,6 +706,21 @@ footer .widget-2 .link:hover{
     color: #000;
     text-decoration: none;
 }
+
+.owl-prev span,.owl-next span{
+    border-radius: 50%;
+    padding-right: 70%;
+    padding-left: 70%;
+    border:1px solid #f36a10;
+    transition: 0.4s ease-out;
+    color: #f36a10;
+}
+
+.owl-prev span:hover,.owl-next span:hover{
+    background: #f36a10;
+    color: white;
+}
+
 
 
 

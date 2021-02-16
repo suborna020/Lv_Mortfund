@@ -18,6 +18,8 @@ class CreateCurrenciesTable extends Migration
             $table->string('country_code');
             $table->string('symbol');
             $table->string('status');
+            $table->string('session_currency');
+            $table->float('value');
             $table->timestamps();
         });
     }

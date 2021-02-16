@@ -47,8 +47,9 @@ class Master extends Controller
         $languages = Language::where('status',1)->get();
         $subscibe = Subscribe::where('id',1)->first();
         $counters = Counter::all();
+        
         $currencies = Currency::all();
-        $user_currency = Currency::where('id',2)->first();
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $currency = Currency::where('status',1)->get();
         return view('ui.pages.welcome.welcome',compact('general','navmenu','footer','socials','categories','footer_about','footer_explore','footer_cat','slider','fundraisers','languages','recents','project_supports','subscibe','counters','currencies','user_currency'));
@@ -65,8 +66,8 @@ class Master extends Controller
     }
 
     public function setUserCurrency(Request $r){
-        $currency_code = $r->currency_code;
-        $r->session()->put('currency_code', $currency_code);
+        $c_c = $r->currency_code;
+        $r->session()->put('currency_c', $c_c);
         return redirect()->back();
     }
 

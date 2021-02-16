@@ -16,4 +16,5 @@ class Fundraiser extends Model
     public function members(){
         return $this->belongsTo('App\Models\Member','member_id');
     }
+
 }
