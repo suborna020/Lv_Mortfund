@@ -58,8 +58,8 @@ a:hover {
 .rightDiv {
   background: #002C58;
   background-repeat: no-repeat, repeat;
-  background-image: url(../img/pic2.svg);
   background-size: cover;
+  background-image: url(../img/pic2.svg);
   float: left;
   width: 75%;
 }
@@ -105,7 +105,18 @@ a:hover {
 }
 
 [class*=sidebar-dark-] {
+  background-color: #002C58;
   background-image: url(../img/leftBackground.svg);
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+}
+
+[class*=sidebar-dark-] a {
+  color: white !important;
+}
+
+.nav-pills {
+  font-size: 1.05rem;
 }
 
 .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
@@ -142,9 +153,19 @@ a:hover {
   margin-right: 3px;
 }
 
+.treeviewAsideBarIcon {
+  width: 17px;
+  margin-right: 2px;
+}
+
 nav .menu-open .extend_icon {
   -webkit-transform: rotate(90deg) !important;
           transform: rotate(90deg) !important;
+}
+
+#frontEndSettingsSideBar a.nav-link {
+  color: white;
+  padding: 4px 12px;
 }
 
 .nav-treeview {
@@ -152,7 +173,25 @@ nav .menu-open .extend_icon {
 }
 
 .nav-treeview .nav-item {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+#frontEndSettingsSideBar {
+  height: calc(100vh - (3.5rem + 1px));
+  overflow-y: initial;
+  padding-bottom: 0;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  padding-top: 0;
+  background: #f36a10;
+  width: 13rem;
+  position: fixed;
+  z-index: 1;
+  left: 250.01px;
+  border-radius: 0 8px;
+  background-image: url(../img/frontEndSettingsSideBar.svg);
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
 }
 
 .adminDashboard .pipeLine {
@@ -166,10 +205,11 @@ nav .menu-open .extend_icon {
 .adminDashboard .small-box {
   min-height: 217px;
   background: white;
+  margin-bottom: 8px;
 }
 
 .adminDashboard .small-box > .inner {
-  padding: 28px;
+  padding: 26px;
   display: block;
   /* background: #412e2e; */
   min-height: inherit;
@@ -195,13 +235,14 @@ nav .menu-open .extend_icon {
 }
 
 .adminDashboard .small-box p {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .adminDashboard {
   -ms-flex-wrap: nowrap  !important;
       flex-wrap: nowrap  !important;
   overflow: auto;
+  margin-bottom: 10px;
 }
 
 .carouselIcon {
@@ -220,6 +261,7 @@ nav .menu-open .extend_icon {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 100%;
+  cursor: pointer;
 }
 
 #adminDashboard::-webkit-scrollbar {

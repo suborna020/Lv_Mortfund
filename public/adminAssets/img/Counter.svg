@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="29" viewBox="0 0 60 29">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="11" width="15" height="24" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_327" data-name="Group 327" transform="translate(-934.481 -540)">
+    <g id="Rectangle_93" data-name="Rectangle 93" transform="translate(934.481 540)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3">
+      <rect width="60" height="29" rx="5" stroke="none"/>
+      <rect x="1.5" y="1.5" width="57" height="26" rx="3.5" fill="none"/>
+    </g>
+    <line id="Line_72" data-name="Line 72" y2="24.11" transform="translate(954.033 541.89)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+    <line id="Line_73" data-name="Line 73" y2="24.11" transform="translate(975.959 541.89)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+    <text id="_0" data-name="0" transform="translate(939.48 546)" fill="#fff" font-size="20" font-family="Bahnschrift"><tspan x="0" y="16">0</tspan></text>
+    <text id="_0-2" data-name="0" transform="translate(959.48 546)" fill="#fff" font-size="20" font-family="Bahnschrift"><tspan x="0" y="16">0</tspan></text>
+    <g id="Scroll_Group_4" data-name="Scroll Group 4" transform="translate(979.481 531)" clip-path="url(#clip-path)" style="isolation: isolate">
+      <g id="Group_326" data-name="Group 326" transform="translate(-994 -532)">
+        <text id="_6" data-name="6" transform="translate(994 536)" fill="#fff" font-size="20" font-family="Bahnschrift"><tspan x="0" y="16">6</tspan></text>
+        <text id="_7" data-name="7" transform="translate(994 553)" fill="#fff" font-size="20" font-family="Bahnschrift"><tspan x="0" y="16">7</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

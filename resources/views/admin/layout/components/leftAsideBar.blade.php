@@ -1,4 +1,5 @@
-<aside class="main-sidebar sidebar-dark-primary ">
+<aside class="main-sidebar sidebar-dark-primary  ">
+
     <!-- Brand Logo -->
     <span class="brand-link  d-flex">
         <span id="sidebarCollapse" role="button"><i class="fas fa-bars mx-3"></i></span>
@@ -7,9 +8,10 @@
     </span>
 
     <!-- Sidebar -->
+
     <div class="sidebar">
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">                        
                 <li class="nav-item ">
                     <a href="{{ url('aDashboard')}}" class="nav-link ">
 
@@ -30,8 +32,26 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <img src="{{asset("adminAssets/img/categories.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Categories</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/recent.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Recent</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/pendingFunraiser.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Pending</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/onProgressFundraiser.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>On-Progress</p>
                             </a>
                         </li>
                     </ul>
@@ -47,8 +67,20 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <img src="{{asset("adminAssets/img/withdrawMethods.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Withdraw Methods</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/withdrawRequests.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Withdraw Requests</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/withdrowLog.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Withdrow Log</p>
                             </a>
                         </li>
                     </ul>
@@ -64,8 +96,14 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <img src="{{asset("adminAssets/img/paymentGateways.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Payment Gateways</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/donateHistory.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Donate History</p>
                             </a>
                         </li>
                     </ul>
@@ -81,15 +119,21 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <img src="{{asset("adminAssets/img/categories.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/stories.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>stories</p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <img src="{{asset("adminAssets/img/memberSttings.svg")}}" alt="icon" class="asideBarIcon " />
+                        <img src="{{asset("adminAssets/img/memberSettings.svg")}}" alt="icon" class="asideBarIcon " />
                         <p>
                             Member Sttings
                             <i class="fa fa-caret-right extend_icon"></i>
@@ -98,8 +142,14 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <img src="{{asset("adminAssets/img/allMembers.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>All Members</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/reportedMembers.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Reported Members</p>
                             </a>
                         </li>
                     </ul>
@@ -120,11 +170,12 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="frontEndSettings">
                     <a href="#" class="nav-link">
                         <img src="{{asset("adminAssets/img/frontEndSettings.svg")}}" alt="icon" class="asideBarIcon " />
                         <p>
                             Front End Settings
+                            <i class="fa fa-caret-right "></i>
                         </p>
                     </a>
                 </li>
@@ -139,16 +190,29 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <img src="{{asset("adminAssets/img/basicSettings.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Basic Settings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/emailSettings.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>Email Settings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <img src="{{asset("adminAssets/img/smsSettings.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
+                                <p>SMS Settings</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
     </div>
     <!-- /.sidebar -->
+
 </aside>

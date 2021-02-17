@@ -3,13 +3,18 @@
 <div class="wrapper">
 
     <!-- Navbar -->
+    
     @include('admin.layout.components.aHeader')
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
     @include('admin.layout.components.leftAsideBar')
+    @include('admin.layout.components.frontEndSettingsSideBar')
+
     <!-- Content Wrapper. Contains page content -->
+
     <div class="content-wrapper">
+
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid adminDashboardContainer" style="position: relative">
@@ -110,18 +115,18 @@
                     </div>
 
 
-                </div><br>
+                </div>
                 <!-- /.row -->
                 <!-- Main row -->
-                <div class="row">
+                <div class="row my-1">
                     <!-- Left col -->
-                    <section class="col-md-12 ">
+                    <section class="col-md-12 my-0">
                         <!-- Custom tabs (Charts with tabs)-->
-                        <div class="card card-info">
+                        <div class="card card-info my-0">
                             
                             <div class="card-body">
                                 <div class="chart">
-                                    <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    <canvas id="lineChart" style="min-height: 50px;  max-width: 100%;"></canvas>
                                 </div>
                             </div>
                             <!-- /.card-body -->
