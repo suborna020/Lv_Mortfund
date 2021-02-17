@@ -19,7 +19,13 @@ Route::get('','App\Http\Controllers\Master@index');
 
 Route::get('/fundraisers','App\Http\Controllers\Master@fundraisers');
 
+Route::get('/recent','App\Http\Controllers\Master@recent');
+
+Route::get('/project_support','App\Http\Controllers\Master@project_support');
+
 Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')->name('set-currency-code');
+
+Route::get('/dummy','App\Http\Controllers\Master@dummy');
 
 //----------------------- admin routes -----------------------
 Route::get('/adminLogin','App\Http\Controllers\AdminController@index')->name('aLogin');
@@ -31,8 +37,6 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
 
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
-
-
 
 });
 

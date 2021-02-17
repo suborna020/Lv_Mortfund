@@ -68,8 +68,6 @@
 
     <!-- Category Section End -->
 
-
-
     <!-- Featured section Started -->
 
     <div class="featured">
@@ -79,67 +77,10 @@
                     <h3>Browse By Categories</h3>
                     <hr>
                     <h6>Find the course you are looking for by categories</h6>
-                    <div class="row" id="table_data">
-                        @foreach($fundraisers as $fundraiser)
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="{{$fundraiser->photo}}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="{{$fundraiser->icon}}" aria-hidden="true"></i></i> {{$fundraiser->categories->category_name}}</li>
-                                    </ul>
-                                    <h5 class="card-title">{{$fundraiser->title}}</h5>
-                                    <p class="card-text">{{$fundraiser->story}}</p>
-                                    <p id="raised" style="display: none">{{$fundraiser->raised}}</p>
-                                    <p id="needed" style="display: none">{{$fundraiser->needed_amount}}</p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role="progressbar" style="width: {{($fundraiser->raised*100)/$fundraiser->needed_amount}}%;" aria-valuenow="25" aria-valuemin="0"
-                                            aria-valuemax="100"><span class="precentage-lebel">{{($fundraiser->raised*100)/$fundraiser->needed_amount}}%</span></div>
-                                    </div>
-                                    @if(session::has('currency_c'))
-                                    @if($user_currency->session_currency == session('currency_c'))
-                                    <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($fundraiser->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($fundraiser->needed_amount)*($user_currency->value)}}</p>
-                                    @endif
-                                    @else
-                                    <p class="custom-card-text"><span class="text-muted">£{{($fundraiser->raised)}}</span> rised of £{{($fundraiser->needed_amount)}}</p>
-                                    
-                                    @endif
-                                    
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="{{$fundraiser->members->photo}}" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By {{$fundraiser->members->name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> {{$fundraiser->deadline}}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-
-                        
+                    <div class="fundraisers" id="fundraisers">
+                        @include('ui.pages.welcome.fundraisers')
                     </div>
-
-                    <!-- Pagination Started -->
                     
-                    <nav aria-label="Page navigation example" class="page-div">
-                        <ul class="pagination justify-content-center">
-                          {!! $fundraisers->links() !!}
-                        </ul>
-                    </nav>
-
-                    <!-- Pagination End -->
-
                 </div>
             </div>
         </div>
@@ -148,7 +89,7 @@
     <!-- Featured section End -->
 
     <!-- Counter Section Started -->
-     
+
     <section class="counter">
         <div class="container">
             <div class="row">
@@ -175,63 +116,10 @@
                     <h3>New Campaigns</h3>
                     <hr>
                     <h6>Recent Campaigns</h6>
-                    <div class="row">
-                        @foreach($recents as $recent)
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="{{$recent->photo}}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="{{$recent->icon}}" aria-hidden="true"></i></i> {{$recent->categories->category_name}}</li>
-                                    </ul>
-                                    <h5 class="card-title">{{$recent->title}}</h5>
-                                    <p class="card-text">{{$recent->story}}</p>
-                                    <p id="raised" style="display: none">{{$recent->raised}}</p>
-                                    <p id="needed" style="display: none">{{$recent->needed_amount}}</p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role="progressbar" style="width: {{($recent->raised*100)/$recent->needed_amount}}%;" aria-valuenow="25" aria-valuemin="0"
-                                            aria-valuemax="100"><span class="precentage-lebel">{{($recent->raised*100)/$recent->needed_amount}}%</span></div>
-                                    </div>
-                                    @if(session::has('currency_c'))
-                                    @if($user_currency->session_currency == session('currency_c'))
-                                    <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($recent->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($recent->needed_amount)*($user_currency->value)}}</p>
-                                    @endif
-                                    @else
-                                    <p class="custom-card-text"><span class="text-muted">£{{($recent->raised)}}</span> rised of £{{($recent->needed_amount)}}</p>
-                                    
-                                    @endif
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="{{$recent->members->photo}}" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By {{$recent->members->name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> {{$recent->deadline}}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        
+                    <div class="recent_fundraisers" id="recent_fundraisers">
+                        @include('ui.pages.welcome.recent_fundraisers')
                     </div>
-
-                    <!-- Pagination Started -->
                     
-                    <nav aria-label="Page navigation example" class="page-div">
-                        <ul class="pagination justify-content-center">
-                          {!! $recents->links() !!}
-                        </ul>
-                    </nav>
-
                     <!-- Pagination End -->
     
                 </div>
@@ -250,62 +138,11 @@
                     <h3>Project Support Fundings</h3>
                     <hr>
                     <!-- <h6>Find the course you are looking for by categories</h6> -->
-                    <div class="row">
-                        @foreach($project_supports as $project_support)
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="{{$project_support->photo}}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="{{$project_support->icon}}" aria-hidden="true"></i></i> {{$project_support->categories->category_name}}</li>
-                                    </ul>
-                                    <h5 class="card-title">{{$project_support->title}}</h5>
-                                    <p class="card-text">{{$project_support->story}}</p>
-                                    <p id="raised" style="display: none">{{$project_support->raised}}</p>
-                                    <p id="needed" style="display: none">{{$project_support->needed_amount}}</p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role="progressbar" style="width: {{($project_support->raised*100)/$project_support->needed_amount}}%;" aria-valuenow="25" aria-valuemin="0"
-                                            aria-valuemax="100"><span class="precentage-lebel">{{($project_support->raised*100)/$project_support->needed_amount}}%</span></div>
-                                    </div>
-                                    @if(session::has('currency_c'))
-                                    @if($user_currency->session_currency == session('currency_c'))
-                                    <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($project_support->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($project_support->needed_amount)*($user_currency->value)}}</p>
-                                    @endif
-                                    @else
-                                    <p class="custom-card-text"><span class="text-muted">£{{($project_support->raised)}}</span> rised of £{{($project_support->needed_amount)}}</p>
-                                    
-                                    @endif
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="{{$project_support->members->photo}}" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By {{$project_support->members->name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> {{$project_support->deadline}}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        
-                    </div>
 
-                    <!-- Pagination Started -->
-                    
-                    <nav aria-label="Page navigation example" class="page-div">
-                        <ul class="pagination justify-content-center">
-                          {!! $project_supports->links() !!}
-                        </ul>
-                    </nav>
+                    <div class="support_project" id="support_project">
+                        @include('ui.pages.welcome.project_support')
+                    </div>
+                   
 
                     <!-- Pagination End -->
     
@@ -338,21 +175,6 @@
     </section>
     <!-- Newsletter Section End -->
 
-  {{--  <script type="text/javascript">
-      $( document ).ready(function() {
-          $('input.count_due').keyup(function(){   
-            var raised = $("#raised").val();
-            var needed = $("#needed").val();
-            var progress = $("#progress").val();
-            progress = ((parseFloat(raised)*100)/parseFloat(needed));
-            $("#progress").val(parseFloat(progress));
-         });
-      });
-    </script>--}}
-
-    <script>
-$('.c').countUp();
-</script>    
-
-
  
+
+@endsection

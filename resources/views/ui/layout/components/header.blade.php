@@ -33,7 +33,7 @@
                     @endif
                     
                     , {{ date('Y') }}</h6>
-                    <p>{{$general->short_note_1}}</p>
+                    <p>{{ $general->short_note_1?? 'Not Found' }}</p>
                   </div>
                 </div>
 

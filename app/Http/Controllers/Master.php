@@ -48,7 +48,7 @@ class Master extends Controller
         $subscibe = Subscribe::where('id',1)->first();
         $counters = Counter::all();
         
-        $currencies = Currency::all();
+        $currencies = Currency::where('status',1)->get();
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $currency = Currency::where('status',1)->get();
@@ -57,12 +57,39 @@ class Master extends Controller
 
     public function fundraisers(Request $request){
         if($request->ajax()){
-        $data = Fundraiser::with('categories','members')->paginate(4);
-        // $data = Product::join('categories', 'categories.id', '=', 'products.category_id')
-        //     ->where('products.product_name', 'like', '%'.$query.'%')
-        //     ->paginate(3,array('products.*', 'categories.category_name'));
-        return view('ui.pages.welcome.fundraisers',compact('data'))->render();
+        $fundraisers = Fundraiser::with('categories','members')->paginate(4,['*'],'all');
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+        
+        return view('ui.pages.welcome.fundraisers',compact('fundraisers','user_currency'))->render();
      }
+    }
+
+
+    public function recent(Request $request){
+        if($request->ajax()){
+        $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent'); 
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+        
+        return view('ui.pages.welcome.recent_fundraisers',compact('recents','user_currency'))->render();
+     }
+    }
+
+
+    public function project_support(Request $request){
+        if($request->ajax()){
+        $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->paginate(4,['*'],'project-support'); 
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+        
+        return view('ui.pages.welcome.project_support',compact('project_supports','user_currency'))->render();
+     }
+    }
+
+    public function dummy(Request $request){
+        
+        $data = $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent');
+    
+        return response()->json($data);
+     
     }
 
     public function setUserCurrency(Request $r){
