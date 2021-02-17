@@ -15,7 +15,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">SignUp To Admin Portal</p>
 
-                <form action="{{ url('adminLoginSub') }}" class="database_operation">
+                <form action="{{ url('adminSignUpSub') }}" class="database_operation">
                   @csrf
                     <div class="input-group mb-3">
                         <input type="text" class="form-control input" name="admin_name" placeholder="Full Name">

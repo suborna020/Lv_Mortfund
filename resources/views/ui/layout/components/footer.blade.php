@@ -6,8 +6,8 @@
                 <div class="col-md-6 col-lg-4 col-gap">
                     <div class="widget-1">
                         <img src="images/footer-logo.svg" alt="footer logo">
-                        <p>{{$footer->footer_logo_content_primary}}</p>
-                        <p>{{$footer->footer_logo_content_secondary}}</p>
+                        <p>{{ $footer->footer_logo_content_primary?? 'Not Found' }}</p>
+                        <p>{{ $footer->footer_logo_content_secondary?? 'Not Found' }}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -45,7 +45,7 @@
         <div class="container-fluid">
             <div class="row no-gutters">
                 <div class="col-lg-8 col-xl-9">
-                    <p><span>&copy;</span>{{$general->copyright}} | Developed By <a href="https://flytesolutions.com/">Flyte Solutions</a></p>
+                    <p><span>&copy;</span>{{ $general->copyright?? 'Not Found' }} | Developed By <a href="https://flytesolutions.com/">Flyte Solutions</a></p>
                 </div>
                 <div class="col-lg-4 col-xl-3 inline-icon">
                     <p class="margin-left">Follow Us On | </p>

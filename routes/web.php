@@ -30,9 +30,9 @@ Route::get('/dummy','App\Http\Controllers\Master@dummy');
 //----------------------- admin routes -----------------------
 Route::get('/adminLogin','App\Http\Controllers\AdminController@index')->name('aLogin');
 Route::post('/adminLoginSub','App\Http\Controllers\AdminController@adminLoginSub');
-
 Route::get('/adminSignUp','App\Http\Controllers\AdminController@aSignUpM')->name('aSignUp');
 Route::post('/adminSignUpSub','App\Http\Controllers\AdminController@aSignUpSub');
+
 Route::group(['middleware'=>'adminAuthentication'],function(){
 
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');

@@ -35,7 +35,6 @@
                         </div>
                     </div>
                     <div class="row ">
-
                         <!-- /.col -->
                         <div class="col-12 submitButton" >
                             <button class="btn btn-warning text-white">Log In</button>
