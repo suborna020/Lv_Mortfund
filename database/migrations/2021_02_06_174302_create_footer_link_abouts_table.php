@@ -15,9 +15,9 @@ class CreateFooterLinkAboutsTable extends Migration
     {
         Schema::create('footer_link_abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('footer_link_name');
-            $table->string('link');
-            $table->integer('status');
+            $table->string('footer_link_name')->nullable();
+            $table->string('link')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

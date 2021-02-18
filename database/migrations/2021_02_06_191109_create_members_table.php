@@ -15,13 +15,13 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('photo');
-            $table->text('address');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('user_name');
-            $table->string('password');
+            $table->string('name')->nullable();
+            $table->text('photo')->nullable();
+            $table->text('address')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('user_name')->nullable();
+            $table->string('password')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
         });

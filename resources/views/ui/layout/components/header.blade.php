@@ -127,7 +127,7 @@
                     <li>
                         <form action="{{route('set-currency-code')}}" method="post">
                           @csrf
-                            <select class="form-control" id="currency_code" name="currency_code" onchange="this.form.submit()">
+                            <select class="form-control" id="currency_code" name="currency_code">
                                 @if(session::has('currency_c'))
                                 <option value="">{{session()->get('currency_c')}}</option>
                                 @else
@@ -155,3 +155,5 @@
     </section>
 
     <!-- Top Bar End -->
+    <!-- {{--  onchange="this.form.submit()" --}} -->
+    

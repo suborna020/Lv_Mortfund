@@ -25,7 +25,6 @@ Route::get('/project_support','App\Http\Controllers\Master@project_support');
 
 Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')->name('set-currency-code');
 
-Route::get('/dummy','App\Http\Controllers\Master@dummy');
 
 //----------------------- admin routes -----------------------
 Route::get('/adminLogin','App\Http\Controllers\AdminController@index')->name('aLogin');

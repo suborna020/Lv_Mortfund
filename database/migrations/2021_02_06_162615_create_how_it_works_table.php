@@ -15,8 +15,8 @@ class CreateHowItWorksTable extends Migration
     {
         Schema::create('how_it_works', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('icon');
+            $table->string('title')->nullable();
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }

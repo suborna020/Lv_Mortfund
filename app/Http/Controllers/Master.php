@@ -48,7 +48,7 @@ class Master extends Controller
         $subscibe = Subscribe::where('id',1)->first();
         $counters = Counter::all();
         
-        $currencies = Currency::where('status',1)->get();
+        $currencies = Currency::where('status',1)->where('session_currency','!=',Session::get('currency_c'))->get();
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $currency = Currency::where('status',1)->get();
@@ -84,13 +84,6 @@ class Master extends Controller
      }
     }
 
-    public function dummy(Request $request){
-        
-        $data = $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent');
-    
-        return response()->json($data);
-     
-    }
 
     public function setUserCurrency(Request $r){
         $c_c = $r->currency_code;

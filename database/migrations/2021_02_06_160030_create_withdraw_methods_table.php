@@ -15,15 +15,15 @@ class CreateWithdrawMethodsTable extends Migration
     {
         Schema::create('withdraw_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('method');
-            $table->string('method_currency');
-            $table->string('rate');
-            $table->string('min_limit');
-            $table->string('max_limit');
-            $table->string('charge');
-            $table->string('processing_time');
-            $table->string('instruction_for_user');
-            $table->string('status');
+            $table->string('method')->nullable();
+            $table->string('method_currency')->nullable();
+            $table->string('rate')->nullable();
+            $table->string('min_limit')->nullable();
+            $table->string('max_limit')->nullable();
+            $table->string('charge')->nullable();
+            $table->string('processing_time')->nullable();
+            $table->string('instruction_for_user')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

@@ -9,12 +9,14 @@
                     <li><i class="{{$fundraiser->icon}}" aria-hidden="true"></i></i> {{$fundraiser->categories->category_name}}</li>
                 </ul>
                 <h5 class="card-title">{{$fundraiser->title}}</h5>
-                <p class="card-text">{{$fundraiser->story}}</p>
+                <p class="card-text">{{ Str::limit($fundraiser->story, 20) }}</p>
                 <p id="raised" style="display: none">{{$fundraiser->raised}}</p>
                 <p id="needed" style="display: none">{{$fundraiser->needed_amount}}</p>
                 <div class="progress" style="height:8px;">
-                    <div class="progress-bar bg-success role="progressbar" style="width: {{($fundraiser->raised*100)/$fundraiser->needed_amount}}%;" aria-valuenow="25" aria-valuemin="0"
-                        aria-valuemax="100"><span class="precentage-lebel">{{($fundraiser->raised*100)/$fundraiser->needed_amount}}%</span></div>
+                    <div class="progress-bar bg-success role="progressbar" style="width: {{($fundraiser->raised*100)/$fundraiser->needed_amount}}%" aria-valuenow="25" aria-valuemin="0"
+                        aria-valuemax="100">
+                        <span class="precentage-lebel">{{($fundraiser->raised*100)/$fundraiser->needed_amount}}% </span>
+                    </div>
                 </div>
                 @if(session::has('currency_c'))
                 @if($user_currency->session_currency == session('currency_c'))

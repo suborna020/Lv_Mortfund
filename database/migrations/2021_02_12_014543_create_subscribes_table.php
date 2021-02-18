@@ -15,10 +15,10 @@ class CreateSubscribesTable extends Migration
     {
         Schema::create('subscribes', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('sub_title');
-            $table->string('input_placeholder');
-            $table->string('submit_button_text');
+            $table->string('title')->nullable();
+            $table->string('sub_title')->nullable();
+            $table->string('input_placeholder')->nullable();
+            $table->string('submit_button_text')->nullable();
             $table->timestamps();
         });
     }

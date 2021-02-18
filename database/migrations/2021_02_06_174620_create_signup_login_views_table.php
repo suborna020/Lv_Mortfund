@@ -15,10 +15,10 @@ class CreateSignupLoginViewsTable extends Migration
     {
         Schema::create('signup_login_views', function (Blueprint $table) {
             $table->id();
-            $table->string('login_title');
-            $table->string('login_text');
-            $table->string('signup_title');
-            $table->string('signup_text');
+            $table->string('login_title')->nullable();
+            $table->string('login_text')->nullable();
+            $table->string('signup_title')->nullable();
+            $table->string('signup_text')->nullable();
             $table->timestamps();
         });
     }

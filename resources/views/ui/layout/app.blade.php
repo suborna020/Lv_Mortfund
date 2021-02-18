@@ -20,7 +20,12 @@
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 
         
+        <!-- must include  -->
         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
         {{-- for sweetalert2   --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -58,74 +63,62 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 
-        <!-- must include  -->
         
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
         <script src="{{asset('js/jquery.countup.js')}}"></script>
-        <script>
-
-
+<script>
 
 /*Ajax Pagination*/
-$(function() {
-    $('body').on('click', '.pagination a', function(e) {
-        e.preventDefault();
 
-        $('#fundraisers #fundraiser_main').css('background', 'red');
-        $('#fundraisers').append('<img style="position: fixed; left: 30%; top: 20%; z-index: 100000;" src="/images/loading.gif" />');
 
-        var url = $(this).attr('href');  
-        getFundraisers(url);
-        window.history.pushState("", "", url);
-    });
-
-    function getFundraisers(url) {
-        $.ajax({
-            url : url  
-        }).done(function (data) {
-            $('body').html(data);  
-        }).fail(function () {
-            alert('Could not be loaded.');
-        });
-    }
-});
-
-/*Onscroll Counter*/
-
-$(document).ready(function () {
-   $('.c').countUp();
-});
 // $(function() {
 //     $('body').on('click', '.pagination a', function(e) {
 //         e.preventDefault();
 
-//         $('#recent_fundraisers #fundraiser_recent').css('background', 'red');
-//         $('#recent_fundraisers').append('<img style="position: fixed; left: 30%; top: 20%; z-index: 100000;" src="/images/loading.gif" />');
+//         $('#fundraisers #fundraiser_main').css('background', 'red');
+//         $('#fundraisers').append('<img style="position: fixed; left: 30%; top: 20%; z-index: 100000;" src="/images/loading.gif" />');
 
 //         var url = $(this).attr('href');  
-//         fundraisers(url);
+//         getFundraisers(url);
 //         window.history.pushState("", "", url);
 //     });
 
-//     function fundraisers(url) {
+//     function getFundraisers(url) {
 //         $.ajax({
 //             url : url  
 //         }).done(function (data) {
 //             $('body').html(data);  
+//             // $('.c').countUp();
 //         }).fail(function () {
 //             alert('Could not be loaded.');
 //         });
 //     }
 // });
 
+/*Onscroll Counter*/
 
+$(document).ready(function () {
+   $('.c').countUp();
+});
 </script>
 
-       
+<script type="text/javascript">
+        $(document).ready(function(){
+            $("#currency_code").on('change', function postinput(){
+                var currency_code = $(this).val(); // this.value
+                $.ajax({ 
+                    url: '/set-currency-code',
+                    data: { "_token": "{{ csrf_token() }}", currency_code: currency_code },
+                    type: 'post'
+                }).done(function(responseData) {
+                    console.log('Done: ', responseData);
+                    window.location.reload();
+                }).fail(function() {
+                    console.log('Failed');
+                });
+            });
+        }); 
+    </script>     
         
     </body>
 </html>

@@ -15,13 +15,13 @@ class CreateWithdrawRequestsTable extends Migration
     {
         Schema::create('withdraw_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('payment_method');
-            $table->string('user');
-            $table->string('payment_details');
-            $table->string('payable');
-            $table->string('charge');
-            $table->string('processing_time');
-            $table->string('status');
+            $table->string('payment_method')->nullable();
+            $table->string('user')->nullable();
+            $table->string('payment_details')->nullable();
+            $table->string('payable')->nullable();
+            $table->string('charge')->nullable();
+            $table->string('processing_time')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

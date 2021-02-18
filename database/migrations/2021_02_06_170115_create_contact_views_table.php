@@ -15,12 +15,12 @@ class CreateContactViewsTable extends Migration
     {
         Schema::create('contact_views', function (Blueprint $table) {
             $table->id();
-            $table->string('contact_title');
-            $table->string('contact_text');
-            $table->string('contact_email');
-            $table->string('contact_number');
-            $table->string('contact_hours');
-            $table->string('contact_location');
+            $table->string('contact_title')->nullable();
+            $table->string('contact_text')->nullable();
+            $table->string('contact_email')->nullable();
+            $table->string('contact_number')->nullable();
+            $table->string('contact_hours')->nullable();
+            $table->string('contact_location')->nullable();
             $table->timestamps();
         });
     }

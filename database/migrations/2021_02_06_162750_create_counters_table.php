@@ -15,9 +15,9 @@ class CreateCountersTable extends Migration
     {
         Schema::create('counters', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('icon');
-            $table->string('quantity');
+            $table->string('title')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('quantity')->nullable();
             $table->timestamps();
         });
     }

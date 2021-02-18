@@ -15,17 +15,17 @@ class CreateGeneralsTable extends Migration
     {
         Schema::create('generals', function (Blueprint $table) {
             $table->id();
-            $table->string('website_logo');
-            $table->string('short_note_1');
-            $table->string('short_note_2');
-            $table->string('website_favicon');
-            $table->string('website_title');
-            $table->string('base_currency_text');
-            $table->string('base_currency_symbol');
-            $table->string('website_email');
-            $table->string('website_phone');
-            $table->string('address');
-            $table->string('copyright');
+            $table->string('website_logo')->nullable();
+            $table->string('short_note_1')->nullable();
+            $table->string('short_note_2')->nullable();
+            $table->string('website_favicon')->nullable();
+            $table->string('website_title')->nullable();
+            $table->string('base_currency_text')->nullable();
+            $table->string('base_currency_symbol')->nullable();
+            $table->string('website_email')->nullable();
+            $table->string('website_phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('copyright')->nullable();
             $table->timestamps();
         });
     }

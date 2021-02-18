@@ -15,13 +15,13 @@ class CreatePaymentGatewaysTable extends Migration
     {
         Schema::create('payment_gateways', function (Blueprint $table) {
             $table->id();
-            $table->string('gateway_name');
-            $table->string('gateway_photo');
-            $table->string('min_limit');
-            $table->string('max_limit');
-            $table->string('charge');
-            $table->string('rate');
-            $table->string('status');
+            $table->string('gateway_name')->nullable();
+            $table->string('gateway_photo')->nullable();
+            $table->string('min_limit')->nullable();
+            $table->string('max_limit')->nullable();
+            $table->string('charge')->nullable();
+            $table->string('rate')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

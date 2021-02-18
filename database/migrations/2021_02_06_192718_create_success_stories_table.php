@@ -15,12 +15,12 @@ class CreateSuccessStoriesTable extends Migration
     {
         Schema::create('success_stories', function (Blueprint $table) {
             $table->id();
-            $table->string('category_id');
-            $table->string('title');
-            $table->string('author_name');
-            $table->string('author_photo');
-            $table->string('story');
-            $table->string('photo');
+            $table->string('category_id')->nullable();
+            $table->string('title')->nullable();
+            $table->string('author_name')->nullable();
+            $table->string('author_photo')->nullable();
+            $table->string('story')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }
