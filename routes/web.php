@@ -45,7 +45,7 @@ Route::get('details', function (Request $request) {
 //----------------------- admin routes -----------------------
 Route::get('/adminLogin','App\Http\Controllers\AdminController@index')->name('aLogin');
 Route::post('/adminLoginSub','App\Http\Controllers\AdminController@adminLoginSub');
-Route::get('/adminSignUp','App\Http\Controllers\AdminController@aSignUpM')->name('aSignUp');
+Route::get('/adminSignup','App\Http\Controllers\AdminController@aSignUpM')->name('aSignUp');
 Route::post('/adminSignUpSub','App\Http\Controllers\AdminController@aSignUpSub');
 
 Route::group(['middleware'=>'adminAuthentication'],function(){

@@ -22,7 +22,6 @@ use App\Models\Subscribe;
 use App\Models\Counter;
 use App\Models\Submenu;
 use App\Models\Currency;
-use Stevebauman\Location\Facades\Location;
 
 // use App\Models\Currency;
 
