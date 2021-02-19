@@ -160,19 +160,20 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="text-area">
-                        {{-- <h2>{{$subscibe->title}}</h2> --}}
+                         
                         <h2> {{ $subscibe->title?? 'title not found' }}</h2>
-                       
-                        
 
                         <p> {{ $subscibe->sub_title?? 'sub_title not found' }}</p>
-                        {{-- <p>{{$subscibe->sub_title}}</p> --}}
+                         
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="email">
-                       <input type="email" class="input-field" placeholder="{{ $subscibe->input_placeholder?? 'null' }}"/>
-                       <a href="#" class="btn subscribe-btn">{{ $subscibe->submit_button_text?? 'null' }}</a>
+                       <form method="post" action="{{route('subscribe')}}" class="subscribe" id="subscribe">
+                           @csrf
+                           <input type="email" class="input-field" name="email" id="email" placeholder="{{ $subscibe->input_placeholder?? 'null' }}"/>
+                           <button href="#" class="btn subscribe-btn">{{ $subscibe->submit_button_text?? 'null' }}</button>
+                       </form>
                     </div>
                 </div>
             </div>

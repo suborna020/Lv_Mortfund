@@ -125,7 +125,7 @@
                         
                     </li> --}}
                     <li>
-                        <form action="{{route('set-currency-code')}}" method="post">
+                        <form action="{{route('set-currency-code')}}" method="post" class="currency_code">
                           @csrf
                             <select class="form-control" id="currency_code" name="currency_code">
                                 @if(session::has('currency_c'))

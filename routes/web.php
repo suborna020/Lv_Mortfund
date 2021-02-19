@@ -25,7 +25,23 @@ Route::get('/project_support','App\Http\Controllers\Master@project_support');
 
 Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')->name('set-currency-code');
 
+Route::get('/subscribe','App\Http\Controllers\SubscriberController@store')->name('subscribe');
 
+Route::post('/subscribe','App\Http\Controllers\SubscriberController@store')->name('subscribe');
+
+Route::get('details', function (Request $request) {
+  // $ip = request()->ip();
+    // $ip = '50.90.0.1';
+    // $data = \Location::get($ip);
+    // dd($data);
+    // $ip = request()->ip();
+    $ip = '43.250.81.202';
+    $arr_ip = geoip()->getLocation($ip);
+	print_r($arr_ip);
+	echo $arr_ip->country; // get a country
+	echo $arr_ip->currency; // get a currency
+   
+});
 //----------------------- admin routes -----------------------
 Route::get('/adminLogin','App\Http\Controllers\AdminController@index')->name('aLogin');
 Route::post('/adminLoginSub','App\Http\Controllers\AdminController@adminLoginSub');

@@ -22,6 +22,8 @@ use App\Models\Subscribe;
 use App\Models\Counter;
 use App\Models\Submenu;
 use App\Models\Currency;
+use Stevebauman\Location\Facades\Location;
+
 // use App\Models\Currency;
 
 class Master extends Controller
@@ -51,8 +53,15 @@ class Master extends Controller
         $currencies = Currency::where('status',1)->where('session_currency','!=',Session::get('currency_c'))->get();
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
+        // $ip = request()->ip();
+        $ip = '43.250.81.202';
+        $arr_ip = geoip()->getLocation($ip);
+         
+        $user_location = $arr_ip->country; // get a country
+        // echo $arr_ip->currency;
+         
         // $currency = Currency::where('status',1)->get();
-        return view('ui.pages.welcome.welcome',compact('general','navmenu','footer','socials','categories','footer_about','footer_explore','footer_cat','slider','fundraisers','languages','recents','project_supports','subscibe','counters','currencies','user_currency'));
+        return view('ui.pages.welcome.welcome',compact('general','navmenu','footer','socials','categories','footer_about','footer_explore','footer_cat','slider','fundraisers','languages','recents','project_supports','subscibe','counters','currencies','user_currency','user_location'));
     }
 
     public function fundraisers(Request $request){
@@ -85,10 +94,18 @@ class Master extends Controller
     }
 
 
+    // public function setUserCurrency(Request $r){
+    //     $c_c = $r->currency_code;
+    //     $r->session()->put('currency_c', $c_c);
+    //     return redirect()->back();
+    // }
+
     public function setUserCurrency(Request $r){
         $c_c = $r->currency_code;
         $r->session()->put('currency_c', $c_c);
-        return redirect()->back();
+        $arr = array('status' => 'true', 'message' => 'Currency Changed');
+        echo json_encode($arr);
+        // return redirect()->back();
     }
 
   

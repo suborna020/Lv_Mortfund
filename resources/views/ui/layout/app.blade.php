@@ -102,7 +102,7 @@ $(document).ready(function () {
 });
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
         $(document).ready(function(){
             $("#currency_code").on('change', function postinput(){
                 var currency_code = $(this).val(); // this.value
@@ -118,7 +118,7 @@ $(document).ready(function () {
                 });
             });
         }); 
-    </script>     
+    </script>  -->    
         
     </body>
 </html>
