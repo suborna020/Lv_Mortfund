@@ -49,27 +49,35 @@ class Master extends Controller
         $languages = Language::where('status',1)->get();
         $subscibe = Subscribe::where('id',1)->first();
         $counters = Counter::all();
-        
+
+
+
+
+        $ip = '43.250.81.202';
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        // $main_currency = Currency::where('status',1)->get();
         $currencies = Currency::where('status',1)->where('session_currency','!=',Session::get('currency_c'))->get();
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
-        // $ip = request()->ip();
-        $ip = '43.250.81.202';
-        $arr_ip = geoip()->getLocation($ip);
-         
-        $user_location = $arr_ip->country; // get a country
-        // echo $arr_ip->currency;
-         
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
         // $currency = Currency::where('status',1)->get();
-        return view('ui.pages.welcome.welcome',compact('general','navmenu','footer','socials','categories','footer_about','footer_explore','footer_cat','slider','fundraisers','languages','recents','project_supports','subscibe','counters','currencies','user_currency','user_location'));
+        return view('ui.pages.welcome.welcome',compact('general','navmenu','footer','socials','categories','footer_about','footer_explore','footer_cat','slider','fundraisers','languages','recents','project_supports','subscibe','counters','currencies','user_currency','user_location','currency_by_location'));
     }
 
     public function fundraisers(Request $request){
         if($request->ajax()){
         $fundraisers = Fundraiser::with('categories','members')->paginate(4,['*'],'all');
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
-        
-        return view('ui.pages.welcome.fundraisers',compact('fundraisers','user_currency'))->render();
+
+        // $ip = request()->ip();
+        $ip = '43.250.81.202';
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.welcome.fundraisers',compact('fundraisers','user_currency','user_location','currency_by_location'))->render();
      }
     }
 
@@ -79,7 +87,14 @@ class Master extends Controller
         $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent'); 
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
-        return view('ui.pages.welcome.recent_fundraisers',compact('recents','user_currency'))->render();
+        // $ip = request()->ip();
+        $ip = '43.250.81.202';
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.welcome.recent_fundraisers',compact('recents','user_currency','user_location','currency_by_location'))->render();
      }
     }
 
@@ -89,7 +104,14 @@ class Master extends Controller
         $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->paginate(4,['*'],'project-support'); 
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
-        return view('ui.pages.welcome.project_support',compact('project_supports','user_currency'))->render();
+        // $ip = request()->ip();
+        $ip = '43.250.81.202';
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.welcome.project_support',compact('project_supports','user_currency','user_location','currency_by_location'))->render();
      }
     }
 

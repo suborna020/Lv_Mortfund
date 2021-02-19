@@ -20,11 +20,12 @@
                 </div>
                 
                 @if(session::has('currency_c'))
-                   @if($user_currency->session_currency == session('currency_c'))
+                    @if($user_currency->session_currency == session('currency_c'))
                         <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($fundraiser->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($fundraiser->needed_amount)*($user_currency->value)}}</p>
                     @endif
                 @else
-                <p class="custom-card-text"><span class="text-muted">${{($fundraiser->raised)}}</span> rised of ${{($fundraiser->needed_amount)}}</p>
+                   
+                <p class="custom-card-text"><span class="text-muted">{{$currency_by_location->symbol}}{{($fundraiser->raised)*($currency_by_location->value)}}</span> rised of {{$currency_by_location->symbol}}{{($fundraiser->needed_amount)*($currency_by_location->value)}}</p>
                 
                 @endif
                 

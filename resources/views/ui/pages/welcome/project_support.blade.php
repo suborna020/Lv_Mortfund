@@ -20,7 +20,7 @@
                 <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($project_support->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($project_support->needed_amount)*($user_currency->value)}}</p>
                 @endif
                 @else
-                <p class="custom-card-text"><span class="text-muted">${{($project_support->raised)}}</span> rised of ${{($project_support->needed_amount)}}</p>
+                <p class="custom-card-text"><span class="text-muted">{{$currency_by_location->symbol}}{{($project_support->raised)*($currency_by_location->value)}}</span> rised of {{$currency_by_location->symbol}}{{($project_support->needed_amount)*($currency_by_location->value)}}</p>
                 
                 @endif
                 <div class="row border-top">
