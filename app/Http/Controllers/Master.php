@@ -50,9 +50,6 @@ class Master extends Controller
         $subscibe = Subscribe::where('id',1)->first();
         $counters = Counter::all();
 
-
-
-
         $ip = '43.250.81.202';
         $arr_ip = geoip()->getLocation($ip);
         $user_location = $arr_ip->country; // get a country
