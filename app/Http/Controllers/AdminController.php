@@ -55,7 +55,7 @@ class AdminController extends Controller
                 $arr = array('status' => 'false', 'message' => 'Username Already Exists');
             } else {
                 $user_info = new Admin();
-                $user_info->admin_name = $request->admin_name;
+                $user_info->admin_name = strtolower($request->admin_name);
                 $user_info->admin_email = $request->admin_email;
                 $user_info->admin_username = $request->admin_username;
                 $user_info->admin_password = $request->admin_password;

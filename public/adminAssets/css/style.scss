@@ -1,5 +1,12 @@
-* {
-    font-family: bahnschrift;
+@mixin myShadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow   : $shadow;
+    box-shadow        : $shadow;
+}
+
+body {
+    font-family: Bahnschrift !important;
+    font-size  : 1.2rem !important;
 }
 
 // scrollbar work 
@@ -23,6 +30,13 @@ body::-webkit-scrollbar-thumb {
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
     background: #002C58;
+}
+
+
+
+button {
+    font-size  : 1.2rem !important;
+    font-weight: 500 !important;
 }
 
 a,
@@ -57,9 +71,9 @@ a:hover {
     background-repeat: no-repeat, repeat;
     background-size  : cover;
 
-    background-image : url(../img/pic2.svg);
-    float            : left;
-    width            : 75%;
+    background-image: url(../img/pic2.svg);
+    float           : left;
+    width           : 75%;
 }
 
 .rightDiv .card {
@@ -96,8 +110,31 @@ a:hover {
 }
 
 //common css----------------
+
+.tableSmallText1 {
+    font-size: 1rem;
+}
+
+
+
+.backgroundCerulean {
+    background-color: #063D75;
+}
+
+.whiteText {
+    color: white;
+}
+
 .orange_text {
     color: #F36A10;
+}
+
+.orangeBackground {
+    background-color: #F36A10;
+}
+
+.content-wrapper {
+    background-color: white;
 }
 
 // ---dashboard page -------------
@@ -110,14 +147,16 @@ a:hover {
 [class*=sidebar-dark-] {
     background-color: #002C58;
     background-image: url(../img/leftBackground.svg);
-    
+
     background-repeat: no-repeat, repeat;
     background-size  : cover;
 }
-[class*=sidebar-dark-]  a {
+
+[class*=sidebar-dark-] a {
     color: white !important;
 }
-.nav-pills{
+
+.nav-pills {
     font-size: 1.05rem;
 }
 
@@ -133,11 +172,12 @@ a:hover {
 
 .brand-link .fa-bars {
     font-size: 26px;
-    color: black;
+    color    : black;
 }
 
 .main-header {
     min-height: 75px;
+    @include myShadow(2px 2px 2px rgba(#ccc, .8), -2px -2px 2px rgba(#ccc, 0.8));
 
 }
 
@@ -155,6 +195,7 @@ a:hover {
     width       : 23px;
     margin-right: 3px;
 }
+
 .treeviewAsideBarIcon {
     width       : 17px;
     margin-right: 2px;
@@ -163,10 +204,12 @@ a:hover {
 nav .menu-open .extend_icon {
     transform: rotate(90deg) !important;
 }
-#frontEndSettingsSideBar a.nav-link{
-color: white;
-padding: 4px 12px;
+
+#frontEndSettingsSideBar a.nav-link {
+    color  : white;
+    padding: 4px 12px;
 }
+
 // .nav2{
 //     display: -webkit-box;
 //     display: -ms-flexbox;
@@ -188,19 +231,24 @@ padding: 4px 12px;
 .nav-treeview .nav-item {
     font-size: 14px;
 }
-#frontEndSettingsSideBar{
-    height: calc(100vh - (3.5rem + 1px));
-    overflow-y: initial;
-    padding-bottom: 0;
-    padding-left: .5rem;
-    padding-right: .5rem;
-    padding-top: 0;
-    background: #f36a10;
-    width: 13rem;
-    position: fixed;
-    z-index: 1;
-    left: 250.01px;
-    border-radius: 0 8px;
+
+.mySidebar .nav-treeview .nav-link {
+    padding: .2rem 1rem;
+}
+
+#frontEndSettingsSideBar {
+    height           : calc(100vh - (3.5rem + 1px));
+    overflow-y       : initial;
+    padding-bottom   : 0;
+    padding-left     : .5rem;
+    padding-right    : .5rem;
+    padding-top      : 0;
+    background       : #f36a10;
+    width            : 13rem;
+    position         : fixed;
+    z-index          : 1;
+    left             : 250.01px;
+    border-radius    : 0 8px;
     background-image : url(../img/frontEndSettingsSideBar.svg);
     background-repeat: no-repeat, repeat;
     background-size  : cover;
@@ -214,12 +262,12 @@ padding: 4px 12px;
     height       : 9px;
     border-radius: 8px;
     margin-left  : 1px;
-   
+
 }
 
 .adminDashboard .small-box {
-    min-height: 217px;
-    background: white;
+    min-height   : 217px;
+    background   : white;
     margin-bottom: 8px;
 }
 
@@ -247,34 +295,33 @@ padding: 4px 12px;
     width: 47px;
 }
 
-.adminDashboard .small-box p {
-    font-size: 1rem;
-}
-.adminDashboard{
-    flex-wrap: nowrap  !important;
-    overflow: auto;
-    margin-bottom: 10px;
+
+.adminDashboard {
+    flex-wrap                : nowrap !important;
+    overflow                 : auto;
+    margin-bottom            : 10px;
     // -webkit-font-smoothing: antialiased;
 }
+
 .carouselIcon {
-    position: absolute;
-    top: 92px;
-    right: 5px;
-    font-size: 34px;
-    padding: 2px;
-    background: #0000002b;
-    height: 40px;
-    width: 40px;
-    z-index: 2;
-    display: grid;
+    position       : absolute;
+    top            : 92px;
+    right          : 5px;
+    font-size      : 34px;
+    padding        : 2px;
+    background     : #0000002b;
+    height         : 40px;
+    width          : 40px;
+    z-index        : 2;
+    display        : grid;
     justify-content: center;
-    border-radius: 100%;
-    cursor: pointer;
+    border-radius  : 100%;
+    cursor         : pointer;
 }
 
 
 #adminDashboard::-webkit-scrollbar {
-    width: 5px !important;
+    width : 5px !important;
     height: 7px;
 }
 
@@ -286,11 +333,191 @@ padding: 4px 12px;
 
 /* Handle */
 #adminDashboard::-webkit-scrollbar-thumb {
-    background   : #888 ;
+    background   : #888;
     border-radius: 10px;
 }
 
 /* Handle on hover */
 #adminDashboard::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+/*// categories page */
+.RightContainerTable {
+    @include myShadow(0 0.125rem .25rem rgba(0, 0, 0, 0.200));
+
+    width        : 100% !important;
+    border-radius: 9px !important;
+    padding      : 30px !important;
+}
+
+.paymentContainerBox {
+    @include myShadow(0 0.125rem .25rem rgba(0, 0, 0, 0.200));
+    font-weight: 500;
+
+}
+.paymentContainerBox *{
+    font-size: 0.8rem !important;
+}
+
+.RightContainerTable .table td,
+.table th {
+    border-top: unset !important;
+    padding   : .75rem .60rem !important;
+}
+
+.RightContainerTable .table-striped tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa !important;
+
+}
+
+.RightContainerTable .table-striped tbody tr:nth-of-type(odd) {
+    background-color: white !important;
+
+}
+
+.RightContainerTable .table thead th {
+    color: #6e6666d1 !important;
+}
+
+.RightContainerTable .col_1 {
+    width: 3% !important;
+}
+
+.RightContainerTable .categoriesStatus {
+    background-color: #F8800B !important;
+    color           : white !important;
+    border-radius   : 8px !important;
+    text-align      : center !important;
+    padding         : 1px 10px !important;
+}
+
+.manageIcons {
+    color : #6e666661;
+    margin: 0 5px;
+}
+
+.manageIcons:hover {
+    color: #F8800B;
+}
+
+.searchButton {
+    border-radius: 8px !important;
+    text-align   : center !important;
+    padding      : 1px 18px !important;
+
+}
+
+.searchButton:hover {
+    color: white !important;
+
+}
+
+.addNewButton {
+    background-color: #f36a104d !important;
+    border-radius   : 9px !important;
+}
+
+.rightSideElements>div {
+    margin-right: 10px;
+}
+
+.rightSideElements * {
+    height : 30px !important;
+    display: flex !important;
+}
+
+/* serch form */
+.serchForm {
+    position : relative;
+    max-width: 167px;
+}
+
+.has-search .form-control {
+    // padding-left: 2.375rem;
+}
+
+
+.has-search .form-control-feedback {
+    position     : absolute;
+    right        : -10px;
+    z-index      : 2;
+    display      : block;
+    width        : 2.375rem;
+    height       : 2.375rem;
+    line-height  : 2.375rem;
+    // text-align: center;
+
+    pointer-events: none;
+    color         : #aaa;
+}
+
+/* AddNewCategory modal */
+.myAddNewModal .modal-dialog {
+    max-width: 635px !important;
+    margin   : 8rem auto !important;
+}
+
+.myAddNewModal .modal-header {
+    padding      : 0 1.5rem !important;
+    padding-top  : 2rem !important;
+    border-bottom: unset !important;
+}
+
+.myAddNewModal .form-control {
+    background-color: #e9ecef61 !important;
+    border          : unset !important;
+}
+
+.myAddNewModal .input-group-text {
+    background-color: #e9ecef61 !important;
+    border          : unset !important;
+}
+
+.myAddNewModal .modal-footer {
+    border: unset !important;
+}
+
+.modalBorder {
+    height    : 3px;
+    background: #e9ecef;
+    width     : 92%;
+    align-self: center;
+}
+
+//  Payment Gateways  page
+
+.paymentContainerBoxBorder {
+    height    : 1px;
+    background: #e9ecef;
+    width     : 92%;
+    align-self: center;
+    margin: .9rem 0;
+}
+.paymentContainerBoxImg{
+    height: 63px;
+    background-size: cover;
+}
+.smallSelectbox{
+    height: 24px !important;
+    width: 42% !important;
+    padding: 0 4px !important;
+    background: #e9ecef !important;
+    border-radius: 8px !important;
+    display: table-row !important;
+    font-size: 0.8rem !important;
+}
+.myBadgey{
+    color: #0000008f;
+    background-color: #e9ecef;
+    display: inline-block;
+    padding: 1px 8px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    margin-bottom: 5px;
+}
+.amountTextColor{
+    color: #063D75 ;
 }

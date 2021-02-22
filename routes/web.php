@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Admin;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,9 +51,52 @@ Route::get('/adminSignup','App\Http\Controllers\AdminController@aSignUpM')->name
 Route::post('/adminSignUpSub','App\Http\Controllers\AdminController@aSignUpSub');
 
 Route::group(['middleware'=>'adminAuthentication'],function(){
-
+    View::composer('*', function ($view) {
+        if(Session::get('admin_session')){
+            $user_id=Session::get('admin_session');
+            $userInfoBox=Admin::findOrFail($user_id);
+            $view->with('userInfoBox',$userInfoBox);
+        }
+      
+    });
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
+    //Fundraisers
+    Route::get('aDashboard/adCategories','App\Http\Controllers\AdFundraisers@adCategories');
+    Route::get('aDashboard/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
+    Route::get('aDashboard/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
+    Route::get('aDashboard/adPending','App\Http\Controllers\AdFundraisers@adPending');
+    Route::get('aDashboard/adOnProgress','App\Http\Controllers\AdFundraisers@adOnProgress');
+    // Withdraw System
+    Route::get('adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
+    Route::get('adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');
+    Route::get('adWithdrawLog','App\Http\Controllers\AdWithdrawSystem@adWithdrawLog');
+    //Donate
+    Route::get('adPaymentGateways','App\Http\Controllers\AdDonate@adPaymentGateways');
+    Route::get('adDonateHistory','App\Http\Controllers\AdDonate@adDonateHistory');
+    //SuccessStories
+    Route::get('adCategory','App\Http\Controllers\AdSuccessStories@adCategory');
+    Route::get('adStories','App\Http\Controllers\AdSuccessStories@adStories');
+    //MemberSettings
+    Route::get('adAllMembers','App\Http\Controllers\AdMemberSettings@adAllMembers');
+    Route::get('adReportedMembers','App\Http\Controllers\AdMemberSettings@adReportedMembers');
+    // LanguageManager
+    Route::get('adLanguageManager','App\Http\Controllers\AdLanguageManager@adLanguageManager');
+    // Advertisement
+    Route::get('adAdvertisement','App\Http\Controllers\AdAdvertisement@adAdvertisement');
+    // GeneralSettings
+    Route::get('adBasicSettings','App\Http\Controllers\AdGeneralSettings@adBasicSettings');
+    Route::get('adEmailSettings','App\Http\Controllers\AdGeneralSettings@adEmailSettings');
+    Route::get('adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
+
+
+
+
+
+
+
+
+
 
 });
 

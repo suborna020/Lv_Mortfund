@@ -1,11 +1,11 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light  myShadow">
     <!-- Left navbar links -->
     <ul class="navbar-nav m-auto">
         {{-- <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li> --}}
         <li class="nav-item d-none d-sm-inline-block ">
-            <a href="#" class="d-block nav-link navHead">Admin Dashboard</a>
+            <a class="d-block nav-link navHead">Admin Dashboard</a>
 
         </li>
     </ul>

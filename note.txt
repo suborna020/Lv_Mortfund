@@ -17,9 +17,14 @@ git push
 
 @for project clear :
 php artisan cache:clear
-php artisan route:cache 
+php artisan route:cache
 php artisan config:cache
 
+@if someone added a package to your git project .after pull you have to run a command like:
+composer install
+
+	
+@php artisan make:controller StudentController
 
 @recieve settings:
 1souse control->masssge->cnt+enter>pull
