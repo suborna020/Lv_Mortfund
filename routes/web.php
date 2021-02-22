@@ -27,8 +27,6 @@ Route::get('/project_support','App\Http\Controllers\Master@project_support');
 
 Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')->name('set-currency-code');
 
-Route::get('/subscribe','App\Http\Controllers\SubscriberController@store')->name('subscribe');
-
 Route::post('/subscribe','App\Http\Controllers\SubscriberController@store')->name('subscribe');
 
 Route::get('details', function (Request $request) {
