@@ -1,5 +1,6 @@
-* {
-  font-family: bahnschrift;
+body {
+  font-family: Bahnschrift !important;
+  font-size: 1.2rem !important;
 }
 
 /* width */
@@ -22,6 +23,11 @@ body::-webkit-scrollbar-thumb {
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
   background: #002C58;
+}
+
+button {
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
 }
 
 a,
@@ -95,8 +101,28 @@ a:hover {
   color: white;
 }
 
+.tableSmallText1 {
+  font-size: 1rem;
+}
+
+.backgroundCerulean {
+  background-color: #063D75;
+}
+
+.whiteText {
+  color: white;
+}
+
 .orange_text {
   color: #F36A10;
+}
+
+.orangeBackground {
+  background-color: #F36A10;
+}
+
+.content-wrapper {
+  background-color: white;
 }
 
 .sideBarSizeChange {
@@ -136,6 +162,8 @@ a:hover {
 
 .main-header {
   min-height: 75px;
+  -webkit-box-shadow: 2px 2px 2px rgba(204, 204, 204, 0.8), -2px -2px 2px rgba(204, 204, 204, 0.8);
+  box-shadow: 2px 2px 2px rgba(204, 204, 204, 0.8), -2px -2px 2px rgba(204, 204, 204, 0.8);
 }
 
 #sidebarCollapse {
@@ -174,6 +202,10 @@ nav .menu-open .extend_icon {
 
 .nav-treeview .nav-item {
   font-size: 14px;
+}
+
+.mySidebar .nav-treeview .nav-link {
+  padding: .2rem 1rem;
 }
 
 #frontEndSettingsSideBar {
@@ -234,13 +266,9 @@ nav .menu-open .extend_icon {
   width: 47px;
 }
 
-.adminDashboard .small-box p {
-  font-size: 1rem;
-}
-
 .adminDashboard {
-  -ms-flex-wrap: nowrap  !important;
-      flex-wrap: nowrap  !important;
+  -ms-flex-wrap: nowrap !important;
+      flex-wrap: nowrap !important;
   overflow: auto;
   margin-bottom: 10px;
 }
@@ -284,5 +312,183 @@ nav .menu-open .extend_icon {
 /* Handle on hover */
 #adminDashboard::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/*// categories page */
+.RightContainerTable {
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  width: 100% !important;
+  border-radius: 9px !important;
+  padding: 30px !important;
+}
+
+.paymentContainerBox {
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+}
+
+.paymentContainerBox * {
+  font-size: 0.8rem !important;
+}
+
+.RightContainerTable .table td,
+.table th {
+  border-top: unset !important;
+  padding: .75rem .60rem !important;
+}
+
+.RightContainerTable .table-striped tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa !important;
+}
+
+.RightContainerTable .table-striped tbody tr:nth-of-type(odd) {
+  background-color: white !important;
+}
+
+.RightContainerTable .table thead th {
+  color: #6e6666d1 !important;
+}
+
+.RightContainerTable .col_1 {
+  width: 3% !important;
+}
+
+.RightContainerTable .categoriesStatus {
+  background-color: #F8800B !important;
+  color: white !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+  padding: 1px 10px !important;
+}
+
+.manageIcons {
+  color: #6e666661;
+  margin: 0 5px;
+}
+
+.manageIcons:hover {
+  color: #F8800B;
+}
+
+.searchButton {
+  border-radius: 8px !important;
+  text-align: center !important;
+  padding: 1px 18px !important;
+}
+
+.searchButton:hover {
+  color: white !important;
+}
+
+.addNewButton {
+  background-color: #f36a104d !important;
+  border-radius: 9px !important;
+}
+
+.rightSideElements > div {
+  margin-right: 10px;
+}
+
+.rightSideElements * {
+  height: 30px !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+/* serch form */
+.serchForm {
+  position: relative;
+  max-width: 167px;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  right: -10px;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  pointer-events: none;
+  color: #aaa;
+}
+
+/* AddNewCategory modal */
+.myAddNewModal .modal-dialog {
+  max-width: 635px !important;
+  margin: 8rem auto !important;
+}
+
+.myAddNewModal .modal-header {
+  padding: 0 1.5rem !important;
+  padding-top: 2rem !important;
+  border-bottom: unset !important;
+}
+
+.myAddNewModal .form-control {
+  background-color: #e9ecef61 !important;
+  border: unset !important;
+}
+
+.myAddNewModal .input-group-text {
+  background-color: #e9ecef61 !important;
+  border: unset !important;
+}
+
+.myAddNewModal .modal-footer {
+  border: unset !important;
+}
+
+.modalBorder {
+  height: 3px;
+  background: #e9ecef;
+  width: 92%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.paymentContainerBoxBorder {
+  height: 1px;
+  background: #e9ecef;
+  width: 92%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: .9rem 0;
+}
+
+.paymentContainerBoxImg {
+  height: 63px;
+  background-size: cover;
+}
+
+.smallSelectbox {
+  height: 24px !important;
+  width: 42% !important;
+  padding: 0 4px !important;
+  background: #e9ecef !important;
+  border-radius: 8px !important;
+  display: table-row !important;
+  font-size: 0.8rem !important;
+}
+
+.myBadgey {
+  color: #0000008f;
+  background-color: #e9ecef;
+  display: inline-block;
+  padding: 1px 8px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+  margin-bottom: 5px;
+}
+
+.amountTextColor {
+  color: #063D75;
 }
 /*# sourceMappingURL=style.css.map */

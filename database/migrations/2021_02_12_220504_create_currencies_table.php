@@ -21,6 +21,8 @@ class CreateCurrenciesTable extends Migration
             $table->string('status')->nullable();
             $table->string('session_currency')->nullable();
             $table->float('value')->nullable();
+            $table->string('country_name')->nullable();
+
             $table->timestamps();
         });
     }

@@ -17,11 +17,12 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid adminDashboardContainer" style="position: relative">
+            <div class="container-fluid mt-4 adminDashboardContainer rightContainer" style="position: relative">
+                {{-- position relative needed for cursour position  --}}
                 <!-- Small boxes (Stat box) -->
                 <i class="fas fa-angle-right carouselIcon " style="display: none"></i>
 
-                <div class="row mt-4 adminDashboard" id="adminDashboard">
+                <div class="row  adminDashboard" id="adminDashboard">
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="pipeLine"></div>
@@ -132,6 +133,7 @@
                             <!-- /.card-body -->
                         </div>
                         <br>admin session no :{{$admin_sessionData}}
+                         user name : {{$userInfoBox->admin_name}}
 
                         <!-- /.card -->
                     </section>

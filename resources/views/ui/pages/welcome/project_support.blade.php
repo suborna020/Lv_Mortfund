@@ -26,9 +26,9 @@
                 <div class="row border-top">
                     <div class="col-8 col-md-8 col-gap">
                         <div class="media">
-                            <img src="{{$project_support->members->photo}}" class="mr-2 user-img" alt="...">
+                            <img src="{{ $project_support->members->photo?? '#' }}" class="mr-2 user-img" alt="...">
                             <div class="media-body">
-                                <p class="name-text">By {{$project_support->members->name}}</p>
+                                <p class="name-text">By{{ $project_support->members->namee?? 'Any Name' }}  </p>
                             </div>
                         </div>
                     </div>
