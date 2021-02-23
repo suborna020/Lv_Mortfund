@@ -106,21 +106,35 @@
                     </li>
                     @endif
                     @endforeach
+                    <!-- WORKING ON IT -->
                     {{-- <li class="nav-item dropdown">
 
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             
-                            {{session()->get('currency_c')}}{{$user_currency->symbol}}<span class="doller">({{$user_currency->country_code}})</span>
+                            
+                            @if(session::has('currency_c'))
+                                <span class="doller">{{session()->get('currency_c')}}</span>
+                                @else
+                                <span class="doller">{{$currency_by_location->symbol}}({{$currency_by_location->country_code}})</span>
+                                @endif
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @foreach($currencies as $currency)
-                            <a href="javascript:document.currency_code.submit()" name="currency_code"class="dropdown-item">{{$currency->symbol}}({{$currency->country_code}})</a>
-                            <form name="currency_code" action="{{route('set-currency-code')}}" method=POST>
-                               <input type="text" name="currency_code" value="{{$currency->symbol}}"/>
+                            
+
+                            <form action="{{route('set-currency-code')}}" method="post" class="currency_code">
+                            @csrf
+                           <!--  <select class="form-control" id="currency_code" name="currency_code"> -->
+                                
+                                @foreach($currencies as $currency)
+                                <a class="dropdown-item" value="{{$currency->symbol}}({{$currency->country_code}})">{{$currency->symbol}}({{$currency->country_code}})</a>
+                                 @endforeach
+                            <!-- </select> -->
+                            <!-- <input type="submit" name=""> -->
+ 
                           </form>
-                             @endforeach
+                             
                         </div>
                         
                     </li> --}}
@@ -139,7 +153,7 @@
                             </select>
                             <!-- <input type="submit" name=""> -->
                          </form>
-                    </li>
+                    </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="#">Login</a>
                     </li>

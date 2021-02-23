@@ -27,6 +27,8 @@ Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')-
 
 Route::post('/subscribe','App\Http\Controllers\SubscriberController@store')->name('subscribe');
 
+Route::get('/singleCampaign','App\Http\Controllers\FundraiserController@index')->name('singleCampaign');
+
 Route::get('details', function (Request $request) {
   // $ip = request()->ip();
     // $ip = '50.90.0.1';

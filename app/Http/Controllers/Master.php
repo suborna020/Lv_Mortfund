@@ -232,4 +232,5 @@ class Master extends Controller
     public function getSession(Request $r){
         echo $r->session()->get('currency_code');
     }
+
 }
