@@ -17,6 +17,8 @@ use App\Models\Admin;
 */
 
 
+View::composer('*', 'App\Http\Controllers\Master@all');
+
 Route::get('','App\Http\Controllers\Master@index');
 
 Route::get('/fundraisers','App\Http\Controllers\Master@fundraisers');
@@ -88,15 +90,6 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('adBasicSettings','App\Http\Controllers\AdGeneralSettings@adBasicSettings');
     Route::get('adEmailSettings','App\Http\Controllers\AdGeneralSettings@adEmailSettings');
     Route::get('adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
-
-
-
-
-
-
-
-
-
 
 });
 

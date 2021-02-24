@@ -28,11 +28,7 @@ use App\Models\Currency;
 class Master extends Controller
 {   
 
-    public function __construct()
-    {
-        $general = General::where('id',1)->first();
-    }
-    public function index(Request $r){
+    public function all($view){
         $general = General::where('id',1)->first();
         $footer = Footer::where('id',1)->first();
         $navmenu = Navmenu::with('submenus')->where('status',1)->get();
@@ -41,14 +37,7 @@ class Master extends Controller
         $footer_about = FooterLinkAbout::where('status',1)->take(5)->get();
         $footer_explore = FooterLinkExplore::where('status',1)->take(5)->get();
         $footer_cat = Footer_link_category::where('status',1)->take(5)->get();
-        $slider = Slider::where('status',1)->get();
-        $fundraisers = Fundraiser::with('categories','members')->paginate(4,['*'],'all');
-        $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent');
-        $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->paginate(4,['*'],'project-support');
         $languages = Language::where('status',1)->get();
-        $subscibe = Subscribe::where('id',1)->first();
-        $counters = Counter::all();
-
         $ip = '43.250.81.202';
         $arr_ip = geoip()->getLocation($ip);
         $user_location = $arr_ip->country; // get a country
@@ -56,10 +45,26 @@ class Master extends Controller
         $currencies = Currency::where('status',1)->where('session_currency','!=',Session::get('currency_c'))->get();
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
-        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
-        // $currency = Currency::where('status',1)->get();
-        return view('ui.pages.welcome.welcome',compact('general','navmenu','footer','socials','categories','footer_about','footer_explore','footer_cat','slider','fundraisers','languages','recents','project_supports','subscibe','counters','currencies','user_currency','user_location','currency_by_location'));
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first();
+
+        $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location);
     }
+
+
+    public function index(Request $r){
+        
+        $slider = Slider::where('status',1)->get();
+        $fundraisers = Fundraiser::with('categories','members')->paginate(4,['*'],'all');
+        $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent');
+        $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->paginate(4,['*'],'project-support');
+        
+        $subscibe = Subscribe::where('id',1)->first();
+        $counters = Counter::all();
+
+        
+        return view('ui.pages.welcome.welcome',compact('slider','fundraisers','recents','project_supports','subscibe','counters'));
+    }
+
 
     public function fundraisers(Request $request){
         if($request->ajax()){
@@ -111,13 +116,6 @@ class Master extends Controller
      }
     }
 
-
-    // public function setUserCurrency(Request $r){
-    //     $c_c = $r->currency_code;
-    //     $r->session()->put('currency_c', $c_c);
-    //     return redirect()->back();
-    // }
-
     public function setUserCurrency(Request $r){
         $c_c = $r->currency_code;
         $r->session()->put('currency_c', $c_c);
@@ -133,14 +131,13 @@ class Master extends Controller
     }
 
     public function userSignup(){
-        $general = General::where('id',1)->first();
-        $navmenu = Navmenu::where('status',1)->get();
+        
     	//session a login thaka kalin user new login page a na giye alwayas dashboard stay korar condition
         //exist session/redicating on dashboard
         if (Session::get('user_session')) {
             return redirect(url('index'));
         }
-    	return view('ui.pages.users.account.signup',compact('general','navmenu'));
+    	return view('ui.pages.users.account.signup');
     }
 
 
@@ -186,14 +183,12 @@ class Master extends Controller
     public function userLogin()
     {
 
-        $general = General::where('id',1)->first();
-        $navmenu = Navmenu::where('status',1)->get();
         if (Session::get('user_session')) {
             return redirect(url('myAccount'));
         }
         //session a login thaka kalin user new login page a na giye alwayas dashboard stay korar condition
         //exist session/redicating on dashboard
-        return view('ui.pages.users.account.login',compact('general','navmenu'));
+        return view('ui.pages.users.account.login');
     }
 
 
