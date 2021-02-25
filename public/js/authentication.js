@@ -46,6 +46,7 @@ $(document).on('submit', '.subscribe', function() {
         var resp = $.parseJSON(fb);
         if (resp.status == 'true') {
             // alert(resp.message);
+
             const Msg = Swal.mixin({
                 toast: true
                 , position: 'top-end'
@@ -53,12 +54,13 @@ $(document).on('submit', '.subscribe', function() {
                 , showConfirmButton: false
                 , timer: 1500
             })
+
             Msg.fire({
                 type: 'success'
                 , title: resp.message
             })
             setTimeout(function() {
-                $('#subscribe').reset();
+                
             }, 1000);
             
         } else {
@@ -102,6 +104,9 @@ $(document).on('change', '.currency_code', function() {
             setTimeout(function() {
                 
             }, 1000);
+            // fetch_data(page);
+            // fetch_recent_data(recent);
+            // fetch_project_data(project_support);
             window.location.reload();
         } else {
             const Msg = Swal.mixin({

@@ -1,0 +1,30 @@
+/*Single Campaign*/
+
+.singleCampaign{
+	margin-top: 115px;
+	background: white;
+}
+
+.related-posts h3{
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.related-posts .bottom-line{
+    background-color: #F36A10;
+    height: 3px;
+    width: 15%;
+    margin-bottom: 30px;
+}
+
+.singleCampaignBreadcrumb{
+	background: url(../images/bg-3.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+}
+
+.singleCampaignBreadcrumb h3{
+	color: white;
+}
