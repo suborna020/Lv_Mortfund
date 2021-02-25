@@ -170,7 +170,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('adAdvertisement')}}" class="nav-link">
-                        <img src="{{asset("adminAssets/img/advertisement.svg")}}" alt="icon" class="asideBarIcon " />
+                        <img src="{{asset("adminAssets/img/adAdvertisement.svg")}}" alt="icon" class="asideBarIcon " />
                         <p>
                             Advertisement
                         </p>

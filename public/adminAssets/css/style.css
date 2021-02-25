@@ -105,6 +105,11 @@ a:hover {
   font-size: 1rem;
 }
 
+.rotate {
+  -webkit-transform: rotate(90deg) !important;
+          transform: rotate(90deg) !important;
+}
+
 .backgroundCerulean {
   background-color: #063D75;
 }
@@ -117,12 +122,25 @@ a:hover {
   color: #F36A10;
 }
 
+.blurText {
+  color: #a1a6ac;
+}
+
+.bigIcon {
+  font-size: 1.6rem !important;
+}
+
 .orangeBackground {
   background-color: #F36A10;
 }
 
 .content-wrapper {
   background-color: white;
+}
+
+.input-group-text {
+  border: unset !important;
+  background-color: #e9ecef61 !important;
 }
 
 .sideBarSizeChange {
@@ -262,7 +280,7 @@ nav .menu-open .extend_icon {
   place-items: center;
 }
 
-.adminDashboard .smallBoxIcon {
+.smallBoxIcon {
   width: 47px;
 }
 
@@ -363,6 +381,116 @@ nav .menu-open .extend_icon {
   padding: 1px 10px !important;
 }
 
+.RightContainerTable .table.myDataTable.no-footer {
+  border-bottom: none !important;
+}
+
+.RightContainerTable table.dataTable thead th {
+  border-bottom: unset !important;
+  border-bottom: 2px solid #dee2e6 !important;
+}
+
+.RightContainerPaginationTable {
+  width: 100% !important;
+}
+
+.RightContainerPaginationTable .table td,
+.RightContainerPaginationTable .table th {
+  border-top: unset !important;
+  padding: .75rem .60rem !important;
+}
+
+.RightContainerPaginationTable .table-striped tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa !important;
+}
+
+.RightContainerPaginationTable .table-striped tbody tr:nth-of-type(odd) {
+  background-color: white !important;
+}
+
+.RightContainerPaginationTable .table thead th {
+  color: #6e6666d1 !important;
+}
+
+.RightContainerPaginationTable .col_1 {
+  width: 3% !important;
+}
+
+.RightContainerPaginationTable .categoriesStatus {
+  background-color: #F8800B !important;
+  color: white !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+  padding: 1px 10px !important;
+}
+
+.RightContainerPaginationTable .table.myDataTable.no-footer {
+  border-bottom: none !important;
+}
+
+.RightContainerPaginationTable table.dataTable thead th {
+  border-bottom: unset !important;
+  border-bottom: 2px solid #dee2e6 !important;
+}
+
+.RightContainerPaginationTable .dataTables_wrapper {
+  border-radius: 9px !important;
+  padding: 30px !important;
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.RightContainerPaginationTable .myDataTable {
+  border-radius: 9px !important;
+  padding: 30px !important;
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.RightContainerPaginationTable .dataTables_paginate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px !important;
+}
+
+.RightContainerPaginationTable .dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: unset;
+  margin: 0;
+}
+
+.RightContainerPaginationTable .page-item {
+  border: unset !important;
+  margin: 0 5px !important;
+  border-radius: 5px !important;
+}
+
+.RightContainerPaginationTable .page-item.active .page-link {
+  background-color: #F8800B !important;
+  border: unset !important;
+}
+
+.RightContainerPaginationTable .page-link {
+  color: black;
+  background-color: white !important;
+  border-radius: 5px !important;
+  padding: .4rem 1rem !important;
+}
+
+.RightContainerPaginationTable #DataTables_Table_0_previous .page-link {
+  border: none !important;
+  padding: 0 !important;
+}
+
+.RightContainerPaginationTable #DataTables_Table_0_next .page-link {
+  border: none !important;
+  padding: 0 !important;
+}
+
 .manageIcons {
   color: #6e666661;
   margin: 0 5px;
@@ -419,7 +547,10 @@ nav .menu-open .extend_icon {
 /* AddNewCategory modal */
 .myAddNewModal .modal-dialog {
   max-width: 635px !important;
-  margin: 8rem auto !important;
+}
+
+.myAddNewModal .modal-content {
+  margin-top: 25% !important;
 }
 
 .myAddNewModal .modal-header {
@@ -490,5 +621,85 @@ nav .menu-open .extend_icon {
 
 .amountTextColor {
   color: #063D75;
+}
+
+/* adLanguageManager page */
+.languageFlag {
+  width: 61px;
+  background-size: cover;
+  height: 30px;
+  border-radius: 3px;
+}
+
+/*  adBasicSettings */
+.coloredInputsContainer .form-control {
+  background-color: #e9ecef61 !important;
+  border: unset !important;
+  height: calc(2.25rem + 15px);
+}
+
+.coloredInputsContainer ::-webkit-input-placeholder {
+  color: black !important;
+  opacity: 1 !important;
+  /* Firefox */
+  font-size: 1.2rem !important;
+  font-weight: 600;
+}
+
+.coloredInputsContainer :-ms-input-placeholder {
+  color: black !important;
+  opacity: 1 !important;
+  /* Firefox */
+  font-size: 1.2rem !important;
+  font-weight: 600;
+}
+
+.coloredInputsContainer ::-ms-input-placeholder {
+  color: black !important;
+  opacity: 1 !important;
+  /* Firefox */
+  font-size: 1.2rem !important;
+  font-weight: 600;
+}
+
+.coloredInputsContainer ::placeholder {
+  color: black !important;
+  opacity: 1 !important;
+  /* Firefox */
+  font-size: 1.2rem !important;
+  font-weight: 600;
+}
+
+input[type="checkbox" i] {
+  background-color: red !important;
+  cursor: default;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
+}
+
+input {
+  text-rendering: auto;
+  color: black;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  background-color: blue;
+  margin: 0em;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: yellow;
+  -o-border-image: initial;
+     border-image: initial;
 }
 /*# sourceMappingURL=style.css.map */

@@ -115,6 +115,9 @@ a:hover {
     font-size: 1rem;
 }
 
+.rotate {
+    transform: rotate(90deg) !important;
+}
 
 
 .backgroundCerulean {
@@ -129,12 +132,25 @@ a:hover {
     color: #F36A10;
 }
 
+.blurText {
+    color: #a1a6ac;
+}
+
+.bigIcon {
+    font-size: 1.6rem !important;
+}
+
 .orangeBackground {
     background-color: #F36A10;
 }
 
 .content-wrapper {
     background-color: white;
+}
+
+.input-group-text {
+    border          : unset !important;
+    background-color: #e9ecef61 !important;
 }
 
 // ---dashboard page -------------
@@ -291,7 +307,7 @@ nav .menu-open .extend_icon {
     place-items  : center;
 }
 
-.adminDashboard .smallBoxIcon {
+.smallBoxIcon {
     width: 47px;
 }
 
@@ -356,7 +372,8 @@ nav .menu-open .extend_icon {
     font-weight: 500;
 
 }
-.paymentContainerBox *{
+
+.paymentContainerBox * {
     font-size: 0.8rem !important;
 }
 
@@ -392,6 +409,115 @@ nav .menu-open .extend_icon {
     padding         : 1px 10px !important;
 }
 
+.RightContainerTable .table.myDataTable.no-footer {
+    border-bottom: none !important;
+}
+
+.RightContainerTable table.dataTable thead th {
+    border-bottom: unset !important;
+    border-bottom: 2px solid #dee2e6 !important;
+}
+
+
+.RightContainerPaginationTable {
+    width: 100% !important;
+
+    .table td,
+    .table th {
+        border-top: unset !important;
+        padding   : .75rem .60rem !important;
+    }
+
+    .table-striped tbody tr:nth-of-type(even) {
+        background-color: #f8f9fa !important;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: white !important;
+    }
+
+    .table thead th {
+        color: #6e6666d1 !important;
+    }
+
+    .col_1 {
+        width: 3% !important;
+    }
+
+    .categoriesStatus {
+        background-color: #F8800B !important;
+        color           : white !important;
+        border-radius   : 8px !important;
+        text-align      : center !important;
+        padding         : 1px 10px !important;
+    }
+
+    .table.myDataTable.no-footer {
+        border-bottom: none !important;
+    }
+
+    table.dataTable thead th {
+        border-bottom: unset !important;
+        border-bottom: 2px solid #dee2e6 !important;
+    }
+
+    .dataTables_wrapper {
+        border-radius: 9px !important;
+        padding      : 30px !important;
+        @include myShadow(0 0.125rem .25rem rgba(0, 0, 0, 0.200));
+    }
+
+    .myDataTable {
+        border-radius: 9px !important;
+        padding      : 30px !important;
+        @include myShadow(0 0.125rem .25rem rgba(0, 0, 0, 0.200));
+    }
+
+    .dataTables_paginate {
+        display        : flex;
+        width          : 100%;
+        justify-content: center;
+        margin-top     : 10px !important;
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: unset;
+        margin : 0;
+
+    }
+
+    .page-item {
+        border       : unset !important;
+        margin       : 0 5px !important;
+        border-radius: 5px !important;
+
+    }
+
+    .page-item.active .page-link {
+        background-color: #F8800B !important;
+        border          : unset !important;
+    }
+
+    .page-link {
+        color           : black;
+        background-color: white !important;
+        border-radius   : 5px !important;
+        padding         : .4rem 1rem !important;
+
+    }
+
+    #DataTables_Table_0_previous .page-link {
+        border : none !important;
+        padding: 0 !important;
+    }
+
+    #DataTables_Table_0_next .page-link {
+        border : none !important;
+        padding: 0 !important;
+    }
+}
+
 .manageIcons {
     color : #6e666661;
     margin: 0 5px;
@@ -421,6 +547,7 @@ nav .menu-open .extend_icon {
 .rightSideElements>div {
     margin-right: 10px;
 }
+
 
 .rightSideElements * {
     height : 30px !important;
@@ -454,8 +581,12 @@ nav .menu-open .extend_icon {
 
 /* AddNewCategory modal */
 .myAddNewModal .modal-dialog {
-    max-width: 635px !important;
-    margin   : 8rem auto !important;
+    max-width   : 635px !important;
+    // margin   : 8rem auto !important;
+}
+
+.myAddNewModal .modal-content {
+    margin-top: 25% !important;
 }
 
 .myAddNewModal .modal-header {
@@ -492,32 +623,89 @@ nav .menu-open .extend_icon {
     background: #e9ecef;
     width     : 92%;
     align-self: center;
-    margin: .9rem 0;
+    margin    : .9rem 0;
 }
-.paymentContainerBoxImg{
-    height: 63px;
+
+.paymentContainerBoxImg {
+    height         : 63px;
     background-size: cover;
 }
-.smallSelectbox{
-    height: 24px !important;
-    width: 42% !important;
-    padding: 0 4px !important;
-    background: #e9ecef !important;
+
+.smallSelectbox {
+    height       : 24px !important;
+    width        : 42% !important;
+    padding      : 0 4px !important;
+    background   : #e9ecef !important;
     border-radius: 8px !important;
-    display: table-row !important;
-    font-size: 0.8rem !important;
+    display      : table-row !important;
+    font-size    : 0.8rem !important;
 }
-.myBadgey{
-    color: #0000008f;
+
+.myBadgey {
+    color           : #0000008f;
     background-color: #e9ecef;
-    display: inline-block;
-    padding: 1px 8px;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25rem;
-    margin-bottom: 5px;
+    display         : inline-block;
+    padding         : 1px 8px;
+    text-align      : center;
+    white-space     : nowrap;
+    vertical-align  : baseline;
+    border-radius   : .25rem;
+    margin-bottom   : 5px;
 }
-.amountTextColor{
-    color: #063D75 ;
+
+.amountTextColor {
+    color: #063D75;
+}
+
+/* adLanguageManager page */
+.languageFlag {
+    width          : 61px;
+    background-size: cover;
+    height         : 30px;
+    border-radius  : 3px;
+}
+
+/*  adBasicSettings */
+.coloredInputsContainer .form-control {
+    background-color: #e9ecef61 !important;
+    border          : unset !important;
+    height          : calc(2.25rem + 15px);
+}
+
+.coloredInputsContainer ::placeholder {
+    color      : black !important;
+    opacity    : 1 !important;
+    /* Firefox */
+    font-size  : 1.2rem !important;
+    font-weight: 600;
+}
+
+
+
+input[type="checkbox" i] {
+    background-color: red !important;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+input {
+    text-rendering: auto;
+    color: black;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    background-color: blue;
+    margin: 0em;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: yellow;
+    border-image: initial;
 }

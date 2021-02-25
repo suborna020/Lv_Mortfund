@@ -49,10 +49,10 @@
             
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
-                        <div class=" small-box RightContainerTable table-responsive">
-                            <table class="table table-striped table-borderless  ">
+                        <div class=" RightContainerPaginationTable  table-responsive">
+                            <table class="table table-striped table-borderless tableSmallText1 myDataTable" >
                                 <thead>
-                                    <tr>
+                                    <tr >
                                         <th scope="col" class="col_1">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Adress</th>
@@ -75,8 +75,47 @@
                                         <td>House #154,Road no 4,Mohammadia Society</td>
                                         <td>Yameen_iteza@gmail.com</td>
                                         <td>+88013122454</td>
-                                       
+                                      
                                     </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Yameen Irteza</td>
+                                        <td>House #154,Road no 4,Mohammadia Society</td>
+                                        <td>Yameen_iteza@gmail.com</td>
+                                        <td>+88013122454</td>
+                                      
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Yameen Irteza</td>
+                                        <td>House #154,Road no 4,Mohammadia Society</td>
+                                        <td>Yameen_iteza@gmail.com</td>
+                                        <td>+88013122454</td>
+                                      
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Yameen Irteza</td>
+                                        <td>House #154,Road no 4,Mohammadia Society</td>
+                                        <td>Yameen_iteza@gmail.com</td>
+                                        <td>+88013122454</td>
+                                      
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>Yameen Irteza</td>
+                                        <td>House #154,Road no 4,Mohammadia Society</td>
+                                        <td>Yameen_iteza@gmail.com</td>
+                                        <td>+88013122454</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">7</th>
+                                        <td>Yameen Irteza</td>
+                                        <td>House #154,Road no 4,Mohammadia Society</td>
+                                        <td>Yameen_iteza@gmail.com</td>
+                                        <td>+88013122454</td>
+                                    </tr>
+                                  
                                 </tbody>
                             </table>
                         </div>
