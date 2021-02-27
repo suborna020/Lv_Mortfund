@@ -92,12 +92,11 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
 
 });
-
 //----------------------- user routes -----------------------
 
 Route::get('/sign-up','App\Http\Controllers\Master@userSignup')->name('sign-up');
 
-Route::post('/sign-up','App\Http\Controllers\Master@userSignupSub')->name('signUpSub');
+Route::post('/sign-up','App\Http\Controllers\Master@userSignupSub')->name('signupSub');
 
 Route::get('/login','App\Http\Controllers\Master@userLogin')->name('login');
 
@@ -147,4 +146,3 @@ Route::group(['middleware'=>'authentication'],function(){
 
 
 });
-
