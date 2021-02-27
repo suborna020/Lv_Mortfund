@@ -85,7 +85,7 @@
                          </form>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="{{url('login')}}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn-create" href="#">Create Campaign</a>
