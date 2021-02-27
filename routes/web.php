@@ -97,7 +97,7 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
 
 Route::get('/sign-up','App\Http\Controllers\Master@userSignup')->name('sign-up');
 
-Route::post('/sign-up','App\Http\Controllers\Master@userSignupSub')->name('sign-up');
+Route::post('/sign-up','App\Http\Controllers\Master@userSignupSub')->name('signUpSub');
 
 Route::get('/login','App\Http\Controllers\Master@userLogin')->name('login');
 
@@ -105,7 +105,7 @@ Route::post('/login','App\Http\Controllers\Master@userLogin_sub');
 
 Route::get('/forgot-password','App\Http\Controllers\Master@forgotPassword')->name('forgot-password');
 
-Route::post('/forgot-password','App\Http\Controllers\Master@emailVerification')->name('forgot-password');
+Route::post('/forgot-password','App\Http\Controllers\Master@emailVerification')->name('forgotPassword');
 
 Route::get('/get-session','App\Http\Controllers\Master@getSession');
 

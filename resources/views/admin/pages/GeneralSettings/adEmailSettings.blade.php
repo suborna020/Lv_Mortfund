@@ -16,90 +16,68 @@
     <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid mt-5 rightContainer">
-                <div class="row ">
-                    <div class="col-lg-12 col-12 d-flex">
-                        <div class=" mr-auto">
-                            <h3>Fund Raise Categories</h3>
-                        </div>
-                        <div class=" ml-auto d-flex rightSideElements">
-                            <!-- SEARCH FORM -->
-                            <div class="form-group has-search serchForm">
-                                <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            <div>
-                                <form action="/action_page.php">
-                                    <div class="form-group">
-                                        <select class="form-control" id="sel1" name="sellist1">
-                                            <option>Active</option>
-                                            <option>2</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            <div>
-                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn   "> Search Category</button>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-12 ">
-                        <div class="">
-                            <button type="button" data-toggle="modal" data-target="#AddNewCategory" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New Category</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-12 ">
-                        <div class=" small-box RightContainerTable table-responsive">
-                            <table class="table table-striped table-borderless  ">
+            <div class="container-fluid mt-4 px-5 rightContainer coloredInputsContainer" >
+                <div class="row  ">
+                    <div class="col-lg-9 col-md-9 col-9">
+                        <div class=" small-box RightContainerTable table-responsive" style="padding: 12px !important;">
+                            <table class="table table-striped table-borderless mb-0 ">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="col_1">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Manage</th>
+                                        <th scope="col">Code</th>
+                                        <th scope="col">Description</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
-                                        <td>
-                                            <div>
-                                                <span><i class=" manageIcons fas fa-edit"></i></span>
-                                                <span><i class=" manageIcons fas fa-trash"></i></span>
-                                            </div>
-                                        </td>
+                                        <td>message</td>
+                                        <td>Lorem, ipsum dolor sit amet consectetur</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
-                                        <td>
-                                            <div>
-                                                <span><i class=" manageIcons fas fa-edit"></i></span>
-                                                <span><i class=" manageIcons fas fa-trash"></i></span>
-                                            </div>
-                                        </td>
+                                        <td>message</td>
+                                        <td>Lorem, ipsum dolor sit amet consectetur</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
-                    {{-- <br>admin session no :{{$admin_sessionData}} --}}
-                    {{-- user name :{{$userInfoBox->admin_name}} --}}
-
+                    
                 </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
+                <div class="row  ">
+                    <div class="col-lg-10 col-md-10 col-10">
+                        <div class="input-group ">
+                            <input type="text" class="form-control " name="username" placeholder="Email Sent From: ex:mortfund@noreply.com">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-2 my-auto">
+                        <span><i class=" manageIcons fas fa-edit "></i></span>
+                        <span><i class=" manageIcons fas fa-trash"></i></span>
+                    </div>
+                </div>
+                <div class="row mt-4 ">
+                    <div class="col-lg-10 col-md-10 col-10">
+                        <div class="input-group ">
+                            <input type="text" class="form-control " name="username" placeholder="Email Template">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-2 my-auto">
+                        <span><i class=" manageIcons fas fa-edit "></i></span>
+                        <span><i class=" manageIcons fas fa-trash"></i></span>
+                    </div>
+                </div>
+               
+               
+                <br>
+                <div class="modalBorder"></div>
+                <div class=" my-4 mx-4 px-5 d-flex">
+                    <button type="button" class="ml-auto whiteText btn-lg orangeBackground  font-weight-bold btn">Save Changes</button>
+                </div>
+
+                <br> 
+                <!-- /.container-fluid -->
         </section>
         <!-- /.content -->
     </div>
