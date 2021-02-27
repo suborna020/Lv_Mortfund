@@ -31,7 +31,7 @@ Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')-
 
 Route::post('/subscribe','App\Http\Controllers\SubscriberController@store')->name('subscribe');
 
-Route::get('/singleCampaign','App\Http\Controllers\FundraiserController@index')->name('singleCampaign');
+Route::get('/singleCampaign/{id}','App\Http\Controllers\FundraiserController@index');
 
 Route::get('details', function (Request $request) {
   // $ip = request()->ip();
@@ -111,9 +111,40 @@ Route::get('/get-session','App\Http\Controllers\Master@getSession');
 
 Route::group(['middleware'=>'authentication'],function(){
 
+    View::composer('*', 'App\Http\Controllers\Master@userCommonInfo');
+
     Route::get('/myAccount','App\Http\Controllers\Master@userDashboard');
 
     Route::get('/logout','App\Http\Controllers\Master@Logout')->name('logout');
+
+    Route::get('/paymentSettings','App\Http\Controllers\Master@paymentSettings');
+
+    Route::post('/selectUserPayment','App\Http\Controllers\Master@selectUserPayment');
+
+    Route::get('/userFundraisers','App\Http\Controllers\Master@userFundraisers');
+
+    Route::get('/withdrawMethod','App\Http\Controllers\WithdrawMethodController@index');
+
+    Route::get('/withdrawHistory','App\Http\Controllers\WithdrawMethodController@withdrawHistory');
+
+    Route::get('/deleteWithdrawHistory','App\Http\Controllers\WithdrawMethodController@deleteWithdrawHistory');
+
+    Route::get('/currentFundraisers','App\Http\Controllers\Master@currentFundraisers');
+
+    Route::get('fundraisers/{id}','App\Http\Controllers\Master@deleteFundraiser');
+
+    Route::get('createCampaign','App\Http\Controllers\Master@createCampaign');
+
+    Route::post('insertFundraiser','App\Http\Controllers\Master@insertCampaign');
+
+    Route::get('editFundraiser/{id}','App\Http\Controllers\Master@editFundraiser');
+
+    Route::post('updateFundraiser/{id}','App\Http\Controllers\Master@updateFundraiser');
+
+    Route::get('profile','App\Http\Controllers\Master@profile');
+
+    Route::post('updateProfile','App\Http\Controllers\Master@updateProfile');
+
 
 });
 

@@ -15,13 +15,14 @@ class CreateDonateHistoriesTable extends Migration
     {
         Schema::create('donate_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_id')->nullable();
+            $table->Integer('transaction_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->string('amount')->nullable();
-            $table->string('charge')->nullable();
+            $table->float('amount')->nullable();
+            $table->float('charge')->nullable();
+            $table->Integer('campaign_id')->nullable();
             $table->string('payment_method')->nullable();
             $table->timestamps();
         });

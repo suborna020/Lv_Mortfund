@@ -2,7 +2,7 @@
 
 @section('content')    
 
-<div class="container" style="width: 30%">
+<div class="container" style="width: 30%;margin-top:115px">
     <div class="signUp_container">
         <div class="signUp_title">
             <h3 class="text-center">login</h3>

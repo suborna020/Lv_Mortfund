@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\WithdrawMethod;
 use Illuminate\Http\Request;
+use App\Models\UserPaymentMethod;
+use App\Models\PaymentGateway;
+use App\Models\User;
+use App\Models\WithdrawRequest;
+use Session;
 
 class WithdrawMethodController extends Controller
 {
@@ -14,7 +19,22 @@ class WithdrawMethodController extends Controller
      */
     public function index()
     {
-        //
+        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->get();
+        $payment_gateways = PaymentGateway::where('status',1)->get();
+        return view('ui.pages.users.user.withdraw_methods',compact('payment_methods','payment_gateways'));
+    }
+
+    public function withdrawHistory()
+    {   
+        $withdraw_history = WithdrawRequest::with('Members')->where('user',session('user_session'))->get();
+        return view('ui.pages.users.user.withdraw_history',compact('withdraw_history'));
+    }
+
+    public function deleteWithdrawHistory(Request $r)
+    {
+        WithdrawRequest::where('user',session('user_session'))->delete();
+
+        return redirect('/withdrawHistory');
     }
 
     /**
@@ -80,6 +100,6 @@ class WithdrawMethodController extends Controller
      */
     public function destroy(WithdrawMethod $withdrawMethod)
     {
-        //
+        
     }
 }

@@ -22,6 +22,10 @@ use App\Models\Subscribe;
 use App\Models\Counter;
 use App\Models\Submenu;
 use App\Models\Currency;
+use App\Models\UserPaymentMethod;
+use App\Models\PaymentGateway;
+use App\Models\DonateHistory;
+use App\Models\Transection;
 
 // use App\Models\Currency;
 
@@ -37,6 +41,7 @@ class Master extends Controller
         $footer_about = FooterLinkAbout::where('status',1)->take(5)->get();
         $footer_explore = FooterLinkExplore::where('status',1)->take(5)->get();
         $footer_cat = Footer_link_category::where('status',1)->take(5)->get();
+        $fund_raised = Transection::all();
         $languages = Language::where('status',1)->get();
         $ip = '43.250.81.202';
         $arr_ip = geoip()->getLocation($ip);
@@ -47,14 +52,14 @@ class Master extends Controller
         
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first();
 
-        $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location);
+        $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location)->with('fund_raised',$fund_raised);
     }
 
 
     public function index(Request $r){
         
         $slider = Slider::where('status',1)->get();
-        $fundraisers = Fundraiser::with('categories','members')->paginate(4,['*'],'all');
+        $fundraisers = Fundraiser::with('categories','members','transections')->where('status',1)->paginate(4,['*'],'all');
         $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent');
         $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->paginate(4,['*'],'project-support');
         
@@ -68,7 +73,7 @@ class Master extends Controller
 
     public function fundraisers(Request $request){
         if($request->ajax()){
-        $fundraisers = Fundraiser::with('categories','members')->paginate(4,['*'],'all');
+        $fundraisers = Fundraiser::with('categories','members','transections')->where('status',1)->paginate(4,['*'],'all');
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
 
         // $ip = request()->ip();
@@ -85,7 +90,7 @@ class Master extends Controller
 
     public function recent(Request $request){
         if($request->ajax()){
-        $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent'); 
+        $recents = Fundraiser::with('categories','members','transections')->where('recent',1)->where('status',1)->paginate(8,['*'],'recent'); 
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $ip = request()->ip();
@@ -102,7 +107,7 @@ class Master extends Controller
 
     public function project_support(Request $request){
         if($request->ajax()){
-        $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->paginate(4,['*'],'project-support'); 
+        $project_supports = Fundraiser::with('categories','members','transections')->where('status',1)->where('project_support',1)->paginate(4,['*'],'project-support'); 
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $ip = request()->ip();
@@ -116,6 +121,154 @@ class Master extends Controller
      }
     }
 
+
+
+
+    /*USERS*/
+
+    public function currentFundraisers(Request $request){
+        if($request->ajax()){
+        $current_user_fundraisers = Fundraiser::with('categories','members','transections')->where('status',1)->where('member_id',session('user_session'))->paginate(4,['*'],'current');
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+
+        // $ip = request()->ip();
+        $ip = '43.250.81.202';
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.users.user.current_fundraisers',compact('current_user_fundraisers','user_currency','user_location','currency_by_location'))->render();
+     }
+    }
+
+    public function deleteFundraiser(Request $r,$id){
+        Fundraiser::destroy(array('id',$id));
+
+        $r->session()->flash('msg','deleted !');
+
+        return redirect('/userFundraisers');
+    }
+
+    public function createCampaign(){
+        return view('ui.pages.users.user.create_campign');
+    }
+
+    public function insertCampaign(Request $r){
+
+         $this->validate($r, [
+            'thumbnail' => 'mimes:jpeg,jpg,png',
+            'photo' => 'mimes:jpeg,jpg,png',
+            'video' => 'mimes:mp4',
+            'proof_document' => 'mimes:jpeg,jpg,png',
+         ]);
+
+         $thumbnail='';
+         $photo='';
+         $video='';
+         $proof_document='';
+
+         if ($r->thumbnail!='') {
+            $thumbnail = rand().'-'.time().'.'.$r->thumbnail->extension();
+            $r->thumbnail->move(public_path('uploads'), $thumbnail);
+         }
+
+         if ($r->photo!='') {
+            $photo = rand().'-'.time().'.'.$r->photo->extension();
+            $r->photo->move(public_path('uploads'), $photo);
+         }
+
+         if ($r->video!='') {
+            $video = rand().'-'.time().'.'.$r->video->extension();
+            $r->video->move(public_path('uploads'), $video);
+         }
+
+         if ($r->proof_document!='') {
+            $proof_document = rand().'-'.time().'.'.$r->proof_document->extension();
+            $r->proof_document->move(public_path('uploads'), $proof_document);
+         }
+
+         Fundraiser::create([
+            'category_id' => $r->category_id,
+            'member_id' => session('user_session'),
+            'title' => $r->title,
+            'benificiary_name' => $r->benificiary_name,
+            'needed_amount' => $r->needed_amount,
+            'deadline' => $r->deadline,
+            'story' => $r->story,
+            'thumbnail' => $thumbnail,
+            'photo' => $photo,
+            'video' => $video,
+            'proof_document' => $proof_document,
+        ]);
+
+
+        $r->session()->flash('msg','success !');
+
+        return redirect('userFundraisers');
+
+        
+    }
+
+    public function editFundraiser($id){
+        return view('ui.pages.users.user.edit_campaign')->with('get_fundraiser',Fundraiser::with('categories')->find($id));
+    }
+
+    public function updateFundraiser(Request $r){
+
+        $this->validate($r, [
+            'thumbnail' => 'mimes:jpeg,jpg,png',
+            'photo' => 'mimes:jpeg,jpg,png',
+            'video' => 'mimes:mp4',
+            'proof_document' => 'mimes:jpeg,jpg,png',
+         ]);
+         if ($r->thumbnail!='') {
+            $thumbnail = rand().'-'.time().'.'.$r->thumbnail->extension();
+             
+            $r->thumbnail->move(public_path('uploads'), $thumbnail);
+             
+         }else{
+            $thumbnail = $r->default_thumbnail;
+           
+         }
+         if ($r->photo!='') {
+            $photo = rand().'-'.time().'.'.$r->photo->extension();
+            $r->photo->move(public_path('uploads'), $photo);
+         }else{
+            $photo = $r->default_photo;
+         }
+         if ($r->video!='') {
+            $video = rand().'-'.time().'.'.$r->video->extension();
+            $r->video->move(public_path('uploads'), $video);
+         }else{
+            $video = $r->default_video;
+         }
+         if ($r->proof_document!='') {
+            $proof_document = rand().'-'.time().'.'.$r->proof_document->extension();
+            $r->proof_document->move(public_path('uploads'), $proof_document);
+         }else{
+            $proof_document = $r->default_proof_document;
+         }
+
+        Fundraiser::where('id', $r->id)->update([
+            'category_id' => $r->category_id,
+            'member_id' => session('user_session'),
+            'title' => $r->title,
+            'benificiary_name' => $r->benificiary_name,
+            'needed_amount' => $r->needed_amount,
+            'deadline' => $r->deadline,
+            'story' => $r->story,
+            'thumbnail' => $thumbnail,
+            'photo' => $photo,
+            'video' => $video,
+            'proof_document' => $proof_document,
+        ]);
+
+        $r->session()->flash('msg','Updated !');
+
+        return redirect('/userFundraisers');
+     }
+
     public function setUserCurrency(Request $r){
         $c_c = $r->currency_code;
         $r->session()->put('currency_c', $c_c);
@@ -124,7 +277,27 @@ class Master extends Controller
         // return redirect()->back();
     }
 
-  
+    public function userCommonInfo($users){
+
+        $user_info = User::where('id',session('user_session'))->first();
+        $current_user_fundraisers = Fundraiser::with('categories','members','transections')->where('member_id',session('user_session'))->paginate(4,['*'],'current');
+        $user_balance = Transection::where('campaign_author',session('user_session'))->get();
+        $current_fundraisers = Fundraiser::where('member_id',session('user_session'))->where('status',1)->get();
+        $pending_fundraisers = Fundraiser::where('status',0)->where('member_id',session('user_session'))->get();
+        $completed_fundraisers = Fundraiser::where('member_id',session('user_session'))->where('status',2)->get();
+        $number_of_current_fundraisers = $current_fundraisers->count();
+        $number_of_pending_fundraisers = $pending_fundraisers->count();
+        $number_of_completed_fundraisers = $completed_fundraisers->count();
+        
+        $users->with('user_info',$user_info)->with('number_of_current_fundraisers',$number_of_current_fundraisers)->with('number_of_pending_fundraisers',$number_of_pending_fundraisers)->with('number_of_completed_fundraisers',$number_of_completed_fundraisers)->with('current_user_fundraisers',$current_user_fundraisers)->with('user_balance',$user_balance);
+    }
+
+    public function userFundraisers(){
+        $current_user_fundraisers = Fundraiser::with('categories','members','transections')->where('member_id',session('user_session'))->paginate(4,['*'],'current');
+
+        return view('ui.pages.users.user.my_fund_raisers',compact('current_user_fundraisers'));
+    } 
+
 
     public function userDashboard(){
     	return view('ui.pages.users.user.dashboard');
@@ -227,4 +400,63 @@ class Master extends Controller
         echo $r->session()->get('currency_code');
     }
 
+    public function profile(Request $r){
+        $profile = User::where('id',session('user_session'))->first();
+        return view('ui.pages.users.user.profile',compact('profile'));
+    }
+
+    public function updateProfile(Request $r){
+
+        $this->validate($r, [
+            'user_photo' => 'mimes:jpeg,jpg,png',
+             
+         ]);
+         if ($r->user_photo!='') {
+            $user_photo = rand().'-'.time().'.'.$r->user_photo->extension();
+             
+            $r->user_photo->move(public_path('uploads'), $user_photo);
+             
+         }else{
+            $user_photo = $r->default_user_photo;
+           
+         }
+          
+        User::where('id', session('user_session'))->update([
+            'name' => $r->name,
+            'user_photo' => $user_photo,
+            'mobile_no' => $r->mobile_no,
+            'address' => $r->address,
+        ]);
+
+        $r->session()->flash('msg','Updated !');
+
+        return redirect('/profile');
+     }
+
+    public function paymentSettings(Request $r){
+        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->get();
+        $payment_gateways = PaymentGateway::where('status',1)->get();
+        return view('ui.pages.users.user.payment_settings',compact('payment_methods','payment_gateways'));
+    }
+
+    public function selectUserPayment(Request $r){
+      $user_payment_method = UserPaymentMethod::where('user_id',session('user_session'))->where('payment_method_id', '=', $r->payment_method_id)->first();
+      if ($user_payment_method===null) {
+            foreach($r->payment_method_id as $item=>$v){
+                    $data2=array(
+                        'user_id'=>session('user_session'),
+                         'payment_method_id'=>$r->payment_method_id[$item],
+                        
+                    );
+                UserPaymentMethod::insert($data2);
+                $method_message = array('status' => 'true', 'message' => 'Method successfully Added', 'reload' => url('paymentSettings'));
+              }
+        }else{
+            $method_message = array('status' => 'false', 'message' => 'You have selected an Existed method,Please exclude the existed one');
+        }  
+
+      echo json_encode($method_message);
+        
+    }
+ 
 }

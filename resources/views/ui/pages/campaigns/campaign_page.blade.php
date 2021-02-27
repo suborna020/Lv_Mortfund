@@ -18,9 +18,73 @@
     <!-- Category Section Started -->
     <section>
        <div class="container">
-          <div class="row" style="background: red;height: 500px;">
-            <div class="col-12 col-md-8" style="background: blue">
-          </div>
+          <div class="row pt-4">
+            <div class="col-12 col-md-8">
+                 <div class="row">
+                      <div class="col-12 col-md-8">
+                           <img src="../uploads/{{$get_fundraiser->photo}}">
+                      </div>
+                      <div class="col-12 col-md-4">
+                           <div class="row">
+                                <div class="col-12 col-md-12">
+                                  <img width="100%" src="../uploads/{{$get_fundraiser->photo}}">
+                                </div>
+                                <div class="col-12 col-md-12">
+                                  <video width="100%" controls>
+                                      <source src="../uploads/{{$get_fundraiser->video}}" type="video/mp4">
+                                      <source src="../uploads/{{$get_fundraiser->video}}" type="video/ogg">
+                                      Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                           </div>
+                      </div>
+                 </div>
+                 <div class="row">
+                      <div class="col-12 col-md-6">
+                           <p><i class="{{$get_fundraiser->icon}}"></i> {{$get_fundraiser->categories->category_name}}</p>
+                           <h4>{{$get_fundraiser->title}}</h4>
+                           <p>By <img width="20px" src="../uploads/{{$get_fundraiser->members->user_photo}}"> {{$get_fundraiser->members->name}}</p>
+                      </div>
+                      <div class="col-12 col-md-6 pt-4">
+                           <div class="row">
+                               <div class="col-12 col-md-4 d-flex flex-row-reverse">
+                                   <h4>Share On</h4>
+                               </div>
+                               <div class="col-12 col-md-8 d-flex flex-row-reverse">
+                                
+                                    @foreach($socials as $social)
+                                    <a href="{{$social->link}}"><i class="{{$social->social_photo}}"></i></a>
+                                    @endforeach
+                                
+                               </div>
+                           </div>
+                      </div>
+                 </div>
+                 <div class="row">
+                      <div class="col-12 col-md-3">
+                           Location {{$get_fundraiser->location}}
+                      </div>
+                      <div class="col-12 col-md-3">
+                           Goal {{$get_fundraiser->needed_amount}}
+                      </div>
+                      <div class="col-12 col-md-3">
+                           Raised {{$get_fundraiser->raised}}
+                      </div>
+                      <div class="col-12 col-md-3">
+                           DeadLine {{$get_fundraiser->deadline}}
+                      </div>
+                 </div>
+                 <div class="row">
+                      <div class="col-12 col-md-12">
+                           {{$get_fundraiser->story}}
+                      </div>
+                      <div class="col-12 col-md-12">
+                           <button class="btn btn-primary">Donate</button><button class="btn btn-primary">Comment</button><button class="btn btn-primary">Report</button>
+                      </div>
+                 </div>
+            </div>
+            <div class="col-12 col-md-4" style="background: pink">
+            </div>
        </div>
     </section>
     <section class="related-posts">

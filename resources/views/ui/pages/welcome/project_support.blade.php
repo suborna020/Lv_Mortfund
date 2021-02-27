@@ -2,7 +2,7 @@
     @foreach($project_supports as $project_support)
     <div class="col-md-6 col-xl-3">
         <div class="card">
-            <img src="{{$project_support->photo}}" class="card-img-top" alt="...">
+            <img src="uploads/{{$project_support->photo}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$project_support->icon}}" aria-hidden="true"></i></i> {{$project_support->categories->category_name}}</li>
@@ -12,23 +12,27 @@
                 <p id="raised" style="display: none">{{$project_support->raised}}</p>
                 <p id="needed" style="display: none">{{$project_support->needed_amount}}</p>
                 <div class="progress" style="height:8px;">
-                    <div class="progress-bar bg-success role="progressbar" style="width: {{($project_support->raised*100)/$project_support->needed_amount}}%;" aria-valuenow="25" aria-valuemin="0"
-                        aria-valuemax="100"><span class="precentage-lebel">{{($project_support->raised*100)/$project_support->needed_amount}}%</span></div>
+                    <div class="progress-bar bg-success role="progressbar" style="width: {{($project_support->transections->sum('amount')*100)/$project_support->needed_amount}}%" aria-valuenow="25" aria-valuemin="0"
+                        aria-valuemax="100">
+                        <span class="precentage-lebel">{{($project_support->transections->sum('amount')*100)/$project_support->needed_amount}}% </span>
+                    </div>
                 </div>
+                
                 @if(session::has('currency_c'))
-                @if($user_currency->session_currency == session('currency_c'))
-                <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($project_support->raised)*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($project_support->needed_amount)*($user_currency->value)}}</p>
-                @endif
+                    @if($user_currency->session_currency == session('currency_c'))
+                        <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($project_support->transections->sum('amount'))*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($project_support->needed_amount)*($user_currency->value)}}</p>
+                    @endif
                 @else
-                <p class="custom-card-text"><span class="text-muted">{{$currency_by_location->symbol}}{{($project_support->raised)*($currency_by_location->value)}}</span> rised of {{$currency_by_location->symbol}}{{($project_support->needed_amount)*($currency_by_location->value)}}</p>
+                   
+                <p class="custom-card-text"><span class="text-muted">{{$currency_by_location->symbol}}{{($project_support->transections->sum('amount'))*($currency_by_location->value)}}</span> rised of {{$currency_by_location->symbol}}{{($project_support->needed_amount)*($currency_by_location->value)}}</p>
                 
                 @endif
                 <div class="row border-top">
                     <div class="col-8 col-md-8 col-gap">
                         <div class="media">
-                            <img src="{{ $project_support->members->photo?? '#' }}" class="mr-2 user-img" alt="...">
+                            <img src="uploads/{{ $project_support->members->user_photo?? '#' }}" class="mr-2 user-img" alt="...">
                             <div class="media-body">
-                                <p class="name-text">By{{ $project_support->members->namee?? 'Any Name' }}  </p>
+                                <p class="name-text">By{{ $project_support->members->name?? 'Any Name' }}  </p>
                             </div>
                         </div>
                     </div>

@@ -31,17 +31,9 @@ class FundraiserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $general = General::where('id',1)->first();
-        $footer = Footer::where('id',1)->first();
-        $navmenu = Navmenu::with('submenus')->where('status',1)->get();
-        $socials = Social::where('status',1)->get();
-        $categories = Category::where('status',1)->get();
-        $footer_about = FooterLinkAbout::where('status',1)->take(5)->get();
-        $footer_explore = FooterLinkExplore::where('status',1)->take(5)->get();
-        $footer_cat = Footer_link_category::where('status',1)->take(5)->get();
-        $languages = Language::where('status',1)->get();
+        
 
         $ip = '43.250.81.202';
         $arr_ip = geoip()->getLocation($ip);
@@ -52,7 +44,9 @@ class FundraiserController extends Controller
         
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
 
-        return view('ui.pages.campaigns.campaign_page',compact('general','footer','categories','navmenu','socials','footer_about','footer_explore','footer_cat','languages','currencies','user_currency','currency_by_location'));
+        // return view('ui.pages.campaigns.campaign_page',compact('general','footer','categories','navmenu','socials','footer_about','footer_explore','footer_cat','languages','currencies','user_currency','currency_by_location'));
+
+        return view('ui.pages.campaigns.campaign_page')->with('get_fundraiser',Fundraiser::with('categories','members')->find($id));
     }
 
     /**
