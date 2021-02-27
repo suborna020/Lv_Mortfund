@@ -26,7 +26,7 @@ use App\Models\UserPaymentMethod;
 use App\Models\PaymentGateway;
 use App\Models\DonateHistory;
 use App\Models\Transection;
-
+use Image;
 // use App\Models\Currency;
 
 class Master extends Controller
@@ -169,13 +169,26 @@ class Master extends Controller
          $proof_document='';
 
          if ($r->thumbnail!='') {
-            $thumbnail = rand().'-'.time().'.'.$r->thumbnail->extension();
-            $r->thumbnail->move(public_path('uploads'), $thumbnail);
+            $image = $r->file('thumbnail');
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/thumbnails');
+            $resize_image = Image::make($image->getRealPath());
+            $resize_image->resize(350, 280, function($constraint){
+            $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_name);
+            $destinationPath = public_path('/uploads');
+            $image->move($destinationPath, $image_name);
+
+
+
+            // $thumbnail = rand().'-'.time().'.'.$r->thumbnail->extension();
+            // $r->thumbnail->move(public_path('uploads'), $thumbnail);
          }
 
          if ($r->photo!='') {
-            $photo = rand().'-'.time().'.'.$r->photo->extension();
-            $r->photo->move(public_path('uploads'), $photo);
+            
+            // $photo = rand().'-'.time().'.'.$r->photo->extension();
+            // $r->photo->move(public_path('uploads'), $photo);
          }
 
          if ($r->video!='') {
@@ -196,7 +209,7 @@ class Master extends Controller
             'needed_amount' => $r->needed_amount,
             'deadline' => $r->deadline,
             'story' => $r->story,
-            'thumbnail' => $thumbnail,
+            'thumbnail' => $image_name,
             'photo' => $photo,
             'video' => $video,
             'proof_document' => $proof_document,
@@ -412,9 +425,20 @@ class Master extends Controller
              
          ]);
          if ($r->user_photo!='') {
-            $user_photo = rand().'-'.time().'.'.$r->user_photo->extension();
+
+            $user_photo = $r->file('thumbnail');
+            $user_photo_name = time() . '.' . $user_photo->getClientOriginalExtension();
+            $destinationPath = public_path('/thumbnails');
+            $resize_image = Image::make($user_photo->getRealPath());
+            $resize_image->resize(350, 280, function($constraint){
+            $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $user_photo_name);
+            $destinationPath = public_path('/uploads');
+            $user_photo->move($destinationPath, $user_photo_name);
+
+            // $user_photo = rand().'-'.time().'.'.$r->user_photo->extension();
              
-            $r->user_photo->move(public_path('uploads'), $user_photo);
+            // $r->user_photo->move(public_path('uploads'), $user_photo);
              
          }else{
             $user_photo = $r->default_user_photo;
