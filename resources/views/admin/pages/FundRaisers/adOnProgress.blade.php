@@ -62,7 +62,7 @@
                                         <th scope="row">1</th>
                                         <td>Save Austrailia</td>
                                         <td>$2000.00</td>
-                                        <td>$1000.00</td>
+                                        <td>$100000000000000000000000000.00</td>
                                         <td>12/09/21</td>
                                         <td>charles McAvoy</td>
                                         <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
