@@ -55,8 +55,8 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
-                        <div class=" small-box RightContainerTable  table-responsive">
-                            <table class="  table table-striped table-borderless   ">
+                        <div class=" small-box RightContainerTable table-responsive">
+                            <table class="table table-striped table-borderless  ">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="col_1">#</th>
@@ -65,7 +65,7 @@
                                         <th scope="col">Manage</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="fundRaiseCategoriesBody<">
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
@@ -109,5 +109,41 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+
+    })
+
+    function allData() {
+        $.ajax({
+            type: "GET"
+            , DataType: 'json'
+            , url: "/alldata"
+            , success: function(allData) {
+                var getHtml = ""
+                $.each(allData, function(key, allDatavalue) {
+                    // console.log(allDatavalue);
+                    getHtml += `<tr>
+                                <td>${allDatavalue.id}</td>
+                                <td>${allDatavalue.name}</td>
+                                <td>${allDatavalue.title}</td>
+                                <td>${allDatavalue.institute}</td>
+                                <td>
+                                <button class="btn btn-sm btn-primary mr-2" onclick='editData(${allDatavalue.id})'>Edit</button>
+                                <button class="btn btn-sm btn-danger mr-2" onclick='deleteData(${allDatavalue.id})'>Delete</button>
+                                </td>
+                                </tr>`
+                })
+                $('#fundRaiseCategoriesBody').html(getHtml);
+
+            }
+        })
+    }
+    allData();
+
+</script>
 
 @endsection
