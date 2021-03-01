@@ -1,0 +1,39 @@
+
+@clone new project.
+#/copy the link from github
+#git clone https://github.com/suborna020/Lv_Mortfund.git
+#/.env file a database name set
+#composer install
+# php artisan key:generate
+# php artisan config:cache
+
+# php artisan migrate
+# php artisan serve
+@git project sent:
+git add .   
+git commit -m "initial release "
+git pull
+git push
+
+@for project clear :
+php artisan cache:clear
+php artisan route:cache
+php artisan config:cache
+
+@if someone added a package to your git project .after pull you have to run a command like:
+composer install
+
+	
+@php artisan make:controller StudentController
+
+@recieve settings:
+1souse control->masssge->cnt+enter>pull
+sent settings:
+1souse control->masssge->cnt+enter>push
+
+issues:
+urgent fundraisers table. how and were it works
+like add new urgent fundraisers .which table i will insert
+
+catagory icon issue:
+add catagory te modal er (catagory icon) likhe (upload photo) button keno deya?
