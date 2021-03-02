@@ -251,7 +251,6 @@
                             <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn"><i class="fas fa-plus mr-1"></i> Upload Ad Photo</button>
                         </div>
                         <div class="col-lg-7 col-7 col-sm-7 px-0 d-flex orange_text">
-
                             <div class="pr-2"><i class="bi bi-info-circle fa-lg"></i></div>
                             <div class="">Image will be resized according to size select below</div>
                         </div>

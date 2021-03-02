@@ -3,7 +3,6 @@
 <div class="wrapper">
 
     <!-- Navbar -->
-
     @include('admin.layout.components.aHeader')
     <!-- /.navbar -->
 
@@ -128,7 +127,6 @@
                     <section class="col-md-12 my-0">
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card card-info my-0">
-
                             <div class="card-body">
                                 <div class="chart">
                                     <canvas id="lineChart" style="min-height: 50px;  max-width: 100%;"></canvas>
