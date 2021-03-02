@@ -31,16 +31,18 @@ class AdminOperation extends Controller
         return redirect('/adminLogin');
     }
     // all common data in one place 
-    public function GlobalDataBox($view){
-        $FundraisersBox = Fundraiser::all();
-        $CategoriesBox = Category::all();
-        $successStoriesBox = SuccessStory::all();
-        $WithdrawRequestsBox=WithdrawRequest::all();
+    // public function GlobalDataBox($adminView){
+    //     $FundraisersBox = Fundraiser::all();
+    //     $CategoriesBox = Category::all();
+    //     $successStoriesBox = SuccessStory::all();
+    //     $WithdrawRequestsBox=WithdrawRequest::all();
 
-        $view->with('FundraisersBox',$FundraisersBox)
-        ->with('CategoriesBox',$CategoriesBox)
-        ->with('successStoriesBox',$successStoriesBox)
-        ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
-        ;
-    }
+    //     $adminView->with('FundraisersBox',$FundraisersBox)
+    //     ->with('CategoriesBox',$CategoriesBox)
+    //     ->with('successStoriesBox',$successStoriesBox)
+    //     ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
+    //     ;
+       
+
+    // }
 }

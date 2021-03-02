@@ -19,6 +19,7 @@ git push
 php artisan cache:clear
 php artisan route:cache
 php artisan config:cache
+php artisan view:clear
 
 @if someone added a package to your git project .after pull you have to run a command like:
 composer install

@@ -65,8 +65,8 @@
                                         <th scope="col">Manage</th>
                                     </tr>
                                 </thead>
-                                <tbody id="fundRaiseCategoriesBody<">
-                                    <tr>
+                                <tbody id="fundRaiseCategoriesBody">
+                                    {{-- <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
                                         <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
@@ -76,18 +76,7 @@
                                                 <span><i class=" manageIcons fas fa-trash fa-lg"></i></span>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
-                                        <td>
-                                            <div>
-                                                <span><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                                <span><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    </tr> --}}
                                 </tbody>
                             </table>
                         </div>
@@ -109,7 +98,8 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
-<script>
+
+<script type="text/javascript">
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -121,21 +111,37 @@
         $.ajax({
             type: "GET"
             , DataType: 'json'
-            , url: "/alldata"
-            , success: function(allData) {
+            , url: "/fundRaiseCategoriesData"
+            , success: function(fundRaiseCategories) {
+                // console.log("succsess");
+                // console.log(fundRaiseCategories);
                 var getHtml = ""
-                $.each(allData, function(key, allDatavalue) {
-                    // console.log(allDatavalue);
+                $.each(fundRaiseCategories, function(key, fundRaiseCategories) {
+                    console.log(fundRaiseCategories.status);
+                    // ${result['color 5'] ? 'color 5 exists!' : 'color 5 does not exist!'}
+                   
                     getHtml += `<tr>
-                                <td>${allDatavalue.id}</td>
-                                <td>${allDatavalue.name}</td>
-                                <td>${allDatavalue.title}</td>
-                                <td>${allDatavalue.institute}</td>
-                                <td>
-                                <button class="btn btn-sm btn-primary mr-2" onclick='editData(${allDatavalue.id})'>Edit</button>
-                                <button class="btn btn-sm btn-danger mr-2" onclick='deleteData(${allDatavalue.id})'>Delete</button>
-                                </td>
+                                    <th scope="row">${fundRaiseCategories.id}</th>
+                                    <td>${fundRaiseCategories.category_name}</td>
+                                    ${fundRaiseCategories.status=='1' ? '<td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>' : '<td><button type="button" class="btn btn-warning btn-sm backgroundCerulean categoriesStatus ">Inactive</button></td>' }
+                                   
+                                    <td>
+                                        <div>
+                                            <span><i class=" manageIcons fas fa-edit fa-lg"></i></span>
+                                            <span><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                        </div>
+                                    </td>
                                 </tr>`
+                    // getHtml += `<tr>
+                    //             <td>${allDatavalue.id}</td>
+                    //             <td>${allDatavalue.name}</td>
+                    //             <td>${allDatavalue.title}</td>
+                    //             <td>${allDatavalue.institute}</td>
+                    //             <td>
+                    //             <button class="btn btn-sm btn-primary mr-2" onclick='editData(${allDatavalue.id})'>Edit</button>
+                    //             <button class="btn btn-sm btn-danger mr-2" onclick='deleteData(${allDatavalue.id})'>Delete</button>
+                    //             </td>
+                    //             </tr>`
                 })
                 $('#fundRaiseCategoriesBody').html(getHtml);
 
@@ -145,5 +151,4 @@
     allData();
 
 </script>
-
 @endsection

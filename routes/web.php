@@ -3,7 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+
+
 use App\Models\Admin;
+use App\Models\Fundraiser;
+use App\Models\Category;
+use App\Models\SuccessStory;
+use App\Models\WithdrawRequest;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,15 +61,17 @@ Route::get('/adminSignup','App\Http\Controllers\AdminController@aSignUpM')->name
 Route::post('/adminSignUpSub','App\Http\Controllers\AdminController@aSignUpSub');
 
 Route::group(['middleware'=>'adminAuthentication'],function(){
-    View::composer('*', function ($view) {
-        if(Session::get('admin_session')){
-            $user_id=Session::get('admin_session');
-            $userInfoBox=Admin::findOrFail($user_id);
-            $view->with('userInfoBox',$userInfoBox);
-        }
+    // View::composer('*', function ($view) {
+    //     if(Session::get('admin_session')){
+    //         $user_id=Session::get('admin_session');
+    //         $userInfoBox=Admin::findOrFail($user_id);
+
+    //         $view->with('userInfoBox',$userInfoBox)
+    //         ;
+    //     }
       
-    });
-    View::composer('*', 'App\Http\Controllers\AdminOperation@GlobalDataBox');
+    // });
+    // View::composer('*', 'App\Http\Controllers\AdminOperation@GlobalDataBox');
 
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
@@ -70,7 +80,12 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('aDashboard/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
     Route::get('aDashboard/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
     Route::get('aDashboard/adPending','App\Http\Controllers\AdFundraisers@adPending');
-    Route::get('aDashboard/adOnProgress','App\Http\Controllers\AdFundraisers@adOnProgress');
+    // Route::get('/fundRaiseCategoriesData',[\App\Http\Controllers\AdFundraisers::class,'fundRaiseCategoriesData']);
+    // Route::get('fundRaiseCategoriesData', 'AdFundraisers@fundRaiseCategoriesData');
+    // Route::get('fundRaiseCategoriesData','App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
+    Route::get('/fundRaiseCategoriesData', 'App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
+
+    
     // Withdraw System
     Route::get('adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
     Route::get('adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');
@@ -94,11 +109,12 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
 
 });
+
 //----------------------- user routes -----------------------
 
 Route::get('/sign-up','App\Http\Controllers\Master@userSignup')->name('sign-up');
 
-Route::post('/sign-up','App\Http\Controllers\Master@userSignupSub')->name('signupSub');
+Route::post('/sign-up','App\Http\Controllers\Master@userSignupSub')->name('signUpSub');
 
 Route::get('/login','App\Http\Controllers\Master@userLogin')->name('login');
 

@@ -136,15 +136,15 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <br>admin session no :{{$admin_sessionData}}
+                        <br>admin session no :{{($admin_sessionData)?? '0' }}
 
-                        user name : {{$userInfoBox->admin_name}}
+                        user name :  {{($userInfoBox->admin_name)?? '0' }}
                         <br>
                         test:
                         @foreach($completedFundraiser as $completedFundraiser)
 
                         {{-- {{ ($FundraisersBox->status)==1}} --}}
-                        {{-- {{$completedFundraiser}}<br> --}}
+                        {{-- {{$FundraisersBox}}<br> --}}
                         @endforeach
 
                         <!-- /.card -->

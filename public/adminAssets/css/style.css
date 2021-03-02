@@ -111,7 +111,7 @@ a:hover {
 }
 
 .backgroundCerulean {
-  background-color: #063D75;
+  background-color: #063D75 !important;
 }
 
 .whiteText {
@@ -374,11 +374,12 @@ nav .menu-open .extend_icon {
 }
 
 .RightContainerTable .categoriesStatus {
-  background-color: #F8800B !important;
+  background-color: #F8800B;
   color: white !important;
   border-radius: 8px !important;
   text-align: center !important;
   padding: 1px 10px !important;
+  border-color: unset !important;
 }
 
 .RightContainerTable .table.myDataTable.no-footer {

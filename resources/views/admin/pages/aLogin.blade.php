@@ -14,7 +14,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Log In To Admin Portal</p>
-
+               
                 <form action="{{ url('adminLoginSub') }}" class="database_operation">
                     @csrf
 
