@@ -25,7 +25,6 @@ use App\Models\WithdrawRequest;
 */
 
 
-View::composer('*', 'App\Http\Controllers\Master@all');
 
 Route::get('','App\Http\Controllers\Master@index');
 
@@ -40,6 +39,8 @@ Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')-
 Route::post('/subscribe','App\Http\Controllers\SubscriberController@store')->name('subscribe');
 
 Route::get('/singleCampaign/{id}','App\Http\Controllers\FundraiserController@index');
+
+Route::get('/test','App\Http\Controllers\Master@test');
 
 Route::get('details', function (Request $request) {
   // $ip = request()->ip();
@@ -127,7 +128,6 @@ Route::get('/get-session','App\Http\Controllers\Master@getSession');
 
 Route::group(['middleware'=>'authentication'],function(){
 
-    View::composer('*', 'App\Http\Controllers\Master@userCommonInfo');
 
     Route::get('/myAccount','App\Http\Controllers\Master@userDashboard');
 
@@ -160,6 +160,14 @@ Route::group(['middleware'=>'authentication'],function(){
     Route::get('profile','App\Http\Controllers\Master@profile');
 
     Route::post('updateProfile','App\Http\Controllers\Master@updateProfile');
+
+    Route::post('comment','App\Http\Controllers\FundraiserController@store');
+
+    Route::post('reply','App\Http\Controllers\FundraiserController@reply');
+
+    Route::post('reportComment','App\Http\Controllers\FundraiserController@reportComment');
+    
+    Route::post('reportCampaign','App\Http\Controllers\FundraiserController@reportCampaign');
 
 
 });

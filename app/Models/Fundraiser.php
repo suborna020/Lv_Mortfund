@@ -23,4 +23,8 @@ class Fundraiser extends Model
         return $this->hasMany('App\Models\Transection','campaign_id');
     }
 
+    public function comments(){
+        return $this->hasMany('App\Models\Comment','campaing_id');
+    }
+
 }

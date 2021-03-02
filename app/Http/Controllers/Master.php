@@ -25,42 +25,23 @@ use App\Models\UserPaymentMethod;
 use App\Models\PaymentGateway;
 use App\Models\DonateHistory;
 use App\Models\Transection;
-
+use Image;
+use Illuminate\Support\Facades\View;
 // use App\Models\Currency;
 
 class Master extends Controller
 {   
 
-    public function all($view){
-        $general = General::where('id',1)->first();
-        $footer = Footer::where('id',1)->first();
-        $navmenu = Navmenu::with('submenus')->where('status',1)->get();
-        $socials = Social::where('status',1)->get();
-        $categories = Category::where('status',1)->get();
-        $footer_about = FooterLinkAbout::where('status',1)->take(5)->get();
-        $footer_explore = FooterLinkExplore::where('status',1)->take(5)->get();
-        $footer_cat = Footer_link_category::where('status',1)->take(5)->get();
-        $fund_raised = Transection::all();
-        $languages = Language::where('status',1)->get();
-        $ip = '43.250.81.202';
-        $arr_ip = geoip()->getLocation($ip);
-        $user_location = $arr_ip->country; // get a country
-        // $main_currency = Currency::where('status',1)->get();
-        $currencies = Currency::where('status',1)->where('session_currency','!=',Session::get('currency_c'))->get();
-        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
-        
-        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first();
-
-        $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location)->with('fund_raised',$fund_raised);
+    public function test(){
+        return view('test.test');
     }
-
 
     public function index(Request $r){
         
         $slider = Slider::where('status',1)->get();
         $fundraisers = Fundraiser::with('categories','members','transections')->where('status',1)->paginate(4,['*'],'all');
-        $recents = Fundraiser::with('categories','members')->where('recent',1)->paginate(8,['*'],'recent');
-        $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->paginate(4,['*'],'project-support');
+        $recents = Fundraiser::with('categories','members')->where('recent',1)->where('status',1)->paginate(8,['*'],'recent');
+        $project_supports = Fundraiser::with('categories','members')->where('project_support',1)->where('status',1)->paginate(4,['*'],'project-support');
         
         $subscibe = Subscribe::where('id',1)->first();
         $counters = Counter::all();
@@ -89,7 +70,7 @@ class Master extends Controller
 
     public function recent(Request $request){
         if($request->ajax()){
-        $recents = Fundraiser::with('categories','members','transections')->where('recent',1)->where('status',1)->paginate(8,['*'],'recent'); 
+        $recents = Fundraiser::with('categories','members','transections')->where('recent', 1)->Where('status',1)->paginate(8,['*'],'recent'); 
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $ip = request()->ip();
@@ -106,7 +87,7 @@ class Master extends Controller
 
     public function project_support(Request $request){
         if($request->ajax()){
-        $project_supports = Fundraiser::with('categories','members','transections')->where('status',1)->where('project_support',1)->paginate(4,['*'],'project-support'); 
+        $project_supports = Fundraiser::with('categories','members','transections')->where('status',1)->where('project_support',1)->paginate(4,['*'],'project_support'); 
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $ip = request()->ip();
@@ -166,15 +147,29 @@ class Master extends Controller
          $photo='';
          $video='';
          $proof_document='';
+         $image_name = '';
 
          if ($r->thumbnail!='') {
-            $thumbnail = rand().'-'.time().'.'.$r->thumbnail->extension();
-            $r->thumbnail->move(public_path('uploads'), $thumbnail);
+            $image = $r->file('thumbnail');
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/thumbnails');
+            $resize_image = Image::make($image->getRealPath());
+            $resize_image->resize(350, 280, function($constraint){
+            $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_name);
+            $destinationPath = public_path('/uploads');
+            $image->move($destinationPath, $image_name);
+
+
+
+            // $thumbnail = rand().'-'.time().'.'.$r->thumbnail->extension();
+            // $r->thumbnail->move(public_path('uploads'), $thumbnail);
          }
 
          if ($r->photo!='') {
-            $photo = rand().'-'.time().'.'.$r->photo->extension();
-            $r->photo->move(public_path('uploads'), $photo);
+            
+            // $photo = rand().'-'.time().'.'.$r->photo->extension();
+            // $r->photo->move(public_path('uploads'), $photo);
          }
 
          if ($r->video!='') {
@@ -195,7 +190,7 @@ class Master extends Controller
             'needed_amount' => $r->needed_amount,
             'deadline' => $r->deadline,
             'story' => $r->story,
-            'thumbnail' => $thumbnail,
+            'thumbnail' => $image_name,
             'photo' => $photo,
             'video' => $video,
             'proof_document' => $proof_document,
@@ -276,20 +271,6 @@ class Master extends Controller
         // return redirect()->back();
     }
 
-    public function userCommonInfo($users){
-
-        $user_info = User::where('id',session('user_session'))->first();
-        $current_user_fundraisers = Fundraiser::with('categories','members','transections')->where('member_id',session('user_session'))->paginate(4,['*'],'current');
-        $user_balance = Transection::where('campaign_author',session('user_session'))->get();
-        $current_fundraisers = Fundraiser::where('member_id',session('user_session'))->where('status',1)->get();
-        $pending_fundraisers = Fundraiser::where('status',0)->where('member_id',session('user_session'))->get();
-        $completed_fundraisers = Fundraiser::where('member_id',session('user_session'))->where('status',2)->get();
-        $number_of_current_fundraisers = $current_fundraisers->count();
-        $number_of_pending_fundraisers = $pending_fundraisers->count();
-        $number_of_completed_fundraisers = $completed_fundraisers->count();
-        
-        $users->with('user_info',$user_info)->with('number_of_current_fundraisers',$number_of_current_fundraisers)->with('number_of_pending_fundraisers',$number_of_pending_fundraisers)->with('number_of_completed_fundraisers',$number_of_completed_fundraisers)->with('current_user_fundraisers',$current_user_fundraisers)->with('user_balance',$user_balance);
-    }
 
     public function userFundraisers(){
         $current_user_fundraisers = Fundraiser::with('categories','members','transections')->where('member_id',session('user_session'))->paginate(4,['*'],'current');
@@ -411,9 +392,20 @@ class Master extends Controller
              
          ]);
          if ($r->user_photo!='') {
-            $user_photo = rand().'-'.time().'.'.$r->user_photo->extension();
+
+            $user_photo = $r->file('thumbnail');
+            $user_photo_name = time() . '.' . $user_photo->getClientOriginalExtension();
+            $destinationPath = public_path('/thumbnails');
+            $resize_image = Image::make($user_photo->getRealPath());
+            $resize_image->resize(350, 280, function($constraint){
+            $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $user_photo_name);
+            $destinationPath = public_path('/uploads');
+            $user_photo->move($destinationPath, $user_photo_name);
+
+            // $user_photo = rand().'-'.time().'.'.$r->user_photo->extension();
              
-            $r->user_photo->move(public_path('uploads'), $user_photo);
+            // $r->user_photo->move(public_path('uploads'), $user_photo);
              
          }else{
             $user_photo = $r->default_user_photo;

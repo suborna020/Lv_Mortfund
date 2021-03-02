@@ -8,7 +8,7 @@
                     <li><i class="{{$project_support->icon}}" aria-hidden="true"></i></i> {{$project_support->categories->category_name}}</li>
                 </ul>
                 <h5 class="card-title">{{$project_support->title}}</h5>
-                <p class="card-text">{{$project_support->story}}</p>
+                <p class="card-text">{{ Str::limit($project_support->story, 20) }}</p>
                 <p id="raised" style="display: none">{{$project_support->raised}}</p>
                 <p id="needed" style="display: none">{{$project_support->needed_amount}}</p>
                 <div class="progress" style="height:8px;">

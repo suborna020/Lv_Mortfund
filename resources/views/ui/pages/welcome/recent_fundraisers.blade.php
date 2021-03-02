@@ -9,7 +9,7 @@
                 <li><i class="{{$recent->icon}}" aria-hidden="true"></i></i> {{$recent->categories->category_name}}</li>
             </ul>
             <h5 class="card-title">{{$recent->title}}</h5>
-            <p class="card-text">{{$recent->story}}</p>
+            <p class="card-text">{{ Str::limit($recent->story, 20) }}</p>
             <p id="raised" style="display: none">{{$recent->raised}}</p>
             <p id="needed" style="display: none">{{$recent->needed_amount}}</p>
             <div class="progress" style="height:8px;">
@@ -48,6 +48,7 @@
         </div>
     </div>
 </div>
+
 @endforeach
  
 </div>

@@ -54,11 +54,11 @@
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle flag" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                        <img src="images/finish.svg">
+                        <img src="{{asset('images/finish.svg')}}">
                         </button>
                         <div class="dropdown-menu dw-container" aria-labelledby="dropdownMenuButton">
                             @foreach($languages as $language)
-                            <li><img src="{{$language->flag_photo}}" class="flag-size">{{$language->language_name}}</li>
+                            <li><img src="{{ asset($language->flag_photo??'Not Found') }}" class="flag-size">{{$language->language_name}}</li>
                             @endforeach
                         </div>
                     </div>
