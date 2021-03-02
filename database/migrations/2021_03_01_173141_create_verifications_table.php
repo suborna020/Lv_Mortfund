@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateVerificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('verifications', function (Blueprint $table) {
             $table->id();
-            $table->Integer('campaing_id')->nullable();
-            $table->Integer('parent')->nullable();
-            $table->Integer('member_id')->nullable();
-            $table->lognText('comment')->nullable();
-            $table->Integer('report')->nullable();
+            $table->string('indentity_card_type');
+            $table->text('identity_number');
+            $table->longText('identity_card_document');
+            $table->longText('photo');
+            $table->Integer('status');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('verifications');
     }
 }

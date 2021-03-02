@@ -22,6 +22,9 @@ use App\Models\Subscribe;
 use App\Models\Counter;
 use App\Models\Submenu;
 use App\Models\Currency;
+use App\Models\Comment;
+use App\Models\ReportComment;
+use App\Models\Report;
 use Stevebauman\Location\Facades\Location;
 
 class FundraiserController extends Controller
@@ -33,20 +36,17 @@ class FundraiserController extends Controller
      */
     public function index($id)
     {
-        
-
         $ip = '43.250.81.202';
         $arr_ip = geoip()->getLocation($ip);
         $user_location = $arr_ip->country; // get a country
         // $main_currency = Currency::where('status',1)->get();
         $currencies = Currency::where('status',1)->where('session_currency','!=',Session::get('currency_c'))->get();
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
-        
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
 
         // return view('ui.pages.campaigns.campaign_page',compact('general','footer','categories','navmenu','socials','footer_about','footer_explore','footer_cat','languages','currencies','user_currency','currency_by_location'));
 
-        return view('ui.pages.campaigns.campaign_page')->with('get_fundraiser',Fundraiser::with('categories','members')->find($id));
+        return view('ui.pages.campaigns.campaign_page')->with('get_fundraiser',Fundraiser::with('categories','members','comments')->find($id));
     }
 
     /**
@@ -67,7 +67,78 @@ class FundraiserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'comment' => 'required',
+             
+         ]);
+ 
+         Comment::create([
+            'campaing_id' => $request->campaing_id,
+            'member_id' => session('user_session'),
+            'comment' => $request->comment,
+        ]);
+
+
+        $request->session()->flash('msg','success !');
+
+        return redirect()->back();
+    }
+
+    public function reply(Request $request)
+    {
+        $this->validate($request, [
+            'comment' => 'required',
+            'parent' => 'required',
+             
+         ]);
+ 
+         Comment::create([
+            'campaing_id' => $request->campaing_id,
+            'member_id' => session('user_session'),
+            'parent' => $request->parent,
+            'comment' => $request->comment,
+        ]);
+
+
+        $request->session()->flash('msg','success !');
+
+        return redirect()->back();
+    }
+
+    public function reportComment(Request $request)
+    {
+        $this->validate($request, [
+            'report_details' => 'required',
+         ]);
+ 
+         ReportComment::create([
+            'report_details' => $request->report_details,
+            'member_id' => session('user_session'),
+            'comment_id' => $request->comment_id,
+        ]);
+
+
+        $request->session()->flash('msg','success !');
+
+        return redirect()->back();
+    }
+
+    public function reportCampaign(Request $request)
+    {
+        $this->validate($request, [
+            'report_details' => 'required',
+         ]);
+ 
+         Report::create([
+            'report_details' => $request->report_details,
+            'member_id' => session('user_session'),
+            'fundraiser_id' => $request->fundraiser_id,
+        ]);
+
+
+        $request->session()->flash('msg','success !');
+
+        return redirect()->back();
     }
 
     /**

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-4 col-gap">
                     <div class="widget-1">
-                        <img src="images/footer-logo.svg" alt="footer logo">
+                        <img src="{{ asset('images/footer-logo.svg') }}" alt="footer logo">
                         <p>{{ $footer->footer_logo_content_primary?? 'Not Found' }}</p>
                         <p>{{ $footer->footer_logo_content_secondary?? 'Not Found' }}</p>
                     </div>

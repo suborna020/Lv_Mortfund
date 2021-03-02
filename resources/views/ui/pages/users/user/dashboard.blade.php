@@ -3,6 +3,12 @@
 @section('content')
 
 <div class="container" style="margin-top: 115px">
+	<div class="row">
+		Home > {{$user_info->name}}
+		@foreach(Request::segments() as $segment)
+	        <a href="#">{{$segment}}</a>
+	    @endforeach
+	</div>
    <div class="row">
    	  <div class="col-12 col-md-12">
 	       
