@@ -111,7 +111,7 @@ a:hover {
 }
 
 .backgroundCerulean {
-  background-color: #063D75;
+  background-color: #063D75 !important;
 }
 
 .whiteText {
@@ -374,11 +374,12 @@ nav .menu-open .extend_icon {
 }
 
 .RightContainerTable .categoriesStatus {
-  background-color: #F8800B !important;
+  background-color: #F8800B;
   color: white !important;
   border-radius: 8px !important;
   text-align: center !important;
   padding: 1px 10px !important;
+  border-color: unset !important;
 }
 
 .RightContainerTable .table.myDataTable.no-footer {
@@ -435,7 +436,7 @@ nav .menu-open .extend_icon {
 
 .RightContainerPaginationTable .dataTables_wrapper {
   border-radius: 9px !important;
-  padding: 30px !important;
+  padding: 7px 1px !important;
   -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
 }

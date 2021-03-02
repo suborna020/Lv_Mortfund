@@ -3,7 +3,6 @@
 <div class="wrapper">
 
     <!-- Navbar -->
-    
     @include('admin.layout.components.aHeader')
     <!-- /.navbar -->
 
@@ -28,11 +27,11 @@
                         <div class="pipeLine"></div>
                         <div class="small-box">
                             <div class="inner">
-                                <div class=" smallBoxSpace" >
+                                <div class=" smallBoxSpace">
                                     <img src="{{asset("adminAssets/img/fundraiserCategory.svg")}}" alt="icon" class=" smallBoxIcon" />
                                 </div>
                                 <p>Fundraiser Category</p>
-                                <h3>150</h3>
+                                <h3>{{(count($CategoriesBox))?? '0' }}</h3>
                             </div>
                         </div>
                     </div>
@@ -45,7 +44,10 @@
                                     <img src="{{asset("adminAssets/img/pendingFunraiser.svg")}}" alt="icon" class=" smallBoxIcon" style="width: 32px;" />
                                 </div>
                                 <p>Pending Funraiser</p>
-                                <h3>150</h3>
+                                <h3>
+                                    {{ count($FundraisersBox->where('status', 0))?? '0'}}
+
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -58,7 +60,7 @@
                                     <img src="{{asset("adminAssets/img/onProgressFundraiser.svg")}}" alt="icon" class=" smallBoxIcon" />
                                 </div>
                                 <p>On-Progress Fundraiser</p>
-                                <h3>150</h3>
+                                <h3>00</h3>
                             </div>
                         </div>
                     </div>
@@ -71,7 +73,8 @@
                                     <img src="{{asset("adminAssets/img/completedFundraiser.svg")}}" alt="icon" class=" smallBoxIcon" />
                                 </div>
                                 <p>Completed Fundraiser</p>
-                                <h3>150</h3>
+                                <h3>{{(count($completedFundraiser))?? '0' }}</h3>
+
                             </div>
                         </div>
                     </div>
@@ -84,7 +87,7 @@
                                     <img src="{{asset("adminAssets/img/withdrowRequest.svg")}}" alt="icon" class=" smallBoxIcon" />
                                 </div>
                                 <p>Withdrow Request</p>
-                                <h3>150</h3>
+                                <h3>{{(count($WithdrawRequestsBox))?? '0' }} </h3>
                             </div>
                         </div>
                     </div>
@@ -97,7 +100,7 @@
                                     <img src="{{asset("adminAssets/img/withdrowLog.svg")}}" alt="icon" class=" smallBoxIcon" />
                                 </div>
                                 <p>Withdrow Log</p>
-                                <h3>150</h3>
+                                <h3>00</h3>
                             </div>
                         </div>
                     </div>
@@ -110,7 +113,7 @@
                                     <img src="{{asset("adminAssets/img/successStoriesBigIcon.svg")}}" alt="icon" class=" smallBoxIcon" style="width: 32px;" />
                                 </div>
                                 <p>Success Stories </p>
-                                <h3>150</h3>
+                                <h3>{{count($successStoriesBox)?? '0' }}</h3>
                             </div>
                         </div>
                     </div>
@@ -124,7 +127,6 @@
                     <section class="col-md-12 my-0">
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card card-info my-0">
-                            
                             <div class="card-body">
                                 <div class="chart">
                                     <canvas id="lineChart" style="min-height: 50px;  max-width: 100%;"></canvas>
@@ -132,11 +134,21 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <br>admin session no :{{$admin_sessionData}}
-                         user name : {{$userInfoBox->admin_name}}
+                        <br>admin session no :{{($admin_sessionData)?? '0' }}
+
+                        user name :  {{($userInfoBox->admin_name)?? '0' }}
+                        <br>
+                        test:
+                        @foreach($completedFundraiser as $completedFundraiser)
+
+                        {{-- {{ ($FundraisersBox->status)==1}} --}}
+                        {{-- {{$FundraisersBox}}<br> --}}
+                        @endforeach
 
                         <!-- /.card -->
                     </section>
+                    <br>
+                    <br>
 
                 </div>
                 <!-- /.row (main row) -->

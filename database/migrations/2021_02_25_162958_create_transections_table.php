@@ -24,6 +24,8 @@ class CreateTransectionsTable extends Migration
             $table->text('address')->nullable();
             $table->float('amount')->nullable();
             $table->float('charge')->nullable();
+            $table->float('campaign_author')->nullable();
+
             $table->Integer('campaign_id')->nullable();
             $table->timestamps();
         });

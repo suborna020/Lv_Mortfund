@@ -3,7 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+
+
 use App\Models\Admin;
+use App\Models\Fundraiser;
+use App\Models\Category;
+use App\Models\SuccessStory;
+use App\Models\WithdrawRequest;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,10 +66,14 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     //     if(Session::get('admin_session')){
     //         $user_id=Session::get('admin_session');
     //         $userInfoBox=Admin::findOrFail($user_id);
-    //         $view->with('userInfoBox',$userInfoBox);
+
+    //         $view->with('userInfoBox',$userInfoBox)
+    //         ;
     //     }
       
     // });
+    // View::composer('*', 'App\Http\Controllers\AdminOperation@GlobalDataBox');
+
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
     //Fundraisers
@@ -69,7 +81,12 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('aDashboard/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
     Route::get('aDashboard/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
     Route::get('aDashboard/adPending','App\Http\Controllers\AdFundraisers@adPending');
-    Route::get('aDashboard/adOnProgress','App\Http\Controllers\AdFundraisers@adOnProgress');
+    // Route::get('/fundRaiseCategoriesData',[\App\Http\Controllers\AdFundraisers::class,'fundRaiseCategoriesData']);
+    // Route::get('fundRaiseCategoriesData', 'AdFundraisers@fundRaiseCategoriesData');
+    // Route::get('fundRaiseCategoriesData','App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
+    Route::get('/fundRaiseCategoriesData', 'App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
+
+    
     // Withdraw System
     Route::get('adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
     Route::get('adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');

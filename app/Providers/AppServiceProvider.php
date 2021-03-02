@@ -25,6 +25,8 @@ use App\Models\Language;
 use App\Models\Submenu;
 use App\Models\Currency;
 use App\Models\Transection;
+use App\Models\SuccessStory;
+use App\Models\WithdrawRequest;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -47,18 +49,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        View::composer('*', function ($view){
-            // for admin views 
-            if(Session::get('admin_session')){
-                $user_id=Session::get('admin_session');
-                $userInfoBox=Admin::findOrFail($user_id);
-    
-                $view->with('userInfoBox',$userInfoBox)
-                // ->with( [ 'userInfoBox' => $userInfoBox ] )
-                ;
-            }
-            
-        });
 
         View::composer('*', function ($users){
             if(Session::get('user_session')){
@@ -98,6 +88,35 @@ class AppServiceProvider extends ServiceProvider
             $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first();
 
             $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location)->with('fund_raised',$fund_raised);
+        });   
+        View::composer('*', function ($view){
+            // for admin views after login
+            if(Session::get('admin_session')){
+                $user_id=Session::get('admin_session');
+                $userInfoBox=Admin::findOrFail($user_id);
+                $FundraisersBox = Fundraiser::all();
+                $CategoriesBox = Category::all();
+                $successStoriesBox = SuccessStory::all();
+                $WithdrawRequestsBox=WithdrawRequest::all();
+    
+                $view->with('userInfoBox',$userInfoBox)
+                ->with('FundraisersBox',$FundraisersBox)
+                ->with('CategoriesBox',$CategoriesBox)
+                ->with('successStoriesBox',$successStoriesBox)
+                 ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
+                ;
+            }
+            // $FundraisersBox = Fundraiser::all();
+            // dd($FundraisersBox);
+            // // $user = JWTAuth::user();
+            // // // $userDriveData = getUsersAllFolder(session('user_id'));
+            // // $userDriveData = allFolderAllFile(session('user_id'));
+            // // $allFolders = getUsersAllFolder(session('user_id'));
+            // // // dd($allFolders);
+            // // $view->with('token', session('token'));
+            // $view->with('FundraisersBox',$FundraisersBox);
+            // // $view->with('driveData',$userDriveData);
+            // // $view->with('allFolders',$allFolders);
         });
     }
 }

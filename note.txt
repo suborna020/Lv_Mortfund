@@ -19,6 +19,7 @@ git push
 php artisan cache:clear
 php artisan route:cache
 php artisan config:cache
+php artisan view:clear
 
 @if someone added a package to your git project .after pull you have to run a command like:
 composer install
@@ -31,3 +32,9 @@ composer install
 sent settings:
 1souse control->masssge->cnt+enter>push
 
+issues:
+urgent fundraisers table. how and were it works
+like add new urgent fundraisers .which table i will insert
+
+catagory icon issue:
+add catagory te modal er (catagory icon) likhe (upload photo) button keno deya?

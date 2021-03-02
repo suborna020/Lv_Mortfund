@@ -5,7 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use Validator;
+use App\Models\Fundraiser;
+use App\Models\Category;
+use App\Models\SuccessStory;
+use App\Models\WithdrawRequest;
 
+
+
+
+use DB;
 class AdminOperation extends Controller
 {
     public function aDashboardM(){
@@ -14,12 +22,27 @@ class AdminOperation extends Controller
         if (!Session::get('admin_session')) {
            return redirect(url('adminLogin'));
         }
-         return view('admin.pages.aDashboard', ['admin_sessionData'=>$admin_sessionData]);
-
+        $completedFundraiser=Fundraiser::where('needed_amount', '<=', DB::raw('raised'))->get();
+         return view('admin.pages.aDashboard', ['admin_sessionData'=>$admin_sessionData],['completedFundraiser'=>$completedFundraiser]);
     }
     public function aLogoutM(Request $request)
     {
         $request->session()->forget('admin_session');
         return redirect('/adminLogin');
     }
+    // all common data in one place 
+    // public function GlobalDataBox($adminView){
+    //     $FundraisersBox = Fundraiser::all();
+    //     $CategoriesBox = Category::all();
+    //     $successStoriesBox = SuccessStory::all();
+    //     $WithdrawRequestsBox=WithdrawRequest::all();
+
+    //     $adminView->with('FundraisersBox',$FundraisersBox)
+    //     ->with('CategoriesBox',$CategoriesBox)
+    //     ->with('successStoriesBox',$successStoriesBox)
+    //     ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
+    //     ;
+       
+
+    // }
 }
