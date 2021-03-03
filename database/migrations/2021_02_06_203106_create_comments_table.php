@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->Integer('campaing_id')->nullable();
             $table->Integer('parent')->nullable();
             $table->Integer('member_id')->nullable();
-            $table->lognText('comment')->nullable();
+            $table->longText('comment')->nullable();
             $table->Integer('report')->nullable();
             $table->timestamps();
         });

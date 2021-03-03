@@ -41,7 +41,7 @@
                                 @if(session::has('currency_c'))
                                 <option value="">{{session()->get('currency_c')}}</option>
                                 @else
-                                <option value="">{{$currency_by_location->symbol}}({{$currency_by_location->country_code}})</option>
+                                <option value="">{{($currency_by_location->symbol)?? '0' }}({{($currency_by_location->country_code)?? '0' }})</option>
                                 @endif
                                 @foreach($currencies as $currency)
                                 <option value="{{$currency->symbol}}({{$currency->country_code}})">{{$currency->symbol}}({{$currency->country_code}})</option>
