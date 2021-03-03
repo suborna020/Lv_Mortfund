@@ -62,20 +62,11 @@ Route::get('/adminLogin','App\Http\Controllers\AdminController@index')->name('aL
 Route::post('/adminLoginSub','App\Http\Controllers\AdminController@adminLoginSub');
 Route::get('/adminSignup','App\Http\Controllers\AdminController@aSignUpM')->name('aSignUp');
 Route::post('/adminSignUpSub','App\Http\Controllers\AdminController@aSignUpSub');
+// all route clear  for laravel 8 
+Route::get('/caches/',[\App\Http\Controllers\CachesController::class,'cachesM']);
+Route::get('/clear/',[\App\Http\Controllers\CachesController::class,'clearCachesM']);
 
 Route::group(['middleware'=>'adminAuthentication'],function(){
-    // View::composer('*', function ($view) {
-    //     if(Session::get('admin_session')){
-    //         $user_id=Session::get('admin_session');
-    //         $userInfoBox=Admin::findOrFail($user_id);
-
-    //         $view->with('userInfoBox',$userInfoBox)
-    //         ;
-    //     }
-      
-    // });
-    // View::composer('*', 'App\Http\Controllers\AdminOperation@GlobalDataBox');
-
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
     //Fundraisers
@@ -83,12 +74,8 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('aDashboard/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
     Route::get('aDashboard/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
     Route::get('aDashboard/adPending','App\Http\Controllers\AdFundraisers@adPending');
-    // Route::get('/fundRaiseCategoriesData',[\App\Http\Controllers\AdFundraisers::class,'fundRaiseCategoriesData']);
-    // Route::get('fundRaiseCategoriesData', 'AdFundraisers@fundRaiseCategoriesData');
-    // Route::get('fundRaiseCategoriesData','App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
     Route::get('/fundRaiseCategoriesData', 'App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
 
-    
     // Withdraw System
     Route::get('adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
     Route::get('adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');
