@@ -720,6 +720,330 @@ footer .widget-2 .link:hover{
     color: white;
 }
 
+/*.owl-theme .owl-dots .owl-dot {
+    display: none;
+}
+
+.owl-theme .owl-nav {
+    display: none;
+}*/
+
+/* How It Works CSS */
+
+.breadcrumb-bg{
+    background: url(../images/bg-2.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+     margin-top: 115px;
+}
+
+.breadcrumb-bg h4{
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.home-icon{
+    margin-right: 15px;
+}
+
+.angle{
+    margin: 0 10px;
+    color: #f8800b;
+    padding-top: 8px;
+
+}
+
+.breadcrumb-bg .breadcrumb{
+    margin-left: 15px;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-radius: 8px;
+}
+
+.breadcrumb-bg .breadcrumb li a{
+    color: #f8800b;
+    text-decoration: none;
+}
+
+.breadcrumb-bg .breadcrumb .breadcrumb-item{
+    margin-top: 5px;
+    font-size: 18px;
+    color: #f8800bad;
+}
+
+
+.how-works h6{
+    padding: 0 10%;
+    line-height: 1.5;
+
+}
+
+.col-bg{
+    background: url(../images/hw-bg.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+    border-radius: 15px;
+    margin: 10px;
+    
+}
+
+
+.col-bg .direction-icon{}
+
+.col-bg .direction-icon li{
+   
+    list-style: none;
+    position: absolute;
+    right: 10%;
+    top: 7%;
+    color: #fff;
+}
+
+.col-bg .direction-icon li i{}
+
+.col-bg .box{
+    position: absolute;
+    top: 20%;
+    left: 0%;
+    text-align: center;
+    padding: 0 40px;
+    
+}
+
+
+.col-bg .box li{
+     list-style: none;
+     margin-bottom: 20px;
+     
+}
+
+.col-bg .box li i{
+    border: 1px solid #fff;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    border-radius: 100px;
+    background: #fff;
+    color: #F37421;
+}
+
+
+.col-bg .box h4{
+    color: #fff;
+    font-weight: 500;
+}
+
+.col-bg .box p{
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+.img-box{
+    position: relative;
+}
+
+.img-box .testimonial-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+
+.img-box .quote-icon{
+    position: absolute;
+    left: 53%;
+    bottom: 2%;
+    border: 1px solid #F36A10;
+    padding: 10px;
+    border-radius: 100px;
+    background: #F36A10;
+    color: #fff;
+}
+
+.donor{
+    background-color: #FFF8F1;
+}
+
+.testimonial{
+    padding: 3% 10%;
+    text-align: center;
+}
+
+.testimonial p{
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #000;
+    font-weight: 500;
+}
+
+.testimonial h5{
+    color: #F36A10;
+    font-size: 24px;
+    font-weight: 600px;
+}
+
+.testimonial h6{
+    font-size: 22px;
+    font-weight: 600px;
+}
+
+.testimonial-slide{}
+
+.testimonial-slide .testimonial-indicators{}
+
+.testimonial-slide .testimonial-indicators li{
+    width: 15px;
+    height: 15px;
+    border-radius: 100px;
+    border: 1px solid #fff;
+    background-color: #F36A10;
+}
+
+.testimonial-indicators.active{
+    border-color: #F36A10! important;
+    background-color: #F36A10! important;
+}
+
+
+.hw-card{
+    border-radius: 10px;
+}
+
+.hw-card .card-body{}
+
+.hw-card .card-body .calender{}
+
+.hw-card .card-body .calender ul{
+    padding: 0;
+}
+
+
+.hw-card .card-body .calender ul li{
+    list-style: none!important;
+}
+
+.hw-card .card-body .calender ul li i{
+    color: #f36a10;
+}
+
+.hw-card .card-body .card-title{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hw-card .card-body .card-text{
+    font-size: 12px;
+    color: #7a7a7a;
+}
+
+.hw-card .card-body .media{}
+
+.hw-card .card-body .media .user-img{
+    width: 40px;
+    height: 40px;
+}
+
+
+.hw-card .card-body .media .media-body{}
+
+.hw-card .card-body .media .media-body .name-text{
+    font-weight: 600;
+    border-radius: 100px;
+}
+
+.stories1-bg{
+    background: url(../images/stories1.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.stories2-bg{
+    background: url(../images/stories2.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.stories3-bg{
+    background: url(../images/stories3.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.stories4-bg{
+    background: url(../images/stories4.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.stories5-bg{
+    background: url(../images/stories5.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.stories6-bg{
+    background: url(../images/stories6.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.stories7-bg{
+    background: url(../images/stories1.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.stories8-bg{
+    background: url(../images/stories2.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+
+.story hr{
+
+    background-color: #F36A10;
+    height: 2px;
+    width: 8%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 
 
 

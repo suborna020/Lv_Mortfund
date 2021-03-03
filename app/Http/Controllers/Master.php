@@ -57,7 +57,7 @@ class Master extends Controller
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
 
         // $ip = request()->ip();
-        $ip = '43.250.81.202';
+        $ip = request()->ip();
         $arr_ip = geoip()->getLocation($ip);
         $user_location = $arr_ip->country; // get a country
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
@@ -74,7 +74,7 @@ class Master extends Controller
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $ip = request()->ip();
-        $ip = '43.250.81.202';
+        $ip = request()->ip();
         $arr_ip = geoip()->getLocation($ip);
         $user_location = $arr_ip->country; // get a country
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
@@ -91,7 +91,7 @@ class Master extends Controller
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         
         // $ip = request()->ip();
-        $ip = '43.250.81.202';
+        $ip = request()->ip();
         $arr_ip = geoip()->getLocation($ip);
         $user_location = $arr_ip->country; // get a country
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
@@ -99,6 +99,14 @@ class Master extends Controller
 
         return view('ui.pages.welcome.project_support',compact('project_supports','user_currency','user_location','currency_by_location'))->render();
      }
+    }
+
+    public function HowItWorks(){
+        return view('ui.pages.HowItWorks.howitworks');
+    }
+
+    public function newCampaigns(){
+        return view('ui.pages.explore.newCampaigns');
     }
 
 
@@ -112,7 +120,7 @@ class Master extends Controller
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
 
         // $ip = request()->ip();
-        $ip = '43.250.81.202';
+        $ip = request()->ip();
         $arr_ip = geoip()->getLocation($ip);
         $user_location = $arr_ip->country; // get a country
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 

@@ -1,7 +1,7 @@
 @extends('ui.layout.app')
-
+​
 @section('content')
-
+​
 <div class="container" style="margin-top: 115px">
 	<div class="row">
 		Home > {{$user_info->name}}
@@ -25,8 +25,7 @@
                     @endif
                 @else
                    
-                {{$currency_by_location->symbol}}{{($user_balance->sum('amount'))*($currency_by_location->value)}}
-                
+                {{($currency_by_location->symbol)?? '0' }}{{($user_balance->sum('amount'))*(($currency_by_location->value)?? '0')}}
                 @endif
 	       	   	  </p>
 	       	   </div>	

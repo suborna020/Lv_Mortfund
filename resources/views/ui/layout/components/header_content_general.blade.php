@@ -16,15 +16,15 @@
                             <input type="text" class="form-control search-field" placeholder="Search Findraisers" aria-describedby="basic-addon1">
                         </div>
                     </li>
-                    @foreach($navmenu as $navmenus)
-                    @if(count($navmenus->submenus)>0)
+                    @foreach($navmenu as $menu)
+                    @if(count($menu->submenus)>0)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            {{$navmenus->icon}}{{$navmenus->menu_item}}
+                            {{$menu->icon}}{{$menu->menu_item}}
                         </a>
                         <div class="dropdown-menu dw-container" aria-labelledby="navbarDropdown">
-                            @foreach($navmenus->submenus as $submenu)
+                            @foreach($menu->submenus as $submenu)
                             <a class="dropdown-item" href="#">{{$submenu->submenu_name}}</a>
                             @endforeach
                              
@@ -32,13 +32,13 @@
                     </li>
                     @else
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">{{$navmenus->menu_item}}</a>
+                        <a class="nav-link" href="{{url($menu->link)}}">{{$menu->menu_item}}</a>
                     </li>
                     @endif
                     @endforeach
                     <!-- WORKING ON IT -->
                     {{-- <li class="nav-item dropdown">
-
+​
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             
@@ -49,10 +49,10 @@
                                 <span class="doller">{{$currency_by_location->symbol}}({{$currency_by_location->country_code}})</span>
                                 @endif
                         </a>
-
+​
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             
-
+​
                             <form action="{{route('set-currency-code')}}" method="post" class="currency_code">
                             @csrf
                            <!--  <select class="form-control" id="currency_code" name="currency_code"> -->
@@ -75,7 +75,7 @@
                                 @if(session::has('currency_c'))
                                 <option value="">{{session()->get('currency_c')}}</option>
                                 @else
-                                <option value="">{{$currency_by_location->symbol}}({{$currency_by_location->country_code}})</option>
+                                <option value="">{{($currency_by_location->symbol)?? '0' }}({{($currency_by_location->country_code)?? '0' }})</option>
                                 @endif
                                 @foreach($currencies as $currency)
                                 <option value="{{$currency->symbol}}({{$currency->country_code}})">{{$currency->symbol}}({{$currency->country_code}})</option>
@@ -93,3 +93,5 @@
                 </ul>
             </div>
         </nav>
+
+

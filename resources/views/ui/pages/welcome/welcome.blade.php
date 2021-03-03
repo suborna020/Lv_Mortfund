@@ -45,7 +45,7 @@
                     <h3>Browse By Categories</h3>
                     <hr>
                     <h6>Find the course you are looking for by categories</h6>
-                    <div class="owl-carousel owl-theme">
+                    <div class="owl-carousel owl-theme owlcategory">
                         @foreach($categories as $category)
                         <a href="{{$category->slug}}">
                           <div class="item">

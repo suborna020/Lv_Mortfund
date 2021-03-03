@@ -40,7 +40,9 @@ Route::post('/subscribe','App\Http\Controllers\SubscriberController@store')->nam
 
 Route::get('/singleCampaign/{id}','App\Http\Controllers\FundraiserController@index');
 
-Route::get('/test','App\Http\Controllers\Master@test');
+Route::get('/HowItWorks','App\Http\Controllers\Master@HowItWorks');
+
+Route::get('explore/newCampaigns','App\Http\Controllers\Master@newCampaigns');
 
 Route::get('details', function (Request $request) {
   // $ip = request()->ip();
