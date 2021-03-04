@@ -73,6 +73,17 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('aDashboard/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
     Route::get('aDashboard/adPending','App\Http\Controllers\AdFundraisers@adPending');
     Route::get('/fundRaiseCategoriesData', 'App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
+    Route::post('categoriesAddData','App\Http\Controllers\AdFundraisers@categoriesAddData');
+    Route::get('categoriesEditData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesEditData');
+    Route::post('categoriesEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@categoriesEditedSubmit');
+    Route::post('/categoriesDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesDestroyData');
+
+
+
+
+
+
+
 
     // Withdraw System
     Route::get('adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');

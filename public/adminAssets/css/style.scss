@@ -616,6 +616,23 @@ nav .menu-open .extend_icon {
     width     : 92%;
     align-self: center;
 }
+.fileName{
+    z-index: 18;
+    position: relative;
+    margin: 0;
+    opacity: 0;
+    width: 89%;
+    cursor: pointer;
+}
+.copiedFilename{
+    position: absolute;
+    left: 5%;
+    top: 34%;
+    z-index: 1;
+    width: 75%;
+    overflow: hidden;
+    height: 38px;
+}
 //  adrecent.blade page
 
 

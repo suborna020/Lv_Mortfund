@@ -48,4 +48,14 @@ function showPass() {
     x.type = "password";
   }
 }
+// adcategories page --------------------------------------------------------------
+$('input[type="file"].fileName').on('change', function () {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".copiedFilename").addClass("selected").html(fileName);
+  // var filename = e.target.files[0];
+  // $(".copiedFilename").html(filename);
+  // console.log(filename);
+
+});
+
 
