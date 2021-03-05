@@ -12,7 +12,7 @@
                         <a class="nav-link" href="{{url('myAccount')}}">Dashboard</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">ID Verification</a>
+                        <a class="nav-link" href="{{url('verification')}}">ID Verification</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{url('createCampaign')}}">Create Campaigns</a>
@@ -53,7 +53,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <span class="rounded-circle"><img src="{{asset('uploads/profile.png')}}"  style="width: 30px"></span>{{$user_info->name}}
+                            <span class="rounded-circle">
+                                @if($user_info->user_photo!=null)
+                                    <img src="{{asset('uploads/'.$user_info->user_photo)}}"  style="width: 30px">
+                                @else    
+                                    <img src="{{asset('uploads/profile.png')}}"  style="width: 30px">
+                                @endif
+                            </span>
+                            {{$user_info->name}}
                         </a>
                         <div class="dropdown-menu dw-container" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{url('profile')}}">Profile</a>

@@ -25,7 +25,7 @@
                         </a>
                         <div class="dropdown-menu dw-container" aria-labelledby="navbarDropdown">
                             @foreach($menu->submenus as $submenu)
-                            <a class="dropdown-item" href="#">{{$submenu->submenu_name}}</a>
+                            <a class="dropdown-item" href="{{url($submenu->link)}}">{{$submenu->submenu_name}}</a>
                             @endforeach
                              
                         </div>

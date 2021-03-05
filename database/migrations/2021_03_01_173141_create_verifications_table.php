@@ -15,6 +15,7 @@ class CreateVerificationsTable extends Migration
     {
         Schema::create('verifications', function (Blueprint $table) {
             $table->id();
+            $table->Integer('user_id');
             $table->string('indentity_card_type');
             $table->text('identity_number');
             $table->longText('identity_card_document');

@@ -58,6 +58,37 @@
                            <div class="row">
                                <div class="col-12 col-md-4 d-flex flex-row-reverse">
                                    <h4>Share On</h4>
+                                   <a href="#" 
+                                      onclick="
+                                        window.open(
+                                          'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+                                          'facebook-share-dialog', 
+                                          'width=626,height=436'); 
+                                        return false;">
+                                      Share on Facebook
+                                    </a>
+                                    <a href="#" 
+                                      onclick="
+                                        window.open(
+                                          'https://www.twitter.com/intent/tweet?url='+encodeURIComponent(location.href), 
+                                          'facebook-share-dialog', 
+                                          'width=626,height=436'); 
+                                        return false;">
+                                      Share on Twitter
+                                    </a>
+                                    <a href="#" 
+                                      onclick="
+                                        window.open(
+                                          'https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href), 
+                                          'facebook-share-dialog', 
+                                          'width=626,height=436'); 
+                                        return false;">
+                                      Share on Linkedin
+                                    </a>
+                                     
+                                    
+                                  </a>
+
                                </div>
                                <div class="col-12 col-md-8 d-flex flex-row-reverse">
                                 
@@ -74,10 +105,27 @@
                            Location {{$get_fundraiser->location}}
                       </div>
                       <div class="col-12 col-md-3">
-                           Goal {{$get_fundraiser->needed_amount}}
+                           Goal 
+                           @if(session::has('currency_c'))
+                                @if($user_currency->session_currency == session('currency_c'))
+                                    {{$user_currency->symbol}}{{($get_fundraiser->needed_amount)*($user_currency->value)}}
+                                @endif
+                            @else
+                              {{$currency_by_location->symbol}}{{($get_fundraiser->needed_amount)*($currency_by_location->value)}}
+                
+                             @endif
                       </div>
                       <div class="col-12 col-md-3">
-                           Raised {{$get_fundraiser->raised}}
+                           Raised 
+                           @if(session::has('currency_c'))
+                                @if($user_currency->session_currency == session('currency_c'))
+                                    {{$user_currency->symbol}}{{($get_fundraiser->transections->sum('amount'))*($user_currency->value)}}
+                                @endif
+                            @else
+                               
+                            {{$currency_by_location->symbol}}{{($get_fundraiser->transections->sum('amount'))*($currency_by_location->value)}}
+                            
+                            @endif
                       </div>
                       <div class="col-12 col-md-3">
                            DeadLine {{$get_fundraiser->deadline}}
@@ -123,6 +171,7 @@
                                  <div class="col-12 col-md-6">
                                     <img width="20px" src="../uploads/{{$comment->members->user_photo}}">
                                     <span id="getReplyTo">{{$comment->members->name}}</span>
+
                                     <span style="display: none" id="getReplyToId">{{$comment->members->id}}</span>
                                  </div>
                                  @if($comment->members->id!=session('user_session'))
@@ -142,8 +191,13 @@
                                   <span style="color: blue">@ {{$comment->parent}}</span>
                                   @endif
                                   <span>{{$comment->comment}}</span>
+                                  
                                   <span id="commentToBeReported" style="display: none;">{{$comment->id}}</span>
                                 </div>
+                              </div>
+                              <div class="row">
+                                <hr>
+                                <span>{{$comment->created_at}}</span>
                               </div>
                           </div>
                           @endforeach
@@ -160,9 +214,10 @@
                 <div class="col-12 col-md-12">
                     <h3>Related Posts</h3>
                     <div class="bottom-line"></div>
-                    <div class="owl-carousel owl-theme">
-                        
-                    </div>
+                    @foreach($related_fundraisers as $related_fundraiser)
+                          <p>{{$related_fundraiser->id}},{{$related_fundraiser->title}},{{$related_fundraiser->category_id}}</p>
+                        @endforeach
+                   
                 </div>
             </div>
         </div>
@@ -328,23 +383,25 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="/report" method="POST">
+      <form action="/setDonationDetails" method="POST">
         @csrf
       <div class="modal-body">
             <label>Campaign Id</label>
             <input type="text" name="campaing_id" value="{{$get_fundraiser->id}}" class="form-control">
             <label>Campaign Initiator Id</label>
-            <input type="text" name="member_id" value="{{$get_fundraiser->member_id}}" class="form-control">
+            <input type="text" name="fundraiser_id" value="{{$get_fundraiser->member_id}}" class="form-control">
             @if(session::has('user_session'))
             <label>Donator Id</label>
-            <input type="text" name="member_id" value="{{session('user_session')}}" class="form-control">
+            <input type="text" name="donor_id" value="{{session('user_session')}}" class="form-control">
             @endif
             <label>Amount you want to Donate</label>
-            <input type="text" name="" placeholder="amount" class="form-control">
+            <input type="text" name="amount" placeholder="amount" class="form-control">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <a href="{{url('paymentSettings')}}">Donate Now</a>
+        <button type="submit" class="btn btn-primary">Donate Now</button>
+
+        
       </div>
       </form>
     </div>

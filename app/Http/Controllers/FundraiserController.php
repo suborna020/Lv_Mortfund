@@ -43,10 +43,14 @@ class FundraiserController extends Controller
         $currencies = Currency::where('status',1)->where('session_currency','!=',Session::get('currency_c'))->get();
         $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        $fundraiser_details = Fundraiser::with('categories','members','comments')->find($id);
 
+        $category_id= $fundraiser_details->category_id;
+        $related_fundraisers = Fundraiser::where('category_id',$category_id)->where('id','!=',$id)->get();
+        
         // return view('ui.pages.campaigns.campaign_page',compact('general','footer','categories','navmenu','socials','footer_about','footer_explore','footer_cat','languages','currencies','user_currency','currency_by_location'));
 
-        return view('ui.pages.campaigns.campaign_page')->with('get_fundraiser',Fundraiser::with('categories','members','comments')->find($id));
+        return view('ui.pages.campaigns.campaign_page')->with('get_fundraiser',$fundraiser_details)->with('related_fundraisers',$related_fundraisers);
     }
 
     /**

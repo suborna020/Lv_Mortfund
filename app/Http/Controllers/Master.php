@@ -106,9 +106,46 @@ class Master extends Controller
     }
 
     public function newCampaigns(){
-        return view('ui.pages.explore.newCampaigns');
+        $new_medicals = Fundraiser::where('status',1)->where('category_id',2)->orderBy('id', 'DESC')->get();
+        $new_educations = Fundraiser::where('status',1)->where('category_id',1)->orderBy('id', 'DESC')->get();
+        $new_emergencies = Fundraiser::where('status',1)->where('category_id',3)->orderBy('id', 'DESC')->get();
+        $get_new_campaigns = Fundraiser::with('categories','members','transections')->where('status',1)->orderBy('id','DESC')->paginate(8,['*'],'allnc');
+        return view('ui.pages.explore.newCampaigns',compact('new_medicals','new_educations','new_emergencies','get_new_campaigns'));
     }
 
+    public function getNewCampaigns(Request $request){
+        if($request->ajax()){
+        $get_new_campaigns = Fundraiser::with('categories','members','transections')->where('status',1)->orderBy('id','DESC')->paginate(8,['*'],'allnc');
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+
+        // $ip = request()->ip();
+        $ip = request()->ip();
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.explore.getNewCampaigns',compact('get_new_campaigns','user_currency','user_location','currency_by_location'))->render();
+     }
+    }
+
+
+    public function featuredCampaigns(){
+        return view('ui.pages.explore.featuredCampaigns');
+    }
+
+    public function popularCampaigns(){
+        return view('ui.pages.explore.popularCampaigns');
+    }
+
+    public function urgentFundraising(){
+        return view('ui.pages.explore.urgentFundraising');
+    }
+
+
+    public function project(){
+        return view('ui.pages.explore.project');
+    }
 
 
 
@@ -401,7 +438,7 @@ class Master extends Controller
          ]);
          if ($r->user_photo!='') {
 
-            $user_photo = $r->file('thumbnail');
+            $user_photo = $r->file('user_photo');
             $user_photo_name = time() . '.' . $user_photo->getClientOriginalExtension();
             $destinationPath = public_path('/thumbnails');
             $resize_image = Image::make($user_photo->getRealPath());
@@ -422,7 +459,7 @@ class Master extends Controller
           
         User::where('id', session('user_session'))->update([
             'name' => $r->name,
-            'user_photo' => $user_photo,
+            'user_photo' => $user_photo_name,
             'mobile_no' => $r->mobile_no,
             'address' => $r->address,
         ]);
@@ -456,6 +493,34 @@ class Master extends Controller
 
       echo json_encode($method_message);
         
+    }
+
+
+    //-------------------------- Payment Gateway --------------------------------------
+
+    public function donateMethod(Request $r){
+        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->get();
+        $payment_gateways = PaymentGateway::where('status',1)->get();
+        return view('ui.pages.users.user.donateMethod',compact('payment_methods','payment_gateways'));
+    }
+
+    public function methodDetails(){
+        return view('ui.pages.users.user.methodDetails');
+    }
+
+    public function setDonationDetails(Request $r){
+        $campaing_id = $r->campaing_id;
+        $fundraiser_id = $r->fundraiser_id;
+        $donor_id = $r->donor_id;
+        $amount = $r->amount;
+        
+        $r->session()->put('campaing_id', $campaing_id);
+        $r->session()->put('fundraiser_id', $fundraiser_id);
+        $r->session()->put('donor_id', $donor_id);
+        $r->session()->put('amount', $amount);
+        // $arr = array('status' => 'true', 'message' => 'Currency Changed');
+        // echo json_encode($arr);
+        return redirect('myAccount/donateMethod');
     }
  
 }

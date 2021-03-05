@@ -14,4 +14,8 @@ class Comment extends Model
     public function members(){
         return $this->belongsTo('App\Models\User','member_id');
     }
+
+    public function repliedMembers(){
+        return $this->belongsTo('App\Models\User','parent');
+    }
 }

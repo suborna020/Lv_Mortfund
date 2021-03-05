@@ -13,9 +13,9 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <i class="fa fa-home fa-2x home-icon" aria-hidden="true"></i>
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                         <li><i class="fa fa-angle-right fa-1x angle" aria-hidden="true"></i></li>
-                        <li class="breadcrumb-item"><a href="#">Explore</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Explore</li>
                         <li><i class="fa fa-angle-right fa-1x angle" aria-hidden="true"></i></li>
                         <li class="breadcrumb-item active" aria-current="page">New Campaigns</li>
                     </ol>
@@ -34,335 +34,9 @@
                     <h3>New Campaigns</h3>
                     <hr>
                     <h6>Recent Campaigns</h6>
-                    <div class="row">
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="images/featured1.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Elementary School Fund</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.</p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user1.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="images/featured2.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-medkit" aria-hidden="true"></i></i> Medical</li>
-                                    </ul>
-                                    <h5 class="card-title">Save 3 year old Kevin</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="images/featured3.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Elementary School Fund</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user3.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="images/featured4.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Elementary School Fund</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user4.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="images/featured1.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Elementary School Fund</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.</p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user1.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="images/featured2.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-medkit" aria-hidden="true"></i></i> Medical</li>
-                                    </ul>
-                                    <h5 class="card-title">Save 3 year old Kevin</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="images/featured3.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Elementary School Fund</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user3.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <img src="images/featured4.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Elementary School Fund</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user4.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="getNewCampaigns" id="getNewCampaigns">
+                        @include('ui.pages.explore.getNewCampaigns')
                     </div>
-    
-                    <!-- Pagination Started -->
-    
-                    <nav aria-label="Page navigation example" class="page-div">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item page-number">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item page-number active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item page-number"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item page-number"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item page-number"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item page-number"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item page-number">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-    
-                    <!-- Pagination End -->
-    
                 </div>
             </div>
         </div>
@@ -381,35 +55,45 @@
                     <hr>
                     <br>
                     <div class="owl-carousel owl-theme newCampaign">
+                        @foreach($new_medicals as $new_medical)
                         <div class="item">
                             <div class="card">
-                                <img src="images/featured6.svg" class="card-img-top" alt="...">
+                                <img src="{{asset('uploads/'.$new_medical->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
-                                    <li><i class="fa fa-medkit" aria-hidden="true"></i></i> Medical</li>
+                                    <li><i class="{{$new_medical->icon}}" aria-hidden="true"></i></i>{{$new_medical->categories->category_name}}</li>
                                     </ul>
-                                    <h5 class="card-title">Save Jenne From Cancer</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.</p>
+                                    <h5 class="card-title">{{$new_medical->title}}</h5>
+                                    <p class="card-text">{{ Str::limit($new_medical->story, 20) }}</p>
                                     <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100"><span class="precentage-lebel">25%</span></div>
+                                        <div class="progress-bar bg-success role="progressbar" style="width: {{($new_medical->transections->sum('amount')*100)/$new_medical->needed_amount}}%" aria-valuenow="25" aria-valuemin="0"
+                                            aria-valuemax="100">
+                                            <span class="precentage-lebel">{{($new_medical->transections->sum('amount')*100)/$new_medical->needed_amount}}% </span>
+                                        </div>
                                     </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
+                                    
+                                    @if(session::has('currency_c'))
+                                        @if($user_currency->session_currency == session('currency_c'))
+                                            <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($new_medical->transections->sum('amount'))*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($new_medical->needed_amount)*($user_currency->value)}}</p>
+                                        @endif
+                                    @else
+                                       
+                                    <p class="custom-card-text"><span class="text-muted">{{$currency_by_location->symbol}}{{($new_medical->transections->sum('amount'))*($currency_by_location->value)}}</span> rised of {{$currency_by_location->symbol}}{{($new_medical->needed_amount)*($currency_by_location->value)}}</p>
+                                    
+                                    @endif
                                     <div class="row border-top">
                                         <div class="col-8 col-md-8 col-gap">
                                             <div class="media">
-                                                <img src="images/user1.svg" class="mr-2 user-img" alt="...">
+                                                <img src="{{ asset('uploads/'.$new_medical->members->user_photo?? '#')}}" class="mr-2 user-img" alt="...">
                                                 <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
+                                                    <p class="name-text">By {{$new_medical->members->name?? ' Any Name' }} </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-4 col-md-4 col-gap">
                                             <div class="calender">
                                                 <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
+                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$new_medical->deadline}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -417,181 +101,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured2.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-medkit" aria-hidden="true"></i></i> Medical</li>
-                                    </ul>
-                                    <h5 class="card-title">Save 3 year old Kevin</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100"><span class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000</p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured9.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-medkit" aria-hidden="true"></i></i> Medical</li>
-                                    </ul>
-                                    <h5 class="card-title">Lack Of Medical Equipments</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100"><span class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000</p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user3.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured4.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-medkit" aria-hidden="true"></i></i> Medical</li>
-                                    </ul>
-                                    <h5 class="card-title">Las Vogas Shooting Victims</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100"><span class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000</p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user4.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                        <div class="card">
-                            <img src="images/featured2.svg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <ul>
-                                    <li><i class="fa fa-medkit" aria-hidden="true"></i></i> Medical</li>
-                                </ul>
-                                <h5 class="card-title">Save 3 year old Kevin</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex veritatis molestiae.
-                                </p>
-                                <div class="progress" style="height:8px;">
-                                    <div class="progress-bar bg-success role=" progressbar" style="width: 25%;" aria-valuenow="25"
-                                        aria-valuemin="0" aria-valuemax="100"><span class="precentage-lebel">25%</span></div>
-                                </div>
-                                <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000</p>
-                                <div class="row border-top">
-                                    <div class="col-8 col-md-8 col-gap">
-                                        <div class="media">
-                                            <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                            <div class="media-body">
-                                                <p class="name-text">By Gavin Degenres</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-md-4 col-gap">
-                                        <div class="calender">
-                                            <ul>
-                                                <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="item">
-                        <div class="card">
-                            <img src="images/featured2.svg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <ul>
-                                    <li><i class="fa fa-medkit" aria-hidden="true"></i></i> Medical</li>
-                                </ul>
-                                <h5 class="card-title">Save The koalas</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex veritatis molestiae.
-                                </p>
-                                <div class="progress" style="height:8px;">
-                                    <div class="progress-bar bg-success role=" progressbar" style="width: 25%;" aria-valuenow="25"
-                                        aria-valuemin="0" aria-valuemax="100"><span class="precentage-lebel">25%</span></div>
-                                </div>
-                                <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000</p>
-                                <div class="row border-top">
-                                    <div class="col-8 col-md-8 col-gap">
-                                        <div class="media">
-                                            <img src="images/user3.svg" class="mr-2 user-img" alt="...">
-                                            <div class="media-body">
-                                                <p class="name-text">By Ophiluous Kenth</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-md-4 col-gap">
-                                        <div class="calender">
-                                            <ul>
-                                                <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -610,36 +120,45 @@
                     <hr>
                     <br>
                     <div class="owl-carousel owl-theme newCampaign">
+                        @foreach($new_emergencies as $new_emergency)
                         <div class="item">
                             <div class="card">
-                                <img src="images/featured10.svg" class="card-img-top" alt="...">
+                                <img src="{{asset('uploads/'.$new_emergency->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
-                                        <li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Emergency</li>
+                                    <li><i class="{{$new_emergency->icon}}" aria-hidden="true"></i></i>{{$new_emergency->categories->category_name}}</li>
                                     </ul>
-                                    <h5 class="card-title">Help Risk Save His House</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.</p>
+                                    <h5 class="card-title">{{$new_emergency->title}}</h5>
+                                    <p class="card-text">{{ Str::limit($new_emergency->story, 20) }}</p>
                                     <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
+                                        <div class="progress-bar bg-success role="progressbar" style="width: {{($new_emergency->transections->sum('amount')*100)/$new_emergency->needed_amount}}%" aria-valuenow="25" aria-valuemin="0"
+                                            aria-valuemax="100">
+                                            <span class="precentage-lebel">{{($new_emergency->transections->sum('amount')*100)/$new_emergency->needed_amount}}% </span>
+                                        </div>
                                     </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
+                                    
+                                    @if(session::has('currency_c'))
+                                        @if($user_currency->session_currency == session('currency_c'))
+                                            <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($new_emergency->transections->sum('amount'))*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($new_emergency->needed_amount)*($user_currency->value)}}</p>
+                                        @endif
+                                    @else
+                                       
+                                    <p class="custom-card-text"><span class="text-muted">{{$currency_by_location->symbol}}{{($new_emergency->transections->sum('amount'))*($currency_by_location->value)}}</span> rised of {{$currency_by_location->symbol}}{{($new_emergency->needed_amount)*($currency_by_location->value)}}</p>
+                                    
+                                    @endif
                                     <div class="row border-top">
                                         <div class="col-8 col-md-8 col-gap">
                                             <div class="media">
-                                                <img src="images/user1.svg" class="mr-2 user-img" alt="...">
+                                                <img src="{{ asset('uploads/'.$new_emergency->members->user_photo?? '#')}}" class="mr-2 user-img" alt="...">
                                                 <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
+                                                    <p class="name-text">By {{$new_emergency->members->name?? ' Any Name' }} </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-4 col-md-4 col-gap">
                                             <div class="calender">
                                                 <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
+                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$new_emergency->deadline}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -647,158 +166,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured11.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Emergency</li>
-                                    </ul>
-                                    <h5 class="card-title">Flood In Zurich</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured10.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Emergency</li>
-                                    </ul>
-                                    <h5 class="card-title">Help The Wildlife</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user3.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured4.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Emergency</li>
-                                    </ul>
-                                    <h5 class="card-title">Help The Syrian Refugees</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user4.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured2.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Emergency</li>
-                                    </ul>
-                                    <h5 class="card-title">Help The African People</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                     </div>
                 </div>
             </div>
@@ -817,36 +186,45 @@
                     <hr>
                     <br>
                     <div class="owl-carousel owl-theme newCampaign">
+                        @foreach($new_educations as $new_education)
                         <div class="item">
                             <div class="card">
-                                <img src="images/featured1.svg" class="card-img-top" alt="...">
+                                <img src="{{asset('uploads/'.$new_education->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
+                                    <li><i class="{{$new_education->icon}}" aria-hidden="true"></i></i>{{$new_education->categories->category_name}}</li>
                                     </ul>
-                                    <h5 class="card-title">Elementary School Fund</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.</p>
+                                    <h5 class="card-title">{{$new_education->title}}</h5>
+                                    <p class="card-text">{{ Str::limit($new_education->story, 20) }}</p>
                                     <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
+                                        <div class="progress-bar bg-success role="progressbar" style="width: {{($new_education->transections->sum('amount')*100)/$new_education->needed_amount}}%" aria-valuenow="25" aria-valuemin="0"
+                                            aria-valuemax="100">
+                                            <span class="precentage-lebel">{{($new_education->transections->sum('amount')*100)/$new_education->needed_amount}}% </span>
+                                        </div>
                                     </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
+                                    
+                                    @if(session::has('currency_c'))
+                                        @if($user_currency->session_currency == session('currency_c'))
+                                            <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($new_education->transections->sum('amount'))*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($new_education->needed_amount)*($user_currency->value)}}</p>
+                                        @endif
+                                    @else
+                                       
+                                    <p class="custom-card-text"><span class="text-muted">{{$currency_by_location->symbol}}{{($new_education->transections->sum('amount'))*($currency_by_location->value)}}</span> rised of {{$currency_by_location->symbol}}{{($new_education->needed_amount)*($currency_by_location->value)}}</p>
+                                    
+                                    @endif
                                     <div class="row border-top">
                                         <div class="col-8 col-md-8 col-gap">
                                             <div class="media">
-                                                <img src="images/user1.svg" class="mr-2 user-img" alt="...">
+                                                <img src="{{ asset('uploads/'.$new_education->members->user_photo?? '#')}}" class="mr-2 user-img" alt="...">
                                                 <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
+                                                    <p class="name-text">By {{$new_education->members->name?? ' Any Name' }} </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-4 col-md-4 col-gap">
                                             <div class="calender">
                                                 <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
+                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$new_education->deadline}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -854,158 +232,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured7.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">High School Projects</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured13.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Machine Learning Projects</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user3.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured14.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                    <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Covid-19 Research</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user4.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Ophiluous Kenth</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> No Deadline</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <img src="images/featured15.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <ul>
-                                        <li><i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Education</li>
-                                    </ul>
-                                    <h5 class="card-title">Nasa Fellowships</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur Veniam inventore fugit ex
-                                        veritatis molestiae.
-                                    </p>
-                                    <div class="progress" style="height:8px;">
-                                        <div class="progress-bar bg-success role=" progressbar" style="width: 25%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span
-                                                class="precentage-lebel">25%</span></div>
-                                    </div>
-                                    <p class="custom-card-text"><span class="text-muted">$55,000</span> rised of $100,000
-                                    </p>
-                                    <div class="row border-top">
-                                        <div class="col-8 col-md-8 col-gap">
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-gap">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -1022,94 +249,52 @@
                     <h3>Browse By Categories</h3>
                     <hr>
                     <h6>Find the course you are looking for by categories</h6>
+
                     <div class="row">
+                    	@foreach($categories as $category)
                         <div class="col-md-6 col-lg-3">
+                        	<a href="{{$category->slug}}">
                             <div class="box mb-4">
-                                <img src="images/cat-1.svg" class="d-block w-100" alt="...">
+                                <img src="{{asset($category->background_image)}}" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-md-block adjust-caption">
-                                    <i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>
+                                    <i class="{{$category->icon}}" aria-hidden="true"></i>
     
-                                    <h5>Emergency</h5>
+                                    <h5>{{$category->category_name}}</h5>
                                 </div>
                             </div>
+                            </a>
                         </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="box mb-4">
-                                <img src="images/cat-2.svg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-md-block adjust-caption">
-                                    <i class="fa fa-graduation-cap fa-4x" aria-hidden="true"></i>
-    
-                                    <h5>Education</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="box mb-4">
-                                <img src="images/cat-3.svg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-md-block adjust-caption">
-                                    <i class="fa fa-medkit fa-4x" aria-hidden="true"></i>
-    
-                                    <h5>Medical</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="box mb-4">
-                                <img src="images/cat-4.svg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-md-block adjust-caption">
-                                    <i class="fa fa-hand-peace-o fa-4x" aria-hidden="true"></i>
-    
-                                    <h5>Faith</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="box">
-                                <img src="images/cat-1.svg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-md-block adjust-caption">
-                                    <i class="fa fa-file-text-o fa-4x" aria-hidden="true"></i>
-                    
-                                    <h5>Research Projects</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="box">
-                                <img src="images/cat-2.svg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-md-block adjust-caption">
-                                    <i class="fa fa-laptop fa-4x" aria-hidden="true"></i>
-                    
-                                    <h5>Technology</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="box">
-                                <img src="images/cat-3.svg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-md-block adjust-caption">
-                                    <i class="fa fa-film fa-4x" aria-hidden="true"></i>
-                    
-                                    <h5>Film & Video</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="box">
-                                <img src="images/cat-4.svg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-md-block adjust-caption">
-                                    <i class="fa fa-pagelines fa-4x" aria-hidden="true"></i>
-                    
-                                    <h5>Eco-Friendly</h5>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
     </section>
 
     
+<script type="text/javascript">
+    
+$(document).ready(function(){
 
+ $(document).on('click', '.pagination a', function(event){
+  event.preventDefault();
+  $('#getNewCampaigns').append('<img style="position: fixed; left: 45%; top: 20%; z-index: 100000;" src="/images/load.gif" />'); 
+  var allNewCampaigns = $(this).attr('href').split('allnc=')[1];
+  
+  fetch_new_campaigns(allNewCampaigns);
+  
+ });
+
+ function fetch_new_campaigns(allNewCampaigns){
+  $.ajax({
+   url:"/getNewCampaigns?allnc="+allNewCampaigns,
+   success:function(data)
+   {
+    $('#getNewCampaigns').fadeOut( 100 , function() {
+        $('#getNewCampaigns').html(data);
+    }).fadeIn( 500 );
+   }
+  });
+ }
+});
+</script>
 @endsection

@@ -44,6 +44,18 @@ Route::get('/HowItWorks','App\Http\Controllers\Master@HowItWorks');
 
 Route::get('explore/newCampaigns','App\Http\Controllers\Master@newCampaigns');
 
+Route::get('/getNewCampaigns','App\Http\Controllers\Master@getNewCampaigns');
+
+Route::get('explore/featuredCampaigns','App\Http\Controllers\Master@featuredCampaigns');
+
+Route::get('explore/popularCampaigns','App\Http\Controllers\Master@popularCampaigns');
+
+Route::get('explore/urgentFundraising','App\Http\Controllers\Master@urgentFundraising');
+
+Route::get('explore/project','App\Http\Controllers\Master@project');
+
+
+
 Route::get('details', function (Request $request) {
   // $ip = request()->ip();
     // $ip = '50.90.0.1';
@@ -157,6 +169,43 @@ Route::group(['middleware'=>'authentication'],function(){
     Route::post('reportComment','App\Http\Controllers\FundraiserController@reportComment');
     
     Route::post('reportCampaign','App\Http\Controllers\FundraiserController@reportCampaign');
+
+    //------------------------------Verification-------------------------------------------------------
+
+    Route::get('verification','App\Http\Controllers\VerificationController@index');
+
+    Route::get('verification/uploadDocuments','App\Http\Controllers\VerificationController@uploadDocuments');
+
+    Route::get('verification/capturePhoto','App\Http\Controllers\VerificationController@capturePhoto');
+
+    Route::post('getPassportNumber','App\Http\Controllers\VerificationController@getPassportNumber');
+
+    Route::post('getUploadedDocuments','App\Http\Controllers\VerificationController@getUploadedDocuments');
+
+    Route::post('verify','App\Http\Controllers\VerificationController@verify');
+
+    //---------------------Payment --------------------------------------------------------------------
+
+    Route::get('myAccount/donateMethod','App\Http\Controllers\Master@donateMethod');
+
+    Route::get('myAccount/donateMethod/methodDetails','App\Http\Controllers\Master@methodDetails');
+
+    Route::post('setDonationDetails','App\Http\Controllers\Master@setDonationDetails');
+
+    //Stripe payment form
+
+    Route::get('checkout','App\Http\Controllers\PaymentGatewayController@checkout');
+
+    Route::post('checkout','App\Http\Controllers\PaymentGatewayController@afterpayment')->name('checkout.credit-card');
+    
+    //Paypal payment form
+    Route::get('/checkout/paypal', 'App\Http\Controllers\PaymentGatewayController@index');
+
+    // route for processing payment
+    Route::post('paypal', 'App\Http\Controllers\PaymentGatewayController@payWithpaypal');
+
+    // route for check status of the payment
+    Route::get('status', 'App\Http\Controllers\PaymentGatewayController@getPaymentStatus');
 
 
 });

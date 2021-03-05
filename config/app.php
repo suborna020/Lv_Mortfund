@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
     ],
 
@@ -233,6 +234,7 @@ return [
         'Location' => 'Stevebauman\Location\Facades\Location',
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
         'Image' => 'Intervention\Image\Facades\Image',
+        'Share' => Jorenvh\Share\ShareFacade::class,
 
     ],
 
