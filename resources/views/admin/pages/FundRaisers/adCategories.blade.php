@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class="">
-                            <button type="button" data-toggle="modal" data-target="#AddNewCategory" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New Category</button>
+                            <button type="button" data-toggle="modal" data-target="#AddNewCategory" class=" orange_text font-weight-bold btn  btn-block addNewButton" ><i class="fas fa-plus mr-1"></i> Add New Category</button>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,10 @@
                                     {{-- <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
+                                        <td>
+                                            <input type="hidden"  name="status" value="" id="fundRaiseCategoriesStatus" >
+                                            <button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button>
+                                        </td>
                                         <td>
                                             <div>
                                                 <span><i class=" manageIcons fas fa-edit fa-lg"></i></span>
@@ -99,56 +102,4 @@
     <!-- /.control-sidebar -->
 </div>
 
-<script type="text/javascript">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-
-    })
-
-    function allData() {
-        $.ajax({
-            type: "GET"
-            , DataType: 'json'
-            , url: "/fundRaiseCategoriesData"
-            , success: function(fundRaiseCategories) {
-                // console.log("succsess");
-                // console.log(fundRaiseCategories);
-                var getHtml = ""
-                $.each(fundRaiseCategories, function(key, fundRaiseCategories) {
-                    console.log(fundRaiseCategories.status);
-                    // ${result['color 5'] ? 'color 5 exists!' : 'color 5 does not exist!'}
-                   
-                    getHtml += `<tr>
-                                    <th scope="row">${fundRaiseCategories.id}</th>
-                                    <td>${fundRaiseCategories.category_name}</td>
-                                    ${fundRaiseCategories.status=='1' ? '<td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>' : '<td><button type="button" class="btn btn-warning btn-sm backgroundCerulean categoriesStatus ">Inactive</button></td>' }
-                                   
-                                    <td>
-                                        <div>
-                                            <span><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                            <span><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-                                        </div>
-                                    </td>
-                                </tr>`
-                    // getHtml += `<tr>
-                    //             <td>${allDatavalue.id}</td>
-                    //             <td>${allDatavalue.name}</td>
-                    //             <td>${allDatavalue.title}</td>
-                    //             <td>${allDatavalue.institute}</td>
-                    //             <td>
-                    //             <button class="btn btn-sm btn-primary mr-2" onclick='editData(${allDatavalue.id})'>Edit</button>
-                    //             <button class="btn btn-sm btn-danger mr-2" onclick='deleteData(${allDatavalue.id})'>Delete</button>
-                    //             </td>
-                    //             </tr>`
-                })
-                $('#fundRaiseCategoriesBody').html(getHtml);
-
-            }
-        })
-    }
-    allData();
-
-</script>
 @endsection
