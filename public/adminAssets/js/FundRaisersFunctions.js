@@ -13,9 +13,11 @@ function fundRaiseCategoriesAllData() {
                 getHtml += `<tr>
                                 <th scope="row">${key + 1}</th>
                                 <td>${fundRaiseCategories.category_name}</td>
-                                <td>
-                                <input type="hidden"  name="status" value="${fundRaiseCategories.status}" id="fundRaiseCategoriesStatus" >
-                                ${fundRaiseCategories.status == '1' ? '<button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button>' : '<button type="button" class="btn btn-warning btn-sm backgroundCerulean categoriesStatus ">Inactive</button>'}
+                                <td >
+                                    <input type="hidden"  name="status" value="${fundRaiseCategories.status}" id="fundRaiseCategoriesStatus" >
+
+                                    <button type="button" onclick="categoriesStatusUpdate(${fundRaiseCategories.id})" ${fundRaiseCategories.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseCategories.status == '1' ? 'Active' : 'Inactive'}
+                                    </button>
                                 </td>
                                 <td>
                                     <div>
@@ -146,6 +148,29 @@ function categoriesEditedSubmit() {
         })
     });
 }
+function categoriesStatusUpdate(id) {
+    // id is passed by onclick function 
+    // console.log('clicked id', id);
+    const Msg = Swal.mixin({
+        toast: true
+        , position: 'top-end'
+        , showConfirmButton: false
+        , timer: 1500
+    })
+    $.ajax({
+        type: "GET"
+        , DataType: 'json'
+        , url: "/categoriesStatusUpdate/" + id
+        , success: function (data) {
+            fundRaiseCategoriesAllData();
+            Msg.fire({
+                type: 'success'
+                , icon: 'success'
+                , title: 'Status Changed'
+            })
+        }
+    })
+}
 function categoriesDestroyData(id) {
     // id is passed by onclick function 
     swal({
@@ -160,15 +185,15 @@ function categoriesDestroyData(id) {
                 type: "POST"
                 , DataType: 'json'
                 , url: "/categoriesDestroyData/" + id
-                , success: function(data) {
+                , success: function (data) {
                     fundRaiseCategoriesAllData();
                     // console.log('deleted');
                 }
             })
-        } else{
-        
+        } else {
+
             // swal("Canceled");
-          
+
         }
     });
     // console.log('clicked id', id);

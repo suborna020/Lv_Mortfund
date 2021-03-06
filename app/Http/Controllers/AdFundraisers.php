@@ -102,6 +102,18 @@ class AdFundraisers extends Controller
       $data=Category::findOrFail($id)->delete(); 
       return response()->json($data);
     }
+    public function categoriesStatusUpdate($id){
+      $categoryRowData=Category::where('id',$id)->get()->first(); 
+    //   print_r($data);
+        if($categoryRowData->status==1)
+             $status=0;
+        else $status=1;
+        $data=Category::where('id',$id)->get()->first(); 
+        $data->status=$status;
+        $data->update();
+      return response()->json($data); 
+    }
+  
 
 
 }
