@@ -186,7 +186,7 @@ class PaymentGatewayController extends Controller
     }
 
     public function afterPayment()
-    {
+    {    // we need to redirect
         echo 'Payment Has been Received';
     }
 }
