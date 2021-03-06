@@ -11,7 +11,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <i class="fa fa-home fa-2x home-icon" aria-hidden="true"></i>
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                         <li><i class="fa fa-angle-right fa-1x angle" aria-hidden="true"></i></li>
                         <li class="breadcrumb-item active" aria-current="page">How It Works</li>
                     </ol>
@@ -90,56 +90,24 @@
                     
                     <div id="carouselExampleIndicators" class="carousel slide testimonial-slide" data-ride="carousel">
                         <ol class="carousel-indicators testimonial-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            @foreach( $testimonials as $testimonial )
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }} adjust-indicator"></li>
+                            @endforeach
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            @foreach($testimonials as $key => $testimonial)
+                            <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
                                 <div class="img-box">
-                                    <img src="images/user1.svg" class="d-block m-auto testimonial-img" alt="...">
+                                    <img src="{{asset($testimonial->photo)}}" class="d-block m-auto testimonial-img" alt="...">
                                     <i class="fa fa-quote-left quote-icon" aria-hidden="true"></i>
                                 </div>
                                 <div class="testimonial">
-                                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aliquam nostrum quam vel in, perspiciatis et id dolor quas? Porro, atque optio beatae quam explicabo voluptate iste velit obcaecati delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti impedit deserunt autem quia, dolorum sunt
-                                        voluptates dolore nihil quidem incidunt temporibus nobis perferendis recusandae doloremque, tenetur inventore hic
-                                        laborum vel"</p>
-                                    <h5>Steve McCallister</h5>
-                                    <h6>Professor - Lorem Ipsum University</h6>
+                                    <p>{{$testimonial->authors_text}}</p>
+                                    <h5>{{$testimonial->authors_name}}</h5>
+                                    <h6>{{$testimonial->designation}}</h6>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <div class="img-box">
-                                    <img src="images/user2.svg" class="d-block m-auto testimonial-img" alt="...">
-                                    <i class="fa fa-quote-left quote-icon" aria-hidden="true"></i>
-                                </div>
-                                <div class="testimonial">
-                                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aliquam nostrum quam vel in, perspiciatis
-                                        et id dolor quas? Porro, atque optio beatae quam explicabo voluptate iste velit obcaecati delectus?Lorem
-                                        ipsum dolor sit amet consectetur adipisicing elit. Deleniti impedit deserunt autem quia, dolorum sunt
-                                        voluptates dolore nihil quidem incidunt temporibus nobis perferendis recusandae doloremque, tenetur
-                                        inventore hic
-                                        laborum vel"</p>
-                                    <h5>Austine Wade</h5>
-                                    <h6>Professor - Lorem Ipsum University</h6>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="img-box">
-                                    <img src="images/user3.svg" class="d-block m-auto testimonial-img" alt="...">
-                                    <i class="fa fa-quote-left quote-icon" aria-hidden="true"></i>
-                                </div>
-                                <div class="testimonial">
-                                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aliquam nostrum quam vel in, perspiciatis
-                                        et id dolor quas? Porro, atque optio beatae quam explicabo voluptate iste velit obcaecati delectus?Lorem
-                                        ipsum dolor sit amet consectetur adipisicing elit. Deleniti impedit deserunt autem quia, dolorum sunt
-                                        voluptates dolore nihil quidem incidunt temporibus nobis perferendis recusandae doloremque, tenetur
-                                        inventore hic
-                                        laborum vel"</p>
-                                    <h5>Steve McCallister</h5>
-                                    <h6>Professor - Lorem Ipsum University</h6>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             
@@ -183,7 +151,7 @@
                                             </div>
                                             <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
                                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                                                content. This content is a wider card with supporting text below as a natural little bit longer.</p>
+                                                content. This content is a wider card with supporting text below as a natural little bit longer.1</p>
                                             <div class="media">
                                                 <img src="images/user4.svg" class="mr-2 user-img" alt="...">
                                                 <div class="media-body">
@@ -201,6 +169,7 @@
                                     <div class="col-md-4 stories2-bg">
                                         <!-- <img src="images/pexels-tima-miroshnichenko-5453805 (1).jpg"> -->
                                     </div>
+
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <div class="calender">
@@ -211,7 +180,7 @@
                                             <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
                                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                                                 additional
-                                                content. This content is a wider card with supporting text below as a natural little bit longer.
+                                                content. This content is a wider card with supporting text below as a natural little bit longer.2
                                             </p>
                                             <div class="media">
                                                 <img src="images/user2.svg" class="mr-2 user-img" alt="...">
@@ -240,7 +209,7 @@
                                             <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
                                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                                                 additional
-                                                content. This content is a wider card with supporting text below as a natural little bit longer.
+                                                content. This content is a wider card with supporting text below as a natural little bit longer.3
                                             </p>
                                             <div class="media">
                                                 <img src="images/user2.svg" class="mr-2 user-img" alt="...">
@@ -269,7 +238,7 @@
                                             <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
                                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                                                 additional
-                                                content. This content is a wider card with supporting text below as a natural little bit longer.
+                                                content. This content is a wider card with supporting text below as a natural little bit longer.4
                                             </p>
                                             <div class="media">
                                                 <img src="images/user2.svg" class="mr-2 user-img" alt="...">

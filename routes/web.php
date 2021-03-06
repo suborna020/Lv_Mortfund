@@ -40,6 +40,8 @@ Route::post('/subscribe','App\Http\Controllers\SubscriberController@store')->nam
 
 Route::get('/singleCampaign/{id}','App\Http\Controllers\FundraiserController@index');
 
+Route::post('/singleCampaign/{id}','App\Http\Controllers\FundraiserController@viewCounter');
+
 Route::get('/HowItWorks','App\Http\Controllers\Master@HowItWorks');
 
 Route::get('explore/newCampaigns','App\Http\Controllers\Master@newCampaigns');
@@ -48,11 +50,17 @@ Route::get('/getNewCampaigns','App\Http\Controllers\Master@getNewCampaigns');
 
 Route::get('explore/featuredCampaigns','App\Http\Controllers\Master@featuredCampaigns');
 
+Route::get('getFeaturedCampaigns','App\Http\Controllers\Master@getFeaturedCampaigns');
+
 Route::get('explore/popularCampaigns','App\Http\Controllers\Master@popularCampaigns');
 
 Route::get('explore/urgentFundraising','App\Http\Controllers\Master@urgentFundraising');
 
+Route::get('getUrgentFundraising','App\Http\Controllers\Master@getUrgentFundraising');
+
 Route::get('explore/project','App\Http\Controllers\Master@project');
+
+Route::get('getProjectCampaigns','App\Http\Controllers\Master@getProjectCampaigns');
 
 
 
@@ -126,7 +134,7 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
 
 Route::get('/sign-up','App\Http\Controllers\Master@userSignup')->name('sign-up');
 
-Route::post('/sign-up','App\Http\Controllers\Master@userSignupSub')->name('signupSub');
+Route::post('/signUp','App\Http\Controllers\Master@userSignupSub')->name('signupSub');
 
 Route::get('/login','App\Http\Controllers\Master@userLogin')->name('login');
 
@@ -205,7 +213,7 @@ Route::group(['middleware'=>'authentication'],function(){
 
     //Stripe payment form
 
-    Route::get('checkout','App\Http\Controllers\PaymentGatewayController@checkout');
+    Route::get('checkout/stripe','App\Http\Controllers\PaymentGatewayController@checkout');
 
     Route::post('checkout','App\Http\Controllers\PaymentGatewayController@afterpayment')->name('checkout.credit-card');
     

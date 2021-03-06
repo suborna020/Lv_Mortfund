@@ -22,6 +22,7 @@ use Redirect;
 use Session;
 use URL;
 
+
 class PaymentGatewayController extends Controller
 {
     private $_api_context;
@@ -151,6 +152,8 @@ class PaymentGatewayController extends Controller
         if ($result->getState() == 'approved') {
 
             \Session::put('success', 'Payment success');
+
+            
             return Redirect::to('/checkout/paypal');
 
         }

@@ -30,9 +30,9 @@ class CreateFundraisersTable extends Migration
             $table->string('video')->nullable();
             $table->string('proof_document')->nullable();
             $table->string('status')->nullable();
-
             $table->integer('recent')->default(0);
             $table->integer('project_support')->default(0);
+            $table->integer('views_count')->nullable();
             $table->timestamps();
         });
     }

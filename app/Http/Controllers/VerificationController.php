@@ -13,8 +13,9 @@ class VerificationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('ui.pages.users.user.verification');
+    {   
+        $user_id = Verification::where('user_id',session('user_session'))->first();
+        return view('ui.pages.users.user.verification',compact('user_id'));
     }
 
     public function uploadDocuments()

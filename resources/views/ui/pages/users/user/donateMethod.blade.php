@@ -43,7 +43,7 @@
                    	  	  	 {{$payment_method->PaymentGateways->gateway_name}}
                    	  	  </div>
                    	  	  <div class="loginGateway">
-                             <a href="/myAccount/donateMethod/methodDetails">Deposite</a>
+                             <a href="../{{$payment_method->PaymentGateways->link}}">Deposite</a>
                    	  	  </div>
                    	  </div>
                    	  @endforeach

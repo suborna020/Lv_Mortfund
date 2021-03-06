@@ -8,7 +8,7 @@
                 <h3 class="text-center">Portal login</h3>
                 <hr>
             </div>
-            <form action="{{ route('sign-up') }}" class="database_operation">
+            <form action="{{ route('signupSub') }}" class="database_operation">
                 @csrf
                 <div class="signUp_form">
                     <div class="row">

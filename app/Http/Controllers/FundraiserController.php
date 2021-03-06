@@ -145,6 +145,15 @@ class FundraiserController extends Controller
         return redirect()->back();
     }
 
+    public function viewCounter(Request $request,$id)
+    {    
+        Fundraiser::where('id', $r->id)->update([
+            'views_counter' => $request->views_counter,
+        ]);
+
+        return redirect()->back();
+    }
+
     /**
      * Display the specified resource.
      *
@@ -176,7 +185,7 @@ class FundraiserController extends Controller
      */
     public function update(Request $request, Fundraiser $fundraiser)
     {
-        //
+       
     }
 
     /**

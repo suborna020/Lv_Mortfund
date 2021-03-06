@@ -25,6 +25,7 @@ use App\Models\UserPaymentMethod;
 use App\Models\PaymentGateway;
 use App\Models\DonateHistory;
 use App\Models\Transection;
+use App\Models\Testimonial;
 use Image;
 use Illuminate\Support\Facades\View;
 // use App\Models\Currency;
@@ -102,7 +103,8 @@ class Master extends Controller
     }
 
     public function HowItWorks(){
-        return view('ui.pages.HowItWorks.howitworks');
+        $testimonials = Testimonial::where('status',1)->get();
+        return view('ui.pages.HowItWorks.howitworks',compact('testimonials'));
     }
 
     public function newCampaigns(){
@@ -131,7 +133,28 @@ class Master extends Controller
 
 
     public function featuredCampaigns(){
-        return view('ui.pages.explore.featuredCampaigns');
+        $featured_medicals = Fundraiser::where('status',1)->where('category_id',2)->where('featured',1)->orderBy('id', 'DESC')->get();
+        $featured_educations = Fundraiser::where('status',1)->where('category_id',1)->where('featured',1)->orderBy('id', 'DESC')->get();
+        $featured_emergencies = Fundraiser::where('status',1)->where('category_id',3)->where('featured',1)->orderBy('id', 'DESC')->get();
+        $get_featured_campaigns = Fundraiser::with('categories','members','transections')->where('status',1)->where('featured',1)->orderBy('id','DESC')->paginate(8,['*'],'allfc');
+        return view('ui.pages.explore.featuredCampaigns',compact('featured_medicals','featured_educations','featured_emergencies','get_featured_campaigns'));
+        
+    }
+
+    public function getFeaturedCampaigns(Request $request){
+        if($request->ajax()){
+        $get_featured_campaigns = Fundraiser::with('categories','members','transections')->where('status',1)->where('featured',1)->orderBy('id','DESC')->paginate(8,['*'],'allfc');
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+
+        // $ip = request()->ip();
+        $ip = request()->ip();
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.explore.getFeaturedCampaigns',compact('get_featured_campaigns','user_currency','user_location','currency_by_location'))->render();
+     }
     }
 
     public function popularCampaigns(){
@@ -139,12 +162,54 @@ class Master extends Controller
     }
 
     public function urgentFundraising(){
-        return view('ui.pages.explore.urgentFundraising');
+        $medical_urgents = Fundraiser::where('status',1)->where('category_id',2)->where('urgent',1)->orderBy('id', 'DESC')->get();
+        $education_urgents = Fundraiser::where('status',1)->where('category_id',1)->where('urgent',1)->orderBy('id', 'DESC')->get();
+        $emergency_urgents = Fundraiser::where('status',1)->where('category_id',3)->where('urgent',1)->orderBy('id', 'DESC')->get();
+        $get_urgent_fundraisings = Fundraiser::with('categories','members','transections')->where('status',1)->where('urgent',1)->orderBy('id','DESC')->paginate(8,['*'],'alluc');
+        return view('ui.pages.explore.urgentFundraising',compact('medical_urgents','education_urgents','emergency_urgents','get_urgent_fundraisings'));
+        
+    }
+
+    public function getUrgentFundraising(Request $request){
+        if($request->ajax()){
+        $get_urgent_fundraisings = Fundraiser::with('categories','members','transections')->where('status',1)->where('urgent',1)->orderBy('id','DESC')->paginate(8,['*'],'alluc');
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+
+        // $ip = request()->ip();
+        $ip = request()->ip();
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.explore.getUrgentFundraising',compact('get_urgent_fundraisings','user_currency','user_location','currency_by_location'))->render();
+     }
     }
 
 
     public function project(){
-        return view('ui.pages.explore.project');
+        $medical_projects = Fundraiser::where('status',1)->where('category_id',2)->where('project_support',1)->orderBy('id', 'DESC')->get();
+        $education_projects = Fundraiser::where('status',1)->where('category_id',1)->where('project_support',1)->orderBy('id', 'DESC')->get();
+        $emergency_projects = Fundraiser::where('status',1)->where('category_id',3)->where('project_support',1)->orderBy('id', 'DESC')->get();
+        $get_project_campaigns = Fundraiser::with('categories','members','transections')->where('status',1)->where('project_support',1)->orderBy('id','DESC')->paginate(8,['*'],'allpc');
+        return view('ui.pages.explore.project',compact('medical_projects','education_projects','emergency_projects','get_project_campaigns'));
+         
+    }
+
+    public function getProjectCampaigns(Request $request){
+        if($request->ajax()){
+        $get_project_campaigns = Fundraiser::with('categories','members','transections')->where('status',1)->where('project_support',1)->orderBy('id','DESC')->paginate(8,['*'],'allpc');
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+
+        // $ip = request()->ip();
+        $ip = request()->ip();
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.explore.getProjectCampaigns',compact('get_project_campaigns','user_currency','user_location','currency_by_location'))->render();
+     }
     }
 
 
@@ -213,8 +278,8 @@ class Master extends Controller
 
          if ($r->photo!='') {
             
-            // $photo = rand().'-'.time().'.'.$r->photo->extension();
-            // $r->photo->move(public_path('uploads'), $photo);
+            $photo = rand().'-'.time().'.'.$r->photo->extension();
+            $r->photo->move(public_path('uploads'), $photo);
          }
 
          if ($r->video!='') {
@@ -333,7 +398,7 @@ class Master extends Controller
     	//session a login thaka kalin user new login page a na giye alwayas dashboard stay korar condition
         //exist session/redicating on dashboard
         if (Session::get('user_session')) {
-            return redirect(url('index'));
+            return redirect(url('/'));
         }
     	return view('ui.pages.users.account.signup');
     }
