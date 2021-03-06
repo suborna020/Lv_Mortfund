@@ -57,5 +57,11 @@ $('input[type="file"].fileName').on('change', function () {
   // console.log(filename);
 
 });
+$(".searchFormButton").on("click", function() {
+  var value = $(".mySearchForm").val().toLowerCase();
+  $(".table tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+});
 
 

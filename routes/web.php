@@ -99,10 +99,7 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('categoriesEditData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesEditData');
     Route::post('categoriesEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@categoriesEditedSubmit');
     Route::post('/categoriesDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesDestroyData');
-
-
-
-
+    Route::get('/categoriesStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@categoriesStatusUpdate');
 
 
 

@@ -26,20 +26,20 @@
                             <!-- SEARCH FORM -->
                             <div class="form-group has-search serchForm">
                                 <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control" placeholder="Search">
+                                <input type="text" class="form-control mySearchForm" placeholder="Search" >
                             </div>
                             <div>
                                 <form action="/action_page.php">
                                     <div class="form-group">
                                         <select class="form-control" id="sel1" name="sellist1">
                                             <option>Active</option>
-                                            <option>2</option>
+                                            <option>Inactive</option>
                                         </select>
                                     </div>
                                 </form>
                             </div>
                             <div>
-                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn   "> Search Category</button>
+                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton" > Search Category</button>
                             </div>
                             <div>
                             </div>
