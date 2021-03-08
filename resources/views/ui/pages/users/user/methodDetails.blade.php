@@ -29,6 +29,7 @@
     	  <p>Demo PayPal form</p>
     	  <label class="w3-text-blue"><b>Enter Amount</b></label>
     	  <input class="w3-input w3-border" id="amount" type="text" name="amount" required="" value="{{session('amount')}}"></p>
+          <input type="text" name="method_id" value="1">
     	  <button class="w3-btn w3-blue">Pay with PayPal</button>
     	</form>
     </div>

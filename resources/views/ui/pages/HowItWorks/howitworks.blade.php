@@ -31,48 +31,22 @@
                     <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, maiores? Sit atque molestias similique illum iusto libero neque voluptate suscipit incidunt ea, velit, alias impedit iusto libero neque voluptate aliquam officiis a nulla nam?</h6>
 
                     <div class="row">
+                        @foreach($how_it_works as $how_it_work)
                         <div class="col-md-4 col-12">
+                        
                         <div class="col-bg">
                             <div class="direction-icon">
                                 <li><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></li>
                             </div>
                             <div class="box">
-                                <li><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></li>
-                                <h4>Start Your Campaign</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Perferendis minima inventore dolore quis velit autem
-                                    doloribus voluptates minus aperiam vitae.</p>
+                                <li><i class="{{$how_it_work->icon}}" aria-hidden="true"></i></li>
+                                <h4>{{$how_it_work->title}}</h4>
+                                <p>{{$how_it_work->short_description}}</p>
                             </div>
                         </div>
+                        
                         </div>
-                        <div class="col-md-4 col-12">
-                            <div class="col-bg">
-                                <div class="direction-icon">
-                                    <li><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></li>
-                                </div>
-                                <div class="box">
-                                    <li><i class="fa fa-share-alt fa-3x" aria-hidden="true"></i></li>
-                                    <h4>Share With Friends</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Perferendis minima inventore dolore quis velit autem
-                                        doloribus voluptates minus aperiam vitae.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <div class="col-bg">
-                                <div class="direction-icon">
-                                    <li><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></li>
-                                </div>
-                                <div class="box">
-                                    <li><i class="fa fa-cogs fa-3x" aria-hidden="true"></i></li>
-                                    <h4>Manage Donations</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Perferendis minima inventore dolore quis velit autem
-                                        doloribus voluptates minus aperiam vitae.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -136,26 +110,25 @@
                     <br>
 
                     <div class="owl-carousel owl-theme howitworks">
+                        @foreach($success_stories1 as $success_story1)
                         <div class="item">
                             <div class="card mb-3 hw-card">
                                 <div class="row no-gutters">
-                                    <div class="col-md-4 stories1-bg">
-                                        <!-- <img src="images/stories1.svg" alt="..." class="img-fluid"> -->
+                                    <div class="col-md-4 stories1-bg" style="background-image: url('{{asset($success_story1->photo)}}');">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <div class="calender">
                                                 <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
+                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$success_story1->created_at}}</li>
                                                 </ul>
                                             </div>
-                                            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                                                content. This content is a wider card with supporting text below as a natural little bit longer.1</p>
+                                            <h5 class="card-title">{{$success_story1->title}}</h5>
+                                            <p class="card-text">{{$success_story1->story}}</p>
                                             <div class="media">
-                                                <img src="images/user4.svg" class="mr-2 user-img" alt="...">
+                                                <img src="{{asset($success_story1->author_photo)}}" class="mr-2 user-img" alt="...">
                                                 <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
+                                                    <p class="name-text">{{$success_story1->author_name}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -163,118 +136,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="card mb-3 hw-card" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4 stories2-bg">
-                                        <!-- <img src="images/pexels-tima-miroshnichenko-5453805 (1).jpg"> -->
-                                    </div>
-
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                                additional
-                                                content. This content is a wider card with supporting text below as a natural little bit longer.2
-                                            </p>
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card mb-3 hw-card" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4 stories3-bg">
-                                        <!-- <img src="images/stories4.svg" alt="..."> -->
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                                additional
-                                                content. This content is a wider card with supporting text below as a natural little bit longer.3
-                                            </p>
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card mb-3 hw-card" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4 stories4-bg">
-                                        <!-- <img src="images/stories5.svg" alt="..."> -->
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                                additional
-                                                content. This content is a wider card with supporting text below as a natural little bit longer.4
-                                            </p>
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                     </div>
                     <div class="owl-carousel owl-theme howitworks">
+                        @foreach($success_stories2 as $success_story2)
                         <div class="item">
                             <div class="card mb-3 hw-card">
                                 <div class="row no-gutters">
-                                    <div class="col-md-4 stories5-bg">
-                                        <!-- <img src="images/stories1.svg" alt="..." class="img-fluid"> -->
+                                    <div class="col-md-4 stories1-bg" style="background-image: url('{{asset($success_story2->photo)}}');">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <div class="calender">
                                                 <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
+                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$success_story2->created_at}}</li>
                                                 </ul>
                                             </div>
-                                            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                                additional
-                                                content. This content is a wider card with supporting text below as a natural little bit
-                                                longer.</p>
+                                            <h5 class="card-title">{{$success_story2->title}}</h5>
+                                            <p class="card-text">{{$success_story2->story}}</p>
                                             <div class="media">
-                                                <img src="images/user4.svg" class="mr-2 user-img" alt="...">
+                                                <img src="{{asset($success_story1->author_photo)}}" class="mr-2 user-img" alt="...">
                                                 <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
+                                                    <p class="name-text">{{$success_story2->author_name}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -282,96 +166,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="card mb-3 hw-card" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4 stories6-bg">
-                                        <!-- <img src="images/pexels-tima-miroshnichenko-5453805 (1).jpg"> -->
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                                additional
-                                                content. This content is a wider card with supporting text below as a natural little bit
-                                                longer.
-                                            </p>
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card mb-3 hw-card" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4 stories7-bg">
-                                        <!-- <img src="images/stories4.svg" alt="..."> -->
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                                additional
-                                                content. This content is a wider card with supporting text below as a natural little bit
-                                                longer.
-                                            </p>
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card mb-3 hw-card" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4 stories8-bg">
-                                        <!-- <img src="images/stories5.svg" alt="..."> -->
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <div class="calender">
-                                                <ul>
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Jan, 2021</li>
-                                                </ul>
-                                            </div>
-                                            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                                additional
-                                                content. This content is a wider card with supporting text below as a natural little bit
-                                                longer.
-                                            </p>
-                                            <div class="media">
-                                                <img src="images/user2.svg" class="mr-2 user-img" alt="...">
-                                                <div class="media-body">
-                                                    <p class="name-text">By Gavin Degenres</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@
         <div class="carousel-inner inner-size">
            @foreach($slider as $key => $sliders)
             <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
-                <img src="{{$sliders->slider_photo}}" class="d-block w-100 img-fluid" alt="slider img">
+                <img src="{{$sliders->slider_photo}}" class="d-block w-100 img-fluid" alt="slider img" lazy="loading">
                 <div class="carousel-caption d-md-block caption-adjust">
                     <h2>{{$sliders->slider_title}}</h2>
                     <p>{{$sliders->slide_sub_title}}</p>
@@ -50,7 +50,7 @@
                         <a href="{{$category->slug}}">
                           <div class="item">
                             <div class="box">
-                                <img src="{{$category->background_image}}" class="d-block w-100" alt="...">
+                                <img src="{{$category->background_image}}" class="d-block w-100" alt="..." lazy="loading">
                                 <div class="carousel-caption d-md-block adjust-caption">
                                     <i class="{{$category->icon}}" aria-hidden="true"></i>
                             
@@ -96,7 +96,7 @@
               @foreach($counters as $counter)
                 <div class="col-md-4">
                     <div class="img-box">
-                        <img src="{{$counter->icon}}" alt="">
+                        <img src="{{$counter->icon}}" alt="" lazy="loading">
                         <h3 class="c">{{$counter->quantity}}</h3>
                         <p>{{$counter->title}}</p>
                     </div>

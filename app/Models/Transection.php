@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Transection extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['method_id','member_id','amount','campaign_author','campaign_id'];
 }

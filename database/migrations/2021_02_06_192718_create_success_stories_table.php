@@ -19,8 +19,9 @@ class CreateSuccessStoriesTable extends Migration
             $table->string('title')->nullable();
             $table->string('author_name')->nullable();
             $table->string('author_photo')->nullable();
-            $table->string('story')->nullable();
+            $table->longText('story')->nullable();
             $table->string('photo')->nullable();
+            $table->Integer('status')->default(0);
             $table->timestamps();
         });
     }

@@ -17,7 +17,8 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="">
-                    <p>You will be charged $100.</p>
+                    <p>You will be charged ${{session('amount')}}</p>
+                    <p>{{session('msg')}}</p>
                 </div>
                 <div class="card">
                     <form action="{{route('checkout.credit-card')}}"  method="post" id="payment-form">
@@ -35,6 +36,8 @@
                                 <!-- Used to display form errors. -->
                                 <div id="card-errors" role="alert"></div>
                                 <input type="hidden" name="plan" value="" />
+                                <input type="hidden" name="method_id" value="4">
+                                
                             </div>
                         </div>
                         <div class="card-footer">

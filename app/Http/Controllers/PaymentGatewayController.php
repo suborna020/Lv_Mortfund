@@ -16,6 +16,7 @@ use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
+use App\Models\Transection;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
 use Redirect;
@@ -128,7 +129,7 @@ class PaymentGatewayController extends Controller
 
     }
 
-    public function getPaymentStatus()
+    public function getPaymentStatus(Request $r)
     {
         /** Get the payment ID before session clear **/
         $payment_id = Session::get('paypal_payment_id');
@@ -150,10 +151,23 @@ class PaymentGatewayController extends Controller
         $result = $payment->execute($execution, $this->_api_context);
 
         if ($result->getState() == 'approved') {
+            Transection::create([
+            'method_id' => 24,
+            'member_id' => session('user_session'),
+            // 'transection_type' => $r->transection_type,
+            // 'name' => $r->name,
+            // 'email' => $r->email,
+            // 'phone' => $r->phone,
+            // 'address' => $r->address,
+            'amount' => session('amount'),
+            // 'charge' => $r->charge,
+            'campaign_author' => session('fundraiser_id'),
+            'campaign_id' => session('campaing_id'),
+        ]);
 
             \Session::put('success', 'Payment success');
 
-            
+
             return Redirect::to('/checkout/paypal');
 
         }
@@ -165,10 +179,11 @@ class PaymentGatewayController extends Controller
 
     public function checkout()
     {   
+
         // Enter Your Stripe Secret
         \Stripe\Stripe::setApiKey('sk_test_51IQArsEXyED6aSlyyAiPCQo8XR2Gwt3W5K6o8ngmQgOsbvmZykUbS5VHeNoUXjSDh4vHQrmmtvGUOuICVVo9UdD900rlZhrVoX');
                 
-        $amount = 100;
+        $amount = session('amount');
         $amount *= 100;
         $amount = (int) $amount;
         
@@ -185,8 +200,24 @@ class PaymentGatewayController extends Controller
 
     }
 
-    public function afterPayment()
-    {
-        echo 'Payment Has been Received';
+    public function afterPayment(Request $r)
+    {   
+
+        Transection::create([
+            'method_id' => $r->method_id,
+            'member_id' => session('user_session'),
+            // 'transection_type' => $r->transection_type,
+            // 'name' => $r->name,
+            // 'email' => $r->email,
+            // 'phone' => $r->phone,
+            // 'address' => $r->address,
+            'amount' => session('amount'),
+            // 'charge' => $r->charge,
+            'campaign_author' => session('fundraiser_id'),
+            'campaign_id' => session('campaing_id'),
+        ]);
+
+        $r->session()->flash('msg','Payment Has been Recieved !');
+        return redirect('/checkout/stripe');
     }
 }

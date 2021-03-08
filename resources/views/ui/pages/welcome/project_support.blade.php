@@ -2,7 +2,7 @@
     @foreach($project_supports as $project_support)
     <div class="col-md-6 col-xl-3">
         <div class="card">
-            <img src="uploads/{{$project_support->photo}}" class="card-img-top" alt="...">
+            <img src="uploads/{{$project_support->photo}}" class="card-img-top" alt="..." lazy="loading">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$project_support->icon}}" aria-hidden="true"></i></i> {{$project_support->categories->category_name}}</li>
@@ -30,7 +30,7 @@
                 <div class="row border-top">
                     <div class="col-8 col-md-8 col-gap">
                         <div class="media">
-                            <img src="uploads/{{ $project_support->members->user_photo?? '#' }}" class="mr-2 user-img" alt="...">
+                            <img src="uploads/{{ $project_support->members->user_photo?? '#' }}" class="mr-2 user-img" alt="..." lazy="loading">
                             <div class="media-body">
                                 <p class="name-text">By{{ $project_support->members->name?? 'Any Name' }}  </p>
                             </div>

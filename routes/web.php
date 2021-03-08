@@ -54,6 +54,8 @@ Route::get('getFeaturedCampaigns','App\Http\Controllers\Master@getFeaturedCampai
 
 Route::get('explore/popularCampaigns','App\Http\Controllers\Master@popularCampaigns');
 
+Route::get('getPopularCampaigns','App\Http\Controllers\Master@getPopularCampaigns');
+
 Route::get('explore/urgentFundraising','App\Http\Controllers\Master@urgentFundraising');
 
 Route::get('getUrgentFundraising','App\Http\Controllers\Master@getUrgentFundraising');
@@ -61,6 +63,10 @@ Route::get('getUrgentFundraising','App\Http\Controllers\Master@getUrgentFundrais
 Route::get('explore/project','App\Http\Controllers\Master@project');
 
 Route::get('getProjectCampaigns','App\Http\Controllers\Master@getProjectCampaigns');
+
+Route::post('DestroySession','App\Http\Controllers\Master@DestroySession');
+
+Route::get('DestroySessions','App\Http\Controllers\Master@DestroySessions');
 
 
 

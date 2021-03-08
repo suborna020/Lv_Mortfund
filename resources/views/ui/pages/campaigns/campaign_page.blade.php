@@ -299,6 +299,7 @@
             <input type="text" name="member_id" value="{{session('user_session')}}">
             @endif
             <input type="text" id="replyToId" name="parent" class="form-control">
+            comments count<input type="text" id="comments_count" name="comments_count" class="form-control" value="{{$get_fundraiser->comments_count}}">
             <textarea class="form-control" name="comment"></textarea>
       </div>
       <div class="modal-footer">

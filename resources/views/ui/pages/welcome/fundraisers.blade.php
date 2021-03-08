@@ -3,7 +3,7 @@
 @foreach($fundraisers as $fundraiser)
     <div class="col-md-6 col-xl-3">
         <div class="card">
-            <img src="uploads/{{$fundraiser->photo}}" class="card-img-top" alt="...">
+            <img src="uploads/{{$fundraiser->photo}}" class="card-img-top" alt="..." lazy="loading">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$fundraiser->icon}}" aria-hidden="true"></i></i> {{$fundraiser->categories->category_name}}</li>
@@ -32,7 +32,7 @@
                 <div class="row border-top">
                     <div class="col-8 col-md-8 col-gap">
                         <div class="media">
-                            <img src="uploads/{{ $fundraiser->members->user_photo?? '#' }}" class="mr-2 user-img" alt="...">
+                            <img src="uploads/{{ $fundraiser->members->user_photo?? '#' }}" class="mr-2 user-img" alt="..." lazy="loading">
                             <div class="media-body">
                                 <p class="name-text">By {{$fundraiser->members->name?? ' Any Name' }} </p>
                             </div>

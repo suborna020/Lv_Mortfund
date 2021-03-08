@@ -6,7 +6,7 @@
 	<div id="verificationProcess">
 		
           @if($user_id==true)
-              <p>You are Verified</p>
+              <p>Your Verification Request is Pending ...</p>
           @else
           <div class="passportVerification">
 			 <form action="/getPassportNumber" method="POST">
