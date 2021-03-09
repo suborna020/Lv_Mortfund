@@ -64,4 +64,18 @@ $(".searchFormButton").on("click", function() {
   });
 });
 
+$(" .myCustomFileInput .custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".customFileLabel").addClass("selected").html(fileName);
+});
+
+//Date  picker
+$('.datepicker').datepicker({
+  weekStart: 1,
+  daysOfWeekHighlighted: "6,0",
+  autoclose: true,
+  todayHighlight: true,
+});
+$('#datepicker').datepicker("setDate", new Date());
+
 

@@ -27,6 +27,9 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ url('plugins/summernote/summernote-bs4.min.css')}}">
     <link href="{{ url('adminAssets/css/style.css')}}" rel=" stylesheet">
+    {{-- bootstrap datepicker --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="{{ url('plugins/jquery/jquery.min.js')}}"></script>
@@ -75,6 +78,8 @@
     <!-- daterangepicker -->
     <script src="{{ url('plugins/moment/moment.min.js')}}"></script>
     <script src="{{ url('plugins/daterangepicker/daterangepicker.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
     <!-- Tempusdominus Bootstrap 4 -->
     <script src="{{ url('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
     <!-- Summernote -->
@@ -110,7 +115,7 @@
         })
 
     </script>
-    <script src="{{ url('adminAssets/js/FundRaisersFunctions.js') }}"></script>
+
 
 
 

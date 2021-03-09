@@ -89,17 +89,24 @@ Route::get('/clear/',[\App\Http\Controllers\CachesController::class,'clearCaches
 Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
-    //Fundraisers
+    //Fundraisers 
     Route::get('aDashboard/adCategories','App\Http\Controllers\AdFundraisers@adCategories');
     Route::get('aDashboard/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
     Route::get('aDashboard/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
     Route::get('aDashboard/adPending','App\Http\Controllers\AdFundraisers@adPending');
+    //Fundraisers -> Categories
     Route::get('/fundRaiseCategoriesData', 'App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
     Route::post('categoriesAddData','App\Http\Controllers\AdFundraisers@categoriesAddData');
     Route::get('categoriesEditData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesEditData');
     Route::post('categoriesEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@categoriesEditedSubmit');
     Route::post('/categoriesDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesDestroyData');
     Route::get('/categoriesStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@categoriesStatusUpdate');
+     //Fundraisers -> Recent
+    Route::get('/fundRaiseRecentData', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentData');
+    Route::post('fundRecentAddData','App\Http\Controllers\AdFundraisers@fundRecentAddData');
+    Route::get('fundRaiseEditData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseEditData');
+
+
 
 
 

@@ -99,24 +99,14 @@ class AppServiceProvider extends ServiceProvider
                 $successStoriesBox = SuccessStory::all();
                 $WithdrawRequestsBox=WithdrawRequest::all();
     
-                $view->with('userInfoBox',$userInfoBox)
+             $view->with('userInfoBox',$userInfoBox)
                 ->with('FundraisersBox',$FundraisersBox)
                 ->with('CategoriesBox',$CategoriesBox)
                 ->with('successStoriesBox',$successStoriesBox)
                  ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
                 ;
+               
             }
-            // $FundraisersBox = Fundraiser::all();
-            // dd($FundraisersBox);
-            // // $user = JWTAuth::user();
-            // // // $userDriveData = getUsersAllFolder(session('user_id'));
-            // // $userDriveData = allFolderAllFile(session('user_id'));
-            // // $allFolders = getUsersAllFolder(session('user_id'));
-            // // // dd($allFolders);
-            // // $view->with('token', session('token'));
-            // $view->with('FundraisersBox',$FundraisersBox);
-            // // $view->with('driveData',$userDriveData);
-            // // $view->with('allFolders',$allFolders);
         });
     }
 }

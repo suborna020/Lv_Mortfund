@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
-use Validator;
+use Validator,Redirect,Response,File;
 use Session;
 use Hash;
+use DB;
 
 class AdminController extends Controller
 {

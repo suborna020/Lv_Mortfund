@@ -114,7 +114,9 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
-
+.spaceForManage{
+    width: 10%;
+}
 .rotate {
     transform: rotate(90deg) !important;
 }
@@ -122,6 +124,10 @@ a:hover {
 
 .backgroundCerulean {
     background-color: #063D75 !important;
+}
+.selected{
+    color: #F36A10 !important;
+
 }
 
 .whiteText {
@@ -152,6 +158,12 @@ a:hover {
     border          : unset !important;
     background-color: #e9ecef61 !important;
 }
+
+    // .bootstrap-datepicker-widget{
+    //     position: absolute !important;
+    //     bottom: 0 !important;
+    //     left: -50px !important;
+    // }
 
 // ---dashboard page -------------
 // aside bar 
@@ -624,7 +636,7 @@ nav .menu-open .extend_icon {
     width: 89%;
     cursor: pointer;
 }
-.copiedFilename{
+.copiedFilenameButton {
     position: absolute;
     left: 5%;
     top: 34%;
@@ -632,9 +644,30 @@ nav .menu-open .extend_icon {
     width: 75%;
     overflow: hidden;
     height: 38px;
-}
+  }
+  
+  .copiedFilenameButton2 {
+    position: absolute;
+    left: 14px;
+    top: 0;
+    z-index: 1;
+    width: 95% !important;
+    overflow: hidden;
+    height: 38px;
+    font-size: unset !important;
+  }
 //  adrecent.blade page
-
+.myTextArea{
+    min-height: 110px;
+}
+.customFileButtonIcon{
+    right: 7px;
+    position: absolute;
+}
+.bigModal select.form-control ,.bigModal .input-group input ,.bigModal .fileInputSize{
+    font-size: 0.8rem !important;
+    height: 31px !important;
+}
 
 //  Payment Gateways  page
 
