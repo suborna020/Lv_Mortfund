@@ -188,7 +188,7 @@
                               <div class="row">
                                 <div class="col-12 col-md-12">
                                   @if($comment->parent!=null)
-                                  <span style="color: blue">@ {{$comment->parent}}</span>
+                                  <span style="color: blue">@ {{$comment->members->name}}</span>
                                   @endif
                                   <span>{{$comment->comment}}</span>
                                   
