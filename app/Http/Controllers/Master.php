@@ -513,6 +513,8 @@ class Master extends Controller
         $request->session()->forget('success');
         $request->session()->forget('error');
         $request->session()->forget('msg');
+        $request->session()->forget('passport_number');
+        $request->session()->forget('upload_documents');
         return redirect('/login');
     }
 
