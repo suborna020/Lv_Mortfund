@@ -14,7 +14,7 @@ class CreateFundraisersTable extends Migration
     public function up()
     {
         Schema::create('fundraisers', function (Blueprint $table) {
-            $table->increments('id')
+            $table->increments('id');
             $table->string('category_id')->nullable();
             $table->string('member_id')->nullable();
             $table->string('location')->nullable();
@@ -30,8 +30,9 @@ class CreateFundraisersTable extends Migration
             $table->string('video')->nullable();
             $table->string('proof_document')->nullable();
             $table->string('status')->nullable();
+            $table->integer('private')->default(0);
             $table->integer('recent')->default(0);
-            $table->Integer('featured')->nullable();
+            $table->integer('featured')->nullable();
             $table->integer('project_support')->default(0);
             $table->integer('comments_count')->nullable();
             $table->timestamps();

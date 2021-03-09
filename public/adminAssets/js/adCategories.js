@@ -9,13 +9,10 @@ function fundRaiseCategoriesAllData() {
             // console.log(fundRaiseCategories);
             var getHtml = ""
             $.each(fundRaiseCategories, function (key, fundRaiseCategories) {
-                // console.log(fundRaiseCategories.status);
                 getHtml += `<tr>
                                 <th scope="row">${key + 1}</th>
                                 <td>${fundRaiseCategories.category_name}</td>
                                 <td >
-                                    <input type="hidden"  name="status" value="${fundRaiseCategories.status}" id="fundRaiseCategoriesStatus" >
-
                                     <button type="button" onclick="categoriesStatusUpdate(${fundRaiseCategories.id})" ${fundRaiseCategories.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseCategories.status == '1' ? 'Active' : 'Inactive'}
                                     </button>
                                 </td>
@@ -32,7 +29,77 @@ function fundRaiseCategoriesAllData() {
         }
     })
 }
+
 fundRaiseCategoriesAllData();
+$('#categoriesCheck').change(function () {
+    if ($(this).val() === '1') {
+        $.ajax({
+            type: "GET"
+            , DataType: 'json'
+            , url: "/fundRaiseCategoriesData"
+            , success: function (fundRaiseCategories) {
+                // console.log(fundRaiseCategories);
+                var getHtml = ""
+                $.each(fundRaiseCategories, function (key, fundRaiseCategories) {
+                    // console.log(fundRaiseCategories.status=='1');
+                    if (fundRaiseCategories.status == '1') {
+                        // console.log(fundRaiseCategories);
+
+                        getHtml += `<tr>
+                                    <th scope="row">${key + 1}</th>
+                                    <td>${fundRaiseCategories.category_name}</td>
+                                    <td >
+                                        <button type="button" onclick="categoriesStatusUpdate(${fundRaiseCategories.id})" ${fundRaiseCategories.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseCategories.status == '1' ? 'Active' : 'Inactive'}
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <span onclick='categoriesEditData(${fundRaiseCategories.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
+                                            <span onclick='categoriesDestroyData(${fundRaiseCategories.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                        </div>
+                                    </td>
+                                </tr>`
+                    }
+                })
+                $('#fundRaiseCategoriesBody').html(getHtml);
+            }
+        })
+    }
+    else {
+        $.ajax({
+            type: "GET"
+            , DataType: 'json'
+            , url: "/fundRaiseCategoriesData"
+            , success: function (fundRaiseCategories) {
+                // console.log(fundRaiseCategories);
+                var getHtml = ""
+                $.each(fundRaiseCategories, function (key, fundRaiseCategories) {
+                    // console.log(fundRaiseCategories.status=='1');
+                    if (fundRaiseCategories.status == '0') {
+                        // console.log(fundRaiseCategories);
+
+                        getHtml += `<tr>
+                                    <th scope="row">${key + 1}</th>
+                                    <td>${fundRaiseCategories.category_name}</td>
+                                    <td >
+                                        <button type="button" onclick="categoriesStatusUpdate(${fundRaiseCategories.id})" ${fundRaiseCategories.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseCategories.status == '1' ? 'Active' : 'Inactive'}
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <span onclick='categoriesEditData(${fundRaiseCategories.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
+                                            <span onclick='categoriesDestroyData(${fundRaiseCategories.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                        </div>
+                                    </td>
+                                </tr>`
+                    }
+                })
+                $('#fundRaiseCategoriesBody').html(getHtml);
+            }
+        })
+    }
+});
+
 // add data 
 function categoriesAddData() {
     $('#categoriesAddData').on('submit', function (event) {

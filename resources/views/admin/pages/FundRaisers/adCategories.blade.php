@@ -26,20 +26,18 @@
                             <!-- SEARCH FORM -->
                             <div class="form-group has-search serchForm">
                                 <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control mySearchForm" placeholder="Search" >
+                                <input type="text" class="form-control mySearchForm" placeholder="Search">
+                            </div>
+                            {{-- status check   --}}
+                            <div class="form-group">
+                                <select class="form-control" id="categoriesCheck" name="sellist1">
+                                    <option>Select</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
                             </div>
                             <div>
-                                <form action="/action_page.php">
-                                    <div class="form-group">
-                                        <select class="form-control" id="sel1" name="sellist1">
-                                            <option>Active</option>
-                                            <option>Inactive</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            <div>
-                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton" > Search Category</button>
+                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton"> Search Category</button>
                             </div>
                             <div>
                             </div>
@@ -49,7 +47,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class="">
-                            <button type="button" data-toggle="modal" data-target="#AddNewCategory" class=" orange_text font-weight-bold btn  btn-block addNewButton" ><i class="fas fa-plus mr-1"></i> Add New Category</button>
+                            <button type="button" data-toggle="modal" data-target="#AddNewCategory" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New Category</button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +84,7 @@
 
                     </div>
                     {{-- <br>admin session no :{{$admin_sessionData}} --}}
-                    user name :{{$userInfoBox->admin_name}}
+                    {{-- user name :{{$userInfoBox->admin_name}} --}}
 
                 </div>
                 <!-- /.row -->
@@ -95,11 +93,8 @@
         </section>
         <!-- /.content -->
     </div>
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    <script src="{{ url('adminAssets/js/adCategories.js') }}"></script>
+
 </div>
 
 @endsection

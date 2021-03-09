@@ -179,6 +179,7 @@ return [
         Stevebauman\Location\LocationServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
+        Unicodeveloper\Paystack\PaystackServiceProvider::class,
 
     ],
 
@@ -235,6 +236,7 @@ return [
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
         'Image' => 'Intervention\Image\Facades\Image',
         'Share' => Jorenvh\Share\ShareFacade::class,
+        'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
 
     ],
 

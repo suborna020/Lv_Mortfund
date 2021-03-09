@@ -25,7 +25,7 @@
                     @endif
                 @else
                    
-                <p class="custom-card-text"><span class="text-muted">{{$currency_by_location->symbol}}{{($fundraiser->transections->sum('amount'))*($currency_by_location->value)}}</span> rised of {{$currency_by_location->symbol}}{{($fundraiser->needed_amount)*($currency_by_location->value)}}</p>
+                <p class="custom-card-text"><span class="text-muted"> {{$currency_by_location->symbol?? '$' }}{{($fundraiser->transections->sum('amount'))*($currency_by_location->value ?? '0')}}</span> rised of {{$currency_by_location->symbol?? '$' }}{{($fundraiser->needed_amount)*($currency_by_location->value ?? '0')}}</p>
                 
                 @endif
                 
