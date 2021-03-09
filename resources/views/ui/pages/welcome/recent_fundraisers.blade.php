@@ -3,7 +3,7 @@
 @foreach($recents as $recent)
 <div class="col-md-6 col-xl-3">
     <div class="card">
-        <img src="uploads/{{$recent->photo}}" class="card-img-top" alt="...">
+        <img src="uploads/{{$recent->photo}}" class="card-img-top" alt="..." lazy="loading">
         <div class="card-body">
             <ul>
                 <li><i class="{{$recent->icon}}" aria-hidden="true"></i></i> {{$recent->categories->category_name}}</li>
@@ -31,7 +31,7 @@
             <div class="row border-top">
                 <div class="col-8 col-md-8 col-gap">
                     <div class="media">
-                        <img src="uploads/{{ $recent->members->user_photo?? '#' }}" class="mr-2 user-img" alt="...">
+                        <img src="uploads/{{ $recent->members->user_photo?? '#' }}" class="mr-2 user-img" alt="..." lazy="loading">
                         <div class="media-body">
                             <p class="name-text">By {{ $recent->members->name?? 'Any Name' }}</p>
                         </div>

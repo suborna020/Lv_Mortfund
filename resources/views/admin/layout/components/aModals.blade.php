@@ -75,11 +75,15 @@
                                 <div class="form-group">
                                     <select class="form-control" id="category_id" name="category_id" required>
                                         <option selected="true" disabled>Select category</option>
+
+                                        @if(isset($CategoriesBox)) {
                                         @foreach($CategoriesBox as $CategoriesBox)
                                         <option value="{{$CategoriesBox->id}}">{{$CategoriesBox->category_name}}</option>
-                                        {{-- <option value="2">Medical</option> --}}
+
 
                                         @endforeach
+                                        }
+                                        @endif
 
                                     </select>
                                 </div>
@@ -100,7 +104,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-12 ">
                                 <div class="input-group mb-2">
-                                    <input type="text" class="form-control " name="title"  id="title" placeholder="Enter Title" required>
+                                    <input type="text" class="form-control " name="title" id="title" placeholder="Enter Title" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-align-top blurText"></i>
@@ -178,11 +182,11 @@
                 </div>
                 <div class="modalBorder"></div>
                 <div class="modal-footer py-2">
-                    <button type="submit"  class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow" onclick="fundRecentAddData()"><i class="fas fa-plus mr-1"></i>Add Fundraiser</button>
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow" onclick="fundRecentAddData()"><i class="fas fa-plus mr-1"></i>Add Fundraiser</button>
 
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" onclick="categoriesEditedSubmit change ()" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Fundraiser</button>
 
-                   
+
                 </div>
             </div>
         </form>

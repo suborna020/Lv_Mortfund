@@ -26,10 +26,11 @@ use App\Models\PaymentGateway;
 use App\Models\DonateHistory;
 use App\Models\Transection;
 use App\Models\Testimonial;
+use App\Models\HowItWorks;
+use App\Models\SuccessStory;
 use Image;
 use Illuminate\Support\Facades\View;
 // use App\Models\Currency;
-
 class Master extends Controller
 {   
 
@@ -104,7 +105,10 @@ class Master extends Controller
 
     public function HowItWorks(){
         $testimonials = Testimonial::where('status',1)->get();
-        return view('ui.pages.HowItWorks.howitworks',compact('testimonials'));
+        $how_it_works = HowItWorks::where('status',1)->get();
+        $success_stories1 = SuccessStory::where('status',1)->orderBy('id','DESC')->get();
+        $success_stories2 = SuccessStory::where('status',1)->orderBy('id','ASC')->get();
+        return view('ui.pages.HowItWorks.howitworks',compact('testimonials','how_it_works','success_stories1','success_stories2'));
     }
 
     public function newCampaigns(){
@@ -157,8 +161,30 @@ class Master extends Controller
      }
     }
 
+     
     public function popularCampaigns(){
-        return view('ui.pages.explore.popularCampaigns');
+        $popular_medicals = Fundraiser::where('status',1)->where('category_id',2)->orderBy('raised', 'DESC')->orderBy('comments_count','DESC')->get();
+        $popular_educations = Fundraiser::where('status',1)->where('category_id',1)->orderBy('raised', 'DESC')->orderBy('comments_count','DESC')->get();
+        $popular_emergencies = Fundraiser::where('status',1)->where('category_id',3)->orderBy('raised', 'DESC')->orderBy('comments_count','DESC')->get();
+        $get_popular_campaigns = Fundraiser::with('categories','members','transections')->where('status',1)->orderBy('raised','DESC')->orderBy('comments_count','DESC')->paginate(8,['*'],'allppc');
+        return view('ui.pages.explore.popularCampaigns',compact('popular_medicals','popular_educations','popular_emergencies','get_popular_campaigns'));
+         
+    }
+
+    public function getPopularCampaigns(Request $request){
+        if($request->ajax()){
+        $get_popular_campaigns = Fundraiser::with('categories','members','transections')->where('status',1)->orderBy('raised', 'DESC')->orderBy('comments_count','DESC')->paginate(8,['*'],'allppc');
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+
+        // $ip = request()->ip();
+        $ip = request()->ip();
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.explore.getPopularCampaigns',compact('get_popular_campaigns','user_currency','user_location','currency_by_location'))->render();
+     }
     }
 
     public function urgentFundraising(){
@@ -478,6 +504,24 @@ class Master extends Controller
         return redirect('/login');
     }
 
+    public function DestroySession(Request $request){
+        $request->session()->forget('user_session');
+        $request->session()->forget('amount');
+        $request->session()->forget('fundraiser_id');
+        $request->session()->forget('user_session');
+        $request->session()->forget('campaing_id');
+        $request->session()->forget('success');
+        $request->session()->forget('error');
+        $request->session()->forget('msg');
+        $request->session()->forget('passport_number');
+        $request->session()->forget('upload_documents');
+        return redirect('/login');
+    }
+
+    public function DestroySessions(Request $request){
+         return view('destroySession.destroy_session');
+    }
+
     public function forgotPassword(){
         return view('ui.pages.users.account.forgotPassword');
     }
@@ -518,7 +562,7 @@ class Master extends Controller
             // $r->user_photo->move(public_path('uploads'), $user_photo);
              
          }else{
-            $user_photo = $r->default_user_photo;
+            $user_photo_name = $r->default_user_photo;
            
          }
           

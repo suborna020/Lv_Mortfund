@@ -73,13 +73,19 @@ class FundraiserController extends Controller
     {
         $this->validate($request, [
             'comment' => 'required',
-             
          ]);
  
          Comment::create([
             'campaing_id' => $request->campaing_id,
             'member_id' => session('user_session'),
             'comment' => $request->comment,
+        ]);
+
+        $id = $request->campaing_id;
+        $comments_number = $request->comments_count+1;
+
+        Fundraiser::where('id', $id)->update([
+            'comments_count' => $comments_number,
         ]);
 
 
@@ -93,7 +99,6 @@ class FundraiserController extends Controller
         $this->validate($request, [
             'comment' => 'required',
             'parent' => 'required',
-             
          ]);
  
          Comment::create([
@@ -101,6 +106,14 @@ class FundraiserController extends Controller
             'member_id' => session('user_session'),
             'parent' => $request->parent,
             'comment' => $request->comment,
+        ]);
+
+        $id = $request->campaing_id;
+        $comments_number = $request->comments_count+1;
+
+         Fundraiser::where('id', $id)->update([
+            'comments_count' => $comments_number,
+             
         ]);
 
 

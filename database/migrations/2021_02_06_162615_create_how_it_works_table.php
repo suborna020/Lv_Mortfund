@@ -17,6 +17,8 @@ class CreateHowItWorksTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('icon')->nullable();
+            $table->longText('short_description')->nullable();
+            $table->Integer('status')->default(0);
             $table->timestamps();
         });
     }

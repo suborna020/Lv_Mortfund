@@ -32,7 +32,6 @@ class CreateFundraisersTable extends Migration
             $table->string('status')->nullable();
             $table->integer('private')->default(0);
             $table->integer('recent')->default(0);
-            $table->integer('urgent')->default(0);
             $table->integer('featured')->nullable();
             $table->integer('project_support')->default(0);
             $table->integer('comments_count')->nullable();

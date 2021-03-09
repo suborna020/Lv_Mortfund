@@ -964,7 +964,6 @@ footer .widget-2 .link:hover{
 }
 
 .stories1-bg{
-    background: url(../images/stories1.svg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1045,6 +1044,14 @@ footer .widget-2 .link:hover{
 }
 
 
+.howitworks .owl-nav{
+    display: none;
+}
+
+
+.howitworks .owl-dots{
+    display: none;
+}
 
 
 
