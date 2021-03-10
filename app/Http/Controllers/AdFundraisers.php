@@ -117,19 +117,16 @@ class AdFundraisers extends Controller
     }
     public function fundRecentAddData(Request $request){
         $validator = Validator::make($request->all(), [
-            'category_id' => 'required',
-            'location' => 'required',
-            'title' => 'required',
-            'benificiary_name' => 'required',
-            'needed_amount' => 'required',
-            'deadline' => 'required',
-            'story' => 'required',
-            // 'icon' => 'required',
-            // 'status' => 'required',
-            'thumbnail' => 'required',
-            'photo' => 'required',
-            // 'video' => 'required',
-            'proof_document' => 'required',
+            // 'category_id' => 'required',
+            // 'location' => 'required',
+            // 'title' => 'required',
+            // 'benificiary_name' => 'required',
+            // 'needed_amount' => 'required',
+            // 'deadline' => 'required',
+            // 'story' => 'required',
+            // 'thumbnail' => 'required',
+            // 'photo' => 'required',
+            // 'proof_document' => 'required',
         ]);
         if ($validator->passes()) {
             $category_id = $request->category_id;
@@ -149,40 +146,58 @@ class AdFundraisers extends Controller
             $photoFileName =$photoFile->getClientOriginalName();
             $path=$photoFile->move(public_path('adminAssets/img/addFundraisersPhoto'), $photoFileName);
 
-            $videoFile = $request->file('video'); //name="video"
-            $videoFileName =$videoFile->getClientOriginalName();
-            $path=$videoFile->move(public_path('adminAssets/img/addFundraisersVideo'), $videoFileName);
+           
+            if(($request->file('video'))!=null){
+                $videoFile = $request->file('video'); //name="video"
+                $videoFileName =$videoFile->getClientOriginalName();
+                $path=$videoFile->move(public_path('adminAssets/img/addFundraisersVideo'), $videoFileName);
+            }
+          
 
             $proofDocumentFile = $request->file('proof_document'); //name="proof_document"
             $proofDocumentFileName =$proofDocumentFile->getClientOriginalName();
             $path=$proofDocumentFile->move(public_path('adminAssets/img/addFundraisersProofDocument'), $proofDocumentFileName);
-
             $status= "1";
+            if(($request->file('video'))!=null){
+                $data = [
+                    'category_id'=>$category_id
+                    ,'location'=>$location
+                    ,'title'=>$title
+                    ,'benificiary_name'=>$benificiary_name
+                    ,'needed_amount'=>$needed_amount
+                    ,'deadline'=>$deadline
+                    ,'story'=>$story
+                    ,'thumbnail'=>$thumbnailFileName
+                    ,'photo'=>$photoFileName
+                    ,'video'=>$videoFileName
+                    ,'proof_document'=>$proofDocumentFileName
+                    ,'status'=>$status
+                ];    
+            }else{
+                $data = [
+                    'category_id'=>$category_id
+                    ,'location'=>$location
+                    ,'title'=>$title
+                    ,'benificiary_name'=>$benificiary_name
+                    ,'needed_amount'=>$needed_amount
+                    ,'deadline'=>$deadline
+                    ,'story'=>$story
+                    ,'thumbnail'=>$thumbnailFileName
+                    ,'photo'=>$photoFileName
+                    // ,'video'=>$videoFileName
+                    ,'proof_document'=>$proofDocumentFileName
+                    ,'status'=>$status
+                ]; 
+            }
 
-            $data = [
-                'category_id'=>$category_id
-                ,'location'=>$location
-                ,'title'=>$title
-                ,'benificiary_name'=>$benificiary_name
-                ,'needed_amount'=>$needed_amount
-                ,'deadline'=>$deadline
-                ,'story'=>$story
-                ,'thumbnail'=>$thumbnailFileName
-                ,'photo'=>$photoFileName
-                ,'video'=>$videoFileName
-                ,'proof_document'=>$proofDocumentFileName
-                ,'status'=>$status
-            ];  
+             
             // return $data;
             Fundraiser::create($data);
             return response()->json($data);
         }
     }
      public function fundRaiseEditData($id){
-        // $id=get url variable value by $ 
-        //just getting the row data of this id .
         $data=Fundraiser::findOrFail($id);
-         //pass it to ajax response 
         return response()->json($data); 
     }
   
