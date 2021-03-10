@@ -234,8 +234,11 @@ Route::group(['middleware'=>'authentication'],function(){
     Route::post('paypal', 'App\Http\Controllers\PaymentGatewayController@payWithpaypal');
 
     //PayStack payment form
-    Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
-    Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
+    Route::post('/pay', 'App\Http\Controllers\PaymentController@redirectToGateway')->name('pay');
+
+    Route::get('/payment/callback', 'App\Http\Controllers\PaymentController@handleGatewayCallback');
+
+    Route::get('/paystack', 'App\Http\Controllers\PaymentController@paystack');
 
     // route for check status of the payment
     Route::get('status', 'App\Http\Controllers\PaymentGatewayController@getPaymentStatus');
