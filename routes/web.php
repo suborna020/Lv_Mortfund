@@ -105,12 +105,17 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::post('categoriesAddData','App\Http\Controllers\AdFundraisers@categoriesAddData');
     Route::get('categoriesEditData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesEditData');
     Route::post('categoriesEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@categoriesEditedSubmit');
-    Route::post('/categoriesDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesDestroyData');
     Route::get('/categoriesStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@categoriesStatusUpdate');
+    Route::post('/categoriesDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesDestroyData');
      //Fundraisers -> Recent
     Route::get('/fundRaiseRecentData', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentData');
     Route::post('fundRecentAddData','App\Http\Controllers\AdFundraisers@fundRecentAddData');
     Route::get('fundRaiseEditData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseEditData');
+    Route::post('fundRaiseEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@fundRaiseEditedSubmit');
+    Route::get('/fundRaiseStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseStatusUpdate');
+    Route::post('/fundRaiseDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseDestroyData');
+
+
 
 
 
@@ -234,8 +239,11 @@ Route::group(['middleware'=>'authentication'],function(){
     Route::post('paypal', 'App\Http\Controllers\PaymentGatewayController@payWithpaypal');
 
     //PayStack payment form
-    Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
-    Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
+    Route::post('/pay', 'App\Http\Controllers\PaymentController@redirectToGateway')->name('pay');
+
+    Route::get('/payment/callback', 'App\Http\Controllers\PaymentController@handleGatewayCallback');
+
+    Route::get('/paystack', 'App\Http\Controllers\PaymentController@paystack');
 
     // route for check status of the payment
     Route::get('status', 'App\Http\Controllers\PaymentGatewayController@getPaymentStatus');

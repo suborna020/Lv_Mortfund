@@ -220,4 +220,7 @@ class PaymentGatewayController extends Controller
         $r->session()->flash('msg','Payment Has been Recieved !');
         return redirect('/checkout/stripe');
     }
+
+   
+
 }

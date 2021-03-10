@@ -68,7 +68,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="fundRaiseRecentDataBody">
-                                    <tr>
+                                    {{-- <tr>
                                         <th scope="row">1</th>
                                         <td> Save USA</td>
                                         <td>$2000.00</td>
@@ -82,22 +82,8 @@
                                                 <span><i class=" manageIcons fas fa-trash"></i></span>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Save Austrailia</td>
-                                        <td>$2000.00</td>
-                                        <td>$1000.00</td>
-                                        <td>12/09/21</td>
-                                        <td>charles McAvoy</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Inactive</button></td>
-                                        <td>
-                                            <div>
-                                                <span><i class=" manageIcons fas fa-edit"></i></span>
-                                                <span><i class=" manageIcons fas fa-trash"></i></span>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    </tr> --}}
+                                   
                                 </tbody>
                             </table>
                         </div>

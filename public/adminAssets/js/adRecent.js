@@ -19,13 +19,13 @@ function fundRaiseRecentAllData() {
                                 <td>${fundRaiseRecentData.deadline}  </td>
                                 <td>${fundRaiseRecentData.benificiary_name}</td>
                                 <td >
-                                    <button type="button" onclick="categoriesStatusUpdat(${fundRaiseRecentData.id})" ${fundRaiseRecentData.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseRecentData.status == '1' ? 'Active' : 'Inactive'}
+                                    <button type="button" onclick="fundRaiseStatusUpdate(${fundRaiseRecentData.id})" ${fundRaiseRecentData.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseRecentData.status == '1' ? 'Active' : 'Inactive'}
                                     </button>
                                 </td>
                                 <td>
                                     <div>
                                         <span onclick='fundRaiseEditData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                        <span onclick='categoriesDestroyDat(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                        <span onclick='fundRaiseDestroyData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
                                     </div>
                                 </td>
                             </tr>`
@@ -66,7 +66,7 @@ $('#categoriesCheck').change(function () {
                         <td>
                             <div>
                                 <span onclick='fundRaiseEditData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                <span onclick='categoriesDestroyDat(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                <span onclick='fundRaiseDestroyData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
                             </div>
                         </td>
                                     </tr>`
@@ -102,7 +102,7 @@ $('#categoriesCheck').change(function () {
                                         <td>
                                             <div>
                                                 <span onclick='fundRaiseEditData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                                <span onclick='fundRaiseDestroyDat(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                                <span onclick='fundRaiseDestroyData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
                                             </div>
                                         </td>
                                     </tr>`
@@ -115,9 +115,12 @@ $('#categoriesCheck').change(function () {
 });
 
 // add data 
-function fundRecentAddData() {
+// function fundRecentAddData() {
+    // $body.off('click', '#fundRecentAddDataButton').on('click', "#fundRecentAddDataButton", function (){
+    $('body').on('click', '#fundRecentAddDataButton', function() {
     $('#fundRecentAddData').on('submit', function (event) {
         event.preventDefault();
+        event.stopPropagation();
         const Msg = Swal.mixin({
             toast: true
             , position: 'top-end'
@@ -153,74 +156,59 @@ function fundRecentAddData() {
             }
         })
     });
-}
+});
+// }
 // clear input data 
 function fundRecentClearData() {
-    $('#category_id').val('');
-    $('#location').val('');
-    $('#title').val('');
-    $('#benificiary_name').val('');
-    $('#needed_amount').val('');
-    $('#deadline').val('');
-    $('#story').val('');
-    $('#thumbnail').html('');
+    $('.formInputValue').val('');
+    $('.fileInputHtml').html('');
+
     $('.thumbnailButton').html('Thumbnail (Image size will be reduced to 350*210px)<i class="bi bi-image-fill fa-lg blurText ml-auto mr-1"></i>');
-    $('#photo').html('');
     $('.photoButton').html('Upload Photo');
-    $('#video').html('');
     $('.videoButton').html('Video');
-    $('#proof_document').html('');
-    $('proof_documentButton').html('Upload Photo');
+    $('.proof_documentButton').html('Proof Document');
     
     $('.addButtonShow').show();
     $('.updateButtonShow').hide();
 }
 
 function fundRaiseEditData(id) {
-    // id is passed by onclick function
-    // console.log('clicked id', id);
     $('#AddFundRaise').modal('show')
     $.ajax({
         type: "GET"
         , DataType: 'json'
         , url: "/fundRaiseEditData/" + id
         , success: function (data) {
-            console.log(data);
+            // console.log(data);
             
-            // $('.updateButtonShow').show();
-            // $('.addButtonShow').hide();
-          
-            // console.log(data.icon);
-            // console.log(data.status);
-            // $('#id').html(data.id);
-            // $('#category_name').val(data.category_name);
-            // $('#icon').html(data.icon);
-            // $('#status').val(data.status);
+            $('.updateButtonShow').show();
+            $('.addButtonShow').hide();
 
-            // $('#category_name').val(data.category_name);
-            // $('#category_id').val('');
-            // $('#location').val('');
-            // $('#title').val('');
-            // $('#benificiary_name').val('');
-            // $('#needed_amount').val('');
-            // $('#deadline').val('');
-            // $('#story').val('');
-            // $('#thumbnail').html('');
-            // $('.thumbnailButton').html('Thumbnail (Image size will be reduced to 350*210px)<i class="bi bi-image-fill fa-lg blurText ml-auto mr-1"></i>');
-            // $('#photo').html('');
-            // $('.photoButton').html('Upload Photo');
-            // $('#video').html('');
-            // $('.videoButton').html('Video');
-            // $('#proof_document').html('');
-            // $('proof_documentButton').html('Upload Photo');
+            $('#category_name').val(data.category_name);
+            $('#category_id').val(data.category_id);
+            $('#location').val(data.location);
+            $('#title').val(data.title);
+            $('#benificiary_name').val(data.benificiary_name);
+            $('#needed_amount').val(data.needed_amount);
+            $('#deadline').val(data.deadline);
+            $('#story').val(data.story);
+            $('#thumbnail').removeAttr('required').html(data.thumbnail);
+            $('.thumbnailButton').html(data.thumbnail);
+            $('#photo').removeAttr('required').html(data.photo);
+            $('.photoButton').html(data.photo);
+            $('#video').removeAttr('required').html(data.video);
+            $('.videoButton').html(data.video);
+            $('#proof_document').removeAttr('required').html(data.proof_document);
+            $('.proof_documentButton').val(data.proof_document);
+            $('#fundRecentId').html(data.id);
         }
     })
 }
 
-function categoriesEditedSubmit() {
-    $('#categoriesAddData').on('submit', function (event) {
+function fundRaiseEditedSubmit() {
+    $('#fundRecentAddData').on('submit', function (event) {
         event.preventDefault();
-        var id = $('#id').html();
+        var id = $('#fundRecentId').html();
         const Msg = Swal.mixin({
             toast: true
             , position: 'top-end'
@@ -230,7 +218,7 @@ function categoriesEditedSubmit() {
         })
         console.log("submit prevent success");
         $.ajax({
-            url: "/categoriesEditedSubmit/" + id
+            url: "/fundRaiseEditedSubmit/" + id
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -238,10 +226,9 @@ function categoriesEditedSubmit() {
             , cache: false
             , processData: false
             , success: function (data) {
-                $('#AddNewCategory').modal('hide');
-                fundRaiseCategoriesAllData();
-                categoriesClearData();
-
+                $('.myAddNewModal').modal('hide');
+                fundRaiseRecentAllData();
+                fundRecentClearData()
                 Msg.fire({
                     type: 'success'
                     , icon: 'success'
@@ -260,7 +247,7 @@ function categoriesEditedSubmit() {
         })
     });
 }
-function categoriesStatusUpdate(id) {
+function fundRaiseStatusUpdate(id) {
     // id is passed by onclick function 
     // console.log('clicked id', id);
     const Msg = Swal.mixin({
@@ -272,9 +259,9 @@ function categoriesStatusUpdate(id) {
     $.ajax({
         type: "GET"
         , DataType: 'json'
-        , url: "/categoriesStatusUpdate/" + id
+        , url: "/fundRaiseStatusUpdate/" + id
         , success: function (data) {
-            fundRaiseCategoriesAllData();
+            fundRaiseRecentAllData();
             Msg.fire({
                 type: 'success'
                 , icon: 'success'
@@ -283,7 +270,7 @@ function categoriesStatusUpdate(id) {
         }
     })
 }
-function categoriesDestroyData(id) {
+function fundRaiseDestroyData(id) {
     // id is passed by onclick function 
     swal({
         title: 'Are you sure you want to delete?'
@@ -296,19 +283,17 @@ function categoriesDestroyData(id) {
             $.ajax({
                 type: "POST"
                 , DataType: 'json'
-                , url: "/categoriesDestroyData/" + id
+                , url: "/fundRaiseDestroyData/" + id
                 , success: function (data) {
-                    fundRaiseCategoriesAllData();
+                    fundRaiseRecentAllData();
                     // console.log('deleted');
                 }
             })
         } else {
 
-            // swal("Canceled");
 
         }
     });
-    // console.log('clicked id', id);
 
 }
 
