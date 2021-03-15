@@ -1,6 +1,6 @@
 <div class="row" id="fundraiser_main">
 
-@foreach($fundraisers as $fundraiser)
+    @foreach($fundraisers as $fundraiser)
     <div class="col-md-6 col-xl-3">
         <a href="/singleCampaign/{{$fundraiser->id}}" style="text-decoration: none;color: inherit">
             <div class="card">
@@ -19,17 +19,17 @@
                         <span class="precentage-lebel">{{($fundraiser->transections->sum('amount')*100)/$fundraiser->needed_amount}}% </span>
                     </div>
                 </div>
-                
+
                 @if(session::has('currency_c'))
-                    @if($user_currency->session_currency == session('currency_c'))
-                        <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($fundraiser->transections->sum('amount'))*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($fundraiser->needed_amount)*($user_currency->value)}}</p>
-                    @endif
-                @else
-                   
-                <p class="custom-card-text"><span class="text-muted"> {{$currency_by_location->symbol?? '$' }}{{($fundraiser->transections->sum('amount'))*($currency_by_location->value ?? '0')}}</span> rised of {{$currency_by_location->symbol?? '$' }}{{($fundraiser->needed_amount)*($currency_by_location->value ?? '0')}}</p>
-                
+                @if($user_currency->session_currency == session('currency_c'))
+                <p class="custom-card-text"><span class="text-muted">{{$user_currency->symbol}}{{($fundraiser->transections->sum('amount'))*($user_currency->value)}}</span> rised of {{$user_currency->symbol}}{{($fundraiser->needed_amount)*($user_currency->value)}}</p>
                 @endif
-                
+                @else
+
+                <p class="custom-card-text"><span class="text-muted"> {{$currency_by_location->symbol?? '$' }}{{($fundraiser->transections->sum('amount'))*($currency_by_location->value ?? '0')}}</span> rised of {{$currency_by_location->symbol?? '$' }}{{($fundraiser->needed_amount)*($currency_by_location->value ?? '0')}}</p>
+
+                @endif
+
                 <div class="row border-top">
                     <div class="col-8 col-md-8 col-gap">
                         <div class="media">
@@ -51,15 +51,15 @@
         </div></a> 
     </div>
     @endforeach
- 
+
 </div>
 
 <!-- Pagination Started -->
 
 <nav aria-label="Page navigation example" class="page-div">
     <ul class="pagination justify-content-center">
-      {!! $fundraisers->links() !!}
+        {!! $fundraisers->links() !!}
     </ul>
-</nav>  
+</nav>
 
 <!-- Pagination End -->

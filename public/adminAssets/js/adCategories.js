@@ -143,9 +143,9 @@ function categoriesAddData() {
 }
 // clear input data 
 function categoriesClearData() {
-    $('#category_name').val('');
+    $('.formInputValue').val('');
+    $('.fileInputHtml').html('');
     $('#icon').html('Upload Photo');
-    $('#status').val('');
     $('.addButtonShow').show();
     $('.updateButtonShow').hide();
 }
