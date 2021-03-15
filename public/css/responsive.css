@@ -88,6 +88,32 @@ footer .widget-1 {
     margin-left: 70px!important;
 }
 
+.breadcrumb-bg .breadcrumb {
+    margin: 0 10px; 
+    padding: 15px;
+    
+}
+
+.details .details-box .thumbnail {
+    margin-top: 20px;
+}
+
+.details .details-box .title h3 {
+    font-size: 28px;
+}
+
+.details .details-box .inline-icon {
+    margin-top: 3%;
+}
+
+.details .details-box .text-area-img {
+    text-align: center;
+}
+
+.right-side {
+    padding-left: 15px;
+}
+
 }
 
 
@@ -159,6 +185,26 @@ footer .widget-1 {
     margin-left: 270px!important;
 }
 
+.details .details-box .title h3 {
+    font-size: 22px;
+}
+
+.inline-icon {
+    display: block;
+}
+
+.details .host .comments ul li {
+    font-size: 18px;
+}
+
+.details .host h4 {
+    font-size: 18px;
+}
+
+.details .host h3 {
+    font-size: 22px;
+}
+
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -197,6 +243,49 @@ footer .widget-1 {
 
     right: 6%;
     bottom: 22%;
+}
+
+.details .details-box .title h3 {
+    font-size: 26px;
+}
+
+}
+
+
+/* How Work CSS */
+
+
+@media (min-width: 0px) and (max-width: 575px) {
+   
+    .img-box .quote-icon {
+    
+    left: 60%;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+   
+    
+   
+    .col-bg{
+    margin: 0px;
+    
+}
+
+.col-bg .box{
+    padding: 0 20px;
+    
+}
+
+.col-bg .box h4{
+    font-size: 20px;
+}
+
+.col-bg .box p{
+    
+    font-size: 14px;
 }
 
 }

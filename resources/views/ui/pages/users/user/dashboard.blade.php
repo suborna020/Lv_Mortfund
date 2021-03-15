@@ -1,14 +1,27 @@
 @extends('ui.layout.app')
 ​
 @section('content')
-​
-<div class="container" style="margin-top: 115px">
-	<div class="row">
-		Home > {{$user_info->name}}
-		@foreach(Request::segments() as $segment)
-	        <a href="#">{{$segment}}</a>
-	    @endforeach
-	</div>
+​ <section class="breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>Dashboard</h4>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fa fa-home fa-2x home-icon" aria-hidden="true"></i>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+                        <li><i class="fa fa-angle-right fa-1x angle" aria-hidden="true"></i></li>
+                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+
+            </div>
+        </div>
+    </section>
+<div>    
+<div class="container">
+	
    <div class="row">
    	  <div class="col-12 col-md-12">
 	       
@@ -54,5 +67,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 @endsection

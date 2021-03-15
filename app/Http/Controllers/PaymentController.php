@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Paystack;
+use App\Models\Transection;
+use App\Models\PaymentGateway;
 
 class PaymentController extends Controller
 {
@@ -30,11 +31,48 @@ class PaymentController extends Controller
      * Obtain Paystack payment information
      * @return void
      */
-    public function handleGatewayCallback()
-    {
+    public function handleGatewayCallback(Request $request)
+    {   
+            
         $paymentDetails = Paystack::getPaymentData();
+
+        if ($request) {
+          $result = json_decode($request, true);
+        }   
+
+            
+            Transection::create([
+            'method_id' => 5,
+            'member_id' => session('user_session'),
+            // 'transection_type' => $r->transection_type,
+            // 'name' => $r->name,
+            'email' => $paymentDetails['data']['customer']['email'],
+            // 'phone' => $r->phone,
+            // 'address' => $r->address,
+            'amount' => $paymentDetails['data']['amount'],
+            'charge' => $paymentDetails['data']['fees'],
+            'campaign_author' => session('fundraiser_id'),
+            'campaign_id' => session('campaing_id'),
+        ]);
+  
+         $id = session('campaing_id');
+         // echo "success";
+
+         return \Redirect::route('singleCampaign',[$id])->with('message', 'Payment done Successfully!!!');
         
-        dd($paymentDetails);
+        // dd($paymentDetails);
+
+        
+
+        // if (array_key_exists('data', $paymentDetails) && array_key_exists('status', $paymentDetails['data']) && ($paymentDetails['data']['status'] === 'success')) {
+        //      echo "Transaction was successful";
+        //      echo $paymentDetails['data']['customer']['email'];
+        //          //    auth()->user()->update([
+        //          //     'reference' => $paymentDetails['data']['reference']
+        //          // ]);
+        //     }else{
+        //           echo "Transaction was unsuccessful";
+        //     }
         // Now you have the payment details,
         // you can store the authorization_code in your db to allow for recurrent subscriptions
         // you can then redirect or do whatever you want
@@ -43,7 +81,7 @@ class PaymentController extends Controller
     public function paystack()
     {
         // $paymentDetails = Paystack::getPaymentData();
-        
-        return view('ui.pages.users.user.paystack');
+        $charge = PaymentGateway::where('id',5)->first();
+        return view('ui.pages.users.user.paystack',compact('charge'));
     }
 }

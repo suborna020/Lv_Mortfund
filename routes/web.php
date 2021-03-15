@@ -38,11 +38,15 @@ Route::post('/set-currency-code','App\Http\Controllers\Master@setUserCurrency')-
 
 Route::post('/subscribe','App\Http\Controllers\SubscriberController@store')->name('subscribe');
 
-Route::get('/singleCampaign/{id}','App\Http\Controllers\FundraiserController@index');
+Route::get('/singleCampaign/{id}',['as' => 'singleCampaign', 'uses' => 'App\Http\Controllers\FundraiserController@index']);
 
 Route::post('/singleCampaign/{id}','App\Http\Controllers\FundraiserController@viewCounter');
 
 Route::get('/HowItWorks','App\Http\Controllers\Master@HowItWorks');
+
+Route::get('/Categories/{slug}','App\Http\Controllers\Master@Categories');
+
+Route::get('/getCategoryCampaigns/{slug}','App\Http\Controllers\Master@getCategoryCampaigns');
 
 Route::get('explore/newCampaigns','App\Http\Controllers\Master@newCampaigns');
 
@@ -238,7 +242,7 @@ Route::group(['middleware'=>'authentication'],function(){
 
     Route::get('/payment/callback', 'App\Http\Controllers\PaymentController@handleGatewayCallback');
 
-    Route::get('/paystack', 'App\Http\Controllers\PaymentController@paystack');
+    Route::get('checkout/paystack', 'App\Http\Controllers\PaymentController@paystack');
 
     // route for check status of the payment
     Route::get('status', 'App\Http\Controllers\PaymentGatewayController@getPaymentStatus');

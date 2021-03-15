@@ -106,10 +106,11 @@ class Master extends Controller
     public function HowItWorks(){
         $testimonials = Testimonial::where('status',1)->get();
         $how_it_works = HowItWorks::where('status',1)->get();
-        $success_stories1 = SuccessStory::where('status',1)->orderBy('id','DESC')->get();
-        $success_stories2 = SuccessStory::where('status',1)->orderBy('id','ASC')->get();
-        return view('ui.pages.HowItWorks.howitworks',compact('testimonials','how_it_works','success_stories1','success_stories2'));
+        // $success_stories1 = SuccessStory::where('status',1)->orderBy('id','DESC')->get();
+        // $success_stories2 = SuccessStory::where('status',1)->orderBy('id','ASC')->get();
+        return view('ui.pages.HowItWorks.howitworks',compact('testimonials','how_it_works'));
     }
+
 
     public function newCampaigns(){
         $new_medicals = Fundraiser::where('status',1)->where('category_id',2)->orderBy('id', 'DESC')->get();
@@ -235,6 +236,29 @@ class Master extends Controller
         // echo $arr_ip->currency;
 
         return view('ui.pages.explore.getProjectCampaigns',compact('get_project_campaigns','user_currency','user_location','currency_by_location'))->render();
+     }
+    }
+
+    public function Categories($slug){
+        $categoryName = Category::where('id',$slug)->first();
+        $categoryCampaigns = Fundraiser::with('categories','members','transections')->where('status',1)->where('category_id',$slug)->orderBy('id', 'DESC')->paginate(6,['*'],'cc');
+        
+        return view('ui.pages.categories.categories',compact('categoryCampaigns','categoryName'));
+    }
+
+    public function getCategoryCampaigns(Request $request,$slug){
+        if($request->ajax()){
+        $categoryCampaigns = Fundraiser::with('categories','members','transections')->where('status',1)->where('category_id',$slug)->orderBy('id', 'DESC')->paginate(6,['*'],'cc');
+        $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
+
+        // $ip = request()->ip();
+        $ip = request()->ip();
+        $arr_ip = geoip()->getLocation($ip);
+        $user_location = $arr_ip->country; // get a country
+        $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
+        // echo $arr_ip->currency;
+
+        return view('ui.pages.categories.category_campaigns',compact('categoryCampaigns','user_currency','user_location','currency_by_location'))->render();
      }
     }
 
@@ -621,7 +645,7 @@ class Master extends Controller
         $campaing_id = $r->campaing_id;
         $fundraiser_id = $r->fundraiser_id;
         $donor_id = $r->donor_id;
-        $amount = $r->amount;
+        $amount = $r->donation_amount;
         
         $r->session()->put('campaing_id', $campaing_id);
         $r->session()->put('fundraiser_id', $fundraiser_id);

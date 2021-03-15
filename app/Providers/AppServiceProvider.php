@@ -50,23 +50,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
-        View::composer('*', function ($users){
-            if(Session::get('user_session')){
-            $user_info = User::where('id',session('user_session'))->first();
-            $current_user_fundraisers = Fundraiser::with('categories','members','transections')->where('member_id',session('user_session'))->paginate(4,['*'],'current');
-            $user_balance = Transection::where('campaign_author',session('user_session'))->get();
-            $current_fundraisers = Fundraiser::where('member_id',session('user_session'))->where('status',1)->get();
-            $pending_fundraisers = Fundraiser::where('status',0)->where('member_id',session('user_session'))->get();
-            $completed_fundraisers = Fundraiser::where('member_id',session('user_session'))->where('status',2)->get();
-            $number_of_current_fundraisers = $current_fundraisers->count();
-            $number_of_pending_fundraisers = $pending_fundraisers->count();
-            $number_of_completed_fundraisers = $completed_fundraisers->count();
-            
-            $users->with('user_info',$user_info)->with('number_of_current_fundraisers',$number_of_current_fundraisers)->with('number_of_pending_fundraisers',$number_of_pending_fundraisers)->with('number_of_completed_fundraisers',$number_of_completed_fundraisers)->with('current_user_fundraisers',$current_user_fundraisers)->with('user_balance',$user_balance);
-          }
-            
-        });
-
         View::composer('*', function ($view){
             $general = General::where('id',1)->first();
             $footer = Footer::where('id',1)->first();
@@ -84,14 +67,34 @@ class AppServiceProvider extends ServiceProvider
             // $main_currency = Currency::where('status',1)->get();
             $currencies = Currency::where('status',1)->where('session_currency','!=',Session::get('currency_c'))->get();
             $user_currency = Currency::where('session_currency',Session::get('currency_c'))->first();
-            
             $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first();
+            $success_stories1 = SuccessStory::where('status',1)->orderBy('id','DESC')->get();
+            $success_stories2 = SuccessStory::where('status',1)->orderBy('id','ASC')->get();
+            $selected_fundraiser = Fundraiser::where('id',session('fundraiser_id'))->where('status',1)->first();
 
-            $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location)->with('fund_raised',$fund_raised);
-        });   
-        View::composer('*', function ($view){
-            // for admin views after login
-            if(Session::get('admin_session')){
+            $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location)->with('fund_raised',$fund_raised)->with('success_stories1',$success_stories1)->with('success_stories2',$success_stories1)->with('selected_fundraiser',$selected_fundraiser);
+
+
+            //User 
+
+            if(Session::get('user_session')){
+            $user_info = User::where('id',session('user_session'))->first();
+            $current_user_fundraisers = Fundraiser::with('categories','members','transections')->where('member_id',session('user_session'))->paginate(4,['*'],'current');
+            $user_balance = Transection::where('campaign_author',session('user_session'))->get();
+            $current_fundraisers = Fundraiser::where('member_id',session('user_session'))->where('status',1)->get();
+            $pending_fundraisers = Fundraiser::where('status',0)->where('member_id',session('user_session'))->get();
+            $completed_fundraisers = Fundraiser::where('member_id',session('user_session'))->where('status',2)->get();
+            $number_of_current_fundraisers = $current_fundraisers->count();
+            $number_of_pending_fundraisers = $pending_fundraisers->count();
+            $number_of_completed_fundraisers = $completed_fundraisers->count();
+            
+            $view->with('user_info',$user_info)->with('number_of_current_fundraisers',$number_of_current_fundraisers)->with('number_of_pending_fundraisers',$number_of_pending_fundraisers)->with('number_of_completed_fundraisers',$number_of_completed_fundraisers)->with('current_user_fundraisers',$current_user_fundraisers)->with('user_balance',$user_balance);
+          }
+
+          //ADMIN
+
+
+          if(Session::get('admin_session')){
                 $user_id=Session::get('admin_session');
                 $userInfoBox=Admin::findOrFail($user_id);
                 $FundraisersBox = Fundraiser::all();
@@ -107,6 +110,8 @@ class AppServiceProvider extends ServiceProvider
                 ;
                
             }
-        });
+
+        });   
+        
     }
 }

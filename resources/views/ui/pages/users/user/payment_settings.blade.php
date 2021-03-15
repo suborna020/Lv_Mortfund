@@ -1,16 +1,31 @@
 @extends('ui.layout.app')
 
 @section('content')
+ <section class="breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>Payement Settings</h4>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fa fa-home fa-2x home-icon" aria-hidden="true"></i>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+                        <li><i class="fa fa-angle-right fa-1x angle" aria-hidden="true"></i></li>
+                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        <li><i class="fa fa-angle-right fa-1x angle" aria-hidden="true"></i></li>
+                        <li class="breadcrumb-item active" aria-current="page">Payment Settings</li>
+                    </ol>
+                </nav>
 
-<div class="paymentSettings" style="margin-top: 115px">
+            </div>
+        </div>
+    </section>
+<div class="paymentSettings">
    
 
    <div class="container mb-4">
    	  <div class="row">
-   	  	   <div class="col-12 col-md-12"> 
-              <p>Payement Settings</p>
-              {{-- session('user_msg') --}}
-   	  	   </div>
 
    	  	   <div class="col-12 col-md-4">
    	  	   	  <div class="col-12 col-md-12 border p-4">

@@ -1054,6 +1054,368 @@ footer .widget-2 .link:hover{
 }
 
 
+/* Details Section CSS */
+
+.details{
+    padding: 50px 0;
+}
+
+.details .details-box{
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px #a7a7a7 ;
+}
+
+.details .details-box .large-img{}
+
+.details .details-box .large-img img{
+    width: 510px;
+    border-radius: 20px;
+}
+
+.details .details-box .thumbnail{}
+
+.details .details-box .thumbnail img{
+     border-radius: 20px;
+     margin-bottom: 20px;
+}
+
+.details .details-box .thumbnail iframe{
+    border-radius: 20px;
+}
+
+.details .details-box .title{}
+
+.details .details-box .title ul{
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.details .details-box .title ul li{
+    list-style: none;
+}
+
+.details .details-box .title ul li span{
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+
+.details .details-box .title ul li i{}
+
+.details .details-box .title h3{
+    font-size: 32px;
+    font-weight: 500;
+    color: #F36A10;
+}
+
+.details .details-box .title .media{}
+
+.details .details-box .title .media img{}
+
+.details .details-box .title .media .media-body{}
+
+.details .details-box .title .media .media-body .name-text{
+    font-size: 18px;
+}
+
+
+.details .details-box .inline-icon{
+    margin-top: 20%;
+}
+
+.details .details-box .inline-icon p{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.details .details-box .inline-icon .social-icon{
+    
+}
+
+.details .details-box .inline-icon .social-icon ul{
+    display: inline-flex;
+    padding: 0;
+}
+
+.details .details-box .inline-icon .social-icon ul li{
+    list-style: none;
+    margin: 0 3px;
+}
+
+.details .details-box .inline-icon .social-icon ul li .facebook{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #3b5998;
+    border-radius: 50px;
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.details .details-box .inline-icon .social-icon ul li .twitter{
+     width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #00acee;
+    border-radius: 50px;
+    background-color: #00acee;
+    color: #fff;
+}
+
+.details .details-box .inline-icon .social-icon ul li .linkedin{
+     width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #0e76a8;
+    border-radius: 50px;
+    background-color: #0e76a8;
+    color: #fff;
+}
+
+.details .details-box .inline-icon .social-icon ul li .youtube{
+     width: 30px;
+    height: 30px;
+    line-height: 30px;  
+    text-align: center;
+    border: 1px solid #FF0000;
+    border-radius: 50px;
+    background-color:#FF0000;
+    color: #fff;
+}
+
+.details .details-box .inline-icon .social-icon ul li .instagram{
+     width: 30px;
+    height: 30px;
+    line-height: 30px;  
+    text-align: center;
+    border: 1px solid #e4405f;
+    border-radius: 50px;
+    background-color:#e4405f;
+    color: #fff;
+}
+
+
+.details .details-box .icon-box{
+    display: inline-flex;
+    padding: 15px 0;
+}
+
+.details .details-box .icon-box ul{
+    padding: 0;
+    margin-right: 10px;
+}
+
+.details .details-box .icon-box ul li{
+    list-style: none;
+    font-size: 28px;
+}
+
+.details .details-box .icon-box ul li i{
+    width: 45px;
+    height: 45px;
+    line-height: 45px;  
+    text-align: center;
+    border: 1px solid #ececec;
+    border-radius: 50px;
+    background-color:#ececec;
+    color: #202020;
+}
+
+.details .details-box .icon-box .text-area{}
+
+.details .details-box .icon-box .text-area h6{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    
+}
+
+.details .details-box .icon-box .text-area h5{
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.details .details-box .text-area-img{}
+
+.details .details-box .text-area-img img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.details .details-box p{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.details .details-box h3{
+    font-weight: 600;
+}
+
+.details .details-box .col-adjust{
+    padding-left: 0;
+}
+
+.details .details-box .donate-btn{
+    font-size: 22px;
+    padding: 5px 20px;
+    background-color: #F36A10;
+    border: 1px solid #F36A10;
+}
+
+.details .details-box .donate-btn:hover{
+    background-color: #F8800B;
+    border: 1px solid #F8800B;
+    transition: .5s;
+}
+
+.details .details-box ul{
+    padding: 0;
+    
+}
+
+.details .details-box ul li{
+    list-style: none;
+}
+
+.details .details-box ul li i{
+    color: #a7a7a7;
+}
+
+.details .details-box ul li i:hover{
+    color: #F36A10;
+    transition: .5s;
+}
+
+.details .host{
+    padding: 20px;
+}
+
+.details .host h3{
+    
+    
+    font-weight: 600;
+}
+
+.details .host h4{
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.cont-bg{
+    background-color: #FFF8F1;
+    padding: 0;
+    border-radius: 20px;
+}
+
+.left-side{
+    background-color: #fff;
+    padding-right: 0;
+}
+
+.details .host .post p{
+    margin-bottom: 5px;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.details .host .post .post-btn{
+    text-align: right;
+}
+
+.details .host .post .post-btn .contact-btn{
+    padding: 5px 10px;
+    border: 1px solid #000f30;
+    background-color: #000f30;
+    color: #fff;
+}
+
+.details .host .post .post-btn .contact-btn:hover{
+    border: 1px solid #1743a3;
+    background-color: #1743a3;
+    transition: .5s;
+}
+
+.details .host .post{
+    background-color: #b8c5d2;
+    border-radius: 20px;
+    padding: 15px;
+    color: #fff;
+}
+
+.details .host .post .media{}
+
+.details .host .post .media .user-img{
+    width: 50px;
+    border-radius: 100px;
+}
+
+.details .host .post .media .media-body{}
+
+.details .host .post .media .media-body .name-text{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.right-side{
+    padding-left: 0;
+}
+
+.details .host .comments{
+    color: #202020;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.details .host .comments ul{
+    padding: 0;
+    margin-top: 5px;
+}
+
+.details .host .comments ul li{
+    list-style: none;
+    font-size: 24px;
+}
+
+.details .host .comments ul li i{
+    color: #859196;
+}
+
+.details .host .comments ul li i:hover{
+    color: #f36a10;
+    transition: .5s;
+}
+
+.details .host .comments .media .media-body .name-text{}
+
+.icon-adjust{
+    padding: 0;
+    text-align: center;
+}
+
+.col-padding{
+    padding: 20px 40px;
+}
+
+/*.card{
+    transition: 0.5s ease-out;
+}
+
+.card:hover{
+    background: black;
+    opacity: 0.4;
+}
+*/
+
+
+
 
 
 

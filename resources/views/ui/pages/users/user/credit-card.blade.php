@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Stripe Payment</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body>
+@extends('ui.layout.app')
+
+@section('content')
     @php
         $stripe_key = 'pk_test_51IQArsEXyED6aSlyRzlOPfGbvVXVxhOOUlgoq1ETJemIPA1Z6geLIXQZbIsOrrkP5BFAXLkE8CISrX7R7AXExfw700lLnBqU6U';
     @endphp
     <div class="container" style="margin-top:10%;margin-bottom:10%">
+        <div class="row">   
+    <p>Making Donation for <b>{{$selected_fundraiser->title}}</b></p>
+  </div>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="">
@@ -22,13 +16,30 @@
                 </div>
                 <div class="card">
                     <form action="{{route('checkout.credit-card')}}"  method="post" id="payment-form">
-                        @csrf                    
+                        @csrf 
+                        <div class="form-group">   
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" value="">
+                        </div>     
+                        <div class="form-group">   
+                            <label>Amount</label>
+                            <input type="text" disabled="disabled" name="primary_amount" class="form-control amount_by_donor" id="gross" value="{{session('amount')}}">
+                        </div>  
+                        <div class="form-group">   
+                            <label>Charge</label>
+                            <input type="text" disabled="disabled" name="charge" id="charge" class="form-control" value="{{(session('amount')*($charge->charge))/100}}">
+                        </div>  
+                        <div class="form-group">   
+                            <label>Net amount</label>
+                            <input type="text" disabled="disabled" name="net_amount" id="net_amount" class="form-control" value="{{session('amount')+(session('amount')*($charge->charge))/100}}">
+                        </div>        
                         <div class="form-group">
                             <div class="card-header">
                                 <label for="card-element">
                                     Enter your credit card information
                                 </label>
                             </div>
+
                             <div class="card-body">
                                 <div id="card-element">
                                 <!-- A Stripe Element will be inserted here. -->
@@ -116,6 +127,7 @@
                 }
             });
         });
+
+
     </script>
-</body>
-</html>
+@endsection

@@ -24,7 +24,11 @@ class Fundraiser extends Model
     }
 
     public function comments(){
-        return $this->hasMany('App\Models\Comment','campaing_id');
+        return $this->hasMany('App\Models\Comment','campaing_id')->orderBy('id','DESC');
+    }
+
+    public function repliedMembers(){
+        return $this->belongsTo('App\Models\User','parent');
     }
 
 }
