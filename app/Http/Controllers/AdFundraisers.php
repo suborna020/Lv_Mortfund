@@ -15,6 +15,9 @@ class AdFundraisers extends Controller
     public function adCategories(){
         return view('admin.pages.FundRaisers.adCategories');
     }
+    public function adAllFundRaise(){
+        return view('admin.pages.FundRaisers.adAllFundRaise');
+    }
     public function adRecent(){
         return view('admin.pages.FundRaisers.adRecent');
     }
@@ -27,6 +30,9 @@ class AdFundraisers extends Controller
     
     public function adOnProgress(){
         return view('admin.pages.FundRaisers.adOnProgress');
+    }
+    public function adPrivate(){
+        return view('admin.pages.FundRaisers.adPrivate');
     }
     //Fundraisers -> Categories // adCategories page 
     public function fundRaiseCategoriesData(){
