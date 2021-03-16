@@ -73,7 +73,6 @@ class AdminController extends Controller
     }
    
     public function adminLoginSub(Request $request){
-        
         $user_info = Admin::where('admin_username', $request->admin_username)->where('admin_password',$request->admin_password)->get()->toArray();
         if ($user_info) {
             if ($user_info[0]['admin_status'] == 1) {

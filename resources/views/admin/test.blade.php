@@ -37,10 +37,9 @@ function fundRaiseRecentAllData() {
 }
 fundRaiseRecentAllData();
 // select box work ---------------------------------------------------------------------
-// $(document).ready(function () {
+
 $('#categoriesCheck').change(function () {
     if ($(this).val() === '1') {
-        // when active 
         $.ajax({
             type: "GET"
             , DataType: 'json'
@@ -51,26 +50,24 @@ $('#categoriesCheck').change(function () {
                     // console.log(fundRaiseRecentData.status=='1');
                     if (fundRaiseRecentData.status == '1') {
                         // console.log(fundRaiseRecentData);
-                        getHtml +=
-                            `<tr>
-                                <th scope="row">${key + 1}</th>
-                                <td>${fundRaiseRecentData.title}</td>
-                                <td> ${fundRaiseRecentData.needed_amount}</td>
-                                <td> ${fundRaiseRecentData.raised == null ? '0' : raised}</td>
-                                <td>${fundRaiseRecentData.deadline}  </td>
-                                <td>${fundRaiseRecentData.benificiary_name}</td>
-                                <td >
-                                    <button type="button" onclick="fundRaiseStatusUpdate(${fundRaiseRecentData.id})" ${fundRaiseRecentData.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseRecentData.status == '1' ? 'Active' : 'Inactive'}
-                                    </button>
-                                </td>
-                                <td>
-                                    <div>
-                                        <span id='editFundRecentButton' onclick='fundRaiseEditData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                        <span onclick='fundRaiseDestroyData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            `
+                        getHtml += `<tr>
+                        <th scope="row">${key + 1}</th>
+                        <td>${fundRaiseRecentData.title}</td>
+                        <td> ${fundRaiseRecentData.needed_amount}</td>
+                        <td>${fundRaiseRecentData.raised} </td>
+                        <td>${fundRaiseRecentData.deadline}  </td>
+                        <td>${fundRaiseRecentData.benificiary_name}</td>
+                        <td >
+                            <button type="button" onclick="categoriesStatusUpdat(${fundRaiseRecentData.id})" ${fundRaiseRecentData.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseRecentData.status == '1' ? 'Active' : 'Inactive'}
+                            </button>
+                        </td>
+                        <td>
+                            <div>
+                                <span onclick='fundRaiseEditData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
+                                <span onclick='fundRaiseDestroyData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                            </div>
+                        </td>
+                                    </tr>`
                     }
                 })
                 $('#fundRaiseRecentDataBody').html(getHtml);
@@ -88,26 +85,24 @@ $('#categoriesCheck').change(function () {
                     // console.log(fundRaiseRecentData.status=='1');
                     // console.log(fundRaiseRecentData);
                     if (fundRaiseRecentData.status == '0') {
-                        getHtml +=
-                            `<tr>
-                                <th scope="row">${key + 1}</th>
-                                <td>${fundRaiseRecentData.title}</td>
-                                <td> ${fundRaiseRecentData.needed_amount}</td>
-                                <td> ${fundRaiseRecentData.raised == null ? '0' : raised}</td>
-                                <td>${fundRaiseRecentData.deadline}  </td>
-                                <td>${fundRaiseRecentData.benificiary_name}</td>
-                                <td >
-                                    <button type="button" onclick="fundRaiseStatusUpdate(${fundRaiseRecentData.id})" ${fundRaiseRecentData.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseRecentData.status == '1' ? 'Active' : 'Inactive'}
-                                    </button>
-                                </td>
-                                <td>
-                                    <div>
-                                        <span id='editFundRecentButton' onclick='fundRaiseEditData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                        <span onclick='fundRaiseDestroyData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            `
+                        getHtml += `<tr>
+                                        <th scope="row">${key + 1}</th>
+                                        <td>${fundRaiseRecentData.title}</td>
+                                        <td> ${fundRaiseRecentData.needed_amount}</td>
+                                        <td>${fundRaiseRecentData.raised} </td>
+                                        <td>${fundRaiseRecentData.deadline}  </td>
+                                        <td>${fundRaiseRecentData.benificiary_name}</td>
+                                        <td >
+                                            <button type="button" onclick="categoriesStatusUpdat(${fundRaiseRecentData.id})" ${fundRaiseRecentData.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseRecentData.status == '1' ? 'Active' : 'Inactive'}
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span onclick='fundRaiseEditData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
+                                                <span onclick='fundRaiseDestroyData(${fundRaiseRecentData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                            </div>
+                                        </td>
+                                    </tr>`
                     }
                 })
                 $('#fundRaiseRecentDataBody').html(getHtml);
@@ -115,8 +110,6 @@ $('#categoriesCheck').change(function () {
         })
     }
 });
-// });
-
 
 // clear input data  -----------------------------------------------------------------------------
 function fundRecentClearData() {
@@ -130,8 +123,6 @@ function fundRecentClearData() {
     $('.addButtonShow').show();
     $('.updateButtonShow').hide();
     $('#editModalFilesContainer').html('');
-    $('#fundRecentId').html("");
-
 }
 //get edit data  -----------------------------------------------------------------------------
 function fundRaiseEditData(id) {
@@ -278,6 +269,7 @@ $('#recentFundCrudForm').on('submit', function (event) {
         })
     }
 });
+// }
 // status update  -----------------------------------------------------------------------------
 function fundRaiseStatusUpdate(id) {
     // id is passed by onclick function 
@@ -329,7 +321,8 @@ function fundRaiseDestroyData(id) {
     });
 
 }
-
+$(document).ready(function () {
+});
 
 //End adCategories page -----------------------------------------
 // });

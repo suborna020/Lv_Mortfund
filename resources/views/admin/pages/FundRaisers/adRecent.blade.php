@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class=" small-box">
-                            <button type="button" class=" orange_text font-weight-bold btn  btn-block addNewButton " data-toggle="modal" data-target=".AddRecentFundraisers"><i class="fas fa-plus mr-1"></i> Add New Fundraiser</button>
+                            <button type="button" class=" orange_text font-weight-bold btn  btn-block addNewButton " data-toggle="modal" data-target=".AddRecentFundraisers" id="addNewFundButton"><i class="fas fa-plus mr-1"></i> Add New Fundraiser</button>
                         </div>
                     </div>
                 </div>
@@ -86,6 +86,7 @@
                                    
                                 </tbody>
                             </table>
+                           
                         </div>
 
                     </div>

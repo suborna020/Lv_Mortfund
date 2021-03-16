@@ -807,4 +807,15 @@ nav .menu-open .extend_icon {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+
+.smallHeadline {
+  font-size: .8rem;
+  color: #495057;
+}
+
+.mediumFileSize {
+  width: 200px;
+  background-size: cover;
+  height: 100px;
+}
 /*# sourceMappingURL=style.css.map */

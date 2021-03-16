@@ -26,9 +26,13 @@ class CreateFundraisersTable extends Migration
             $table->string('deadline')->nullable();
             $table->longText('story')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->string('thumbnail_path')->nullable();
             $table->string('photo')->nullable();
+            $table->string('photo_path')->nullable();
             $table->string('video')->nullable();
+            $table->string('video_path')->nullable();
             $table->string('proof_document')->nullable();
+            $table->string('proof_document_path')->nullable();
             $table->string('status')->nullable();
             $table->integer('private')->default(0);
             $table->integer('recent')->default(0);

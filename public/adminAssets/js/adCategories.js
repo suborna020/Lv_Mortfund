@@ -29,8 +29,8 @@ function fundRaiseCategoriesAllData() {
         }
     })
 }
-
 fundRaiseCategoriesAllData();
+// select box work ---------------------------------------------------------------------
 $('#categoriesCheck').change(function () {
     if ($(this).val() === '1') {
         $.ajax({
@@ -99,18 +99,59 @@ $('#categoriesCheck').change(function () {
         })
     }
 });
+// clear input data 
+function categoriesClearData() {
+    $('.formInputValue').val('');
+    $('.fileInputHtml').html('');
+    $('#iconName').html('Upload Photo');
+    $('.addButtonShow').show();
+    $('.updateButtonShow').hide();
+    $('#id').html("");
+    $('#editModalFilesContainer').html("");
 
-// add data 
-function categoriesAddData() {
-    $('#categoriesAddData').on('submit', function (event) {
-        event.preventDefault();
-        const Msg = Swal.mixin({
-            toast: true
-            , position: 'top-end'
-            , showConfirmButton: false
-            , timer: 1500
-        })
-        // console.log("submit prevent success");
+
+}
+
+function categoriesEditData(id) {
+    $('#AddNewCategory').modal('show')
+    $.ajax({
+        type: "GET"
+        , DataType: 'json'
+        , url: "/categoriesEditData/" + id
+        , success: function (data) {
+            $('.updateButtonShow').show();
+            $('.addButtonShow').hide();
+            $('.iconInput').removeAttr('required');
+
+            $('#id').html(data.id);
+            $('#category_name').val(data.category_name);
+            $('#status').val(data.status);
+            var editModalFilesRow = 
+            `   <div class="row px-2">
+                <div class="col-lg-8 col-8 mb-2 ">
+                    <a href="../${data.icon_path}" data-fancybox>
+                    <img src="../${data.icon_path}" class="  mediumFileSize" />
+                    </a>
+                </div>
+                </div>
+            `
+            $('#editModalFilesContainer').html(editModalFilesRow);
+
+        }
+    })
+}
+$('#categoriesAddData').on('submit', function (event) {
+    event.preventDefault();
+    const Msg = Swal.mixin({
+        toast: true
+        , position: 'top-end'
+        , showConfirmButton: false
+        , timer: 1500
+    })
+    var id = $('#id').html();
+
+    if (id == "") {
+        // add data -----------------------------------------------------------------------------
         $.ajax({
             url: "/categoriesAddData"
             , method: "POST"
@@ -139,51 +180,8 @@ function categoriesAddData() {
                 })
             }
         })
-    });
-}
-// clear input data 
-function categoriesClearData() {
-    $('.formInputValue').val('');
-    $('.fileInputHtml').html('');
-    $('#icon').html('Upload Photo');
-    $('.addButtonShow').show();
-    $('.updateButtonShow').hide();
-}
-
-function categoriesEditData(id) {
-    // id is passed by onclick function
-    // console.log('clicked id', id);
-    $('#AddNewCategory').modal('show')
-    $.ajax({
-        type: "GET"
-        , DataType: 'json'
-        , url: "/categoriesEditData/" + id
-        , success: function (data) {
-            $('.updateButtonShow').show();
-            $('.addButtonShow').hide();
-            // console.log(data.category_name);
-            // console.log(data.icon);
-            // console.log(data.status);
-            $('#id').html(data.id);
-            $('#category_name').val(data.category_name);
-            $('#icon').html(data.icon);
-            $('#status').val(data.status);
-        }
-    })
-}
-
-function categoriesEditedSubmit() {
-    $('#categoriesAddData').on('submit', function (event) {
-        event.preventDefault();
-        var id = $('#id').html();
-        const Msg = Swal.mixin({
-            toast: true
-            , position: 'top-end'
-            , icon: 'success'
-            , showConfirmButton: false
-            , timer: 1500
-        })
-        console.log("submit prevent success");
+    } else {
+        // edit data  -----------------------------------------------------------------------------
         $.ajax({
             url: "/categoriesEditedSubmit/" + id
             , method: "POST"
@@ -213,8 +211,52 @@ function categoriesEditedSubmit() {
                 })
             }
         })
-    });
-}
+    }
+});
+
+// function categoriesEditedSubmit() {
+//     $('#categoriesAddData').on('submit', function (event) {
+//         event.preventDefault();
+//         var id = $('#id').html();
+//         const Msg = Swal.mixin({
+//             toast: true
+//             , position: 'top-end'
+//             , icon: 'success'
+//             , showConfirmButton: false
+//             , timer: 1500
+//         })
+//         console.log("submit prevent success");
+//         $.ajax({
+//             url: "/categoriesEditedSubmit/" + id
+//             , method: "POST"
+//             , data: new FormData(this)
+//             , dataType: 'JSON'
+//             , contentType: false
+//             , cache: false
+//             , processData: false
+//             , success: function (data) {
+//                 $('#AddNewCategory').modal('hide');
+//                 fundRaiseCategoriesAllData();
+//                 categoriesClearData();
+
+//                 Msg.fire({
+//                     type: 'success'
+//                     , icon: 'success'
+//                     , title: 'Data Update success'
+//                 })
+//             }
+//             , error: function (error) {
+//                 // console.log('check the error path error->resposeJson.errors');
+//                 // console.log(error);
+//                 Msg.fire({
+//                     type: 'success'
+//                     , icon: 'error'
+//                     , title: 'Something went wrong!'
+//                 })
+//             }
+//         })
+//     });
+// }
 function categoriesStatusUpdate(id) {
     // id is passed by onclick function 
     // console.log('clicked id', id);

@@ -53,18 +53,18 @@ $('input[type="file"].fileName').on('change', function () {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".copiedFilename").addClass("selected").html(fileName);
   // var filename = e.target.files[0];
-  // $(".copiedFilename").html(filename);
+  // $(this).siblings(".copiedFilename").addClass("selected").html(filename);
   // console.log(filename);
 
 });
-$(".searchFormButton").on("click", function() {
+$(".searchFormButton").on("click", function () {
   var value = $(".mySearchForm").val().toLowerCase();
-  $(".table tr").filter(function() {
+  $(".table tr").filter(function () {
     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
   });
 });
 
-$(" .myCustomFileInput .custom-file-input").on("change", function() {
+$(" .myCustomFileInput .custom-file-input").on("change", function () {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".customFileLabel").addClass("selected").html(fileName);
 });
@@ -77,5 +77,14 @@ $('.datepicker').datepicker({
   todayHighlight: true,
 });
 $('#datepicker').datepicker("setDate", new Date());
+
+// $(".fancybox").fancybox({
+//   helpers: {
+//     title: {
+//       type: 'float'
+//     }
+//   }
+// });
+
 
 
