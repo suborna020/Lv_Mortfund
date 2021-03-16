@@ -180,6 +180,7 @@ return [
         \Torann\GeoIP\GeoIPServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         Unicodeveloper\Paystack\PaystackServiceProvider::class,
+        KingFlamez\Rave\RaveServiceProvider::class,
 
     ],
 
@@ -237,6 +238,7 @@ return [
         'Image' => 'Intervention\Image\Facades\Image',
         'Share' => Jorenvh\Share\ShareFacade::class,
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
+        'Rave' => KingFlamez\Rave\Facades\Rave::class,
 
     ],
 

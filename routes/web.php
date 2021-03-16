@@ -221,8 +221,22 @@ Route::group(['middleware'=>'authentication'],function(){
     Route::post('paypal', 'App\Http\Controllers\PaymentGatewayController@payWithpaypal');
 
     //PayStack payment form
-    Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
-    Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
+    Route::post('/pay', 'App\Http\Controllers\PaymentController@redirectToGateway')->name('pay');
+    Route::get('/payment/callback', 'App\Http\Controllers\PaymentController@handleGatewayCallback');
+
+    //Flutter Reve Payment Form
+    Route::post('/reve/pay', 'App\Http\Controllers\RaveController@initialize')->name('reve.pay');
+    Route::post('/rave/callback', 'App\Http\Controllers\RaveController@callback')->name('reve.callback'); 
+
+    //Interswitch paymet form
+    // Route::group(['namespace' => 'OgunsakinDamilola\Interswitch\Http\Controllers'], function(){
+    //     Route::post('interswitch-pay', 'InterswitchController@pay')->name('InterswitchPay');
+    //     Route::post('interswitch-pay-redirect', 'InterswitchController@redirect')->name('InterswitchPayRedirect');
+    //     Route::get('interswitch-confirm-payment', 'InterswitchController@confirmPayment')->name('InterswitchConfirmPayment');
+    //     Route::get('interswitch-transactions-log', 'InterswitchController@transactionsLog')->name('InterswitchTransactionsLog');
+    // });
+
+
 
     // route for check status of the payment
     Route::get('status', 'App\Http\Controllers\PaymentGatewayController@getPaymentStatus');
