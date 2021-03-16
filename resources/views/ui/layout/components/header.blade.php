@@ -6,7 +6,11 @@
                 <div class="col-8 col-md-8 col-lg-2 col-xl-5 col-align">
                    <div class="date" id="date">
                     <h6><span class="day">{{ date('d') }}</span> 
-                    @if(date('m')=='01')
+
+                        {{ date('F') }}
+                   {{-- 
+
+ @if(date('m')=='01')
                     January
                     @elseif(date('m')=='02')
                     February
@@ -31,6 +35,8 @@
                     @elseif(date('m')=='12')
                     December
                     @endif
+
+                    --}}
                     
                     , {{ date('Y') }}</h6>
                     <p>{{ $general->short_note_1?? 'Not Found' }}</p>

@@ -2,23 +2,22 @@
 
     @foreach($fundraisers as $fundraiser)
     <div class="col-md-6 col-xl-3">
-        <div class="card">
+        <a href="/singleCampaign/{{$fundraiser->id}}" style="text-decoration: none;color: inherit">
+            <div class="card">
             <img src="uploads/{{$fundraiser->photo}}" class="card-img-top" alt="..." lazy="loading">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$fundraiser->icon}}" aria-hidden="true"></i></i> {{$fundraiser->categories->category_name}}</li>
                 </ul>
-                <h5 class="card-title">{{$fundraiser->title}}</h5>
+                <h5 class="card-title">{{Str::upper($fundraiser->title)}}</h5>
                 <p class="card-text">{{ Str::limit($fundraiser->story, 20) }}</p>
                 <p id="raised" style="display: none">{{$fundraiser->raised}}</p>
                 <p id="needed" style="display: none">{{$fundraiser->needed_amount}}</p>
                 <div class="progress" style="height:8px;">
-                    
-                        <div class="progress-bar bg-success role=" progressbar" style="width:{{($fundraiser->transections->sum('amount')*100)/$fundraiser->needed_amount}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                            <span class="precentage-lebel">{{($fundraiser->transections->sum('amount')*100)/$fundraiser->needed_amount}}% </span>
-                        </div>
-                   
-                    
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{($fundraiser->transections->sum('amount')*100)/$fundraiser->needed_amount}}%" aria-valuenow="25" aria-valuemin="0"
+                        aria-valuemax="100">
+                        <span class="precentage-lebel">{{($fundraiser->transections->sum('amount')*100)/$fundraiser->needed_amount}}% </span>
+                    </div>
                 </div>
 
                 @if(session::has('currency_c'))
@@ -43,13 +42,13 @@
                     <div class="col-4 col-md-4 col-gap">
                         <div class="calender">
                             <ul>
-                                <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$fundraiser->deadline}}</li>
+                                <li><i class="fa fa-calendar" aria-hidden="true"></i>{{date('d F, Y', strtotime($fundraiser->deadline))}}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div></a> 
     </div>
     @endforeach
 

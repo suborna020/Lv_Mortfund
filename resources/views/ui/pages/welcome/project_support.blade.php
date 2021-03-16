@@ -1,13 +1,14 @@
  <div class="row" id="project_support">
     @foreach($project_supports as $project_support)
     <div class="col-md-6 col-xl-3">
+        <a href="/singleCampaign/{{$project_support->id}}" style="text-decoration: none;color: inherit">
         <div class="card">
             <img src="uploads/{{$project_support->photo}}" class="card-img-top" alt="..." lazy="loading">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$project_support->icon}}" aria-hidden="true"></i></i> {{$project_support->categories->category_name}}</li>
                 </ul>
-                <h5 class="card-title">{{$project_support->title}}</h5>
+                <h5 class="card-title">{{Str::upper($project_support->title)}}</h5>
                 <p class="card-text">{{ Str::limit($project_support->story, 20) }}</p>
                 <p id="raised" style="display: none">{{$project_support->raised}}</p>
                 <p id="needed" style="display: none">{{$project_support->needed_amount}}</p>
@@ -39,13 +40,13 @@
                     <div class="col-4 col-md-4 col-gap">
                         <div class="calender">
                             <ul>
-                                <li><i class="fa fa-calendar" aria-hidden="true"></i> {{$project_support->deadline}}</li>
+                                <li><i class="fa fa-calendar" aria-hidden="true"></i>{{date('d F, Y', strtotime($project_support->deadline))}}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div></a>
     </div>
     @endforeach
     

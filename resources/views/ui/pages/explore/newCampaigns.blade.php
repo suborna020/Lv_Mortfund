@@ -57,6 +57,7 @@
                     <div class="owl-carousel owl-theme newCampaign">
                         @foreach($new_medicals as $new_medical)
                         <div class="item">
+                            <a href="/singleCampaign/{{$new_medical->id}}" style="text-decoration: none;color: inherit">
                             <div class="card">
                                 <img src="{{asset('uploads/'.$new_medical->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -100,6 +101,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
                         </div>
                         @endforeach
                     </div>
@@ -122,6 +124,7 @@
                     <div class="owl-carousel owl-theme newCampaign">
                         @foreach($new_emergencies as $new_emergency)
                         <div class="item">
+                            <a href="/singleCampaign/{{$new_emergency->id}}" style="text-decoration: none;color: inherit">
                             <div class="card">
                                 <img src="{{asset('uploads/'.$new_emergency->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -165,6 +168,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
                         </div>
                         @endforeach
                         
@@ -188,6 +192,7 @@
                     <div class="owl-carousel owl-theme newCampaign">
                         @foreach($new_educations as $new_education)
                         <div class="item">
+                            <a href="/singleCampaign/{{$new_education->id}}" style="text-decoration: none;color: inherit">
                             <div class="card">
                                 <img src="{{asset('uploads/'.$new_education->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -231,6 +236,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
                         </div>
                         @endforeach
                     </div>

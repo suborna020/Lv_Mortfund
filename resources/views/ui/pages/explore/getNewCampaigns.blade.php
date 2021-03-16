@@ -2,6 +2,7 @@
 
 @foreach($get_new_campaigns as $get_new_campaign)
     <div class="col-md-6 col-xl-3">
+        <a href="/singleCampaign/{{$get_new_campaign->id}}" style="text-decoration: none;color: inherit">
         <div class="card">
             <img src="{{asset('uploads/'.$get_new_campaign->photo)}}" class="card-img-top" alt="...">
             <div class="card-body">
@@ -48,6 +49,7 @@
                 </div>
             </div>
         </div>
+    </a>
     </div>
     @endforeach
  

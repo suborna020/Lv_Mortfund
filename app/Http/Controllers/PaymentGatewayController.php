@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PaymentGateway;
+use App\Models\Fundraiser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use PayPal\Api\Amount;
@@ -45,8 +46,9 @@ class PaymentGatewayController extends Controller
 
     }
     public function index()
-    {
-        return view('ui.pages.users.user.methodDetails');
+    {   
+        $charges = PaymentGateway::where('id',1)->first();
+        return view('ui.pages.users.user.methodDetails',compact('charges'));
     }
     public function payWithpaypal(Request $request)
     {
@@ -152,17 +154,21 @@ class PaymentGatewayController extends Controller
 
         if ($result->getState() == 'approved') {
             Transection::create([
-            'method_id' => 24,
+            'method_id' => 1,
             'member_id' => session('user_session'),
             // 'transection_type' => $r->transection_type,
             // 'name' => $r->name,
-            // 'email' => $r->email,
+            'email' => $r->email,
             // 'phone' => $r->phone,
             // 'address' => $r->address,
             'amount' => session('amount'),
             // 'charge' => $r->charge,
             'campaign_author' => session('fundraiser_id'),
             'campaign_id' => session('campaing_id'),
+        ]);
+
+        Fundraiser::where('id', session('campaing_id'))->update([
+        'raised' => $r->raised,
         ]);
 
             \Session::put('success', 'Payment success');
@@ -173,7 +179,11 @@ class PaymentGatewayController extends Controller
         }
 
         \Session::put('error', 'Payment failed');
-        return Redirect::to('/checkout/paypal');
+        // return Redirect::to('/checkout/paypal');
+
+        $id = session('campaing_id');
+        
+        return \Redirect::route('singleCampaign',[$id])->with('message', 'Payment done Successfully!!!');
 
     }
 
@@ -195,8 +205,9 @@ class PaymentGatewayController extends Controller
             'payment_method_types' => ['card'],
         ]);
         $intent = $payment_intent->client_secret;
+        $charge = PaymentGateway::where('id',4)->first();
 
-        return view('ui.pages.users.user.credit-card',compact('intent'));
+        return view('ui.pages.users.user.credit-card',compact('intent','charge'));
 
     }
 
@@ -208,17 +219,22 @@ class PaymentGatewayController extends Controller
             'member_id' => session('user_session'),
             // 'transection_type' => $r->transection_type,
             // 'name' => $r->name,
-            // 'email' => $r->email,
+            'email' => $r->email,
             // 'phone' => $r->phone,
             // 'address' => $r->address,
             'amount' => session('amount'),
-            // 'charge' => $r->charge,
+            'charge' => $r->charge,
             'campaign_author' => session('fundraiser_id'),
             'campaign_id' => session('campaing_id'),
         ]);
 
-        $r->session()->flash('msg','Payment Has been Recieved !');
-        return redirect('/checkout/stripe');
+        Fundraiser::where('id', session('campaing_id'))->update([
+        'raised' => 1000,
+        ]);
+        $id = session('campaing_id');
+        // $r->session()->flash('msg','Payment Has been Recieved !');
+        // return redirect('/checkout/stripe');
+        return \Redirect::route('singleCampaign',[$id])->with('message', 'Payment done Successfully!!!');
     }
 
    

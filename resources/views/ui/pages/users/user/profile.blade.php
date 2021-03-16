@@ -4,7 +4,7 @@
 
 <div class="profile" style="margin-top: 115px">
    
-
+   
    <div class="container mb-4">
    	  <div class="row">
    	  	   <div class="col-12 col-md-12"> 
@@ -57,6 +57,7 @@
                     </form>
                 </div>
    	  	   </div>
+           
    	  </div>
    </div>
 </div>
