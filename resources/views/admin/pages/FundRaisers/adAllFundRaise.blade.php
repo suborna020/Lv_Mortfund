@@ -50,72 +50,51 @@
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class=" RightContainerPaginationTable  table-responsive">
-                            <table class="table table-striped table-borderless tableSmallText1 myDataTable" >
+                            <table class="table table-striped table-borderless tableSmallText1 myDataTable">
                                 <thead>
-                                    <tr >
+                                    <tr>
                                         <th scope="col" class="col_1">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Adress</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Phone</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Goal Amount</th>
+                                        <th scope="col">Manages Amount</th>
+                                        <th scope="col">Deadline</th>
+                                        <th scope="col">Beneficiary Name</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                      
+                                        <td>Save Austrailia</td>
+                                        <td>$2000.00</td>
+                                        <td>$1000.00</td>
+                                        <td>12/09/21</td>
+                                        <td>charles McAvoy</td>
+                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
+                                        <td>
+                                            <div>
+                                                <span><i class=" manageIcons fas fa-edit"></i></span>
+                                                <span><i class=" manageIcons fas fa-trash"></i></span>
+                                            </div>
+                                        </td>
                                     </tr>
+                                    
                                     <tr>
                                         <th scope="row">2</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                      
+                                        <td>Save Austrailia</td>
+                                        <td>$2000.00</td>
+                                        <td>$1000.00</td>
+                                        <td>12/09/21</td>
+                                        <td>charles McAvoy</td>
+                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
+                                        <td>
+                                            <div>
+                                                <span><i class=" manageIcons fas fa-edit"></i></span>
+                                                <span><i class=" manageIcons fas fa-trash"></i></span>
+                                            </div>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                      
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                      
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                      
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">6</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">7</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                    </tr>
-                                  
                                 </tbody>
                             </table>
                         </div>

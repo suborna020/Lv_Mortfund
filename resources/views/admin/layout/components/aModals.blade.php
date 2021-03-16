@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container" id="editModalFilesContainer">
+                        <div class="container" id="catergoryModalFilesContainer">
 
                         </div>
                     </div>

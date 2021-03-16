@@ -109,5 +109,6 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+{{-- <script src="{{ url('adminAssets/js/adCategories.js') }}"></script> --}}
 
 @endsection

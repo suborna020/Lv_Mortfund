@@ -107,7 +107,7 @@ function categoriesClearData() {
     $('.addButtonShow').show();
     $('.updateButtonShow').hide();
     $('#id').html("");
-    $('#editModalFilesContainer').html("");
+    $('#catergoryModalFilesContainer').html("");
 
 
 }
@@ -135,7 +135,7 @@ function categoriesEditData(id) {
                 </div>
                 </div>
             `
-            $('#editModalFilesContainer').html(editModalFilesRow);
+            $('#catergoryModalFilesContainer').html(editModalFilesRow);
 
         }
     })
