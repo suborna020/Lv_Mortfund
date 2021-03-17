@@ -100,14 +100,13 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
     //Fundraisers 
-    Route::get('adCategories','App\Http\Controllers\AdFundraisers@adCategories');
-    Route::get('adAllFundRaise','App\Http\Controllers\AdFundraisers@adAllFundRaise');
-
-    Route::get('adRecent','App\Http\Controllers\AdFundraisers@adRecent');
-    Route::get('adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
-    Route::get('adPending','App\Http\Controllers\AdFundraisers@adPending');
-    Route::get('adOnProgress','App\Http\Controllers\AdFundraisers@adOnProgress');
-    Route::get('adPrivate','App\Http\Controllers\AdFundraisers@adPrivate');
+    Route::get('Fundraisers/adCategories','App\Http\Controllers\AdFundraisers@adCategories');
+    Route::get('Fundraisers/adAllFundRaise','App\Http\Controllers\AdFundraisers@adAllFundRaise');
+    Route::get('Fundraisers/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
+    Route::get('Fundraisers/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
+    Route::get('Fundraisers/adPending','App\Http\Controllers\AdFundraisers@adPending');
+    Route::get('Fundraisers/adOnProgress','App\Http\Controllers\AdFundraisers@adOnProgress');
+    Route::get('Fundraisers/adPrivate','App\Http\Controllers\AdFundraisers@adPrivate');
     
 
 
@@ -134,26 +133,26 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
 
 
     // Withdraw System
-    Route::get('adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
-    Route::get('adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');
-    Route::get('adWithdrawLog','App\Http\Controllers\AdWithdrawSystem@adWithdrawLog');
+    Route::get('WithdrawSystem/adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
+    Route::get('WithdrawSystem/adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');
+    Route::get('WithdrawSystem/adWithdrawLog','App\Http\Controllers\AdWithdrawSystem@adWithdrawLog');
     //Donate
-    Route::get('adPaymentGateways','App\Http\Controllers\AdDonate@adPaymentGateways');
-    Route::get('adDonateHistory','App\Http\Controllers\AdDonate@adDonateHistory');
+    Route::get('Donate/adPaymentGateways','App\Http\Controllers\AdDonate@adPaymentGateways');
+    Route::get('Donate/adDonateHistory','App\Http\Controllers\AdDonate@adDonateHistory');
     //SuccessStories
-    Route::get('adCategory','App\Http\Controllers\AdSuccessStories@adCategory');
-    Route::get('adStories','App\Http\Controllers\AdSuccessStories@adStories');
+    Route::get('SuccessStories/adCategory','App\Http\Controllers\AdSuccessStories@adCategory');
+    Route::get('SuccessStories/adStories','App\Http\Controllers\AdSuccessStories@adStories');
     //MemberSettings
-    Route::get('adAllMembers','App\Http\Controllers\AdMemberSettings@adAllMembers');
-    Route::get('adReportedMembers','App\Http\Controllers\AdMemberSettings@adReportedMembers');
+    Route::get('MemberSttings/adAllMembers','App\Http\Controllers\AdMemberSettings@adAllMembers');
+    Route::get('MemberSttings/adReportedMembers','App\Http\Controllers\AdMemberSettings@adReportedMembers');
     // LanguageManager
     Route::get('adLanguageManager','App\Http\Controllers\AdLanguageManager@adLanguageManager');
     // Advertisement
     Route::get('adAdvertisement','App\Http\Controllers\AdAdvertisement@adAdvertisement');
     // GeneralSettings
-    Route::get('adBasicSettings','App\Http\Controllers\AdGeneralSettings@adBasicSettings');
-    Route::get('adEmailSettings','App\Http\Controllers\AdGeneralSettings@adEmailSettings');
-    Route::get('adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
+    Route::get('GeneralSettings/adBasicSettings','App\Http\Controllers\AdGeneralSettings@adBasicSettings');
+    Route::get('GeneralSettings/adEmailSettings','App\Http\Controllers\AdGeneralSettings@adEmailSettings');
+    Route::get('GeneralSettings/adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
 
 });
 //----------------------- user routes -----------------------

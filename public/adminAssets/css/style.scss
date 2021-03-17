@@ -232,7 +232,14 @@ a:hover {
 nav .menu-open .extend_icon {
     transform: rotate(90deg) !important;
 }
-
+.selectedNavLink{
+    background: #F36A10;
+    height: 24px;
+    width: 3px;
+    margin-right: 3px !important;
+    vertical-align: middle;
+    border-radius: 2px;
+}
 #frontEndSettingsSideBar a.nav-link {
     color  : white;
     padding: 4px 12px;
