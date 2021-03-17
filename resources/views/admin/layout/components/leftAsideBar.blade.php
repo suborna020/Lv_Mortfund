@@ -31,33 +31,45 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('aDashboard/adCategories')}}" class="nav-link">
+                            <a href="{{ url('adCategories')}}" class="nav-link">
                                 <img src="{{asset("adminAssets/img/categories.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
                                 <p>Categories</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('aDashboard/adRecent')}}" class="nav-link">
+                            <a href="{{ url('adAllFundRaise')}}" class="nav-link">
+                                <img src="{{asset("adminAssets/img/fundraisers.svg")}}" alt="icon" class="asideBarIcon " />
+                                <p> All Fundraise</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('adRecent')}}" class="nav-link">
                                 <img src="{{asset("adminAssets/img/recent.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
                                 <p>Recent</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('aDashboard/adUrgent')}}" class="nav-link">
+                            <a href="{{ url('adUrgent')}}" class="nav-link">
                                 <img src="{{asset("adminAssets/img/urgent.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
                                 <p>Urgent</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('aDashboard/adPending')}}" class="nav-link">
+                            <a href="{{ url('adPending')}}" class="nav-link">
                                 <img src="{{asset("adminAssets/img/pendingFunraiser.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
                                 <p>Pending</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('aDashboard/adOnProgress')}}" class="nav-link">
+                            <a href="{{ url('adOnProgress')}}" class="nav-link">
                                 <img src="{{asset("adminAssets/img/onProgressFundraiser.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
                                 <p>On-Progress</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('adPrivate')}}" class="nav-link">
+                                <i class="fas fa-lock fa-lg mr-2 treeviewAsideBarIcon "></i>
+                                <p>Private</p>
                             </a>
                         </li>
                     </ul>

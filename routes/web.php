@@ -100,10 +100,17 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
     //Fundraisers 
-    Route::get('aDashboard/adCategories','App\Http\Controllers\AdFundraisers@adCategories');
-    Route::get('aDashboard/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
-    Route::get('aDashboard/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
-    Route::get('aDashboard/adPending','App\Http\Controllers\AdFundraisers@adPending');
+    Route::get('adCategories','App\Http\Controllers\AdFundraisers@adCategories');
+    Route::get('adAllFundRaise','App\Http\Controllers\AdFundraisers@adAllFundRaise');
+
+    Route::get('adRecent','App\Http\Controllers\AdFundraisers@adRecent');
+    Route::get('adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
+    Route::get('adPending','App\Http\Controllers\AdFundraisers@adPending');
+    Route::get('adOnProgress','App\Http\Controllers\AdFundraisers@adOnProgress');
+    Route::get('adPrivate','App\Http\Controllers\AdFundraisers@adPrivate');
+    
+
+
     //Fundraisers -> Categories
     Route::get('/fundRaiseCategoriesData', 'App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
     Route::post('categoriesAddData','App\Http\Controllers\AdFundraisers@categoriesAddData');
