@@ -60,7 +60,7 @@
                                     <img src="{{asset("adminAssets/img/onProgressFundraiser.svg")}}" alt="icon" class=" smallBoxIcon" />
                                 </div>
                                 <p>On-Progress Fundraiser</p>
-                                <h3>00</h3>
+                                <h3>{{(count($FundOnProgressBox))?? '0' }}</h3>
                             </div>
                         </div>
                     </div>

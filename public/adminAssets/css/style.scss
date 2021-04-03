@@ -78,6 +78,8 @@ a:hover {
 
 .rightDiv .card {
     background: inherit !important;
+    border: none;
+    box-shadow: none;
 }
 
 .rightDiv .card-body {
@@ -115,7 +117,11 @@ a:hover {
     font-size: 1rem;
 }
 .spaceForManage{
-    width: 10%;
+    // not working 
+    width: 12%;
+}
+.spaceForTitle{
+    width: 20%;
 }
 .rotate {
     transform: rotate(90deg) !important;
@@ -399,7 +405,7 @@ nav .menu-open .extend_icon {
 .RightContainerTable .table td,
 .table th {
     border-top: unset !important;
-    padding   : .75rem .60rem !important;
+    padding   : .75rem .20rem !important;
 }
 
 .RightContainerTable .table-striped tbody tr:nth-of-type(even) {
@@ -445,7 +451,7 @@ nav .menu-open .extend_icon {
     .table td,
     .table th {
         border-top: unset !important;
-        padding   : .75rem .60rem !important;
+        padding   : .75rem .20rem !important;
     }
 
     .table-striped tbody tr:nth-of-type(even) {
@@ -465,7 +471,7 @@ nav .menu-open .extend_icon {
     }
 
     .categoriesStatus {
-        background-color: #F8800B !important;
+        background-color: #F8800B ;
         color           : white !important;
         border-radius   : 8px !important;
         text-align      : center !important;
@@ -540,11 +546,14 @@ nav .menu-open .extend_icon {
 
 .manageIcons {
     color : #6e666661;
-    margin: 0 5px;
+    margin: 0 0px;
 }
 
 .manageIcons:hover {
     color: #F8800B;
+}
+.redText{
+    color:red;;
 }
 
 .searchButton {
@@ -674,6 +683,9 @@ nav .menu-open .extend_icon {
 .bigModal select.form-control ,.bigModal .input-group input ,.bigModal .fileInputSize{
     font-size: 0.8rem !important;
     height: 31px !important;
+}
+.bigModal textarea{
+    font-size: 0.8rem !important;
 }
 
 //  Payment Gateways  page
@@ -824,4 +836,10 @@ nav .menu-open .extend_icon {
     width: 200px;
     background-size: cover;
     height: 100px;
+}
+// adStories page------------------------------------------------------------------------
+.smallRoundPic{
+    width: 35px;
+    margin-right: 3px;
+    border-radius: 50%;
 }

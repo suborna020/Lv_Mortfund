@@ -26,20 +26,18 @@
                             <!-- SEARCH FORM -->
                             <div class="form-group has-search serchForm">
                                 <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control" placeholder="Search">
+                                <input type="text" class="form-control mySearchForm" placeholder="Search">
+                            </div>
+                            {{-- status check   --}}
+                            <div class="form-group">
+                                <select class="form-control" id="categoriesCheck" name="sellist1">
+                                    <option>Select</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
                             </div>
                             <div>
-                                <form action="/action_page.php">
-                                    <div class="form-group">
-                                        <select class="form-control" id="sel1" name="sellist1">
-                                            <option>Active</option>
-                                            <option>2</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            <div>
-                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn   "> Search Category</button>
+                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton"> Search Category</button>
                             </div>
                             <div>
                             </div>
@@ -65,29 +63,21 @@
                                         <th scope="col">Manage</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody class="fundRaiseCategoriesBo">
+                                    {{-- <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
                                         <td>
-                                            <div>
-                                                <span><i class=" manageIcons fa-lg fas fa-edit"></i></span>
-                                                <span><i class=" manageIcons fa-lg fas fa-trash"></i></span>
-                                            </div>
+                                            <input type="hidden"  name="status" value="" id="fundRaiseCategoriesStatus" >
+                                            <button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td><button type="button" class="btn btn-warning btn-sm categoriesStatus">Active</button></td>
                                         <td>
                                             <div>
                                                 <span><i class=" manageIcons fas fa-edit fa-lg"></i></span>
                                                 <span><i class=" manageIcons fas fa-trash fa-lg"></i></span>
                                             </div>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                 </tbody>
                             </table>
                         </div>
@@ -103,12 +93,8 @@
         </section>
         <!-- /.content -->
     </div>
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    {{--  <script src="{{ url('adminAssets/js/adCategories.js') }}"></script>  --}}
+
 </div>
-{{-- <script src="{{ url('adminAssets/js/adCategories.js') }}"></script> --}}
 
 @endsection

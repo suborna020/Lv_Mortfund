@@ -129,8 +129,8 @@ function categoriesEditData(id) {
             var editModalFilesRow = 
             `   <div class="row px-2">
                 <div class="col-lg-8 col-8 mb-2 ">
-                    <a href="../${data.icon_path}" data-fancybox>
-                    <img src="../${data.icon_path}" class="  mediumFileSize" />
+                    <a href="../uploads/${data.icon}" data-fancybox>
+                    <img src="../uploads/${data.icon}" class="  mediumFileSize" />
                     </a>
                 </div>
                 </div>
@@ -138,6 +138,7 @@ function categoriesEditData(id) {
             $('#catergoryModalFilesContainer').html(editModalFilesRow);
 
         }
+         // "../uploads/${data.icon}"
     })
 }
 $('#categoriesAddData').on('submit', function (event) {

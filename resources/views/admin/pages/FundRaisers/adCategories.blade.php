@@ -93,7 +93,8 @@
         </section>
         <!-- /.content -->
     </div>
-    <script src="{{ url('adminAssets/js/adCategories.js') }}"></script>
+    <script src="{{ url('adminAssets/js/Fundraisers/adCategories.js') }}"></script>
+
 
 </div>
 

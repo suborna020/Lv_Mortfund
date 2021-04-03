@@ -12,7 +12,7 @@
     <div class="sidebar ">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item ">
+                <li class="nav-item {{ (request()->is('aDashboard')) ? 'menu-is-opening menu-open' : '' }}">
                     <a href="{{ url('aDashboard')}}" class="nav-link ">
 
                         <img src="{{asset("adminAssets/img/dashboard.svg")}}" alt="icon" class="asideBarIcon " />

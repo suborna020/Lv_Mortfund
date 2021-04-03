@@ -117,17 +117,39 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::post('categoriesEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@categoriesEditedSubmit');
     Route::get('/categoriesStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@categoriesStatusUpdate');
     Route::post('/categoriesDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesDestroyData');
-     //Fundraisers -> Recent
-    Route::get('/fundRaiseRecentData', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentData');
-    Route::post('fundRecentAddData','App\Http\Controllers\AdFundraisers@fundRecentAddData');
+     //Fundraisers -> AllFundRaise
+     Route::get('/AllFundRaiseData', 'App\Http\Controllers\AdFundraisers@AllFundRaiseData');
+    Route::get('AllFundRaiseEditData/{id}', 'App\Http\Controllers\AdFundraisers@AllFundRaiseEditData');
     Route::get('fundRaiseEditData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseEditData');
     Route::post('fundRaiseEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@fundRaiseEditedSubmit');
     Route::get('/fundRaiseStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseStatusUpdate');
     Route::post('/fundRaiseDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseDestroyData');
+    Route::get('/fundRaiseRecentListUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentListUpdate');
+    
+     //Fundraisers -> Recent
+    Route::get('/fundRaiseRecentData', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentData');
+    Route::post('fundRecentAddData','App\Http\Controllers\AdFundraisers@fundRecentAddData');
+    //    other edit delete  are same --
+     //Fundraisers -> urgent
+    Route::get('/fundRaiseUrgentData', 'App\Http\Controllers\AdFundraisers@fundRaiseUrgentData');
+    Route::post('fundUrgentAddData','App\Http\Controllers\AdFundraisers@fundUrgentAddData');
+     //Fundraisers -> pending
+     Route::get('/fundRaisePendingData', 'App\Http\Controllers\AdFundraisers@fundRaisePendingData');
+    //Fundraisers -> OnProgress
+    Route::get('/fundOnProgressData', 'App\Http\Controllers\AdFundraisers@fundOnProgressData');
+    //Fundraisers -> Private
+    Route::get('/fundRaisePrivateData', 'App\Http\Controllers\AdFundraisers@fundRaisePrivateData');
+    Route::get('/fundRaisePrivateListUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaisePrivateListUpdate');
+    Route::post('fundPrivateAddData','App\Http\Controllers\AdFundraisers@fundPrivateAddData');
+    //Success Stories -> stories
+    Route::get('/stories', 'App\Http\Controllers\AdSuccessStories@stories');
+    Route::get('getEditableStory/{id}', 'App\Http\Controllers\AdSuccessStories@getEditableStory');
+    Route::post('addSuccessStoriesData','App\Http\Controllers\AdSuccessStories@addSuccessStoriesData');
+    Route::post('editSuccessStoriesData/{id}','App\Http\Controllers\AdSuccessStories@editSuccessStoriesData');
+    Route::post('/successStoriesDestroyData/{id}', 'App\Http\Controllers\AdSuccessStories@successStoriesDestroyData');
 
 
-
-
+    
 
 
 
