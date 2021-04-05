@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
         <link rel="stylesheet" href="{{asset('css/fundraisers.css')}}">
+        <link rel="stylesheet" href="{{asset('css/support.css')}}">
 
         
         <!-- must include  -->
@@ -27,11 +28,23 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
         <script src="{{ asset('js/share.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
 
         <title>Mortfund</title>
 
         <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"
+        />
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         
@@ -62,57 +75,19 @@
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
 
-/*Ajax Pagination*/
-
-
-// $(function() {
-//     $('body').on('click', '.pagination a', function(e) {
-//         e.preventDefault();
-
-//         $('#fundraisers #fundraiser_main').css('background', 'red');
-//         $('#fundraisers').append('<img style="position: fixed; left: 30%; top: 20%; z-index: 100000;" src="/images/loading.gif" />');
-
-//         var url = $(this).attr('href');  
-//         getFundraisers(url);
-//         window.history.pushState("", "", url);
-//     });
-
-//     function getFundraisers(url) {
-//         $.ajax({
-//             url : url  
-//         }).done(function (data) {
-//             $('body').html(data);  
-//             // $('.c').countUp();
-//         }).fail(function () {
-//             alert('Could not be loaded.');
-//         });
-//     }
-// });
-
-/*Onscroll Counter*/
-
 $(document).ready(function () {
    $('.c').countUp();
 });
 </script>
 
-<!-- <script type="text/javascript">
-        $(document).ready(function(){
-            $("#currency_code").on('change', function postinput(){
-                var currency_code = $(this).val(); // this.value
-                $.ajax({ 
-                    url: '/set-currency-code',
-                    data: { "_token": "{{ csrf_token() }}", currency_code: currency_code },
-                    type: 'post'
-                }).done(function(responseData) {
-                    console.log('Done: ', responseData);
-                    window.location.reload();
-                }).fail(function() {
-                    console.log('Failed');
-                });
-            });
-        }); 
-    </script>  -->    
+<script type="text/javascript">
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+
+        })
+</script>
         
     </body>
 </html>

@@ -72,6 +72,23 @@ Route::post('DestroySession','App\Http\Controllers\Master@DestroySession');
 
 Route::get('DestroySessions','App\Http\Controllers\Master@DestroySessions');
 
+Route::get('terms','App\Http\Controllers\Master@terms');
+
+Route::get('support','App\Http\Controllers\Master@support');
+
+//-------------------------------FORGET PASSWORD SECTION---------------------
+    Route::get('/gettoken','App\Http\Controllers\FPController@tokenRequest');
+
+    Route::get('/forgot-password','App\Http\Controllers\Master@forgotPassword')->name('forgot-password');
+    Route::post('/forgot-password','App\Http\Controllers\FPController@getPasswordResetEmail');
+    Route::post('/forgot-password',[\App\Http\Controllers\FPController::class,'tokenRequest']);
+    Route::post('/verify-token',[\App\Http\Controllers\FPController::class,'tokenCheck']);
+    Route::get('/reset-password',function (){
+        $email = \Illuminate\Support\Facades\Session::get('email');
+        return \view('ui.pages.users.account.resetPassword',compact('email'));
+    })->name('reset-password');
+    Route::post('/reset-password',[\App\Http\Controllers\FPController::class,'createNewPassword']);
+
 
 
 Route::get('details', function (Request $request) {
@@ -166,10 +183,6 @@ Route::get('/login','App\Http\Controllers\Master@userLogin')->name('login');
 
 Route::post('/login','App\Http\Controllers\Master@userLogin_sub');
 
-Route::get('/forgot-password','App\Http\Controllers\Master@forgotPassword')->name('forgot-password');
-
-Route::post('/forgot-password','App\Http\Controllers\Master@emailVerification')->name('forgotPassword');
-
 Route::get('/get-session','App\Http\Controllers\Master@getSession');
 
 Route::group(['middleware'=>'authentication'],function(){
@@ -178,6 +191,9 @@ Route::group(['middleware'=>'authentication'],function(){
     Route::get('/myAccount','App\Http\Controllers\Master@userDashboard');
 
     Route::get('/logout','App\Http\Controllers\Master@Logout')->name('logout');
+
+    
+
 
     Route::get('/paymentSettings','App\Http\Controllers\Master@paymentSettings');
 
@@ -258,6 +274,20 @@ Route::group(['middleware'=>'authentication'],function(){
 
     // route for check status of the payment
     Route::get('status', 'App\Http\Controllers\PaymentGatewayController@getPaymentStatus');
+
+
+    // Flutter Wave 
+    Route::get('/flutterwave', 'App\Http\Controllers\RaveController@flutterwave')->name('flutterwave'); 
+
+    Route::post('/reve/pay', 'App\Http\Controllers\RaveController@initialize')->name('reve.pay');    
+
+    Route::post('/rave/callback', 'App\Http\Controllers\RaveController@callback')->name('reve.callback');
+
+    //InterSwitch 
+
+    Route::get('/interswitch', 'App\Http\Controllers\Master@interswitch')->name('interswitch');
+
+    Route::get('/payment-confirmation', 'App\Http\Controllers\Master@paymentConfirmation')->name('payment-confirmation');
 
 
 });

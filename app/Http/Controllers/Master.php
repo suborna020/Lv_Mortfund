@@ -61,7 +61,10 @@ class Master extends Controller
         // $ip = request()->ip();
         $ip = request()->ip();
         $arr_ip = geoip()->getLocation($ip);
-        $user_location = $arr_ip->country; // get a country
+        
+        // get a country
+
+        $user_location = $arr_ip->country; 
         $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first(); 
         // echo $arr_ip->currency;
 
@@ -260,6 +263,14 @@ class Master extends Controller
 
         return view('ui.pages.categories.category_campaigns',compact('categoryCampaigns','user_currency','user_location','currency_by_location'))->render();
      }
+    }
+
+    public function terms(){
+        return view('ui.pages.terms.terms');
+    }
+
+    public function support(){
+        return view('ui.pages.faq.faq');
     }
 
 
@@ -654,6 +665,14 @@ class Master extends Controller
         // $arr = array('status' => 'true', 'message' => 'Currency Changed');
         // echo json_encode($arr);
         return redirect('myAccount/donateMethod');
+    }
+
+    public function interswitch(){
+        return view('ui.pages.users.user.interswitch');
+    }
+
+    public function paymentConfirmation(){
+        return view('ui.pages.users.user.payment-confirmation');
     }
  
 }
