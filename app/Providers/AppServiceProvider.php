@@ -91,8 +91,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('user_info',$user_info)->with('number_of_current_fundraisers',$number_of_current_fundraisers)->with('number_of_pending_fundraisers',$number_of_pending_fundraisers)->with('number_of_completed_fundraisers',$number_of_completed_fundraisers)->with('current_user_fundraisers',$current_user_fundraisers)->with('user_balance',$user_balance);
           }
 
-          //ADMIN
-
+          //ADMIN----------------------------------------------------------------------------------------------
 
           if(Session::get('admin_session')){
                 $user_id=Session::get('admin_session');
@@ -101,15 +100,21 @@ class AppServiceProvider extends ServiceProvider
                 $CategoriesBox = Category::all();
                 $successStoriesBox = SuccessStory::all();
                 $WithdrawRequestsBox=WithdrawRequest::all();
+                $FundOnProgressBox = Fundraiser::select("*")
+                ->where('needed_amount', '>', \DB::raw('raised'))
+                ->get();
     
              $view->with('userInfoBox',$userInfoBox)
                 ->with('FundraisersBox',$FundraisersBox)
                 ->with('CategoriesBox',$CategoriesBox)
                 ->with('successStoriesBox',$successStoriesBox)
-                 ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
+                ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
+                ->with('FundOnProgressBox',$FundOnProgressBox)
+
                 ;
                
             }
+            // ---------------------------------------------------------------------------------------
 
         });   
         

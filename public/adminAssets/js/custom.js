@@ -78,13 +78,9 @@ $('.datepicker').datepicker({
 });
 $('#datepicker').datepicker("setDate", new Date());
 
-// $(".fancybox").fancybox({
-//   helpers: {
-//     title: {
-//       type: 'float'
-//     }
-//   }
-// });
-
+//bootstrap tooltip
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 
 

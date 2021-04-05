@@ -30,7 +30,7 @@
                             </div>
                             {{-- status check   --}}
                             <div class="form-group">
-                                <select class="form-control" id="categoriesCheck" >
+                                <select class="form-control AllFundRaiseCheckBox" id="">
                                     <option>Select</option>
                                     <option value="1">Active</option>
                                     <option value="0">Inactive</option>
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class=" small-box">
-                            <button type="button" class=" orange_text font-weight-bold btn  btn-block addNewButton " data-toggle="modal" data-target=".AddRecentFundraisers" id="addNewFundButton"><i class="fas fa-plus mr-1"></i> Add New Fundraiser</button>
+                            <button type="button" class=" orange_text font-weight-bold btn  btn-block addNewButton " data-toggle="modal" data-target=".fundRaiseModal" id=""><i class="fas fa-plus mr-1"></i> Add New Fundraiser</button>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                                         <th scope="col" class="spaceForManage">Manage</th>
                                     </tr>
                                 </thead>
-                                <tbody id="fundRaiseRecentDataBody">
+                                <tbody class="FundRaiseTableBody">
                                     {{-- <tr>
                                         <th scope="row">1</th>
                                         <td> Save USA</td>
@@ -80,10 +80,12 @@
                                             <div>
                                                 <span><i class=" manageIcons fas fa-edit"></i></span>
                                                 <span><i class=" manageIcons fas fa-trash"></i></span>
+                                                <span><i class=" manageIcons fas fa-bell redText" data-toggle="tooltip"  title="Make Urgent"></i></span>
+
                                             </div>
                                         </td>
-                                    </tr> --}}
-                                   
+                                    </tr>
+                                    --}}
                                 </tbody>
                             </table>
                            
@@ -98,7 +100,7 @@
         </section>
         <!-- /.content -->
     </div>
-    <script src="{{ url('adminAssets/js/adRecent.js') }}"></script>
+    <script src="{{ url('adminAssets/js/Fundraisers/adRecent.js') }}"></script>
 
 </div>
 
