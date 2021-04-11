@@ -9,11 +9,12 @@ use App\Models\Fundraiser;
 use App\Models\Category;
 use App\Models\SuccessStory;
 use App\Models\WithdrawRequest;
-
-
-
-
+use Carbon\Carbon;
 use DB;
+use App\Models\Transection;
+
+
+
 class AdminOperation extends Controller
 {
     public function aDashboardM(){
@@ -30,19 +31,23 @@ class AdminOperation extends Controller
         $request->session()->forget('admin_session');
         return redirect('/adminLogin');
     }
-    // all common data in one place 
-    // public function GlobalDataBox($adminView){
-    //     $FundraisersBox = Fundraiser::all();
-    //     $CategoriesBox = Category::all();
-    //     $successStoriesBox = SuccessStory::all();
-    //     $WithdrawRequestsBox=WithdrawRequest::all();
 
-    //     $adminView->with('FundraisersBox',$FundraisersBox)
-    //     ->with('CategoriesBox',$CategoriesBox)
-    //     ->with('successStoriesBox',$successStoriesBox)
-    //     ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
-    //     ;
-       
+    public function adminChart()
+    {
+        // return Carbon::now()->endOfWeek();
+        $dbData =  Transection::where('transection_type', '=','donation')
+                ->where('status', '=','1')
+                ->whereBetween('created_at', [Carbon::now()->startOfWeek(Carbon::SUNDAY), Carbon::now()->endOfWeek(Carbon::SATURDAY)])
+                  ->selectRaw('Date(created_at) sameDate,  sum(amount) sameDateSumData')
+                ->groupBy('sameDate')
+                ->orderBy('sameDate', 'desc')
+                ->get();
+                // echo($dbData) ; 
+                $decodedArray = json_decode($dbData, TRUE);
+                $sameDate = array_column($decodedArray, 'sameDate');
+                $sameDateSumData = array_column($decodedArray, 'sameDateSumData');
+                $totalData= [$sameDate, $sameDateSumData];
+                return response()->json($totalData); 
+    }
 
-    // }
 }

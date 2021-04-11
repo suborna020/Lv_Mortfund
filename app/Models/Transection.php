@@ -9,5 +9,5 @@ class Transection extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['method_id','member_id','amount','charge','email','campaign_author','campaign_id'];
+    protected $fillable = ['method_id','member_id','transection_type','name','email','phone','address','amount','charge','campaign_author','campaign_id','status'];
 }

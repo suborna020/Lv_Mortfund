@@ -135,6 +135,7 @@ function fundRecentClearData() {
     $('.updateButtonShow').hide();
     $('.editModalFilesContainer').html('');
     $('.AllFundClickedId').html("");
+    $('.FundModalFilesContainer').html("");
 
 }
 //get edit data  -----------------------------------------------------------------------------

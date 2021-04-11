@@ -129,14 +129,15 @@
                         <div class="card card-info my-0">
                             <div class="card-body">
                                 <div class="chart">
-                                    <canvas id="lineChart" style="min-height: 50px;  max-width: 100%;"></canvas>
+                                    {{-- <canvas id="lineChart" style="min-height: 50px;  max-width: 100%;"></canvas>  --}}
+                                    <canvas id="myAreaChart" width="100%" height="30"></canvas>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                         </div>
                         <br>admin session no :{{($admin_sessionData)?? '0' }}
 
-                        user name :  {{($userInfoBox->admin_name)?? '0' }}
+                        user name : {{($userInfoBox->admin_name)?? '0' }}
                         <br>
                         test:
                         @foreach($completedFundraiser as $completedFundraiser)
@@ -146,6 +147,8 @@
                         @endforeach
 
                         <!-- /.card -->
+                    
+
                     </section>
                     <br>
                     <br>
@@ -162,5 +165,6 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+<script src="{{ url('adminAssets/js/myAreaChart.js') }}"></script>
 
 @endsection

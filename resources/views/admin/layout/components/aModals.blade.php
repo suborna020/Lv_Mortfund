@@ -249,7 +249,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-6 col-sm-12 mb-4">
                                 <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                                <button type="button" id="iconName" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton"><i class="fas fa-plus "></i> Upload Photo &nbsp; &nbsp; &nbsp;</button>
+                                <button type="button"  class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Upload Photo &nbsp; &nbsp; &nbsp;</button>
                             </div>
                         </div>
                         <div class="container editContainer">

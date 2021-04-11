@@ -152,8 +152,8 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('SuccessStories/adCategory')}}" class="nav-link">
-                                <p class=" {{ (request()->is('SuccessStories/adCategory')) ? 'selectedNavLink' : '' }}"></p>
+                            <a href="{{ url('SuccessStories/adSuccessCategory')}}" class="nav-link">
+                                <p class=" {{ (request()->is('SuccessStories/adSuccessCategory')) ? 'selectedNavLink' : '' }}"></p>
                                 <img src="{{asset("adminAssets/img/categories.svg")}}" alt="icon" class="treeviewAsideBarIcon " />
                                 <p>Category</p>
                             </a>

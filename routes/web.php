@@ -25,7 +25,6 @@ use App\Models\WithdrawRequest;
 */
 
 
-
 Route::get('','App\Http\Controllers\Master@index');
 
 Route::get('/fundraisers','App\Http\Controllers\Master@fundraisers');
@@ -98,6 +97,7 @@ Route::get('/clear/',[\App\Http\Controllers\CachesController::class,'clearCaches
 
 Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
+    Route::get('/adminChart','App\Http\Controllers\AdminOperation@adminChart');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
     //Fundraisers 
     Route::get('Fundraisers/adCategories','App\Http\Controllers\AdFundraisers@adCategories');
@@ -162,8 +162,10 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('Donate/adPaymentGateways','App\Http\Controllers\AdDonate@adPaymentGateways');
     Route::get('Donate/adDonateHistory','App\Http\Controllers\AdDonate@adDonateHistory');
     //SuccessStories
-    Route::get('SuccessStories/adCategory','App\Http\Controllers\AdSuccessStories@adCategory');
+    Route::get('SuccessStories/adSuccessCategory','App\Http\Controllers\AdSuccessStories@adSuccessCategory');
+    Route::get('adSuccessCategoryData','App\Http\Controllers\AdSuccessStories@adSuccessCategoryData');
     Route::get('SuccessStories/adStories','App\Http\Controllers\AdSuccessStories@adStories');
+
     //MemberSettings
     Route::get('MemberSttings/adAllMembers','App\Http\Controllers\AdMemberSettings@adAllMembers');
     Route::get('MemberSttings/adReportedMembers','App\Http\Controllers\AdMemberSettings@adReportedMembers');
