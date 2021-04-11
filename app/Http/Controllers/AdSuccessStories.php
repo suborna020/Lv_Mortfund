@@ -35,6 +35,8 @@ class AdSuccessStories extends Controller
         return response()->json($data); 
 
     }
+
+   
      // adStories page ---------------------------------------------------------
     public function stories(){
         $data = SuccessStory::select("*")
