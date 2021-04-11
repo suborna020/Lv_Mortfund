@@ -14,7 +14,7 @@
                     <div class="widget-2">
                         <h3>About</h3>
                         @foreach($footer_about as $f_a)
-                        <a href="#" class="link">{{$f_a->footer_link_name}}</a>
+                        <a href="{{$f_a->link}}" class="link">{{$f_a->footer_link_name}}</a>
                         @endforeach
                         
                     </div>

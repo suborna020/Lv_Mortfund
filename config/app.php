@@ -162,6 +162,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        KingFlamez\Rave\RaveServiceProvider::class,
+
+
 
 
         /*
@@ -237,6 +240,8 @@ return [
         'Image' => 'Intervention\Image\Facades\Image',
         'Share' => Jorenvh\Share\ShareFacade::class,
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
+        'Rave' => KingFlamez\Rave\Facades\Rave::class,
+
 
     ],
 

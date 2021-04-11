@@ -21,6 +21,8 @@ class CreatePaymentGatewaysTable extends Migration
             $table->string('max_limit')->nullable();
             $table->string('charge')->nullable();
             $table->string('rate')->nullable();
+            $table->string('link')->nullable();
+            $table->string('processing_time')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

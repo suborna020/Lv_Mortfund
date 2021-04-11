@@ -51,7 +51,7 @@ add catagory te modal er (catagory icon) likhe (upload photo) button keno deya?
 @ Data seed
 php artisan db:seed
 php artisan db:seed --class=FundraiserSeeder
-php artisan migrate:refresh --path=/database/migrations/2021_02_25_162958_create_transections_table.php
+php artisan migrate:refresh --path=/database/migrations/2021_02_08_184701_create_navmenus_table.php
 
 
 
