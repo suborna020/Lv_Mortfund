@@ -301,12 +301,9 @@ function categoriesDestroyData(id) {
                 }
             })
         } else {
-
             // swal("Canceled");
-
         }
     });
-    // console.log('clicked id', id);
 
 }
 

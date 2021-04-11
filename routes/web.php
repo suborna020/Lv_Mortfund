@@ -186,8 +186,18 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     //MemberSettings
     Route::get('MemberSttings/adAllMembers','App\Http\Controllers\AdMemberSettings@adAllMembers');
     Route::get('MemberSttings/adReportedMembers','App\Http\Controllers\AdMemberSettings@adReportedMembers');
+    Route::get('adAllMembersData','App\Http\Controllers\AdMemberSettings@adAllMembersData');
+    Route::get('adReportedMembersData','App\Http\Controllers\AdMemberSettings@adReportedMembersData');
+
+
     // LanguageManager
     Route::get('adLanguageManager','App\Http\Controllers\AdLanguageManager@adLanguageManager');
+    Route::get('adLanguageManagerData','App\Http\Controllers\AdLanguageManager@adLanguageManagerData');
+    Route::get('/adLanguageStatusUpdate/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageStatusUpdate');
+    Route::post('/adLanguageDelete/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageDelete');
+
+
+
     // Advertisement
     Route::get('adAdvertisement','App\Http\Controllers\AdAdvertisement@adAdvertisement');
     // GeneralSettings

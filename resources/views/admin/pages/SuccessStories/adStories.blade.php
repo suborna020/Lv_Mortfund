@@ -39,7 +39,7 @@
                                         <th scope="col">Title</th>
                                         <th scope="col">Author</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Manage</th>
+                                        <th scope="col" class="spaceForManage">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody class="FundRaiseTableBody">

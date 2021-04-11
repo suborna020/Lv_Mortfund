@@ -54,7 +54,7 @@
                                         <th scope="col" class="col_1">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Status</th>
-                                        <th scope="col">Manage</th>
+                                        <th scope="col" class="spaceForManage">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody class="tableBody">

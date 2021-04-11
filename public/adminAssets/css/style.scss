@@ -118,8 +118,7 @@ a:hover {
 }
 
 .spaceForManage {
-    // not working 
-    width: 12%;
+    min-width:  120px!important;
 }
 
 .spaceForTitle {
@@ -429,8 +428,10 @@ nav .menu-open .extend_icon {
 }
 
 .RightContainerTable .col_1 {
-    width: 3% !important;
+    width: 16px !important;
 }
+
+
 
 .RightContainerTable .categoriesStatus {
     background-color: #F8800B;
@@ -552,7 +553,7 @@ nav .menu-open .extend_icon {
 
 .manageIcons {
     color : #6e666661;
-    margin: 0 0px;
+    margin: 0 2px;
 }
 
 .manageIcons:hover {

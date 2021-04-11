@@ -51,7 +51,7 @@
                                         <th scope="col">Deadline</th>
                                         <th scope="col">Beneficiary Name</th>
                                         <th scope="col">Status</th>
-                                        <th scope="col">Manage</th>
+                                        <th scope="col" class="spaceForManage">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody class="FundRaiseTableBody">

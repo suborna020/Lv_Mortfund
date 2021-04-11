@@ -109,7 +109,7 @@ a:hover {
 }
 
 .spaceForManage {
-  width: 12%;
+  min-width: 120px !important;
 }
 
 .spaceForTitle {
@@ -394,7 +394,7 @@ nav .menu-open .extend_icon {
 }
 
 .RightContainerTable .col_1 {
-  width: 3% !important;
+  width: 16px !important;
 }
 
 .RightContainerTable .categoriesStatus {
@@ -518,7 +518,7 @@ nav .menu-open .extend_icon {
 
 .manageIcons {
   color: #6e666661;
-  margin: 0 0px;
+  margin: 0 2px;
 }
 
 .manageIcons:hover {
@@ -650,7 +650,9 @@ nav .menu-open .extend_icon {
   position: absolute;
 }
 
-.bigModal select.form-control, .bigModal .input-group input, .bigModal .fileInputSize {
+.bigModal select.form-control,
+.bigModal .input-group input,
+.bigModal .fileInputSize {
   font-size: 0.8rem !important;
   height: 31px !important;
 }

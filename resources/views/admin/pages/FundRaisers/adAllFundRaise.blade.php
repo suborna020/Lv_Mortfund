@@ -47,7 +47,7 @@
                                         <th scope="col" class="col_1">#</th>
                                         <th scope="col" class="spaceForTitle">Title</th>
                                         <th scope="col">Goal Amount</th>
-                                        <th scope="col">Manages Amount</th>
+                                        <th scope="col" >Manages Amount</th>
                                         <th scope="col">Deadline</th>
                                         <th scope="col">Beneficiary Name</th>
                                         <th scope="col">Status</th>

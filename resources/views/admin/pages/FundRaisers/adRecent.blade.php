@@ -28,6 +28,14 @@
                                 <span class="fa fa-search form-control-feedback"></span>
                                 <input type="text" class="form-control mySearchForm" placeholder="Search">
                             </div>
+                             {{-- status check   --}}
+                             {{-- <div class="form-group">
+                                <select class="form-control AllFundRaiseCheckBox" id="">
+                                    <option>Select</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
+                            </div> --}}
                           
                             <div>
                                 <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton"> Search Fundraiser</button>
