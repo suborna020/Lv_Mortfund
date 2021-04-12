@@ -213,9 +213,6 @@ Route::group(['middleware'=>'authentication'],function(){
 
     Route::get('/logout','App\Http\Controllers\Master@Logout')->name('logout');
 
-    
-
-
     Route::get('/paymentSettings','App\Http\Controllers\Master@paymentSettings');
 
     Route::post('/selectUserPayment','App\Http\Controllers\Master@selectUserPayment');
@@ -230,6 +227,8 @@ Route::group(['middleware'=>'authentication'],function(){
 
     Route::get('/currentFundraisers','App\Http\Controllers\Master@currentFundraisers');
 
+    // Route::get('/deleteCampaignModal/{id}','App\Http\Controllers\Master@deleteCampaignModal');
+
     Route::get('fundraisers/{id}','App\Http\Controllers\Master@deleteFundraiser');
 
     Route::get('createCampaign','App\Http\Controllers\Master@createCampaign');
@@ -242,7 +241,9 @@ Route::group(['middleware'=>'authentication'],function(){
 
     Route::get('profile','App\Http\Controllers\Master@profile');
 
-    Route::post('updateProfile','App\Http\Controllers\Master@updateProfile');
+    Route::post('updateProfile/{id}','App\Http\Controllers\Master@updateProfile');
+
+    Route::get('changePassword/','App\Http\Controllers\Master@changePassword');
 
     Route::post('comment','App\Http\Controllers\FundraiserController@store');
 
@@ -304,11 +305,24 @@ Route::group(['middleware'=>'authentication'],function(){
 
     Route::post('/rave/callback', 'App\Http\Controllers\RaveController@callback')->name('reve.callback');
 
+    Route::get('flutterSuccess', 'App\Http\Controllers\RaveController@flutterSuccess')->name('flutterSuccess');
+
     //InterSwitch 
 
     Route::get('/interswitch', 'App\Http\Controllers\Master@interswitch')->name('interswitch');
+    
+    Route::get('/interswitchSuccess', 'App\Http\Controllers\Master@interswitchSuccess')->name('interswitchSuccess');
 
     Route::get('/payment-confirmation', 'App\Http\Controllers\Master@paymentConfirmation')->name('payment-confirmation');
+
+    //Perfect Money
+
+    
+    Route::get('/checkout/perfectmoney','App\Http\Controllers\PerfectmoneyController@index');
+
+    Route::post('/perfectmoney/success','App\Http\Controllers\PerfectmoneyController@success');
+
+    Route::post('/perfectmoney/fail','App\Http\Controllers\PerfectmoneyController@fail');
 
 
 });

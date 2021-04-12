@@ -30,16 +30,13 @@
                 @endif
                 
                 <div class="row border-top">
-                    <div class="col-8 col-md-6 col-gap">
-                        <div class="media">
-                             <a class="edit" href="editFundraiser/{{$current_fundraiser->id}}">Edit</a>
+                    <div class="col-12 col-md-12">
+                        <div class="d-flex justify-content-center align-items-center ">
+                           <a class="edit" href="editFundraiser/{{$current_fundraiser->id}}"><i style="color: #e6e6e6; font-size: 20px; " class="fas fa-edit mr-2"></i></a>
+                           <a href="fundraisers/{{$current_fundraiser->id}}" class="delete" id="{{$current_fundraiser->id}}" ><i style="color: #e6e6e6; font-size: 20px; " class="fas fa-trash"></i></a>
                         </div>
-                    </div>
-                    <div class="col-4 col-md-6 col-gap">
-                        <div class="calender">
-                             <a class="delete" href="fundraisers/{{$current_fundraiser->id}}">Delete</a>
-                        </div>
-                    </div>
+                    </div>     
+                    
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ use App\Models\UserPaymentMethod;
 use App\Models\PaymentGateway;
 use App\Models\User;
 use App\Models\WithdrawRequest;
+use App\Models\Transection;
 use Session;
 
 class WithdrawMethodController extends Controller
@@ -19,20 +20,20 @@ class WithdrawMethodController extends Controller
      */
     public function index()
     {
-        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->get();
+        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->where('transection_type',1)->get();
         $payment_gateways = PaymentGateway::where('status',1)->get();
         return view('ui.pages.users.user.withdraw_methods',compact('payment_methods','payment_gateways'));
     }
 
     public function withdrawHistory()
     {   
-        $withdraw_history = WithdrawRequest::with('Members')->where('user',session('user_session'))->get();
+        $withdraw_history = Transection::with('Members','paymentmthods')->where('member_id',session('user_session'))->where('transection_type','1')->get();
         return view('ui.pages.users.user.withdraw_history',compact('withdraw_history'));
     }
 
     public function deleteWithdrawHistory(Request $r)
     {
-        WithdrawRequest::where('user',session('user_session'))->delete();
+        Transection::where('member_id',session('user_session'))->where('transection_type','1')->delete();
 
         return redirect('/withdrawHistory');
     }

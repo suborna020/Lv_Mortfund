@@ -52,6 +52,37 @@ $(document).ready(function(){
     //----------------------------Edit Campaign ----------------------------------
 
 
+    $('#updateProfile').on('submit',function(event){
+        event.preventDefault();
+        let id = $('#user_id').val();
+        $.ajax({
+          url: "/updateProfile/"+id,
+          type:"POST",
+          data  : new FormData(this),
+          contentType:false,
+          processData:false,
+          success:function(response){
+            console.log(response);
+            clearData();
+            Msg.fire({
+                type: 'success'
+                , icon: 'success'
+                , title: 'Profile Updated !'
+            })
+          }, error: function (error) {
+                Msg.fire({
+                    type: 'info'
+                    , icon: 'error'
+                    , title: 'Something went wrong!'
+                })
+            }
+        });
+    });
+
+
+    //----------------------------Update Profile ----------------------------------
+
+
     $('#updateFundraiser').on('submit',function(event){
         event.preventDefault();
         let id = $('#campaign_id').val();
@@ -80,4 +111,15 @@ $(document).ready(function(){
     });
 
 
+    //----------- Delete A Campaign --------------------
+
+
+
+    
+
 });
+
+
+
+
+    

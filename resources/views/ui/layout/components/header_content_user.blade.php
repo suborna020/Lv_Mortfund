@@ -64,7 +64,7 @@
                         </a>
                         <div class="dropdown-menu dw-container" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{url('profile')}}">Profile</a>
-                            <a class="dropdown-item" href="#">Change Password</a>
+                            <a class="dropdown-item" href="{{url('changePassword')}}">Change Password</a>
                             <a class="dropdown-item" href="{{url('paymentSettings')}}">Payment Settings</a>
                             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                         </div>

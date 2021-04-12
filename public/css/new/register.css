@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.register_left {
+    color: #fff;
+}
+
+.register_line {
+    height: 200px;
+    width: 3px;
+    background-color: #e36512;
+    z-index: 10;
+    margin: 0 auto;
+}
+
+.register_contentwrapper {
+    background: url('../../siteImages/paymentGateways/kyc-bg.svg');
+    background-size: cover;
+    padding: 6rem 3rem;
+}
+
+.register-leftImg {
+    background: url('../../siteImages/paymentGateways/loginImg.svg') no-repeat;
+    background-size: cover;
+}
+
+.register .input-icons {
+    width: 100%;
+    margin-bottom: 1rem;
+    position: relative;
+    outline: none;
+}
+
+.register .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-weight: bold;
+    color: black;
+    align-items: center;
+}
+
+.register input {
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+.register input::placeholder {
+    color: #000;
+}
+
+.register input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.register .input-icons i {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    font-size: 20px;
+    color: #cfcfcf;
+}
+
+
+.register_img {
+    flex: 0.35;
+    height: 100%;
+    width: 100%;
+}
+
+.register_img img {
+    /* background-image: url('/images/african-children.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.register a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.register-btn {
+    background-color: #002c58;
+    padding: 0px 50px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.register-btn:hover {
+    color: black;
+    background-color: #fff;
+}
+
+@media (min-width:320px) and (max-width:480px) {
+
+    .register_contentwrapper {
+        padding: 1rem !important;
+    }
+
+    .register_line {
+        display: none;
+    }
+
+    /* updated */
+    .register-btn {
+        padding: 10px;
+    }
+}

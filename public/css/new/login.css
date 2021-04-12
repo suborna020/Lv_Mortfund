@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    background-image: url('../../siteImages/paymentGateways/kyc-bg.svg');
+    background-size: cover;
+    width: 100%;
+    padding: 5rem 3rem;
+}
+
+.login .input-icons {
+    width: 100%;
+    margin-bottom: 1rem;
+    position: relative;
+    outline: none;
+}
+
+.login .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-weight: bold;
+    color: black;
+    align-items: center;
+}
+
+.login input {
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+.login input::placeholder {
+    color: #000;
+}
+
+.login input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.login .input-icons i {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    font-size: 20px;
+    color: #cfcfcf;
+}
+
+
+.login_img {
+    background: url('../../siteImages/paymentGateways/registerImg.svg') no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.login a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.login-btn {
+    background-color: #002c58;
+    padding: 0px 50px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-btn:hover {
+    color: black;
+    background-color: #fff;
+}
+
+@media (min-width:320px) and (max-width:480px) {
+    .login_right {
+        padding: 1rem;
+    }
+
+    .login_form {
+        width: 100% !important;
+    }
+}

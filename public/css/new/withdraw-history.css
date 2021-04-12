@@ -1,0 +1,60 @@
+.withdraw-history .withdraw-history {
+    background-color: #fffdfc;
+}
+
+.withdraw-history .card {
+    box-shadow: 0 2px 4px 0 #e6e6e6,
+        0 2px 4px 0 #e6e6e6 !important;
+    border: none;
+}
+
+.withdraw-history img {
+    height: 15px;
+    width: 50px;
+}
+
+.withdraw-history td {
+    color: #303030;
+}
+
+.withdraw-history .profile_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8800b;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.withdraw-history .profile_icon i {
+    padding: 5px;
+}
+
+.withdraw-history thead {
+    border-bottom: 1px solid #dfdfdf !important;
+}
+
+.withdraw-history .table-borderless>tbody>tr>td,
+.table-borderless>tfoot>tr>td,
+.table-borderless>thead>tr>td {
+    border: none;
+}
+
+@media (min-width:320px) and (max-width:760px) {
+
+    h2,
+    h3 {
+        font-size: 20px;
+    }
+
+    h6 {
+        font-size: 12px;
+    }
+
+    /* //updated */
+    .withdraw-history .withdraw-methods_heading {
+        width: 100% !important;
+        padding: 1rem;
+    }
+}

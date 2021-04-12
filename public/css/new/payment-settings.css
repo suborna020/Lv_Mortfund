@@ -1,0 +1,32 @@
+.payment-settings .icon-color {
+    color: #012169;
+}
+
+.payment-settings .profile_infowrapper {
+    margin: 2rem;
+}
+
+.payment-settings .profile_infowrapper i {
+    color: #032e5a;
+    font-size: 18px;
+}
+
+.payment-settings .profile_infowrapper p {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0;
+}
+
+.payment-settings .profile_infowrapper div {
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    margin-bottom: 1rem;
+    overflow: overlay;
+}
+
+.payment-settings .card {
+    box-shadow: 0 2px 4px 0 #e6e6e6,
+        0 2px 4px 0 #e6e6e6 !important
+}

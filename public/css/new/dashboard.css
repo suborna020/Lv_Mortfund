@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dashboard {
+    background-color: #f8f8f8;
+}
+
+.dashboard .fund-card1 {
+    background: url('../../siteImages/paymentGateways/bgpattern2.svg') no-repeat;
+    background-size: cover;
+}
+
+.dashboard .fund-card2 {
+    background: url('../../siteImages/paymentGateways/bgpattern1.svg') no-repeat;
+    background-size: cover;
+}
+
+.dashboard .fund-card3 {
+    background: url('../../siteImages/paymentGateways/bgpattern3.svg') no-repeat;
+    background-size: cover;
+}
+
+.dashboard .fund-card4 {
+    background: url('../../siteImages/paymentGateways/bgpattern4.svg') no-repeat;
+    background-size: cover;
+}
