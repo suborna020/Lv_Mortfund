@@ -13,7 +13,7 @@ function AllFundRaiseData() {
                 var raised = AllFundRaiseData.raised;
                 getHtml += `
                 <tr>
-                    <th scope="row">${key + 1}</th>
+                    <th scope="row">${Number(key)+1}</th>
                     <td>${AllFundRaiseData.title}</td>
                     <td> ${AllFundRaiseData.needed_amount}</td>
                     <td> ${AllFundRaiseData.raised == null ? '0' : raised}</td>
@@ -40,85 +40,7 @@ function AllFundRaiseData() {
 AllFundRaiseData();
 
 
-// select box work ---------------------------------------------------------------------
-$('.AllFundRaiseCheckBox').change(function () {
-    if ($(this).val() === '1') {
-        // when active 
-        $.ajax({
-            type: "GET"
-            , DataType: 'json'
-            , url: "/fundRaiseUrgentData"
-            , success: function (AllFundRaiseData) {
-                var getHtml = ""
-                $.each(AllFundRaiseData, function (key, AllFundRaiseData) {
-                    if (AllFundRaiseData.status == '1') {
-                        // console.log(fundRaiseRecentData);
-                        var raised = AllFundRaiseData.raised;
-                        getHtml += `
-                        <tr>
-                            <th scope="row">${key + 1}</th>
-                            <td>${AllFundRaiseData.title}</td>
-                            <td> ${AllFundRaiseData.needed_amount}</td>
-                            <td> ${AllFundRaiseData.raised == null ? '0' : raised}</td>
-                            <td>${AllFundRaiseData.deadline}  </td>
-                            <td>${AllFundRaiseData.benificiary_name}</td>
-                            <td>
-                                <button type="button" onclick="fundRaiseStatusUpdate(${AllFundRaiseData.id})" ${AllFundRaiseData.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${AllFundRaiseData.status == '1' ? 'Active' : 'Inactive'}
-                                </button>
-                            </td>
-                            <td>
-                                <div>
-                                    <span data-toggle="tooltip"  title="Edit" id='editFundRecentButton' onclick='AllFundRaiseEditData(${AllFundRaiseData.id})' ><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                    <span data-toggle="tooltip"  title="Delete" onclick='fundRaiseDestroyData(${AllFundRaiseData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-                                    <span><i onclick="fundRaiseRecentListUpdate(${AllFundRaiseData.id})" class=" manageIcons fas fa-bell fa-lg  ${AllFundRaiseData.urgent == '1' ? 'redText' : ''} " data-toggle="tooltip"   ${AllFundRaiseData.urgent == '1' ? 'title=" Remove From Urgent"' : 'title="Make Urgent"'}></i></span>
-                                </div>
-                            </td>
-                        </tr>`
-                    }
-                })
-                $('.FundRaiseTableBody').html(getHtml);
 
-            }
-        })
-    }
-    else {
-        $.ajax({
-            type: "GET"
-            , DataType: 'json'
-            , url: "/fundRaiseUrgentData"
-            , success: function (AllFundRaiseData) {
-                var getHtml = ""
-                $.each(AllFundRaiseData, function (key, AllFundRaiseData) {
-                    if (AllFundRaiseData.status == '0') {
-                        var raised = AllFundRaiseData.raised;
-                        getHtml += `
-                        <tr>
-                            <th scope="row">${key + 1}</th>
-                            <td>${AllFundRaiseData.title}</td>
-                            <td> ${AllFundRaiseData.needed_amount}</td>
-                            <td> ${AllFundRaiseData.raised == null ? '0' : raised}</td>
-                            <td>${AllFundRaiseData.deadline}  </td>
-                            <td>${AllFundRaiseData.benificiary_name}</td>
-                            <td>
-                                <button type="button" onclick="fundRaiseStatusUpdate(${AllFundRaiseData.id})" ${AllFundRaiseData.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${AllFundRaiseData.status == '1' ? 'Active' : 'Inactive'}
-                                </button>
-                            </td>
-                            <td>
-                                <div>
-                                    <span data-toggle="tooltip"  title="Edit" id='editFundRecentButton' onclick='AllFundRaiseEditData(${AllFundRaiseData.id})' ><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                    <span data-toggle="tooltip"  title="Delete" onclick='fundRaiseDestroyData(${AllFundRaiseData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-                                    <span><i onclick="fundRaiseRecentListUpdate(${AllFundRaiseData.id})" class=" manageIcons fas fa-bell fa-lg  ${AllFundRaiseData.urgent == '1' ? 'redText' : ''} " data-toggle="tooltip"   ${AllFundRaiseData.urgent == '1' ? 'title=" remove From Urgent"' : 'title="Make Urgent"'}></i></span>
-                                </div>
-                            </td>
-                        </tr>`
-                    }
-                })
-                $('.FundRaiseTableBody').html(getHtml);
-
-            }
-        })
-    }
-});
 
 
 // common functions------------------------------------
@@ -135,6 +57,7 @@ function fundRecentClearData() {
     $('.updateButtonShow').hide();
     $('.editModalFilesContainer').html('');
     $('.AllFundClickedId').html("");
+    $('.FundModalFilesContainer').html("");
 
 }
 //get edit data  -----------------------------------------------------------------------------

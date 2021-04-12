@@ -17,7 +17,7 @@ class CreateTransectionsTable extends Migration
             $table->id();
             $table->Integer('member_id')->nullable();
             $table->Integer('method_id');
-            $table->string('transection_type');
+            $table->string('transection_type')->nullable();
             $table->text('name')->nullable();
             $table->text('email')->nullable();
             $table->text('phone')->nullable();
@@ -25,8 +25,8 @@ class CreateTransectionsTable extends Migration
             $table->float('amount')->nullable();
             $table->float('charge')->nullable();
             $table->float('campaign_author')->nullable();
-
             $table->Integer('campaign_id')->nullable();
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

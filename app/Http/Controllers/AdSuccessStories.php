@@ -6,16 +6,37 @@ use Illuminate\Http\Request;
 use Session;
 use Validator,Redirect,Response,File;
 use App\Models\SuccessStory;
+use App\Models\Category;
+
 use DB;
 
 class AdSuccessStories extends Controller
 {
-    public function adCategory(){
-        return view('admin.pages.SuccessStories.adCategory');
+    public function adSuccessCategory(){
+        return view('admin.pages.SuccessStories.adSuccessCategory');
     }
     public function adStories(){
         return view('admin.pages.SuccessStories.adStories');
     }
+     // adSuccessCategory ---------------------------------
+    public function adSuccessCategoryData(){
+        $fundRaiseData = DB::table('fundraisers')
+        ->where('fundraisers.status','1')
+        ->where('fundraisers.needed_amount', '<=', \DB::raw('fundraisers.raised'))
+        ->select ('category_id')
+        ->distinct()
+        ->get();
+        $decodedArray = json_decode($fundRaiseData, TRUE);
+        $arrayValues = array_column($decodedArray, 'category_id');
+
+        $data = DB::table('categories')
+        ->whereIn('id', $arrayValues)->get();   
+        // echo $data; 
+        return response()->json($data); 
+
+    }
+
+   
      // adStories page ---------------------------------------------------------
     public function stories(){
         $data = SuccessStory::select("*")
@@ -108,6 +129,7 @@ class AdSuccessStories extends Controller
         $data=SuccessStory::findOrFail($id)->delete(); 
         return response()->json($data);
     }
+   
 
 
 

@@ -43,7 +43,7 @@
                                         <th scope="col">Maximum Limit </th>
                                         <th scope="col">Charge</th>
                                         <th scope="col">Status</th>
-                                        <th scope="col">Manage</th>
+                                        <th scope="col" class="spaceForManage">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>

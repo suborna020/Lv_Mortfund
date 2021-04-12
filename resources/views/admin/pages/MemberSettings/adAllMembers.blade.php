@@ -26,20 +26,11 @@
                             <!-- SEARCH FORM -->
                             <div class="form-group has-search serchForm">
                                 <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control" placeholder="Search ">
+                                <input type="text" class="form-control mySearchForm" placeholder="Search">
                             </div>
+
                             <div>
-                                <form action="/action_page.php">
-                                    <div class="form-group">
-                                        <select class="form-control" id="sel1" name="sellist1">
-                                            <option>Active</option>
-                                            <option>2</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            <div>
-                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn   "> Search Members</button>
+                                <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton"> Search Members</button>
                             </div>
                             <div>
                             </div>
@@ -60,82 +51,23 @@
                                         <th scope="col">Phone</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">6</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">7</th>
-                                        <td>Yameen Irteza</td>
-                                        <td>House #154,Road no 4,Mohammadia Society</td>
-                                        <td>Yameen_iteza@gmail.com</td>
-                                        <td>+88013122454</td>
-                                    </tr>
+                                <tbody class="tableBody">
 
                                 </tbody>
                             </table>
                         </div>
 
                     </div>
-                    {{-- <br>admin session no :{{$admin_sessionData}} --}}
-                    {{-- user name :{{$userInfoBox->admin_name}} --}}
 
                 </div>
-                <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </section>
         <!-- /.content -->
     </div>
     <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    <script src="{{ url('adminAssets/js/MemberSettings/adAllMembers.js') }}"></script>
+
 </div>
 
 @endsection

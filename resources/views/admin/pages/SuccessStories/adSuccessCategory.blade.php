@@ -44,13 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12 col-12 ">
-                        <div class="">
-                            <button type="button" data-toggle="modal" data-target="#AddNewCategory" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New Category</button>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class=" small-box RightContainerTable table-responsive">
@@ -60,10 +54,10 @@
                                         <th scope="col" class="col_1">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Status</th>
-                                        <th scope="col">Manage</th>
+                                        <th scope="col" class="spaceForManage">Manage</th>
                                     </tr>
                                 </thead>
-                                <tbody class="fundRaiseCategoriesBo">
+                                <tbody class="tableBody">
                                     {{-- <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
@@ -94,6 +88,7 @@
         <!-- /.content -->
     </div>
     {{--  <script src="{{ url('adminAssets/js/adCategories.js') }}"></script>  --}}
+    <script src="{{ url('adminAssets/js/SuccessStories/adSuccessCategory.js') }}"></script>
 
 </div>
 

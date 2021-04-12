@@ -32,10 +32,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 
     {{-- for sweetalert2   --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -48,13 +47,7 @@
     <link rel="stylesheet" href=" https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
     {{-- fancybox  --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-
-
-   
-
-
-
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed  ">
     @include('admin.layout.components.aModals')
@@ -62,13 +55,13 @@
     @yield('content')
 
     <!-- Modal -->
-   
+
     <!-- jQuery -->
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ url('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+        $.widget.bridge('uibutton', $.ui.button);
 
     </script>
     <!-- Bootstrap 4 -->
@@ -106,7 +99,7 @@
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
 
-{{-- end  --}}
+    {{-- end  --}}
     {{-- for datatable   --}}
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
@@ -115,8 +108,8 @@
     <script src="{{ url('adminAssets/js/aAuthentication.js') }}"></script>
     <script src="{{ url('adminAssets/js/custom.js') }}"></script>
 
-    
-      
+
+
 
     <script type="text/javascript">
         $.ajaxSetup({

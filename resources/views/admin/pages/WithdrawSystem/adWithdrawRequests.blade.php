@@ -60,7 +60,7 @@
                                         <th scope="col">Charge</th>
                                         <th scope="col">Requested At</th>
                                         <th scope="col">Processing Time</th>
-                                        <th scope="col">Manage</th>
+                                        <th scope="col" class="spaceForManage">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>

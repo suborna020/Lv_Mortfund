@@ -9,7 +9,7 @@ class Fundraiser extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category_id','member_id','location','title','icon','benificiary_name','needed_amount','raised','deadline','story','thumbnail','thumbnail_path','photo','photo_path','video','video_path','proof_document','proof_document_path','status','private','urgent','featured','project_support' , 'comments_count'];
+    protected $fillable = ['category_id','member_id','location','title','icon','benificiary_name','needed_amount','raised','deadline','story','thumbnail','photo','video','proof_document','status','private','urgent','featured','project_support' , 'comments_count'];
 
     public function categories(){
         return $this->belongsTo('App\Models\Category','category_id');

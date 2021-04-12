@@ -28,14 +28,7 @@
                                 <span class="fa fa-search form-control-feedback"></span>
                                 <input type="text" class="form-control mySearchForm" placeholder="Search">
                             </div>
-                            {{-- status check   --}}
-                            <div class="form-group">
-                                <select class="form-control AllFundRaiseCheckBox" id="">
-                                    <option>Select</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Inactive</option>
-                                </select>
-                            </div>
+                           
                             <div>
                                 <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton"> Search Fundraiser</button>
                             </div>
@@ -54,7 +47,7 @@
                                         <th scope="col" class="col_1">#</th>
                                         <th scope="col" class="spaceForTitle">Title</th>
                                         <th scope="col">Goal Amount</th>
-                                        <th scope="col">Manages Amount</th>
+                                        <th scope="col" >Manages Amount</th>
                                         <th scope="col">Deadline</th>
                                         <th scope="col">Beneficiary Name</th>
                                         <th scope="col">Status</th>

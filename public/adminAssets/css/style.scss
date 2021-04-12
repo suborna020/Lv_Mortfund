@@ -78,7 +78,7 @@ a:hover {
 
 .rightDiv .card {
     background: inherit !important;
-    border: none;
+    border    : none;
     box-shadow: none;
 }
 
@@ -116,13 +116,15 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
-.spaceForManage{
-    // not working 
-    width: 12%;
+
+.spaceForManage {
+    min-width:  120px!important;
 }
-.spaceForTitle{
+
+.spaceForTitle {
     width: 20%;
 }
+
 .rotate {
     transform: rotate(90deg) !important;
 }
@@ -131,7 +133,8 @@ a:hover {
 .backgroundCerulean {
     background-color: #063D75 !important;
 }
-.selected{
+
+.selected {
     color: #F36A10 !important;
 
 }
@@ -165,11 +168,11 @@ a:hover {
     background-color: #e9ecef61 !important;
 }
 
-    // .bootstrap-datepicker-widget{
-    //     position: absolute !important;
-    //     bottom: 0 !important;
-    //     left: -50px !important;
-    // }
+// .bootstrap-datepicker-widget{
+//     position: absolute !important;
+//     bottom: 0 !important;
+//     left: -50px !important;
+// }
 
 // ---dashboard page -------------
 // aside bar 
@@ -238,14 +241,16 @@ a:hover {
 nav .menu-open .extend_icon {
     transform: rotate(90deg) !important;
 }
-.selectedNavLink{
-    background: #F36A10;
-    height: 24px;
-    width: 3px;
-    margin-right: 3px !important;
+
+.selectedNavLink {
+    background    : #F36A10;
+    height        : 24px;
+    width         : 3px;
+    margin-right  : 3px !important;
     vertical-align: middle;
-    border-radius: 2px;
+    border-radius : 2px;
 }
+
 #frontEndSettingsSideBar a.nav-link {
     color  : white;
     padding: 4px 12px;
@@ -423,16 +428,18 @@ nav .menu-open .extend_icon {
 }
 
 .RightContainerTable .col_1 {
-    width: 3% !important;
+    width: 16px !important;
 }
 
+
+
 .RightContainerTable .categoriesStatus {
-    background-color: #F8800B ;
+    background-color: #F8800B;
     color           : white !important;
     border-radius   : 8px !important;
     text-align      : center !important;
     padding         : 1px 10px !important;
-    border-color: unset !important;
+    border-color    : unset !important;
 }
 
 .RightContainerTable .table.myDataTable.no-footer {
@@ -471,7 +478,7 @@ nav .menu-open .extend_icon {
     }
 
     .categoriesStatus {
-        background-color: #F8800B ;
+        background-color: #F8800B;
         color           : white !important;
         border-radius   : 8px !important;
         text-align      : center !important;
@@ -489,7 +496,7 @@ nav .menu-open .extend_icon {
 
     .dataTables_wrapper {
         border-radius: 9px !important;
-        padding: 7px 1px !important;
+        padding      : 7px 1px !important;
         @include myShadow(0 0.125rem .25rem rgba(0, 0, 0, 0.200));
     }
 
@@ -546,14 +553,16 @@ nav .menu-open .extend_icon {
 
 .manageIcons {
     color : #6e666661;
-    margin: 0 0px;
+    margin: 0 2px;
 }
 
 .manageIcons:hover {
     color: #F8800B;
 }
-.redText{
-    color:red;;
+
+.redText {
+    color: red;
+    ;
 }
 
 .searchButton {
@@ -644,47 +653,55 @@ nav .menu-open .extend_icon {
     width     : 92%;
     align-self: center;
 }
-.fileName{
-    z-index: 18;
+
+.fileName {
+    z-index : 18;
     position: relative;
-    margin: 0;
-    opacity: 0;
-    width: 89%;
-    cursor: pointer;
+    margin  : 0;
+    opacity : 0;
+    width   : 89%;
+    cursor  : pointer;
 }
+
 .copiedFilenameButton {
     position: absolute;
-    left: 5%;
-    top: 34%;
-    z-index: 1;
-    width: 75%;
+    left    : 5%;
+    top     : 34%;
+    z-index : 1;
+    width   : 75%;
     overflow: hidden;
-    height: 38px;
-  }
-  
-  .copiedFilenameButton2 {
-    position: absolute;
-    left: 14px;
-    top: 0;
-    z-index: 1;
-    width: 95% !important;
-    overflow: hidden;
-    height: 38px;
+    height  : 38px;
+}
+
+.copiedFilenameButton2 {
+    position : absolute;
+    left     : 14px;
+    top      : 0;
+    z-index  : 1;
+    width    : 95% !important;
+    overflow : hidden;
+    height   : 38px;
     font-size: unset !important;
-  }
+}
+
 //  adrecent.blade page
-.myTextArea{
+.myTextArea {
     min-height: 110px;
 }
-.customFileButtonIcon{
-    right: 7px;
+
+.customFileButtonIcon {
+    right   : 7px;
     position: absolute;
 }
-.bigModal select.form-control ,.bigModal .input-group input ,.bigModal .fileInputSize{
+
+.bigModal select.form-control,
+.bigModal .input-group input,
+.bigModal .fileInputSize {
     font-size: 0.8rem !important;
-    height: 31px !important;
+    height   : 31px !important;
 }
-.bigModal textarea{
+
+.bigModal textarea {
     font-size: 0.8rem !important;
 }
 
@@ -755,91 +772,99 @@ nav .menu-open .extend_icon {
 
 
 .toggle {
-    position: relative;
-    display: block;
-    width: 40px;
-    height: 20px;
-    cursor: pointer;
+    position                   : relative;
+    display                    : block;
+    width                      : 40px;
+    height                     : 20px;
+    cursor                     : pointer;
     -webkit-tap-highlight-color: transparent;
-    transform: translate3d(0, 0, 0);
-  }
-  .toggle:before {
-    content: "";
-    position: relative;
-    top: 3px;
-    left: 3px;
-    width: 45px;
-    height:28px;
-    display: block;
-    background: white;
-    border: 6px solid #F8800B;
+    transform                  : translate3d(0, 0, 0);
+}
+
+.toggle:before {
+    content      : "";
+    position     : relative;
+    top          : 3px;
+    left         : 3px;
+    width        : 45px;
+    height       : 28px;
+    display      : block;
+    background   : white;
+    border       : 6px solid #F8800B;
     border-radius: 20px;
-    transition: background 0.2s ease;
-  }
-  .toggle span {
-    position: absolute;
-    left: 0;
-    top: 13px;
-    bottom: 0;
-    margin-top: auto;
+    transition   : background 0.2s ease;
+}
+
+.toggle span {
+    position     : absolute;
+    left         : 0;
+    top          : 13px;
+    bottom       : 0;
+    margin-top   : auto;
     margin-bottom: auto;
-    width: 30px;
-    height: 30px;
-    display: block;
-    background: white;
-    border: 6px solid #F8800B;
+    width        : 30px;
+    height       : 30px;
+    display      : block;
+    background   : white;
+    border       : 6px solid #F8800B;
     border-radius: 100%;
-    box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
-    transition: all 0.2s ease;
-  }
-  .toggle span:before {
-    content: "";
-    position: absolute;
-    display: block;
-    margin: -18px;
-    width: 56px;
-    height: 56px;
-    background: rgba(79, 46, 220, 0.5);
-    border-radius: 50%;
-    transform: scale(0);
-    opacity: 1;
+    box-shadow   : 0 3px 8px rgba(154, 153, 153, 0.5);
+    transition   : all 0.2s ease;
+}
+
+.toggle span:before {
+    content       : "";
+    position      : absolute;
+    display       : block;
+    margin        : -18px;
+    width         : 56px;
+    height        : 56px;
+    background    : rgba(79, 46, 220, 0.5);
+    border-radius : 50%;
+    transform     : scale(0);
+    opacity       : 1;
     pointer-events: none;
-  }
-  
-  #cbx:checked + .toggle:before {
+}
+
+#cbx:checked+.toggle:before {
     background: #F8800B;
-  }
-  #cbx:checked + .toggle span {
+}
+
+#cbx:checked+.toggle span {
     background: white;
-    transform: translateX(21px);
+    transform : translateX(21px);
     transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
     box-shadow: 0 3px 8px rgba(79, 46, 220, 0.2);
-    width: 30px - 10px;
-    height: 30px - 10px;
-    border: 0px solid #F8800B;
+    width     : 30px - 10px;
+    height    : 30px - 10px;
+    border    : 0px solid #F8800B;
 
-  }
-  #cbx:checked + .toggle span:before {
-    transform: scale(1);
-    opacity: 0;
+}
+
+#cbx:checked+.toggle span:before {
+    transform : scale(1);
+    opacity   : 0;
     transition: all 0.4s ease;
-  }
-  
-  .centerBoxForCheckBox {
+}
+
+.centerBoxForCheckBox {
     // position: absolute;
-  }
-  .smallHeadline{
+}
+
+.smallHeadline {
     font-size: .8rem;
-    color:#495057 ;
+    color    : #495057;
 }
-.mediumFileSize{
-    width: 200px;
+
+.mediumFileSize {
+    width          : 200px;
     background-size: cover;
-    height: 100px;
+    height         : 100px;
 }
+
 // adStories page------------------------------------------------------------------------
-.smallRoundPic{
-    width: 35px;
-    margin-right: 3px;
+.smallRoundPic {
+    width        : 35px;
+    margin-right : 3px;
     border-radius: 50%;
 }

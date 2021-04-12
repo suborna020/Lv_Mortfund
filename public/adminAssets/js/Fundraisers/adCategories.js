@@ -10,7 +10,7 @@ function fundRaiseCategoriesAllData() {
             var getHtml = ""
             $.each(fundRaiseCategories, function (key, fundRaiseCategories) {
                 getHtml += `<tr>
-                                <th scope="row">${key + 1}</th>
+                                <th scope="row">${Number(key)+1}</th>
                                 <td>${fundRaiseCategories.category_name}</td>
                                 <td >
                                     <button type="button" onclick="categoriesStatusUpdate(${fundRaiseCategories.id})" ${fundRaiseCategories.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseCategories.status == '1' ? 'Active' : 'Inactive'}
@@ -46,7 +46,7 @@ $('#categoriesCheck').change(function () {
                         // console.log(fundRaiseCategories);
 
                         getHtml += `<tr>
-                                    <th scope="row">${key + 1}</th>
+                                    <th scope="row">${Number(key)+1}</th>
                                     <td>${fundRaiseCategories.category_name}</td>
                                     <td >
                                         <button type="button" onclick="categoriesStatusUpdate(${fundRaiseCategories.id})" ${fundRaiseCategories.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseCategories.status == '1' ? 'Active' : 'Inactive'}
@@ -79,7 +79,7 @@ $('#categoriesCheck').change(function () {
                         // console.log(fundRaiseCategories);
 
                         getHtml += `<tr>
-                                    <th scope="row">${key + 1}</th>
+                                    <th scope="row">${Number(key)+1}</th>
                                     <td>${fundRaiseCategories.category_name}</td>
                                     <td >
                                         <button type="button" onclick="categoriesStatusUpdate(${fundRaiseCategories.id})" ${fundRaiseCategories.status == '1' ? 'class="btn btn-warning btn-sm categoriesStatus"' : 'class="btn btn-warning btn-sm backgroundCerulean categoriesStatus"'} >${fundRaiseCategories.status == '1' ? 'Active' : 'Inactive'}
@@ -301,12 +301,9 @@ function categoriesDestroyData(id) {
                 }
             })
         } else {
-
             // swal("Canceled");
-
         }
     });
-    // console.log('clicked id', id);
 
 }
 

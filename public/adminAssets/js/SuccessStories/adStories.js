@@ -14,7 +14,7 @@ function getAllData() {
                 var created_at = (date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear());
                 getHtml += `
                 <tr>
-                    <th scope="row">${key + 1}</th>
+                    <th scope="row">${Number(key)+1}</th>
                     <td>${data.title}</td>
                     <td>
                         <a href="../${data.author_photo}" data-fancybox>
