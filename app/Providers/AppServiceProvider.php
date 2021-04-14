@@ -27,6 +27,9 @@ use App\Models\Currency;
 use App\Models\Transection;
 use App\Models\SuccessStory;
 use App\Models\WithdrawRequest;
+use App\Models\NewsletterMail;
+use App\Models\PaymentGateway;
+
 
 
 class AppServiceProvider extends ServiceProvider
@@ -103,6 +106,10 @@ class AppServiceProvider extends ServiceProvider
                 $FundOnProgressBox = Fundraiser::select("*")
                 ->where('needed_amount', '>', \DB::raw('raised'))
                 ->get();
+                $newsletterMail=NewsletterMail::all();
+                $paymentGatewaysBox=PaymentGateway::all();
+
+
     
              $view->with('userInfoBox',$userInfoBox)
                 ->with('FundraisersBox',$FundraisersBox)
@@ -110,6 +117,8 @@ class AppServiceProvider extends ServiceProvider
                 ->with('successStoriesBox',$successStoriesBox)
                 ->with('WithdrawRequestsBox',$WithdrawRequestsBox)
                 ->with('FundOnProgressBox',$FundOnProgressBox)
+                ->with('newsletterMail',$newsletterMail )
+                ->with('paymentGatewaysBox',$paymentGatewaysBox )
 
                 ;
                

@@ -116,6 +116,9 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
+.pRelative{
+    position: relative;
+}
 
 .spaceForManage {
     min-width:  120px!important;
@@ -656,22 +659,30 @@ nav .menu-open .extend_icon {
 
 .fileName {
     z-index : 18;
-    position: relative;
+    position: absolute;
     margin  : 0;
     opacity : 0;
-    width   : 89%;
+    max-width: 75%;
     cursor  : pointer;
 }
 
 .copiedFilenameButton {
     position: absolute;
-    left    : 5%;
-    top     : 34%;
+    left    : 0;
+    top     : 0;
     z-index : 1;
-    width   : 75%;
+    min-width   : 75%;
     overflow: hidden;
     height  : 38px;
 }
+.customFileInput{
+position: relative;
+margin: 7px 2px;
+}
+.editContainer{
+    margin-top: 23px;
+}
+
 
 .copiedFilenameButton2 {
     position : absolute;
@@ -755,10 +766,13 @@ nav .menu-open .extend_icon {
 }
 
 /*  adBasicSettings */
-.coloredInputsContainer .form-control {
+.coloredInputsContainer .form-control:not(textarea) {
     background-color: #e9ecef61 !important;
     border          : unset !important;
     height          : calc(2.25rem + 15px);
+}
+.coloredInputsContainer .card-link  {
+   color: black ;
 }
 
 .coloredInputsContainer ::placeholder {
@@ -867,4 +881,9 @@ nav .menu-open .extend_icon {
     width        : 35px;
     margin-right : 3px;
     border-radius: 50%;
+}
+
+// email setting -----------------------------------------------------------------------
+.coloredInputsContainer .text-truncate{
+    max-width: 150px;
 }

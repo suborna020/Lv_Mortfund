@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Session;
 use Validator,Redirect,Response,File;
 use App\Models\User;
+use App\Models\Report;
+
 use DB;
 
 
@@ -22,7 +24,17 @@ class AdMemberSettings extends Controller
     }
     
     public function adReportedMembersData(){
-        $data = User::all()->where('status','0');
+        
+        $ReportedMemberId = DB::table('reports')
+        ->select('member_id')
+        ->groupBy('member_id')
+        ->get();
+        $ReportedMemberId = json_decode($ReportedMemberId, TRUE);
+        $arrayValues = array_column($ReportedMemberId, 'member_id');
+
+        $data = DB::table('users')
+        ->whereIn('id', $arrayValues)->get();  
+
         return response()->json($data); 
     }
 }

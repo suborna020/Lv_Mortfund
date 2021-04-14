@@ -50,12 +50,14 @@ function showPass() {
 }
 // adcategories page --------------------------------------------------------------
 $('input[type="file"].fileName').on('change', function () {
+  var file = $(this).val();
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".copiedFilename").addClass("selected").html(fileName);
-  // var filename = e.target.files[0];
-  // $(this).siblings(".copiedFilename").addClass("selected").html(filename);
-  // console.log(filename);
 
+});
+$(" .myCustomFileInput .custom-file-input").on("change", function () {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".customFileLabel").addClass("selected").html(fileName);
 });
 $(".searchFormButton").on("click", function () {
   var value = $(".mySearchForm").val().toLowerCase();
@@ -64,10 +66,7 @@ $(".searchFormButton").on("click", function () {
   });
 });
 
-$(" .myCustomFileInput .custom-file-input").on("change", function () {
-  var fileName = $(this).val().split("\\").pop();
-  $(this).siblings(".customFileLabel").addClass("selected").html(fileName);
-});
+
 
 //Date  picker
 $('.datepicker').datepicker({

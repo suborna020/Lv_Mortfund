@@ -33,10 +33,57 @@ class AdLanguageManager extends Controller
         $data=Language::findOrFail($id);
         return response()->json($data); 
     }
+    public function languageAddSubmit(Request $request){
+        
+        $validator = Validator::make($request->all(), [
+            'flag_photo' => 'required',
+            'language_name' => 'required',
+            'status' => 'required',
+        ]);
+        if ($validator->passes()) {
+            $language_name = $request->language_name;
+            $status = $request->status;
+            $data = [
+                'language_name'=>$language_name,
+                'status'=>$status
+            ]; 
+            if(($request->file('flag_photo'))!=null){
+                $flagPhotoFile = $request->file('flag_photo'); //name="video"
+                $flagPhotoFileName =date('mdYHis').uniqid().$flagPhotoFile->getClientOriginalName();
+                $path=$flagPhotoFile->move(public_path('uploads'), $flagPhotoFileName);
+                $data['flag_photo']=$flagPhotoFileName;
+            }
+            Language::create($data);
+            return response()->json($data);
+        }
+    }
+    public function languageEditSubmit(Request $request,$id){
+        $validator = Validator::make($request->all(), [
+            'language_name' => 'required',
+            'status' => 'required',
+        ]);
+        if ($validator->passes()) {
+            $language_name = $request->language_name;
+            $status = $request->status;
+            $data = [
+                'language_name'=>$language_name,
+                'status'=>$status
+            ]; 
+            if(($request->file('flag_photo'))!=null){
+                $flagPhotoFile = $request->file('flag_photo'); //name="video"
+                $flagPhotoFileName =date('mdYHis').uniqid().$flagPhotoFile->getClientOriginalName();
+                $path=$flagPhotoFile->move(public_path('uploads'), $flagPhotoFileName);
+                $data['flag_photo']=$flagPhotoFileName;
+            }
+            Language::findOrFail($id)->update($data);
+            return response()->json($data);
+        }
+    }
     public function adLanguageDelete( Request $request ,$id){
         $data=Language::findOrFail($id)->delete(); 
         return response()->json($data);
     }
+   
 
 
 }

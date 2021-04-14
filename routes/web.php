@@ -116,6 +116,8 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
     Route::get('/adminChart','App\Http\Controllers\AdminOperation@adminChart');
     Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
+    Route::post('/mail-to-subscribe', 'App\Http\Controllers\FPController@subSendMail');
+
     //Fundraisers 
     Route::get('Fundraisers/adCategories','App\Http\Controllers\AdFundraisers@adCategories');
     Route::get('Fundraisers/adAllFundRaise','App\Http\Controllers\AdFundraisers@adAllFundRaise');
@@ -178,6 +180,8 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     //Donate
     Route::get('Donate/adPaymentGateways','App\Http\Controllers\AdDonate@adPaymentGateways');
     Route::get('Donate/adDonateHistory','App\Http\Controllers\AdDonate@adDonateHistory');
+    Route::get('donateAllData','App\Http\Controllers\AdDonate@donateAllData');
+
     //SuccessStories
     Route::get('SuccessStories/adSuccessCategory','App\Http\Controllers\AdSuccessStories@adSuccessCategory');
     Route::get('adSuccessCategoryData','App\Http\Controllers\AdSuccessStories@adSuccessCategoryData');
@@ -195,15 +199,25 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('adLanguageManagerData','App\Http\Controllers\AdLanguageManager@adLanguageManagerData');
     Route::get('/adLanguageStatusUpdate/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageStatusUpdate');
     Route::post('/adLanguageDelete/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageDelete');
-
-
-
+    Route::get('getEditableLngContent/{id}', 'App\Http\Controllers\AdLanguageManager@getEditableLngContent');
+    Route::post('languageAddSubmit','App\Http\Controllers\AdLanguageManager@languageAddSubmit');
+    Route::post('languageEditSubmit/{id}','App\Http\Controllers\AdLanguageManager@languageEditSubmit');
     // Advertisement
     Route::get('adAdvertisement','App\Http\Controllers\AdAdvertisement@adAdvertisement');
+    Route::get('adAdvertisementData','App\Http\Controllers\AdAdvertisement@adAdvertisementData');
+    Route::get('getEditableAdvertiseData/{id}', 'App\Http\Controllers\AdAdvertisement@getEditableAdvertiseData');
+    Route::post('AdvertiseSubmit','App\Http\Controllers\AdAdvertisement@AdvertiseSubmit');
+    Route::post('AdvertiseEditSubmit/{id}','App\Http\Controllers\AdAdvertisement@AdvertiseEditSubmit');
+    Route::post('advertiseDelete/{id}', 'App\Http\Controllers\AdAdvertisement@advertiseDelete');
+
+
+
+
     // GeneralSettings
     Route::get('GeneralSettings/adBasicSettings','App\Http\Controllers\AdGeneralSettings@adBasicSettings');
     Route::get('GeneralSettings/adEmailSettings','App\Http\Controllers\AdGeneralSettings@adEmailSettings');
     Route::get('GeneralSettings/adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
+    
 
 });
 //----------------------- user routes -----------------------
