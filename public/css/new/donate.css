@@ -1,0 +1,134 @@
+  .donate .input-group-text {
+      background-color: transparent !important;
+      border: none !important;
+      font-weight: bold !important;
+  }
+
+  .donate .input-icons {
+      width: 100%;
+      margin-bottom: 1rem;
+      position: relative;
+      outline: none;
+  }
+
+  .donate .input-icons i {
+      position: absolute;
+      right: 10px;
+      top: 12px;
+      font-size: 20px;
+      color: #f36d14;
+  }
+
+  .donate .input-icons input::placeholder {
+      color: #000 !important;
+  }
+
+  .donate .input-field {
+      width: 100%;
+      padding: 10px;
+      outline: none;
+      font-weight: bold;
+      color: black;
+      align-items: center;
+  }
+
+  .donate .fund-card1 {
+      background: url('/images/Images/bgpattern1.svg') no-repeat;
+      background-size: cover;
+  }
+
+  .donate .fund-card2 {
+      background: url('/images/Images/bgpattern2.svg') no-repeat;
+      background-size: cover;
+  }
+
+  .donate .fund-card3 {
+      background: url('/images/Images/bgpattern3.svg') no-repeat;
+      background-size: cover;
+  }
+
+  /* //NEW CSS */
+  .donate .profile_infowrapper {
+      margin: 2rem;
+  }
+
+  .donate .profile_infowrapper i {
+      color: #032e5a;
+      font-size: 18px;
+  }
+
+  .donate .profile_infowrapper p {
+      font-weight: 500;
+      font-size: 16px;
+      margin: 0;
+  }
+
+  .donate .profile_infowrapper div {
+      display: flex;
+      justify-content: baseline;
+      align-items: baseline;
+      flex-wrap: nowrap;
+      margin-bottom: 1rem;
+      overflow: overlay;
+  }
+
+  .donate .card {
+      box-shadow: 0 2px 4px 0 #e6e6e6,
+          0 2px 4px 0 #e6e6e6 !important
+  }
+
+  .donate label {
+      color: #000;
+      font-weight: 600;
+      font-size: 18px;
+  }
+
+
+  /* CUSTOME  INPUT */
+  .donate input {
+      border: 1px solid #fff;
+      border-radius: 5px;
+  }
+
+  .donate .input-icons {
+      width: 100%;
+      margin-bottom: 1rem;
+      position: relative;
+      outline: none;
+  }
+
+  .donate .input-icons i {
+      position: absolute;
+      right: 10px;
+      top: 12px;
+      font-size: 20px;
+      color: #ababab;
+  }
+
+  .donate .input-field {
+      width: 100%;
+      padding: 10px;
+      outline: none;
+      font-weight: bold;
+      color: black;
+      align-items: center;
+      background-color: #f8f8f8;
+  }
+
+
+  .donate .profile-btn {
+      background-color: #f8800b;
+      color: #fff;
+      font-weight: bold
+  }
+
+  .donate .profile-btn:hover {
+      background-color: #fccfa2;
+      color: #000;
+  }
+
+  @media (min-width:320px) and (max-width:768px) {
+      .donate .profile_infowrapper {
+          margin: 1rem;
+      }
+  }

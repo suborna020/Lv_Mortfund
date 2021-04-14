@@ -173,8 +173,13 @@ class PaymentGatewayController extends Controller
 
             \Session::put('success', 'Payment success');
 
+            $id = session('campaing_id');
+         // echo "success";
 
-            return Redirect::to('/checkout/paypal');
+         return \Redirect::route('singleCampaign',[$id])->with('message', 'Payment done Successfully!!!');
+
+
+            // return Redirect::to('/checkout/paypal');
 
         }
 

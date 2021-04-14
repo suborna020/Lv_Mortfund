@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Transection;
+
 
 //use the Rave Facade
 use Rave;
@@ -35,6 +37,7 @@ class RaveController extends Controller
     // please check other things like whether you already gave value for this ref
     // if the email matches the customer who owns the product etc
     //Give Value and return to Success page
+        
     
         return view('success');
     
@@ -45,5 +48,26 @@ class RaveController extends Controller
     }
 
     // dd($data->data);
+  }
+
+  public function flutterSuccess(){
+    Transection::create([
+            'method_id' => 6,
+            'member_id' => session('user_session'),
+            // 'transection_type' => $r->transection_type,
+            // 'name' => $r->name,
+            // 'email' => $paymentDetails['data']['customer']['email'],
+            // 'phone' => $r->phone,
+            // 'address' => $r->address,
+            'amount' => session('amount'),
+            // 'charge' => $paymentDetails['data']['fees'],
+            'campaign_author' => session('fundraiser_id'),
+            'campaign_id' => session('campaing_id'),
+        ]);
+  
+         $id = session('campaing_id');
+         // echo "success";
+
+         return \Redirect::route('singleCampaign',[$id])->with('message', 'Payment done Successfully!!!');
   }
 }

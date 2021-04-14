@@ -245,4 +245,20 @@
     </div>
 
 </section>
+
+<script>
+    document.querySelectorAll('button').forEach((elem) => {
+      elem.addEventListener('click', function () {
+        const icon = this.querySelector('i');
+        const text = this.querySelector('span');
+        if (icon.classList.contains('fa-plus')) {
+          icon.classList.remove('fa-plus');
+          icon.classList.add('fa-minus');
+        } else {
+          icon.classList.remove('fa-minus');
+          icon.classList.add('fa-plus');
+        }
+      });
+    })
+  </script>
 @endsection

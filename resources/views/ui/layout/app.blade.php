@@ -16,8 +16,8 @@
         <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
         <link rel="stylesheet" href="{{asset('css/fundraisers.css')}}">
-        <link rel="stylesheet" href="{{asset('css/support.css')}}">
-
+        <!-- <link rel="stylesheet" href="{{asset('css/support.css')}}"> -->
+         @yield('head-script')
         
         <!-- must include  -->
         
@@ -30,7 +30,7 @@
         <script src="{{ asset('js/share.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
-
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         <title>Mortfund</title>
 
         <!-- Fonts -->

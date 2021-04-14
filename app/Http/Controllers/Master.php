@@ -293,6 +293,11 @@ class Master extends Controller
      }
     }
 
+    public function deleteCampaignModal(Request $r,$id){
+        $data=Fundraiser::findOrFail($id);
+        return response()->json($data); 
+    }
+
     public function deleteFundraiser(Request $r,$id){
         Fundraiser::destroy(array('id',$id));
 
@@ -338,7 +343,7 @@ class Master extends Controller
          }
 
          if ($r->photo!='') {
-            
+
             $photo = rand().'-'.time().'.'.$r->photo->extension();
             $r->photo->move(public_path('uploads'), $photo);
          }
@@ -365,12 +370,13 @@ class Master extends Controller
             'photo' => $photo,
             'video' => $video,
             'proof_document' => $proof_document,
+            'status' => 0,
         ]);
 
 
-        $r->session()->flash('msg','success !');
+        $msg = 'success !';
 
-        return redirect('userFundraisers');
+        echo json_encode($msg);
 
         
     }
@@ -574,7 +580,7 @@ class Master extends Controller
         return view('ui.pages.users.user.profile',compact('profile'));
     }
 
-    public function updateProfile(Request $r){
+    public function updateProfile(Request $r,$id){
 
         $this->validate($r, [
             'user_photo' => 'mimes:jpeg,jpg,png',
@@ -608,24 +614,30 @@ class Master extends Controller
             'address' => $r->address,
         ]);
 
-        $r->session()->flash('msg','Updated !');
+        $msg = 'success !';
 
-        return redirect('/profile');
+        echo json_encode($msg);
+     }
+
+     public function changePassword(){
+        $profile = User::where('id',session('user_session'))->first();
+        return view('ui.pages.users.user.change_password',compact('profile'));
      }
 
     public function paymentSettings(Request $r){
-        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->get();
+        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->where('transection_type',0)->get();
         $payment_gateways = PaymentGateway::where('status',1)->get();
         return view('ui.pages.users.user.payment_settings',compact('payment_methods','payment_gateways'));
     }
 
     public function selectUserPayment(Request $r){
-      $user_payment_method = UserPaymentMethod::where('user_id',session('user_session'))->where('payment_method_id', '=', $r->payment_method_id)->first();
+      $user_payment_method = UserPaymentMethod::where('user_id',session('user_session'))->where('payment_method_id', '=', $r->payment_method_id)->where('transection_type',0)->first();
       if ($user_payment_method===null) {
             foreach($r->payment_method_id as $item=>$v){
                     $data2=array(
                         'user_id'=>session('user_session'),
                          'payment_method_id'=>$r->payment_method_id[$item],
+                         'transection_type'=>0
                         
                     );
                 UserPaymentMethod::insert($data2);
@@ -670,6 +682,27 @@ class Master extends Controller
     public function interswitch(){
         return view('ui.pages.users.user.interswitch');
     }
+
+    public function interswitchSuccess(){
+    Transection::create([
+            'method_id' => 7,
+            'member_id' => session('user_session'),
+            // 'transection_type' => $r->transection_type,
+            // 'name' => $r->name,
+            // 'email' => $paymentDetails['data']['customer']['email'],
+            // 'phone' => $r->phone,
+            // 'address' => $r->address,
+            'amount' => session('amount'),
+            // 'charge' => $paymentDetails['data']['fees'],
+            'campaign_author' => session('fundraiser_id'),
+            'campaign_id' => session('campaing_id'),
+        ]);
+  
+         $id = session('campaing_id');
+         // echo "success";
+
+         return \Redirect::route('singleCampaign',[$id])->with('message', 'Payment done Successfully!!!');
+  }
 
     public function paymentConfirmation(){
         return view('ui.pages.users.user.payment-confirmation');

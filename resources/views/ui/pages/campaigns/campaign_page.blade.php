@@ -73,7 +73,7 @@
                                 <h3>{{$get_fundraiser->title}}</h3>
 
                                 <div class="media">
-                                    <img src="../uploads/{{$get_fundraiser->members->user_photo}}" class="mr-2 user-img" alt="..." class="img-fluid">
+                                    <img src="../uploads/{{$get_fundraiser->members->user_photo}}" width="100px" class="mr-2 user-img" alt="..." class="img-fluid">
                                     <div class="media-body">
                                         <p class="name-text">By {{$get_fundraiser->members->name}}</p>
                                     </div>
