@@ -210,7 +210,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item " id="frontEndSettings">
+                <li class="nav-item {{(request()->is('FrontEndSettings/*')) ? 'menu-is-opening menu-open' : '' }}" id="frontEndSettings">
                     <a href="#" class="nav-link">
                         <img src="{{asset("adminAssets/img/frontEndSettings.svg")}}" alt="icon" class="asideBarIcon " />
                         <p>

@@ -1,21 +1,6 @@
 @extends('admin.layout.app')
 @section('content')
-<div class="wrapper">
 
-    <!-- Navbar -->
-
-    @include('admin.layout.components.aHeader')
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    @include('admin.layout.components.leftAsideBar')
-    @include('admin.layout.components.frontEndSettingsSideBar')
-
-    <!-- Content Wrapper. Contains page content -->
-
-    <div class="content-wrapper">
-        <!-- Main content -->
-        <section class="content">
             <div class="container-fluid mt-5 rightContainer">
                 <div class="row ">
                     <div class="col-lg-12 col-12 d-flex">
@@ -78,12 +63,8 @@
                 </div>
                 <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
+
     <script src="{{ url('adminAssets/js/LanguageManager/AdLanguageManager.js') }}"></script>
 
-</div>
 
 @endsection

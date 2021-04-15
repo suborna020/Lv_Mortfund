@@ -1,21 +1,6 @@
 @extends('admin.layout.app')
 @section('content')
-<div class="wrapper">
 
-    <!-- Navbar -->
-
-    @include('admin.layout.components.aHeader')
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    @include('admin.layout.components.leftAsideBar')
-    @include('admin.layout.components.frontEndSettingsSideBar')
-
-    <!-- Content Wrapper. Contains page content -->
-
-    <div class="content-wrapper">
-        <!-- Main content -->
-        <section class="content">
             <div class="container-fluid mt-4 px-5 rightContainer coloredInputsContainer">
 
                 <div class="row  ">
@@ -33,7 +18,7 @@
                                 <tbody>
 
                                     @foreach($newsletterMail as $key => $newsletterMailBox)
-                                    <tr >
+                                    <tr>
                                         <th scope="row">{{$key+1}}</th>
                                         <td class="text-truncate">{{$newsletterMailBox->subject}}</td>
                                         <td class="text-truncate">{{$newsletterMailBox->message}}</td>
@@ -90,12 +75,9 @@
                 </div> --}}
 
                 <br>
-                <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
+            </div>
+       
     <script src="{{ url('adminAssets/js/GeneralSettings/adEmailSettings.js') }}"></script>
 
-</div>
 
 @endsection

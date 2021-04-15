@@ -108,8 +108,18 @@ a:hover {
   font-size: 1rem;
 }
 
+.text-truncate {
+  max-width: 150px;
+}
+
 .pRelative {
   position: relative;
+}
+
+.justifyCenter {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .spaceForManage {
@@ -635,6 +645,9 @@ nav .menu-open .extend_icon {
 }
 
 .customFileInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
   margin: 7px 2px;
 }
@@ -870,5 +883,61 @@ nav .menu-open .extend_icon {
 
 .coloredInputsContainer .text-truncate {
   max-width: 150px;
+}
+
+.FrontSettingsContainer .copiedFilenameButton {
+  left: unset;
+}
+
+.FrontSettingsContainer .small-box {
+  height: 12rem;
+}
+
+.boldIcon {
+  color: #e9ecefe8;
+  margin: 0 8px;
+}
+
+.coverImageContainer {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.roundLogo {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #0000000d;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+.howItWImage {
+  margin-right: 8px;
+}
+
+.howItWFileUpDiv {
+  margin: unset;
+  margin-right: 79px;
+}
+
+.howItWFileUpDiv .fileName {
+  max-width: 151px;
+}
+
+.howItWFileUpDiv .copiedFilenameButton {
+  left: unset;
+  min-width: unset;
+  min-width: 151px;
+  font-size: .8rem !important;
+  overflow: hidden;
+  height: 32px;
 }
 /*# sourceMappingURL=style.css.map */

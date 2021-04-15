@@ -116,12 +116,20 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
-.pRelative{
+
+.text-truncate {
+    max-width: 150px;
+}
+.pRelative {
     position: relative;
 }
 
+.justifyCenter {
+    justify-content: center;
+}
+
 .spaceForManage {
-    min-width:  120px!important;
+    min-width: 120px !important;
 }
 
 .spaceForTitle {
@@ -153,6 +161,7 @@ a:hover {
 .blurText {
     color: #a1a6ac;
 }
+
 
 .bigIcon {
     font-size: 1.6rem !important;
@@ -658,28 +667,31 @@ nav .menu-open .extend_icon {
 }
 
 .fileName {
-    z-index : 18;
-    position: absolute;
-    margin  : 0;
-    opacity : 0;
+    z-index  : 18;
+    position : absolute;
+    margin   : 0;
+    opacity  : 0;
     max-width: 75%;
-    cursor  : pointer;
+    cursor   : pointer;
 }
 
 .copiedFilenameButton {
-    position: absolute;
-    left    : 0;
-    top     : 0;
-    z-index : 1;
-    min-width   : 75%;
-    overflow: hidden;
-    height  : 38px;
+    position : absolute;
+    left     : 0;
+    top      : 0;
+    z-index  : 1;
+    min-width: 75%;
+    overflow : hidden;
+    height   : 38px;
 }
-.customFileInput{
-position: relative;
-margin: 7px 2px;
+
+.customFileInput {
+    display : flex;
+    position: relative;
+    margin  : 7px 2px;
 }
-.editContainer{
+
+.editContainer {
     margin-top: 23px;
 }
 
@@ -771,8 +783,9 @@ margin: 7px 2px;
     border          : unset !important;
     height          : calc(2.25rem + 15px);
 }
-.coloredInputsContainer .card-link  {
-   color: black ;
+
+.coloredInputsContainer .card-link {
+    color: black;
 }
 
 .coloredInputsContainer ::placeholder {
@@ -884,6 +897,59 @@ margin: 7px 2px;
 }
 
 // email setting -----------------------------------------------------------------------
-.coloredInputsContainer .text-truncate{
+.coloredInputsContainer .text-truncate {
     max-width: 150px;
+}
+
+//FrontEndSettings-----------------------------------
+.FrontSettingsContainer {
+    // padding-left: 20% !important;
+}
+
+.FrontSettingsContainer .copiedFilenameButton {
+    left: unset;
+}
+
+.FrontSettingsContainer .small-box {
+    height: 12rem;
+}
+
+.boldIcon {
+    color : #e9ecefe8;
+    margin: 0 8px;
+
+}
+.coverImageContainer{
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+.roundLogo{
+    width: 100px;
+    height: 100px;
+    border: 3px solid #0000000d;
+    border-radius: 100%;
+    padding: 10px;
+}
+.howItWImage{
+    margin-right: 8px;
+}
+.howItWFileUpDiv{
+    margin: unset;
+    margin-right: 79px;
+}
+
+.howItWFileUpDiv .fileName{
+    max-width: 151px;
+}
+.howItWFileUpDiv .copiedFilenameButton{
+     left:unset;
+    min-width: unset;
+    min-width: 151px;
+    font-size: .8rem !important;
+    overflow: hidden;
+    height: 32px;
 }

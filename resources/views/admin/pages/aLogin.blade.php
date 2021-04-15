@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('content')
+@section('auth')
 <div class="leftDiv">
 
 </div>

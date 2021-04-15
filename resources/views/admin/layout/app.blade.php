@@ -52,10 +52,24 @@
 <body class="hold-transition sidebar-mini layout-fixed  ">
     @include('admin.layout.components.aModals')
 
-    @yield('content')
+    @yield('auth')
+    {{-- @yield('content') --}}
 
-    <!-- Modal -->
+    @if (trim($__env->yieldContent('content')))
 
+    <div class="wrapper">
+        @include('admin.layout.components.aHeader')
+        @include('admin.layout.components.leftAsideBar')
+        @include('admin.layout.components.frontEndSettingsSideBar')
+        <div class="content-wrapper">
+            <section class="content">
+                @yield('content')
+            </section>
+            <!-- /.content -->
+        </div>
+
+    </div>
+    @endif
     <!-- jQuery -->
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ url('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -117,7 +131,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
 
-        })
+        });
 
     </script>
 

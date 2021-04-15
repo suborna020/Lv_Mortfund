@@ -211,7 +211,27 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::post('advertiseDelete/{id}', 'App\Http\Controllers\AdAdvertisement@advertiseDelete');
 
 
+ // frontEndSettings
+ Route::get('FrontEndSettings/adLogoNav','App\Http\Controllers\AdFrontEndSettings@adLogoNav');
 
+
+ Route::get('FrontEndSettings/adSlider','App\Http\Controllers\AdFrontEndSettings@adSlider');
+ Route::get('FrontEndSettings/adHowItW','App\Http\Controllers\AdFrontEndSettings@adHowItW');
+ Route::get('FrontEndSettings/adAbout','App\Http\Controllers\AdFrontEndSettings@adAbout');
+ Route::get('FrontEndSettings/adTeam','App\Http\Controllers\AdFrontEndSettings@adTeam');
+ Route::get('FrontEndSettings/adTestimonials','App\Http\Controllers\AdFrontEndSettings@adTestimonials');
+ Route::get('FrontEndSettings/adCounter','App\Http\Controllers\AdFrontEndSettings@adCounter');
+ Route::get('FrontEndSettings/adContact','App\Http\Controllers\AdFrontEndSettings@adContact');
+ Route::get('FrontEndSettings/adSocialSettings','App\Http\Controllers\AdFrontEndSettings@adSocialSettings');
+ Route::get('FrontEndSettings/adSupport','App\Http\Controllers\AdFrontEndSettings@adSupport');
+ Route::get('FrontEndSettings/adTermsOfUse','App\Http\Controllers\AdFrontEndSettings@adTermsOfUse');
+ Route::get('FrontEndSettings/adPrivacyPolicy','App\Http\Controllers\AdFrontEndSettings@adPrivacyPolicy');
+ Route::get('FrontEndSettings/adLoginSignup','App\Http\Controllers\AdFrontEndSettings@adLoginSignup');
+ Route::get('FrontEndSettings/adFooter','App\Http\Controllers\AdFrontEndSettings@adFooter');
+
+
+
+ 
 
     // GeneralSettings
     Route::get('GeneralSettings/adBasicSettings','App\Http\Controllers\AdGeneralSettings@adBasicSettings');
