@@ -14,7 +14,7 @@ class CreateDonateHistoriesTable extends Migration
     public function up()
     {
         Schema::create('donate_histories', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->Integer('transaction_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();

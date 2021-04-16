@@ -14,7 +14,7 @@ class CreateContactViewsTable extends Migration
     public function up()
     {
         Schema::create('contact_views', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('contact_title')->nullable();
             $table->string('contact_text')->nullable();
             $table->string('contact_email')->nullable();

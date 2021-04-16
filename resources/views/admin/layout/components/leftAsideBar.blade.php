@@ -171,7 +171,7 @@
                     <a href="#" class="nav-link">
                         <img src="{{asset("adminAssets/img/memberSettings.svg")}}" alt="icon" class="asideBarIcon " />
                         <p>
-                            Member Sttings
+                            Member Settings
                             <i class="fa fa-caret-right extend_icon"></i>
                         </p>
                     </a>

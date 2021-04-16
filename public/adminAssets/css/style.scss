@@ -100,7 +100,16 @@ a:hover {
     background: #F36A10;
     width     : 44%;
 }
-
+.smallActiveButton{
+    background-color: #F8800B;
+    color: white !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+    padding: 1px 10px !important;
+    border-color: unset !important;
+    padding: 0px 9px !important;
+    font-size: .8rem !important;
+}
 .loginLogo {
     width: 66%;
 }
@@ -116,9 +125,45 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
+.overFlowTable{
+    flex-wrap                : nowrap !important;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.resizeNone{
+    resize: none;
+}
+.overFlowTable::-webkit-scrollbar {
+    width : 5px !important;
+    height: 7px  !important;
+}
+
+/* Track */
+.overFlowTable::-webkit-scrollbar-track {
+    background   : #f1f1f1  !important;
+    border-radius: 10px  !important;
+}
+
+/* Handle */
+.overFlowTable::-webkit-scrollbar-thumb {
+    background   : #063d75 !important;
+    border-radius: 10px !important;
+}
+
+/* Handle on hover */
+.overFlowTable::-webkit-scrollbar-thumb:hover {
+    background: #555 !important;
+}
+
+
+
 
 .text-truncate {
     max-width: 150px;
+}
+.smallText{
+    font-size: .8rem !important;
 }
 .pRelative {
     position: relative;
@@ -354,12 +399,7 @@ nav .menu-open .extend_icon {
 }
 
 
-.adminDashboard {
-    flex-wrap                : nowrap !important;
-    overflow                 : auto;
-    margin-bottom            : 10px;
-    // -webkit-font-smoothing: antialiased;
-}
+
 
 .carouselIcon {
     position       : absolute;
@@ -377,7 +417,12 @@ nav .menu-open .extend_icon {
     cursor         : pointer;
 }
 
-
+.adminDashboard {
+    flex-wrap                : nowrap !important;
+    overflow                 : auto;
+    margin-bottom            : 10px;
+    // -webkit-font-smoothing: antialiased;
+}
 #adminDashboard::-webkit-scrollbar {
     width : 5px !important;
     height: 7px;
@@ -422,7 +467,7 @@ nav .menu-open .extend_icon {
 .RightContainerTable .table td,
 .table th {
     border-top: unset !important;
-    padding   : .75rem .20rem !important;
+    padding   : .75rem .40rem !important;
 }
 
 .RightContainerTable .table-striped tbody tr:nth-of-type(even) {
@@ -783,6 +828,10 @@ nav .menu-open .extend_icon {
     border          : unset !important;
     height          : calc(2.25rem + 15px);
 }
+.customizeInputField{
+    background-color: #e9ecef61 !important;
+    border          : unset !important;
+}
 
 .coloredInputsContainer .card-link {
     color: black;
@@ -902,16 +951,14 @@ nav .menu-open .extend_icon {
 }
 
 //FrontEndSettings-----------------------------------
-.FrontSettingsContainer {
-    // padding-left: 20% !important;
-}
+
 
 .FrontSettingsContainer .copiedFilenameButton {
     left: unset;
 }
 
 .FrontSettingsContainer .small-box {
-    height: 12rem;
+   min-height: 12rem;
 }
 
 .boldIcon {
@@ -952,4 +999,7 @@ nav .menu-open .extend_icon {
     font-size: .8rem !important;
     overflow: hidden;
     height: 32px;
+}
+.adAboutContainer .text-truncate {
+    max-width: 60%;
 }

@@ -3,60 +3,115 @@
 
 <div class="container-fluid mt-5 rightContainer FrontSettingsContainer">
     <div class="row justify-content-end">
-        <div class="col-9 ">
+        <div class="col-10 pl-5 coloredInputsContainer">
             {{-- edaitable part  --}}
-            <div class="row mb-5">
-                <div class="col-lg-5 col-5 mx-4">
-                    <div class="small-box d-flex coverImageContainer">
-                        <img src="{{asset("uploads/mainLogoCover.svg")}}" alt="Responsive image" class=" img-fluid" />
+            <div class="row ">
+                <div class="col-lg-12 col-12 d-flex">
+                    <div class=" mr-auto">
+                        <h3>Contact</h3>
+                    </div>
 
-                    </div>
-                    <div class=" customFileInput justifyCenter">
-                        <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                        <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Logo Photo </button>
-                    </div>
                 </div>
-                <div class="col-lg-5 col-5 mx-4">
-                    <div class="small-box d-flex coverImageContainer">
-                        <img src="{{asset("uploads/MainLogo.svg")}}" alt="Responsive image" class="img-rounded roundLogo" />
-
-                    </div>
-                    <div class=" customFileInput justifyCenter">
-                        <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                        <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Favicon </button>
-                    </div>
-                </div>
-            </div><br>
-            <div class="row">
-                <div class=" col-12 ">
-                    <h3>Navigation Links</h3>
-                    <div class="row">
-                        <div class=" col-12 d-flex">
-                            <i class="bi bi-circle-fill boldIcon"></i>How it Works
-                            <div class="col-lg-2 col-md-2 col-2 ml-auto">
-                                <span><i class=" manageIcons fas fa-edit "></i></span>
-                                <span><i class=" manageIcons fas fa-trash"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-12 d-flex">
-                            <i class="bi bi-circle-fill boldIcon"></i>Explore
-                            <div class="col-lg-2 col-md-2 col-2  ml-auto">
-                                <span><i class=" manageIcons fas fa-edit "></i></span>
-                                <span><i class=" manageIcons fas fa-trash"></i></span>
+            </div>
+            <div class="row  mt-3">
+                <div class="col-lg-10 col-md-10 col-10">
+                    <div class="input-group ">
+                        <input type="text" class="form-control " name="username" placeholder="Enter contact title">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="bi bi-align-top fa-lg blurText"></i>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-2 col-md-2 col-2 my-auto">
+                    <span><i class=" manageIcons fas fa-edit "></i></span>
+                    <span><i class=" manageIcons fas fa-trash"></i></span>
+                </div>
             </div>
-
-            <br><br>
-            <div class="modalBorder"></div>
-            <div class=" my-4 mx-4 px-5 d-flex">
-                <button type="button" class="ml-auto whiteText btn-lg orangeBackground  font-weight-bold btn">Save Changes</button>
+            <div class="row  mt-3">
+                <div class="col-lg-10 col-md-10 col-10">
+                    <div class="form-group input-group">
+                        <textarea class="form-control formInputValue customizeInputField resizeNone" rows="5" id="textArea" name="message" placeholder="Enter contact text"></textarea>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2 my-auto">
+                    <span><i class=" manageIcons fas fa-edit "></i></span>
+                    <span><i class=" manageIcons fas fa-trash"></i></span>
+                </div>
             </div>
+            <div class="row  mt-3">
+                <div class="col-lg-10 col-md-10 col-10">
+                    <div class="input-group ">
+                        <input type="text" class="form-control " name="username" placeholder="Enter contact email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="fas fa-envelope fa-lg blurText"></i>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2 my-auto">
+                    <span><i class=" manageIcons fas fa-edit "></i></span>
+                    <span><i class=" manageIcons fas fa-trash"></i></span>
+                </div>
+            </div>
+            <div class="row  mt-3">
+                <div class="col-lg-10 col-md-10 col-10">
+                    <div class="input-group ">
+                        <input type="text" class="form-control " name="username" placeholder="Enter contact number">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="fas fa-phone-alt fa-lg blurText"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2 my-auto">
+                    <span><i class=" manageIcons fas fa-edit "></i></span>
+                    <span><i class=" manageIcons fas fa-trash"></i></span>
+                </div>
+            </div>
+            <div class="row  mt-3">
+                <div class="col-lg-10 col-md-10 col-10">
+                    <div class="input-group ">
+                        <input type="text" class="form-control " name="username" placeholder="Enter contact hours -ex: - 09:00am - 05:00 pm (Local Time)">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="fas fa-clock fa-lg blurText"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-2 my-auto">
+                    <span><i class=" manageIcons fas fa-edit "></i></span>
+                    <span><i class=" manageIcons fas fa-trash"></i></span>
+                </div>
+            </div>
+            <div class="row  mt-3">
+                <div class="col-lg-10 col-md-10 col-10">
+                    <div class="form-group input-group">
+                        <textarea class="form-control formInputValue customizeInputField resizeNone" rows="3" id="textArea" name="message" placeholder="Enter contact location"></textarea>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="bi bi-geo-alt-fill fa-lg blurText"></i>
+                            </div>
+                        </div>
+                    </div>
 
+
+                </div>
+                <div class="col-lg-2 col-md-2 col-2 my-auto">
+                    <span><i class=" manageIcons fas fa-edit "></i></span>
+                    <span><i class=" manageIcons fas fa-trash"></i></span>
+                </div>
+            </div>
             <br>
             {{-- edaitable part  end --}}
         </div>

@@ -32,11 +32,11 @@
                                     <td>Lorem ipsum, dolor sit amet</td>
                                     <td>
                                         <div class="d-flex">
-                                        <div class="howItWImage text-truncate ">MyIcon.png</div> 
-                                        <div class=" customFileInput howItWFileUpDiv">
-                                            <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                                            <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Icon </button>
-                                        </div>
+                                            <div class="howItWImage text-truncate ">MyIcon.png</div>
+                                            <div class=" customFileInput howItWFileUpDiv">
+                                                <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
+                                                <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Icon </button>
+                                            </div>
 
 
                                         </div>

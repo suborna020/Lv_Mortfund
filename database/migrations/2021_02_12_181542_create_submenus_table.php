@@ -14,7 +14,7 @@ class CreateSubmenusTable extends Migration
     public function up()
     {
         Schema::create('submenus', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('submenu_name')->nullable();
             $table->string('parent_menu')->nullable();
             $table->string('link')->nullable();

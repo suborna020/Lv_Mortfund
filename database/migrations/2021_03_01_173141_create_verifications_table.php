@@ -14,7 +14,7 @@ class CreateVerificationsTable extends Migration
     public function up()
     {
         Schema::create('verifications', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->Integer('user_id');
             $table->string('indentity_card_type');
             $table->text('identity_number');

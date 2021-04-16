@@ -27,24 +27,26 @@
                     </div>
                 </div>
             </div><br>
-            <div class="row">
+            <div class="row tableSmallText1">
                 <div class=" col-12 ">
-                    <h3>Navigation Links</h3>
-                    <div class="row">
+                    <h5>Navigation Links</h5>
+                    <div class="row mt-2">
                         <div class=" col-12 d-flex">
-                            <i class="bi bi-circle-fill boldIcon"></i>How it Works
+                            <i   class="bi bi-circle-fill boldIcon"></i>How it Works
                             <div class="col-lg-2 col-md-2 col-2 ml-auto">
-                                <span><i class=" manageIcons fas fa-edit "></i></span>
-                                <span><i class=" manageIcons fas fa-trash"></i></span>
+                                <span data-toggle="modal" data-target=".adLogoNavModal"><i class=" manageIcons fas fa-edit "></i></span>
+                                <button type="button" onclick="categoriesStatusUpdate()" class="btn tableSmallText1 btn-sm smallActiveButton">Active
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-2">
                         <div class=" col-12 d-flex">
                             <i class="bi bi-circle-fill boldIcon"></i>Explore
                             <div class="col-lg-2 col-md-2 col-2  ml-auto">
-                                <span><i class=" manageIcons fas fa-edit "></i></span>
-                                <span><i class=" manageIcons fas fa-trash"></i></span>
+                                <span data-toggle="modal" data-target=".adLogoNavModal"><i class=" manageIcons fas fa-edit "></i></span>
+                                <button type="button" onclick="categoriesStatusUpdate()" class="btn tableSmallText1 btn-sm smallActiveButton">Active
+                                </button>
                             </div>
                         </div>
                     </div>

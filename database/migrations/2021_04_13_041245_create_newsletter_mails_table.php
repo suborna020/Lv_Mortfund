@@ -14,7 +14,7 @@ class CreateNewsletterMailsTable extends Migration
     public function up()
     {
         Schema::create('newsletter_mails', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('message');
             $table->string('subject');
             $table->string('picture')->nullable();

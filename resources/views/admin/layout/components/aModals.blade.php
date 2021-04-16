@@ -341,7 +341,45 @@
     </div>
 </div>
 
+{{--  adLogoNav modal   --}}
+<div class="modal fade myAddNewModal adLogoNavModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form   class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+                    <div class="container-fluid rightContainer px-2 pb-4">
+                      
+                        <div class="row mt-4">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Save Changes</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 {{-- end ------------------------------------------------------------------------------------------------ --}}
 
 <div class="modal fade myAddNewModal advertisementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

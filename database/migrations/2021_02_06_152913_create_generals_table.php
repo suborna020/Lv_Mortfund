@@ -14,7 +14,7 @@ class CreateGeneralsTable extends Migration
     public function up()
     {
         Schema::create('generals', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('website_logo')->nullable();
             $table->string('short_note_1')->nullable();
             $table->string('short_note_2')->nullable();

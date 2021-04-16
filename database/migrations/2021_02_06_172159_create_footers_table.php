@@ -14,7 +14,7 @@ class CreateFootersTable extends Migration
     public function up()
     {
         Schema::create('footers', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('footer_logo_content_primary')->nullable();
             $table->string('footer_logo_content_secondary')->nullable();
             $table->string('copyright_text')->nullable();

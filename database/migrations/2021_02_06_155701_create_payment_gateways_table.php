@@ -14,7 +14,7 @@ class CreatePaymentGatewaysTable extends Migration
     public function up()
     {
         Schema::create('payment_gateways', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('gateway_name')->nullable();
             $table->string('gateway_photo')->nullable();
             $table->string('min_limit')->nullable();

@@ -3,59 +3,58 @@
 
 <div class="container-fluid mt-5 rightContainer FrontSettingsContainer">
     <div class="row justify-content-end">
-        <div class="col-9 ">
+        <div class="col-10 pl-5">
             {{-- edaitable part  --}}
-            <div class="row mb-5">
-                <div class="col-lg-5 col-5 mx-4">
-                    <div class="small-box d-flex coverImageContainer">
-                        <img src="{{asset("uploads/mainLogoCover.svg")}}" alt="Responsive image" class=" img-fluid" />
-
+            <div class="row ">
+                <div class="col-lg-12 col-12 d-flex">
+                    <div class=" mr-auto">
+                        <h3>Social Settings</h3>
                     </div>
-                    <div class=" customFileInput justifyCenter">
-                        <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                        <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Logo Photo </button>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-5 mx-4">
-                    <div class="small-box d-flex coverImageContainer">
-                        <img src="{{asset("uploads/MainLogo.svg")}}" alt="Responsive image" class="img-rounded roundLogo" />
-
-                    </div>
-                    <div class=" customFileInput justifyCenter">
-                        <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                        <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Favicon </button>
+                    <div class=" ml-auto d-flex ">
+                        <div>
+                            <button type="button" data-toggle="modal" data-target=".successStoriesListModal" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New </button>
+                        </div>
                     </div>
                 </div>
-            </div><br>
+            </div>
+            <br>
             <div class="row">
-                <div class=" col-12 ">
-                    <h3>Navigation Links</h3>
-                    <div class="row">
-                        <div class=" col-12 d-flex">
-                            <i class="bi bi-circle-fill boldIcon"></i>How it Works
-                            <div class="col-lg-2 col-md-2 col-2 ml-auto">
-                                <span><i class=" manageIcons fas fa-edit "></i></span>
-                                <span><i class=" manageIcons fas fa-trash"></i></span>
-                            </div>
-                        </div>
+                <div class="col-lg-12 col-12 ">
+                    <div class=" small-box RightContainerTable ">
+                        <table class="table table-striped table-borderless tableSmallText1 ">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col_1">#</th>
+                                    <th scope="col" >name</th>
+                                    <th scope="col" >Link</th>
+                                    <th scope="col" >Display Photo</th>
+                                    <th scope="col" class="spaceForManage">Manage</th>
+                                </tr>
+                            </thead>
+                            <tbody class="FundRaiseTableBody">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Facebook</td>
+                                    <td class="text-truncate">http/Lorem ipsum, dolor sit amet</td>
+                                    <td>
+                                        <a href={{asset("uploads/1.jpg")}} data-fancybox>
+                                            <img src={{asset("uploads/1.jpg")}} class="smallRoundPic" />
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <span><i class=" manageIcons fa-lg fas fa-edit"></i></span>
+                                            <span><i class=" manageIcons fa-lg fas fa-trash"></i></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="row">
-                        <div class=" col-12 d-flex">
-                            <i class="bi bi-circle-fill boldIcon"></i>Explore
-                            <div class="col-lg-2 col-md-2 col-2  ml-auto">
-                                <span><i class=" manageIcons fas fa-edit "></i></span>
-                                <span><i class=" manageIcons fas fa-trash"></i></span>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 
-            <br><br>
-            <div class="modalBorder"></div>
-            <div class=" my-4 mx-4 px-5 d-flex">
-                <button type="button" class="ml-auto whiteText btn-lg orangeBackground  font-weight-bold btn">Save Changes</button>
-            </div>
 
             <br>
             {{-- edaitable part  end --}}

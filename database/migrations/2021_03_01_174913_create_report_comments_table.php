@@ -14,7 +14,7 @@ class CreateReportCommentsTable extends Migration
     public function up()
     {
         Schema::create('report_comments', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->Integer('comment_id')->nullable();
             $table->Integer('member_id')->nullable();
             $table->longText('report_details')->nullable();
