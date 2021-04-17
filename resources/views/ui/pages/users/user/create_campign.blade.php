@@ -87,7 +87,7 @@
                                     <label for="video-upload" class="custom-file-upload">
                                         Video <i class="fas fa-photo-video"></i>
                                     </label>
-                                    <input  class="video clear" name="video" id="video-upload" type="file" />
+                                    <input class="video clear" name="video" id="video-upload" type="file" />
                                 </div>
                             </div>
                             <div class="input-icons">

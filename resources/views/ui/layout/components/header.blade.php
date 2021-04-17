@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-4 col-md-4 col-lg-2 col-xl-1">
 
-                    <div class="dropdown">
+                    <!-- <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle flag" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <img src="{{asset('images/finish.svg')}}">
@@ -67,6 +67,10 @@
                             <li><img src="{{ asset($language->flag_photo??'Not Found') }}" class="flag-size">{{$language->language_name}}</li>
                             @endforeach
                         </div>
+                    </div> -->
+                    <div style="margin-top:  10px; margin-right: 20px">
+                        <button class="btn" id="google_translate_element" type="submit" >
+                        </button>
                     </div>
                 </div>
             </div>

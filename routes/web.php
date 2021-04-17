@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\PaytmController;
 
 
 use App\Models\Admin;
@@ -74,6 +75,14 @@ Route::get('DestroySessions','App\Http\Controllers\Master@DestroySessions');
 Route::get('terms','App\Http\Controllers\Master@terms');
 
 Route::get('support','App\Http\Controllers\Master@support');
+
+Route::get('aboutus','App\Http\Controllers\Master@about');
+
+Route::get('privacy','App\Http\Controllers\Master@privacy');
+
+Route::post('clientMessage','App\Http\Controllers\Master@clientMessage');
+
+Route::get('search','App\Http\Controllers\Master@search');
 
 //-------------------------------FORGET PASSWORD SECTION---------------------
     Route::get('/gettoken','App\Http\Controllers\FPController@tokenRequest');
@@ -229,6 +238,8 @@ Route::group(['middleware'=>'authentication'],function(){
 
     Route::post('/selectUserPayment','App\Http\Controllers\Master@selectUserPayment');
 
+    Route::get('/deletePaymentMethod/{id}','App\Http\Controllers\Master@deletePaymentMethod');
+
     Route::get('/userFundraisers','App\Http\Controllers\Master@userFundraisers');
 
     Route::get('/withdrawMethod','App\Http\Controllers\WithdrawMethodController@index');
@@ -255,7 +266,9 @@ Route::group(['middleware'=>'authentication'],function(){
 
     Route::post('updateProfile/{id}','App\Http\Controllers\Master@updateProfile');
 
-    Route::get('changePassword/','App\Http\Controllers\Master@changePassword');
+    Route::get('changePassword/','App\Http\Controllers\Master@changePassword')->name('changePassword');
+
+    Route::post('changeUserPassword/{id}','App\Http\Controllers\Master@changeUserPassword');
 
     Route::post('comment','App\Http\Controllers\FundraiserController@store');
 
@@ -279,11 +292,20 @@ Route::group(['middleware'=>'authentication'],function(){
 
     Route::post('verify','App\Http\Controllers\VerificationController@verify');
 
+    Route::get('testVerification','App\Http\Controllers\VerificationController@testVerification');
+
+    Route::post('testVerification','App\Http\Controllers\VerificationController@testVerificationPost');
+
     //---------------------Payment --------------------------------------------------------------------
+
+
+    Route::get('myAccount/donateMethod/checkout','App\Http\Controllers\Master@checkout');
+
+    Route::post('setPaymentMethod','App\Http\Controllers\Master@setSession');
 
     Route::get('myAccount/donateMethod','App\Http\Controllers\Master@donateMethod');
 
-    Route::get('myAccount/donateMethod/methodDetails','App\Http\Controllers\Master@methodDetails');
+    Route::get('myAccount/donateMethod/methodDetails','App\Http\Controllers\Master@methodDetails')->name("myAccount.donateMethod.methodDetails");
 
     Route::post('setDonationDetails','App\Http\Controllers\Master@setDonationDetails');
 
@@ -335,6 +357,20 @@ Route::group(['middleware'=>'authentication'],function(){
     Route::post('/perfectmoney/success','App\Http\Controllers\PerfectmoneyController@success');
 
     Route::post('/perfectmoney/fail','App\Http\Controllers\PerfectmoneyController@fail');
+
+    //Paytm Payment
+    Route::get('/checkout/paytm',[PaytmController::Class, 'paytmPurchase']);
+
+    Route::post('paytm-payment',[PaytmController::Class, 'paytmPayment'])->name('paytm.payment');
+
+    Route::post('paytm-callback',[PaytmController::Class, 'paytmCallback'])->name('paytm.callback');
+
+
+    //----------------------Withdraw -------------------------------------------
+
+    Route::get('withdrawModal/{id}','App\Http\Controllers\Master@withdrawModal');
+
+    Route::post('WithdrawRequest','App\Http\Controllers\Master@WithdrawRequest');
 
 
 });

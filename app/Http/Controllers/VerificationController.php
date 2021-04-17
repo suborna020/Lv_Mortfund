@@ -70,6 +70,10 @@ class VerificationController extends Controller
         return redirect('/');
     }
 
+    public function testVerification(){
+        return view('ui.pages.users.user.testVerification');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -134,5 +138,39 @@ class VerificationController extends Controller
     public function destroy(Verification $verification)
     {
         //
+    }
+
+    public function testVerificationPost(Request $r){
+        $upload_documents = rand().'-'.time().'.'.$r->upload_documents->extension();
+        $r->upload_documents->move(public_path('uploads'), $upload_documents);
+
+        // $upload_snapshot = rand().'-'.time().'.'.$r->upload_snapshot->extension();
+        // $r->upload_snapshot->move(public_path('uploads'), $upload_snapshot);
+
+        $img = $r->image;
+        
+        $folderPath = "uploads/";
+      
+        $image_parts = explode(";base64,", $img);
+        $image_type_aux = explode("image/", $image_parts[0]);
+
+
+        $image_type = $image_type_aux[1];
+      
+        $image_base64 = base64_decode($image_parts[1]);
+        $fileName = uniqid() . '.png';
+      
+        $file = $folderPath . $fileName;
+        file_put_contents($file, $image_base64);
+         
+       Verification::create([
+            'photo' => $fileName,
+            'identity_number' => $r->identity_number,
+            'identity_card_document' =>  $upload_documents,
+            'user_id' =>session('user_session'),
+            'identity_card_type' => $r->identity_card_type,
+             
+        ]);
+        return redirect('/verification');
     }
 }

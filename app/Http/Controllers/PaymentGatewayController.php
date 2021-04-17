@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
 use PayPal\Api\Item;
+use App\Models\User;
 
 /** All Paypal Details class **/
 use PayPal\Api\ItemList;
@@ -156,20 +157,24 @@ class PaymentGatewayController extends Controller
             Transection::create([
             'method_id' => 1,
             'member_id' => session('user_session'),
-            // 'transection_type' => $r->transection_type,
-            // 'name' => $r->name,
-            'email' => $r->email,
-            // 'phone' => $r->phone,
-            // 'address' => $r->address,
+            'transection_type' => 0,
+            'name' => session('name'),
+            'email' => session('email'),
+            'phone' => session('phone'),
+            'address' => session('address'),
             'amount' => session('amount'),
-            // 'charge' => $r->charge,
+            'charge' => session('charge'),
             'campaign_author' => session('fundraiser_id'),
             'campaign_id' => session('campaing_id'),
         ]);
 
-        Fundraiser::where('id', session('campaing_id'))->update([
-        'raised' => $r->raised,
+            User::where('id', session('user_session'))->update([
+            'current_balance' => session('current_balance') + session('amount'),
         ]);
+
+        // Fundraiser::where('id', session('campaing_id'))->update([
+        // 'raised' => $r->raised,
+        // ]);
 
             \Session::put('success', 'Payment success');
 
@@ -212,7 +217,8 @@ class PaymentGatewayController extends Controller
         $intent = $payment_intent->client_secret;
         $charge = PaymentGateway::where('id',4)->first();
 
-        return view('ui.pages.users.user.credit-card',compact('intent','charge'));
+        // return view('ui.pages.users.user.credit-card',compact('intent','charge'));
+        return redirect('myAccount/donateMethod/checkout',compact('intent','charge'));
 
     }
 
@@ -220,22 +226,29 @@ class PaymentGatewayController extends Controller
     {   
 
         Transection::create([
-            'method_id' => $r->method_id,
+            'method_id' => 4,
             'member_id' => session('user_session'),
-            // 'transection_type' => $r->transection_type,
-            // 'name' => $r->name,
-            'email' => $r->email,
-            // 'phone' => $r->phone,
-            // 'address' => $r->address,
+            'transection_type' => 0,
+            'name' => session('name'),
+            'email' => session('email'),
+            'phone' => session('phone'),
+            'address' => session('address'),
             'amount' => session('amount'),
-            'charge' => $r->charge,
+            'charge' => session('charge'),
             'campaign_author' => session('fundraiser_id'),
             'campaign_id' => session('campaing_id'),
         ]);
 
-        Fundraiser::where('id', session('campaing_id'))->update([
-        'raised' => 1000,
+        
+
+        // Fundraiser::where('id', session('campaing_id'))->update([
+        // 'raised' => 1000,
+        // ]);
+
+        User::where('id', session('user_session'))->update([
+            'current_balance' => session('current_balance') + session('amount'),
         ]);
+
         $id = session('campaing_id');
         // $r->session()->flash('msg','Payment Has been Recieved !');
         // return redirect('/checkout/stripe');

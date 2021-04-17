@@ -4,7 +4,7 @@
     <div class="col-md-6 col-xl-3">
         <a href="/singleCampaign/{{$get_new_campaign->id}}" style="text-decoration: none;color: inherit">
         <div class="card">
-            <img src="{{asset('uploads/'.$get_new_campaign->photo)}}" class="card-img-top" alt="...">
+            <img width="100%" height="200px" src="{{asset('uploads/'.$get_new_campaign->photo)}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$get_new_campaign->icon}}" aria-hidden="true"></i></i> {{$get_new_campaign->categories->category_name}}</li>

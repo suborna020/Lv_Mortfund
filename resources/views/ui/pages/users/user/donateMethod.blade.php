@@ -67,6 +67,7 @@
                 <div class="col-12 col-md-8">
                     <div class="card">
                         <div class="card-body">
+                            {{session('payment_method')}}
                             <h5 class="font-weight-bold">Payment Methods</h5>
                             <h6 class="mb-4 font-weight-bold">please fill up your credentials for atleast one of the gateways</h6>
                             <div class="container">
@@ -78,16 +79,24 @@
                                                 class="card-body d-flex align-items-center flex-column justify-content-center ">
                                                 <img height="100px" src="{{asset('../../siteImages/paymentGateways/'.$payment_method->PaymentGateways->gateway_photo)}}" alt="card" />
                                                 <!-- {{$payment_method->PaymentGateways->gateway_name}} -->
-                                                <button onclick="window.location.href='../{{$payment_method->PaymentGateways->link}}';"
+
+
+                                                <!-- <button onclick="window.location.href='../{{$payment_method->PaymentGateways->link}}';"
+                                                    style="overflow:hidden;background-color: #f8800b; padding: 3px 18px; color: #fff; font-weight: 500;"
+                                                    class="btn btn-sm">Pay Now</button> -->
+                                                <form action="{{url('setPaymentMethod')}}" method="POST">
+                                                    @csrf
+                                                    <input type="text" name="payment_method" value="{{$payment_method->PaymentGateways->id}}">
+
+                                                    <button type="submit"
                                                     style="overflow:hidden;background-color: #f8800b; padding: 3px 18px; color: #fff; font-weight: 500;"
                                                     class="btn btn-sm">Pay Now</button>
+                                                </form>
                                             </div>
                                         </div>
 
                                     </div>
                                     @endforeach
-                                  
-
                                 </div>
                             </div>
                         </div>

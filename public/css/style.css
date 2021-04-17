@@ -11,6 +11,7 @@
     font-family: myfont;
 }
 
+
 .fa-edit:hover, .fa-trash:hover{
     color:#f36a10!important;
 }
@@ -146,12 +147,12 @@
 .search-form{
     border-radius: 20px;
     border: none;
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
 }
 
 .search-field{
     border: none!important;
-    background-color: #E9E8E8;
+    /*background-color: #E9E8E8;*/
     border-radius: 50px;
 }
 
@@ -160,7 +161,7 @@
 }
 
 .btn-search{
-    background-color: #E9E8E8;
+    /*background-color: #E9E8E8;*/
     border: none;
     border-radius: 50px;
 }

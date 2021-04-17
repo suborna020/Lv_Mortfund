@@ -54,15 +54,19 @@ class RaveController extends Controller
     Transection::create([
             'method_id' => 6,
             'member_id' => session('user_session'),
-            // 'transection_type' => $r->transection_type,
-            // 'name' => $r->name,
-            // 'email' => $paymentDetails['data']['customer']['email'],
-            // 'phone' => $r->phone,
-            // 'address' => $r->address,
+            'transection_type' => 0,
+            'name' => session('name'),
+            'email' => session('email'),
+            'phone' => session('phone'),
+            'address' => session('address'),
             'amount' => session('amount'),
-            // 'charge' => $paymentDetails['data']['fees'],
+            'charge' => session('charge'),
             'campaign_author' => session('fundraiser_id'),
             'campaign_id' => session('campaing_id'),
+        ]);
+
+        User::where('id', session('user_session'))->update([
+            'current_balance' => session('current_balance') + session('amount'),
         ]);
   
          $id = session('campaing_id');

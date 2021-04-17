@@ -33,6 +33,7 @@
         <div class="container">
             <!-- heading -->
             <div class="withdraw-methods_heading mx-auto text-center w-50">
+                {!! session('message') !!}
                 <h4>Withdraw Methods</h4>
                 <p style="color: #7a7a7a; font-weight: 600; font-size: 18px;">
                     Lorem ipsum dolor sit
@@ -45,49 +46,30 @@
             <!-- cards -->
             <div class="pt-5"></div>
             <div class="row">
+
               @foreach($payment_methods as $payment_method)
                 <div class="col-12 mb-3 pl-5 col-md-4">
                     <div class="card  border-0 h-100 mw-50">
+                        <div onclick="" class="close-btn"
+                            style="position: absolute; right: 10px; top: 10px; padding: 0; cursor: pointer; ">
+                            <a href="deletePaymentMethod/{{$payment_method->id}}"><i class="fas fa-times"></i></a> 
+                        </div>
                         <div class="card-body" style="display: grid;  place-items: center;">
                             <img class="img-fluid" src="{{asset('../../siteImages/paymentGateways/'.$payment_method->PaymentGateways->gateway_photo)}}" alt="card">
                             <!-- updated : withdraw-btn -->
-                            <button
+
+                            <button 
                                 style="background-color: #f8800b; padding: 5px 20px; color: #fff; font-weight: 500;margin-bottom: 2rem; "
-                                class="btn withdraw-btn" type="button" data-toggle="modal"
-                                data-target="#exampleModal">Withdraw
+                                class="btn withdraw-btn withdraw" id="{{$payment_method->PaymentGateways->id}}" type="submit" data-toggle="modal"
+                                data-target="sendWithdrawRequest">Withdraw
                                 Now</button>
                         </div>
                     </div>
                 </div>
                 @endforeach
-                {{-- <div class="col-12 mb-3 pl-5 col-md-4">
-                    <div class="card  border-0 h-100 mw-50">
-                        <div class="card-body" style="display: grid;  place-items: center;">
-                            <img class="img-fluid" src="/images/Images/stripe-logo.svg" alt="card">
-                            <!-- updated : withdraw-btn -->
-                            <button
-                                style="background-color: #f8800b; padding: 5px 20px; color: #fff; font-weight: 500;margin-bottom: 2rem; "
-                                class="btn withdraw-btn" type="button" data-toggle="modal"
-                                data-target="#exampleModal">Withdraw
-                                Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 mb-3 pl-5 col-md-4">
-                    <div class="card  border-0 h-100 mw-50">
-                        <div class="card-body" style="display: grid;  place-items: center;">
-                            <img class="img-fluid" src="/images/Images/skrill-logo.svg" alt="card">
-                            <!-- updated : withdraw-btn -->
-                            <button
-                                style="background-color: #f8800b; padding: 5px 20px; color: #fff; font-weight: 500;margin-bottom: 2rem; "
-                                class="btn withdraw-btn" type="button" data-toggle="modal"
-                                data-target="#exampleModal">Withdraw
-                                Now</button>
-                        </div>
-                    </div>
-                </div> --}}
+                
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                <div class="modal fade send_withdraw_request" id="sendWithdrawRequest" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -98,6 +80,8 @@
                                 </button>
                             </div>
                             <div class="modal-body p-0">
+                                <form id="withdrawRequest">
+                                @csrf    
                                 <div class="container-fluid">
                                     <div class="row">
                                         <!-- firtsrow -->
@@ -106,11 +90,11 @@
                                                 <div class="row">
                                                     <div
                                                         class="col-xs-12 col-3 d-flex justify-content-center align-items-center flex-column  p-0">
-                                                        <img height="100px" width="100%"
-                                                            src="/images/Images/paypal-logo.svg" alt="card" />
+                                                        <img id="gateway_image" height="100px" width="100%"
+                                                            src="" alt="card" />
                                                         <h6 class="m-0 py-1 ">Current Balance</h6>
                                                         <h2 class="m-0 font-weight-bold "><i
-                                                                class="fas fa-dollar-sign"></i>15.00</h2>
+                                                                class="fas fa-dollar-sign"></i>{{($user_info->current_balance)}}</h2>
                                                     </div>
                                                     <div
                                                         class="col-xs-12 col-1 d-flex justify-content-center align-items-center p-0  ">
@@ -118,8 +102,8 @@
                                                             background-color: #e6e6e6;"></div>
                                                     </div>
                                                     <div class="col-xs-12 col-8 pt-3">
-                                                        <img class="img-fluid"
-                                                            src="/images/Images/paypalcardplaceholder.svg" alt="card">
+                                                        {{-- <img class="img-fluid"
+                                                            src="{{asset('../../siteImages/paymentGateways/'.$payment_method->PaymentGateways->gateway_photo)}}" alt="card">   --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -135,7 +119,7 @@
                                                             align-items-center py-2 px-0">
                                                                 <h6 style="color: #d7d7d7 ">Charge</h6>
                                                                 <h3 class="font-weight-bold "><i
-                                                                        class="fas fa-dollar-sign"></i>5.00</h3>
+                                                                        class="fas fa-dollar-sign"></i></h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -145,7 +129,7 @@
                                                             <div class="card-body d-flex flex-column justify-content-center
                                                             align-items-center py-2 px-0">
                                                                 <h6 style="color: #d7d7d7 ">Percentage Charge</h6>
-                                                                <h3 class="font-weight-bold ">2%</h3>
+                                                                <h3 class="font-weight-bold "><span id="percentage_charge"></span>%</h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -157,7 +141,7 @@
                                                                 <h6 style="color: #d7d7d7 ">Processing Days <br> ( At
                                                                     Least )
                                                                 </h6>
-                                                                <h3 class="font-weight-bold ">3 days
+                                                                <h3 class="font-weight-bold " id="processing_time">
                                                                 </h3>
                                                             </div>
                                                         </div>
@@ -173,9 +157,14 @@
                                                             style="color: #a2a2a2;"
                                                             class="fas fa-dollar-sign"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control"
+                                                <input type="number" id="withdraw_amount" name="withdraw_amount" max="" class="form-control"
                                                     placeholder="Amount You Want To Withdraw" aria-label="Username"
                                                     aria-describedby="basic-addon1">
+                                                <input type="hidden" id="gateway_id" name="gateway_id" value="">
+                                                <input type="hidden" id="processing_time" name="processing_time" value="">
+                                                <input type="hidden" id="charge" name="charge" value="">
+                                                <input type="hidden" name="current_balance" id="current_balance" value="{{$user_info->current_balance}}">
+
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +172,7 @@
                                 <div class="modal-footer">
                                     <button
                                         style="background-color: #f8800b; padding: 5px 20px; color: #fff; font-weight: 500; "
-                                        class="btn" type="button" data-toggle="modal" data-target="#exampleModal">Send
+                                        class="btn" type="submit" data-toggle="modal" data-target="#exampleModal">Send
                                         Withdraw
                                         Request</button>
                                 </div>

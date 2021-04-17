@@ -4,7 +4,7 @@
     <div class="col-md-6 col-xl-3">
         <a href="/singleCampaign/{{$fundraiser->id}}" style="text-decoration: none;color: inherit">
             <div class="card">
-            <img src="uploads/{{$fundraiser->photo}}" class="card-img-top" alt="..." lazy="loading">
+            <img width="100%" height="200px" src="uploads/{{$fundraiser->photo}}" class="card-img-top" alt="..." lazy="loading">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$fundraiser->icon}}" aria-hidden="true"></i></i> {{$fundraiser->categories->category_name}}</li>
@@ -14,7 +14,7 @@
                 <p id="raised" style="display: none">{{$fundraiser->raised}}</p>
                 <p id="needed" style="display: none">{{$fundraiser->needed_amount}}</p>
                 <div class="progress" style="height:8px;">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: {{($fundraiser->transections->sum('amount')*100)/$fundraiser->needed_amount}}%" aria-valuenow="25" aria-valuemin="0"
+                    <div class="progress-bar bg-success role="progressbar" style="width: {{($fundraiser->transections->sum('amount')*100)/$fundraiser->needed_amount}}%" aria-valuenow="25" aria-valuemin="0"
                         aria-valuemax="100">
                         <span class="precentage-lebel">{{($fundraiser->transections->sum('amount')*100)/$fundraiser->needed_amount}}% </span>
                     </div>

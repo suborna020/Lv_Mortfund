@@ -27,6 +27,7 @@ use App\Models\Currency;
 use App\Models\Transection;
 use App\Models\SuccessStory;
 use App\Models\WithdrawRequest;
+use App\Models\PaymentGateway;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -70,9 +71,10 @@ class AppServiceProvider extends ServiceProvider
             $currency_by_location = Currency::where('status',1)->where('country_name',$user_location)->first();
             $success_stories1 = SuccessStory::where('status',1)->orderBy('id','DESC')->get();
             $success_stories2 = SuccessStory::where('status',1)->orderBy('id','ASC')->get();
-            $selected_fundraiser = Fundraiser::where('id',session('fundraiser_id'))->where('status',1)->first();
+            $selected_fundraiser = Fundraiser::where('id',session('campaing_id'))->where('status',1)->first();
+            $selected_method = PaymentGateway::where('id',session('payment_method'))->where('status',1)->first();
 
-            $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location)->with('fund_raised',$fund_raised)->with('success_stories1',$success_stories1)->with('success_stories2',$success_stories1)->with('selected_fundraiser',$selected_fundraiser);
+            $view->with('general',$general)->with('footer',$footer)->with('navmenu',$navmenu)->with('socials',$socials)->with('categories',$categories)->with('footer_about',$footer_about)->with('footer_explore',$footer_explore)->with('footer_cat',$footer_cat)->with('languages',$languages)->with('currencies',$currencies)->with('user_currency',$user_currency)->with('currency_by_location',$currency_by_location)->with('fund_raised',$fund_raised)->with('success_stories1',$success_stories1)->with('success_stories2',$success_stories1)->with('selected_fundraiser',$selected_fundraiser)->with('selected_method',$selected_method);
 
 
             //User 

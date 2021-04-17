@@ -6,7 +6,7 @@
          @if(count(array($categoryCampaign)) > 0)  
         <a href="/singleCampaign/{{$categoryCampaign->id}}" style="text-decoration: none;color: inherit">
         <div class="card">
-            <img src="{{asset('uploads/'.$categoryCampaign->photo)}}" class="card-img-top" alt="...">
+            <img width="100%" height="200px" src="{{asset('uploads/'.$categoryCampaign->photo)}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$categoryCampaign->icon}}" aria-hidden="true"></i></i> {{$categoryCampaign->categories->category_name}}</li>

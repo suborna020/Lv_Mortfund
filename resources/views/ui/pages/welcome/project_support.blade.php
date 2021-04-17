@@ -3,7 +3,7 @@
     <div class="col-md-6 col-xl-3">
         <a href="/singleCampaign/{{$project_support->id}}" style="text-decoration: none;color: inherit">
         <div class="card">
-            <img src="uploads/{{$project_support->photo}}" class="card-img-top" alt="..." lazy="loading">
+            <img width="100%" height="200px" src="uploads/{{$project_support->photo}}" class="card-img-top" alt="..." lazy="loading">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$project_support->icon}}" aria-hidden="true"></i></i> {{$project_support->categories->category_name}}</li>

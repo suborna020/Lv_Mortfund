@@ -68,24 +68,28 @@
                 <div class="col-12 col-md-8">
                     <div class="card" style=" box-shadow: 0 2px 4px 0 #e6e6e6, 0 2px 4px 0 #e6e6e6">
                         <div class="card-body">
-                            <form class="form-group">
+                            {!! session('message') !!}
+                             
+                            <form class="form-group" id="changePassword" action="/changeUserPassword/{{$profile->id}}" method="post">
+                                @csrf
+                                <input type="hidden" name="" id="userId" value="{{$profile->id}}">
                                 <label>Current Password*</label>
                                 <div class="input-icons">
                                     <i class="fas fa-lock"></i>
-                                    <input class="input-field" type="password" />
+                                    <input class="input-field" type="password" id="current_password" name="current_password" />
                                 </div>
                                 <label>New Password*</label>
                                 <div class="input-icons">
                                     <i class="fas fa-lock"></i>
-                                    <input class="input-field" type="password" />
+                                    <input class="input-field" type="password" id="new_password" name="new_password" />
                                 </div>
                                 <label>Confirm Password*</label>
                                 <div class="input-icons">
                                     <i class="fas fa-lock"></i>
-                                    <input class="input-field" type="password" />
+                                    <input class="input-field" type="password" id="confirm_password" name="confirm_password" />
                                 </div>
                                 <div class="d-flex justify-content-end align-items-end">
-                                    <button class="btn profile-btn">Update Password</button>
+                                    <button class="btn profile-btn" type="submit">Update Password</button>
                                 </div>
                             </form>
                         </div>
