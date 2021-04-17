@@ -14,7 +14,7 @@ class CreateTransectionsTable extends Migration
     public function up()
     {
         Schema::create('transections', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->Integer('member_id')->nullable();
             $table->Integer('method_id');
             $table->string('transection_type')->nullable();

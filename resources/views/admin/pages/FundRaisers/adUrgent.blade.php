@@ -1,21 +1,6 @@
 @extends('admin.layout.app')
 @section('content')
-<div class="wrapper">
 
-    <!-- Navbar -->
-
-    @include('admin.layout.components.aHeader')
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    @include('admin.layout.components.leftAsideBar')
-    @include('admin.layout.components.frontEndSettingsSideBar')
-
-    <!-- Content Wrapper. Contains page content -->
-
-    <div class="content-wrapper">
-        <!-- Main content -->
-        <section class="content">
             <div class="container-fluid mt-5 rightContainer">
                 <div class="row ">
                     <div class="col-lg-12 col-12 d-flex">
@@ -28,7 +13,7 @@
                                 <span class="fa fa-search form-control-feedback"></span>
                                 <input type="text" class="form-control mySearchForm" placeholder="Search">
                             </div>
-                           
+
                             <div>
                                 <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton"> Search Fundraiser</button>
                             </div>
@@ -61,7 +46,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="FundRaiseTableBody">
-                                    {{--  <tr>
+                                    {{-- <tr>
                                         <th scope="row">1</th>
                                         <td>Save Austrailia</td>
                                         <td>$2000.00</td>
@@ -85,12 +70,8 @@
                 </div>
                 <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
+           
     <script src="{{ url('adminAssets/js/Fundraisers/adUrgent.js') }}"></script>
 
-</div>
 
 @endsection

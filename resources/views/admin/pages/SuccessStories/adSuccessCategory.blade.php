@@ -1,21 +1,6 @@
 @extends('admin.layout.app')
 @section('content')
-<div class="wrapper">
 
-    <!-- Navbar -->
-
-    @include('admin.layout.components.aHeader')
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    @include('admin.layout.components.leftAsideBar')
-    @include('admin.layout.components.frontEndSettingsSideBar')
-
-    <!-- Content Wrapper. Contains page content -->
-
-    <div class="content-wrapper">
-        <!-- Main content -->
-        <section class="content">
             <div class="container-fluid mt-5 rightContainer">
                 <div class="row ">
                     <div class="col-lg-12 col-12 d-flex">
@@ -29,13 +14,13 @@
                                 <input type="text" class="form-control mySearchForm" placeholder="Search">
                             </div>
                             {{-- status check   --}}
-                            <div class="form-group">
-                                <select class="form-control" id="categoriesCheck" name="sellist1">
+                             {{-- <div class="form-group">
+                                <select class="form-control AllFundRaiseCheckBox" id="">
                                     <option>Select</option>
                                     <option value="1">Active</option>
                                     <option value="0">Inactive</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div>
                                 <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton"> Search Category</button>
                             </div>
@@ -83,13 +68,7 @@
                 </div>
                 <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
-    {{--  <script src="{{ url('adminAssets/js/adCategories.js') }}"></script>  --}}
+        
     <script src="{{ url('adminAssets/js/SuccessStories/adSuccessCategory.js') }}"></script>
-
-</div>
 
 @endsection

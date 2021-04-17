@@ -14,7 +14,7 @@ class CreateSignupLoginViewsTable extends Migration
     public function up()
     {
         Schema::create('signup_login_views', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('login_title')->nullable();
             $table->string('login_text')->nullable();
             $table->string('signup_title')->nullable();

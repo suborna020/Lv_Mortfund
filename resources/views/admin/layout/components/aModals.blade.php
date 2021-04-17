@@ -32,8 +32,10 @@
                         <div class="row">
                             <div class="col-lg-5 col-5 col-sm-12">
                                 <h5>Category Icon </h5>
-                                <input type="file" class="fileName fileInputHtml iconInput" name="icon" accept="image/*" required>
-                                <button type="button" id="iconName" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton "><i class="fas fa-plus "></i> Upload Photo</button>
+                                <div class=" customFileInput">
+                                    <input type="file" class="fileName fileInputHtml iconInput" name="icon" accept="image/*" required>
+                                    <button type="button" id="iconName" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton "><i class="fas fa-plus "></i> Upload Photo</button>
+                                </div>
                             </div>
                             <div class="col-lg-7 col-7 col-sm-12">
                                 <h5>Status </h5>
@@ -78,7 +80,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-12 ">
                                 <div class="form-group">
-                                    <select class="form-control formInputValue category_id" name="category_id" required>
+                                    <select class="form-control  category_id" name="category_id" required>
                                         <option selected="true" value="" disabled>Select category</option>
                                         @if(isset($CategoriesBox)) {
                                         @foreach($CategoriesBox as $CategoriesBoxs)
@@ -86,6 +88,7 @@
                                         @endforeach
                                         }
                                         @endif
+
 
                                     </select>
                                 </div>
@@ -248,13 +251,15 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-6 col-sm-12 mb-4">
-                                <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                                <button type="button"  class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Upload Photo &nbsp; &nbsp; &nbsp;</button>
+                                <div class=" customFileInput">
+                                    <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
+                                    <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Upload Photo &nbsp; &nbsp; &nbsp;</button>
+                                </div>
                             </div>
                         </div>
                         <div class="container editContainer">
                             {{-- new html here  --}}
-                            
+
                         </div>
                     </div>
                 </div>
@@ -269,119 +274,194 @@
         </form>
     </div>
 </div>
-
-
-<div class="modal fade myAddNewModal " id="AddNewLanguage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- adLanguage page  --}}
+<div class="modal fade myAddNewModal AddNewLanguage" id="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                {{-- <h5 class="modal-title" id="exampleModalLabel"> Language Name</h5>  --}}
-                <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid rightContainer px-2 pb-4">
-                    <div class="row ">
-                        <div class="col-lg-5 col-5 col-sm-12">
-                            <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn"><i class="fas fa-plus mr-1"></i> Upload Flag Photo</button>
+        <form id="AddNewLanguageForm" class=" RecentFundraisersForm" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+                        <div class="row ">
+                            <div class="col-lg-5 col-5 col-sm-12 mb-4">
+                                <div class=" customFileInput">
+                                    <input type="file" class="fileName formInputValue " name="flag_photo" accept="image/*" required>
+                                    <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton flagPhotoButton "><i class="fas fa-plus mr-1"></i> Upload Flag Photo</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-lg-12 col-md-12 col-12 ">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control " name="username" placeholder="Enter Language Name">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <i class="bi bi-globe blurText"></i>
+                        <div class="row mt-4">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="language_name" placeholder="Enter Language Name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 col-12 col-sm-12">
-                            <h5>Status </h5>
-                            <div class="form-group">
-                                <select class="form-control" id="sel1" name="sellist1">
-                                    <option>Active</option>
-                                    <option>2</option>
-                                </select>
+                        <div class="row ">
+                            <div class="col-md-12 col-12 col-sm-12">
+                                <h5>Status </h5>
+                                <div class="form-group">
+                                    <select class="form-control  status" name="status" required>
+                                        <option selected="true" value="" disabled>Select</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="container editContainer">
+                        {{-- new html here  --}}
 
+                    </div>
+
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add Language</button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" onclick="fundRaiseEditedSubmit()" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Language</button>
+
+                </div>
             </div>
-            <div class="modalBorder"></div>
-            <div class="modal-footer">
-                <button type="button" class=" whiteText btn-lg orangeBackground  font-weight-bold btn"><i class="fas fa-plus mr-1"></i>Add Language</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
-<div class="modal fade myAddNewModal " id="AddNewAd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+{{--  adLogoNav modal   --}}
+<div class="modal fade myAddNewModal adLogoNavModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                {{-- <h5 class="modal-title" id="exampleModalLabel"> Language Name</h5>  --}}
-                <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid rightContainer px-2 pb-4 pr-0">
-                    <div class="row ">
-                        <div class="col-lg-5 col-5 col-sm-5">
-                            <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn"><i class="fas fa-plus mr-1"></i> Upload Ad Photo</button>
-                        </div>
-                        <div class="col-lg-7 col-7 col-sm-7 px-0 d-flex orange_text">
-                            <div class="pr-2"><i class="bi bi-info-circle fa-lg"></i></div>
-                            <div class="">Image will be resized according to size select below</div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-12 col-md-12 col-12 ">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control " name="username" placeholder="Enter Company Name">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <i class="bi bi-link-45deg fa-lg blurText"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 col-12 col-sm-12">
-                            <div class="form-group">
-                                <select class="form-control" id="sel1" name="sellist1">
-                                    <option>Select Size</option>
-                                    <option>2*2</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-12 col-md-12 col-12 ">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control " name="username" placeholder="Enter Link">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <i class="bi bi-link-45deg fa-lg blurText"></i>
+        <form   class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+                      
+                        <div class="row mt-4">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Save Changes</button>
 
+                </div>
             </div>
-            <div class="modalBorder"></div>
-            <div class="modal-footer">
-                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                <button type="button" class=" whiteText btn-lg orangeBackground  font-weight-bold btn"><i class="fas fa-plus mr-1"></i>Add Language</button>
+        </form>
+    </div>
+</div>
+{{-- end ------------------------------------------------------------------------------------------------ --}}
+
+<div class="modal fade myAddNewModal advertisementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form id="advertisementForm" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid rightContainer px-2 pb-4 pr-0">
+                        <div class="row ">
+                            <div class="col-lg-5 col-5 col-sm-5">
+                                <div class=" customFileInput">
+                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Ad Photo</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-7 col-sm-7 px-0 d-flex orange_text">
+                                <div class="pr-2"><i class="bi bi-info-circle fa-lg"></i></div>
+                                <div class="">Image will be resized according to size select below</div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control company_name formInputValue" name="company_name" placeholder="Enter Company Name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-link-45deg fa-lg blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-12 col-12 col-sm-12">
+                                <div class="form-group">
+                                    <select class="form-control image_size " name="image_size" required>
+                                        <option selected="true" value="" disabled>Select</option>
+
+                                        <option value="728*90">728*90</option>
+                                        <option value="300*250">300*250</option>
+                                        <option value="300*600">300*600</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control link formInputValue" name="link" placeholder="Enter Link" required>
+
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-link-45deg fa-lg blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container editContainer">
+                            {{-- new html here  --}}
+    
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add Advertisement</button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" onclick="fundRaiseEditedSubmit()" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Advertisement</button>
+
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>

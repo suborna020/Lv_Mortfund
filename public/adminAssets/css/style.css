@@ -95,6 +95,17 @@ a:hover {
   width: 44%;
 }
 
+.smallActiveButton {
+  background-color: #F8800B;
+  color: white !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+  padding: 1px 10px !important;
+  border-color: unset !important;
+  padding: 0px 9px !important;
+  font-size: .8rem !important;
+}
+
 .loginLogo {
   width: 66%;
 }
@@ -106,6 +117,57 @@ a:hover {
 
 .tableSmallText1 {
   font-size: 1rem;
+}
+
+.overFlowTable {
+  -ms-flex-wrap: nowrap !important;
+      flex-wrap: nowrap !important;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.resizeNone {
+  resize: none;
+}
+
+.overFlowTable::-webkit-scrollbar {
+  width: 5px !important;
+  height: 7px  !important;
+}
+
+/* Track */
+.overFlowTable::-webkit-scrollbar-track {
+  background: #f1f1f1  !important;
+  border-radius: 10px  !important;
+}
+
+/* Handle */
+.overFlowTable::-webkit-scrollbar-thumb {
+  background: #063d75 !important;
+  border-radius: 10px !important;
+}
+
+/* Handle on hover */
+.overFlowTable::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
+.text-truncate {
+  max-width: 150px;
+}
+
+.smallText {
+  font-size: .8rem !important;
+}
+
+.pRelative {
+  position: relative;
+}
+
+.justifyCenter {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .spaceForManage {
@@ -308,13 +370,6 @@ nav .menu-open .extend_icon {
   width: 47px;
 }
 
-.adminDashboard {
-  -ms-flex-wrap: nowrap !important;
-      flex-wrap: nowrap !important;
-  overflow: auto;
-  margin-bottom: 10px;
-}
-
 .carouselIcon {
   position: absolute;
   top: 92px;
@@ -332,6 +387,13 @@ nav .menu-open .extend_icon {
           justify-content: center;
   border-radius: 100%;
   cursor: pointer;
+}
+
+.adminDashboard {
+  -ms-flex-wrap: nowrap !important;
+      flex-wrap: nowrap !important;
+  overflow: auto;
+  margin-bottom: 10px;
 }
 
 #adminDashboard::-webkit-scrollbar {
@@ -378,7 +440,7 @@ nav .menu-open .extend_icon {
 .RightContainerTable .table td,
 .table th {
   border-top: unset !important;
-  padding: .75rem .20rem !important;
+  padding: .75rem .40rem !important;
 }
 
 .RightContainerTable .table-striped tbody tr:nth-of-type(even) {
@@ -613,21 +675,33 @@ nav .menu-open .extend_icon {
 
 .fileName {
   z-index: 18;
-  position: relative;
+  position: absolute;
   margin: 0;
   opacity: 0;
-  width: 89%;
+  max-width: 75%;
   cursor: pointer;
 }
 
 .copiedFilenameButton {
   position: absolute;
-  left: 5%;
-  top: 34%;
+  left: 0;
+  top: 0;
   z-index: 1;
-  width: 75%;
+  min-width: 75%;
   overflow: hidden;
   height: 38px;
+}
+
+.customFileInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: 7px 2px;
+}
+
+.editContainer {
+  margin-top: 23px;
 }
 
 .copiedFilenameButton2 {
@@ -711,10 +785,19 @@ nav .menu-open .extend_icon {
 }
 
 /*  adBasicSettings */
-.coloredInputsContainer .form-control {
+.coloredInputsContainer .form-control:not(textarea) {
   background-color: #e9ecef61 !important;
   border: unset !important;
   height: calc(2.25rem + 15px);
+}
+
+.customizeInputField {
+  background-color: #e9ecef61 !important;
+  border: unset !important;
+}
+
+.coloredInputsContainer .card-link {
+  color: black;
 }
 
 .coloredInputsContainer ::-webkit-input-placeholder {
@@ -849,5 +932,69 @@ nav .menu-open .extend_icon {
   width: 35px;
   margin-right: 3px;
   border-radius: 50%;
+}
+
+.coloredInputsContainer .text-truncate {
+  max-width: 150px;
+}
+
+.FrontSettingsContainer .copiedFilenameButton {
+  left: unset;
+}
+
+.FrontSettingsContainer .small-box {
+  min-height: 12rem;
+}
+
+.boldIcon {
+  color: #e9ecefe8;
+  margin: 0 8px;
+}
+
+.coverImageContainer {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.roundLogo {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #0000000d;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+.howItWImage {
+  margin-right: 8px;
+}
+
+.howItWFileUpDiv {
+  margin: unset;
+  margin-right: 79px;
+}
+
+.howItWFileUpDiv .fileName {
+  max-width: 151px;
+}
+
+.howItWFileUpDiv .copiedFilenameButton {
+  left: unset;
+  min-width: unset;
+  min-width: 151px;
+  font-size: .8rem !important;
+  overflow: hidden;
+  height: 32px;
+}
+
+.adAboutContainer .text-truncate {
+  max-width: 60%;
 }
 /*# sourceMappingURL=style.css.map */

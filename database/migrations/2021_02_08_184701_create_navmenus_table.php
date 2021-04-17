@@ -14,7 +14,7 @@ class CreateNavmenusTable extends Migration
     public function up()
     {
         Schema::create('navmenus', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('menu_item')->nullable();
             $table->string('icon')->nullable();
             $table->string('link')->nullable();

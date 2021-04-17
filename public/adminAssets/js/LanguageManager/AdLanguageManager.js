@@ -12,7 +12,7 @@ function getAllData() {
                 <tr>
                         <th scope="row">${Number(key)+1}</th>
                         <td>
-                        <img src="../${allData.flag_photo}" alt="icon" class="  languageFlag" />
+                        <img src="../uploads/${allData.flag_photo}" alt="icon" class="  languageFlag" />
                         </td>
                         <td>${allData.language_name} </td>
                         <td>
@@ -33,6 +33,122 @@ function getAllData() {
     });
 }
 getAllData();
+function clearFormData() {
+    $('.formInputValue').html('').val('');
+    $('.status').val('');
+    $('.flagPhotoButton').html('<i class="fas fa-plus mr-1"></i> Upload Flag Photo');
+    $('.addButtonShow').show();
+    $('.updateButtonShow').hide();
+    $('.editContainer').html('');
+}
+//get edit data  -----------------------------------------------------------------------------
+function getEditableData(id) {
+    // alert(id);
+    $('.AddNewLanguage').modal('show');
+    $.ajax({
+        type: "GET"
+        , DataType: 'json'
+        , url: "/getEditableLngContent/" + id
+        , success: function (data) {
+            // alert(data.category_id);
+            $('.updateButtonShow').show();
+            $('.addButtonShow').hide();
+
+            $('.formInputValue').removeAttr('required');
+
+            $('.language_name').val(data.language_name);
+            $('.status').val(data.status);
+            $('.clickedRowId').html(data.id);
+
+            var editModalFilesRow = ""
+            var editModalFilesRow = `
+                        <div class="row px-2">
+                        <div class="col-lg-4 col-4 mb-2 smallHeadline my-auto">Flag Photo </div>
+                        <div class="col-lg-8 col-8 mb-2 ">
+                            <a href="../uploads/${data.flag_photo} " data-fancybox>
+                            <img src="../uploads/${data.flag_photo}" class="  mediumFileSize" />
+                            </a>
+                        </div>
+                        </div>
+                    `
+            $('.editContainer').html(editModalFilesRow);
+
+        }
+    })
+}
+$('#AddNewLanguageForm').on('submit', function (event) {
+    event.preventDefault();
+
+    const Msg = Swal.mixin({
+        toast: true
+        , position: 'top-end'
+        , icon: 'success'
+        , showConfirmButton: false
+        , timer: 1500
+    })
+    var id = $('.clickedRowId').html();
+
+    if (id == "") {
+        // add data -----------------------------------------------------------------------------
+        $.ajax({
+            url: "/languageAddSubmit"
+            , method: "POST"
+            , data: new FormData(this)
+            , dataType: 'JSON'
+            , contentType: false
+            , cache: false
+            , processData: false
+            , success: function (data) {
+                // console.log(data);
+                $('.AddNewLanguage').modal('hide');
+                clearFormData();
+                getAllData();
+                Msg.fire({
+                    type: 'success'
+                    , icon: 'success'
+                    , title: 'Data added success'
+                })
+            }
+            , error: function (error) {
+                // console.log('check the error path error->resposeJson.errors');
+                Msg.fire({
+                    type: 'success'
+                    , icon: 'error'
+                    , title: 'Something went wrong!'
+                })
+            }
+        })
+    } else {
+        // edit data  -----------------------------------------------------------------------------
+
+        $.ajax({
+            url: "/languageEditSubmit/" + id
+            , method: "POST"
+            , data: new FormData(this)
+            , dataType: 'JSON'
+            , contentType: false
+            , cache: false
+            , processData: false
+            , success: function (data) {
+                $('.AddNewLanguage').modal('hide');
+                clearFormData();
+                getAllData();
+                Msg.fire({
+                    type: 'success'
+                    , icon: 'success'
+                    , title: 'Data Update success'
+                })
+            }
+            , error: function (error) {
+                Msg.fire({
+                    type: 'success'
+                    , icon: 'error'
+                    , title: 'Something went wrong!'
+                })
+            }
+        })
+    }
+});
 $('.AllFundRaiseCheckBox').change(function () {
     if ($(this).val() === '1') {
         // when active 
@@ -49,7 +165,7 @@ $('.AllFundRaiseCheckBox').change(function () {
                         <tr>
                                 <th scope="row">${Number(key)+1}</th>
                                 <td>
-                                <img src="../${allData.flag_photo}" alt="icon" class="  languageFlag" />
+                                <img src="../uploads/${allData.flag_photo}" alt="icon" class="  languageFlag" />
                                 </td>
                                 <td>${allData.language_name} </td>
                                 <td>
@@ -60,7 +176,8 @@ $('.AllFundRaiseCheckBox').change(function () {
                                     <div class="d-flex">
                                         <span class="d-flex"><i class="bi bigIcon fa-lg bi-chevron-expand manageIcons rotate"></i></span>
                                         <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                        <span><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                        <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+
                                     </div>
                                 </td>
                         </tr>`;
@@ -85,7 +202,7 @@ $('.AllFundRaiseCheckBox').change(function () {
                         <tr>
                                 <th scope="row">${Number(key)+1}</th>
                                 <td>
-                                <img src="../${allData.flag_photo}" alt="icon" class="  languageFlag" />
+                                <img src="../uploads/${allData.flag_photo}" alt="icon" class="  languageFlag" />
                                 </td>
                                 <td>${allData.language_name} </td>
                                 <td>
@@ -96,7 +213,8 @@ $('.AllFundRaiseCheckBox').change(function () {
                                     <div class="d-flex">
                                         <span class="d-flex"><i class="bi bigIcon fa-lg bi-chevron-expand manageIcons rotate"></i></span>
                                         <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                                        <span><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                        <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+
                                     </div>
                                 </td>
                         </tr>`;
@@ -131,49 +249,7 @@ function statusUpdate(id) {
         }
     })
 }
-//get edit data  -----------------------------------------------------------------------------
-function getEditableData(id) {
-    // alert(id);
-    $('.successStoriesListModal').modal('show');
-    $.ajax({
-        type: "GET"
-        , DataType: 'json'
-        , url: "/getEditableLngContent/" + id
-        , success: function (data) {
-            // alert(data.category_id);
-            $('.updateButtonShow').show();
-            $('.addButtonShow').hide();
-            $('.fileInput').removeAttr('required');
-            
-            $('.title').val(data.title);
-            $('.author_name').val(data.author_name);
-            $('.story').val(data.story); 
 
-            $('.clickedRowId').html(data.id);
-            var editModalFilesRow = ""
-            var editModalFilesRow = `
-                        <div class="row px-2">
-                        <div class="col-lg-4 col-4 mb-2 smallHeadline my-auto">Author Photo </div>
-                        <div class="col-lg-8 col-8 mb-2 ">
-                            <a href="../${data.author_photo} " data-fancybox>
-                            <img src="../${data.author_photo}" class="  mediumFileSize" />
-                            </a>
-                        </div>
-                        </div>
-                        <div class="row px-2">
-                            <div class="col-lg-4 col-4 mb-2 smallHeadline my-auto">Photo </div>
-                            <div class="col-lg-8 col-8 mb-2 ">
-                                <a href="../${data.author_photo}" data-fancybox>
-                                <img src="../${data.photo}" alt="icon" class="  mediumFileSize" />
-                                </a>
-                            </div>
-                        </div>
-                    `
-            $('.editContainer').html(editModalFilesRow);
-
-        }
-    })
-}
 // delete data  -----------------------------------------------------------------------------
 function destroyData(id) {
     // id is passed by onclick function 

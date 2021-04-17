@@ -14,7 +14,7 @@ class CreateSlidersTable extends Migration
     public function up()
     {
         Schema::create('sliders', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('slider_title')->nullable();
             $table->string('slide_sub_title')->nullable();
             $table->string('slider_photo')->nullable();

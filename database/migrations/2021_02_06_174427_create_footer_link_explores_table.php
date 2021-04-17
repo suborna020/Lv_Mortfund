@@ -14,7 +14,7 @@ class CreateFooterLinkExploresTable extends Migration
     public function up()
     {
         Schema::create('footer_link_explores', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('footer_link_name')->nullable();
             $table->string('link')->nullable();
             $table->integer('status')->nullable();

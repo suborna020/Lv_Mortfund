@@ -14,7 +14,7 @@ class CreateHowItWorksTable extends Migration
     public function up()
     {
         Schema::create('how_it_works', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('title')->nullable();
             $table->string('icon')->nullable();
             $table->longText('short_description')->nullable();

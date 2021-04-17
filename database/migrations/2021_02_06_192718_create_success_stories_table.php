@@ -14,7 +14,7 @@ class CreateSuccessStoriesTable extends Migration
     public function up()
     {
         Schema::create('success_stories', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('category_id')->nullable();
             $table->string('title')->nullable();
             $table->string('author_name')->nullable();

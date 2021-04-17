@@ -14,7 +14,7 @@ class CreateReportsTable extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->Integer('fundraiser_id')->nullable();
             $table->Integer('member_id')->nullable();
             $table->longText('report_details')->nullable();

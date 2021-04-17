@@ -45,6 +45,8 @@ AllFundRaiseData();
 // clear input data  -----------------------------------------------------------------------------
 function fundRecentClearData() {
     $('.formInputValue').html('').val('');
+    $('.category_id').val('');
+
     $('.thumbnailButton').html('Thumbnail (Image size will be reduced to 350*210px)<i class="bi bi-image-fill fa-lg blurText ml-auto mr-1"></i>');
     $('.photoButton').html('Upload Photo');
     $('.videoButton').html('Video');

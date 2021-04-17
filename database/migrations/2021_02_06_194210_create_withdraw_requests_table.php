@@ -14,7 +14,7 @@ class CreateWithdrawRequestsTable extends Migration
     public function up()
     {
         Schema::create('withdraw_requests', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('payment_method')->nullable();
             $table->string('user')->nullable();
             $table->string('payment_details')->nullable();

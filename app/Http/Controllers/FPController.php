@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Mail\SubscriberMail;
 use App\Mail\UserPassConfirm;
 use App\Mail\UserPassToken;
+use App\Models\NewsletterMail;
 use App\Models\Subscriber;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -82,5 +83,29 @@ class FPController extends Controller
         else{
             return back()->with('error_messege', 'Password is not valid');
         }
+    }
+    public function subSendMail(Request $request){
+        $subscribers = Subscriber::all();
+        \session([
+            'message'=>$request->message,
+            'subject'=>$request->subject
+        ]);
+        foreach ($subscribers as $sub){
+            $subsMail[] = $sub->email;
+        }
+        $newMail = new NewsletterMail();
+        $newMail->create($request->all());
+        Mail::send('admin.mail.subs_mail', [], function ($message) use ($subsMail){
+            $message->to($subsMail)->subject(\session('subject'));
+        });
+        // dd($subsMail);
+        session()->forget('message');
+        session()->forget('subject');
+        // return response()->json('Sent mail');
+        // return back();
+        // return 'mail sent ';
+        // return redirect()->back()->with('success_message', 'Mail Sent');
+        // return redirect(compact('success_message'))->back();
+        return response(['status' => true, 'message' => 'OTP has been sent to your mobile number']);
     }
 }
