@@ -1,0 +1,2 @@
+1 . Migration files 
+2. database values are like $12.00 , somewhere 12.00$ somewhere 2.00

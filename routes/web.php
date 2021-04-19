@@ -177,6 +177,10 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('WithdrawSystem/adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
     Route::get('WithdrawSystem/adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');
     Route::get('WithdrawSystem/adWithdrawLog','App\Http\Controllers\AdWithdrawSystem@adWithdrawLog');
+    Route::get('WithdrawAllMethod','App\Http\Controllers\AdWithdrawSystem@WithdrawAllMethod');
+    Route::get('/WithdrawStatusUpdate/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawStatusUpdate');
+    
+
     //Donate
     Route::get('Donate/adPaymentGateways','App\Http\Controllers\AdDonate@adPaymentGateways');
     Route::get('Donate/adDonateHistory','App\Http\Controllers\AdDonate@adDonateHistory');
@@ -198,6 +202,7 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('adLanguageManager','App\Http\Controllers\AdLanguageManager@adLanguageManager');
     Route::get('adLanguageManagerData','App\Http\Controllers\AdLanguageManager@adLanguageManagerData');
     Route::get('/adLanguageStatusUpdate/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageStatusUpdate');
+    
     Route::post('/adLanguageDelete/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageDelete');
     Route::get('getEditableLngContent/{id}', 'App\Http\Controllers\AdLanguageManager@getEditableLngContent');
     Route::post('languageAddSubmit','App\Http\Controllers\AdLanguageManager@languageAddSubmit');
