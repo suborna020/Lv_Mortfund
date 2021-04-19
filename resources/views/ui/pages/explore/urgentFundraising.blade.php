@@ -58,7 +58,7 @@
                         @foreach($medical_urgents as $medical_urgent)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$medical_urgent->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$medical_urgent->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$medical_urgent->icon}}" aria-hidden="true"></i></i>{{$medical_urgent->categories->category_name}}</li>
@@ -123,7 +123,7 @@
                         @foreach($emergency_urgents as $emergency_urgent)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$emergency_urgent->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$emergency_urgent->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$emergency_urgent->icon}}" aria-hidden="true"></i></i>{{$emergency_urgent->categories->category_name}}</li>
@@ -189,7 +189,7 @@
                         @foreach($education_urgents as $education_urgent)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$education_urgent->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$education_urgent->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$education_urgent->icon}}" aria-hidden="true"></i></i>{{$education_urgent->categories->category_name}}</li>

@@ -58,7 +58,7 @@
                         @foreach($popular_medicals as $popular_medical)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$popular_medical->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$popular_medical->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$popular_medical->icon}}" aria-hidden="true"></i></i>{{$popular_medical->categories->category_name}}</li>
@@ -123,7 +123,7 @@
                         @foreach($popular_emergencies as $popular_emergency)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$popular_emergency->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$popular_emergency->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$popular_emergency->icon}}" aria-hidden="true"></i></i>{{$popular_emergency->categories->category_name}}</li>
@@ -189,7 +189,7 @@
                         @foreach($popular_educations as $popular_education)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$popular_education->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$popular_education->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$popular_education->icon}}" aria-hidden="true"></i></i>{{$popular_education->categories->category_name}}</li>

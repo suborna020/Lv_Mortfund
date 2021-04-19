@@ -68,6 +68,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="font-weight-bold">Payment Methods</h5>
+                            {!! session('message') !!}
                             <h6 class="mb-4 font-weight-bold">These are your payment gateway methods, feel free to add
                                 more if you want</h6>
                             <div class="container">
@@ -79,7 +80,7 @@
                                                 class="card-body d-flex align-items-center flex-column justify-content-center ">
                                                 <img height="100px" src="{{asset('../../siteImages/paymentGateways/'.$payment_method->PaymentGateways->gateway_photo)}}" alt="card" />
                                                 <!-- {{$payment_method->PaymentGateways->gateway_name}} -->
-                                                <button
+                                                <button onclick="document.location='deletePaymentMethod/{{$payment_method->id}}'"
                                                     style="overflow:hidden;background-color: #f8800b; padding: 3px 18px; color: #fff; font-weight: 500;"
                                                     class="btn btn-sm">Remove</button>
                                             </div>

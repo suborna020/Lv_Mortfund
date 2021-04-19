@@ -58,7 +58,7 @@
                         @foreach($featured_medicals as $featured_medicals)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$featured_medicals->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$featured_medicals->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$featured_medicals->icon}}" aria-hidden="true"></i></i>{{$featured_medicals->categories->category_name}}</li>
@@ -123,7 +123,7 @@
                         @foreach($featured_emergencies as $featured_emergency)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$featured_emergency->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$featured_emergency->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$featured_emergency->icon}}" aria-hidden="true"></i></i>{{$featured_emergency->categories->category_name}}</li>
@@ -189,7 +189,7 @@
                         @foreach($featured_educations as $featured_education)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$featured_education->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$featured_education->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$featured_education->icon}}" aria-hidden="true"></i></i>{{$featured_education->categories->category_name}}</li>

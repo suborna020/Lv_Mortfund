@@ -3,7 +3,7 @@
 @foreach($current_user_fundraisers as $current_fundraiser)
     <div class="col-md-6 col-xl-3">
         <div class="card">
-            <img src="uploads/{{$current_fundraiser->photo}}" class="card-img-top" alt="...">
+            <img width="100%" height="200px" src="uploads/{{$current_fundraiser->photo}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$current_fundraiser->icon}}" aria-hidden="true"></i></i> {{$current_fundraiser->categories->category_name}}</li>

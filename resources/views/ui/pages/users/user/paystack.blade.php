@@ -15,7 +15,7 @@
                     Amount to be Donated {{session('amount')}}
                 </div>
             </p>
-            <input type="text" name="email" value=""> {{-- required --}}
+            <input type="text" name="email" value="{{session('email')}}"> {{-- required --}}
             <input type="hidden" name="orderID" value="345">
             <input type="text" name="amount" value="{{session('amount')}}"> {{-- required in kobo --}}
             <input type="hidden" name="quantity" value="3">

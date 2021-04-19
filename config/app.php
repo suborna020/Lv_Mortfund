@@ -183,7 +183,7 @@ return [
         \Torann\GeoIP\GeoIPServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         Unicodeveloper\Paystack\PaystackServiceProvider::class,
-
+        Anand\LaravelPaytmWallet\PaytmWalletServiceProvider::class,
     ],
 
     /*
@@ -241,6 +241,7 @@ return [
         'Share' => Jorenvh\Share\ShareFacade::class,
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
         'Rave' => KingFlamez\Rave\Facades\Rave::class,
+        'PaytmWallet' => Anand\LaravelPaytmWallet\Facades\PaytmWallet::class,
 
 
     ],

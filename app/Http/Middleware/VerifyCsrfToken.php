@@ -14,7 +14,8 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'rave/callback',
         '/perfectmoney/fail',
-        '/perfectmoney/success'
+        '/perfectmoney/success',
+        '/paytm-callback*',
 
     ];
 }

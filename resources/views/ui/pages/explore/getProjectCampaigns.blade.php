@@ -3,7 +3,7 @@
 @foreach($get_project_campaigns as $get_project_campaign)
     <div class="col-md-6 col-xl-3">
         <div class="card">
-            <img src="{{asset('uploads/'.$get_project_campaign->photo)}}" class="card-img-top" alt="...">
+            <img width="100%" height="200px" src="{{asset('uploads/'.$get_project_campaign->photo)}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <ul>
                     <li><i class="{{$get_project_campaign->icon}}" aria-hidden="true"></i></i> {{$get_project_campaign->categories->category_name}}</li>

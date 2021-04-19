@@ -8,12 +8,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
                 <ul class="navbar-nav ml-auto">
+                    
                     <li class="nav-item">
                         <div class="input-group search-form">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text btn-search" id="basic-addon1" type="submit"><i class="fa fa-search" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="text" class="form-control search-field" placeholder="Search Findraisers" aria-describedby="basic-addon1">
+                            
+                            <a class="nav-link" href="{{url('search')}}"><i style="color: #F36A10;" class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp; Search Fundraisers</a>
                         </div>
                     </li>
                     @foreach($navmenu as $menu)
@@ -68,7 +67,8 @@
                         </div>
                         
                     </li> --}}
-                    <li>
+ 
+                    <li class="styled-select">
                         <form action="{{route('set-currency-code')}}" method="post" class="currency_code">
                           @csrf
                             <select class="form-control" id="currency_code" name="currency_code">
@@ -81,14 +81,16 @@
                                 <option value="{{$currency->symbol}}({{$currency->country_code}})">{{$currency->symbol}}({{$currency->country_code}})</option>
                                  @endforeach
                             </select>
+
                             <!-- <input type="submit" name=""> -->
                          </form>
                     </li> 
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('login')}}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-create" href="#">Create Campaign</a>
+                        <a class="nav-link btn-create" href="{{url('createCampaign')}}">Create Campaign</a>
                     </li>
                 </ul>
             </div>

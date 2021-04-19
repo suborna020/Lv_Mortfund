@@ -23,7 +23,7 @@ class PerfectmoneyController extends Controller
     	$NOPAYMENT_URL_METHOD=$value['nopayment_url'];
     	$SUGGESTED_MEMO=$value['suggested_memo'];
 
-    	return view('vendor.laravelperfectmoney.perfectmoney',compact('PAYEE_ACCOUNT','PAYEE_NAME','PAYMENT_UNITS','PAYMENT_URL','NOPAYMENT_URL','PAYMENT_ID','STATUS_URL','PAYMENT_URL_METHOD','NOPAYMENT_URL_METHOD','SUGGESTED_MEMO'));
+    	return view('ui.pages.users.user.payment_check',compact('PAYEE_ACCOUNT','PAYEE_NAME','PAYMENT_UNITS','PAYMENT_URL','NOPAYMENT_URL','PAYMENT_ID','STATUS_URL','PAYMENT_URL_METHOD','NOPAYMENT_URL_METHOD','SUGGESTED_MEMO'));
     }
 
     public function success(){

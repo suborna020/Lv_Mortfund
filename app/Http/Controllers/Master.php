@@ -28,6 +28,12 @@ use App\Models\Transection;
 use App\Models\Testimonial;
 use App\Models\HowItWorks;
 use App\Models\SuccessStory;
+use App\Models\ContactView;
+use App\Models\About;
+use App\Models\Team;
+use App\Models\Privacy;
+use App\Models\SecondaryPoint;
+use App\Models\clientmessage;
 use Image;
 use Illuminate\Support\Facades\View;
 // use App\Models\Currency;
@@ -273,6 +279,47 @@ class Master extends Controller
         return view('ui.pages.faq.faq');
     }
 
+    public function about(){
+        $contactBody = ContactView::where('id',1)->first();
+        $aboutus = About::where('id',1)->first();
+        $secondary_points_left = SecondaryPoint::where('column',0)->get();
+        $secondary_points_right = SecondaryPoint::where('column',1)->get();
+        $team = Team::all();
+
+        return view('ui.pages.aboutUs.aboutus',compact('contactBody','aboutus','secondary_points_left','secondary_points_right','team'));
+    }
+
+    public function clientMessage(Request $r){
+         
+         
+        clientmessage::create([
+            'name' => $r->name,
+            'email' => $r->email,
+            'message' => $r->message,
+        ]);
+
+
+        
+        return redirect('aboutus')->with('msg','
+            <div class="alert alert-success" role="alert">
+              message sent !
+            </div>
+            ');
+    }
+
+    public function privacy(){
+         
+        $privacy = Privacy::where('id',1)->first();
+        return view('ui.pages.privacy.privacy',compact('privacy'));
+    }
+
+
+    public function search(){
+         
+        $all_campaigns = Fundraiser::paginate(30);
+        return view('ui.pages.search.search',compact('all_campaigns'));
+    }
+
 
 
     /*USERS*/
@@ -315,7 +362,7 @@ class Master extends Controller
          $this->validate($r, [
             'thumbnail' => 'mimes:jpeg,jpg,png',
             'photo' => 'mimes:jpeg,jpg,png',
-            'video' => 'mimes:mp4',
+            'video' => 'mimes:mp4|max:10240',
             'proof_document' => 'mimes:jpeg,jpg,png',
          ]);
 
@@ -390,7 +437,7 @@ class Master extends Controller
         $this->validate($r, [
             'thumbnail' => 'mimes:jpeg,jpg,png',
             'photo' => 'mimes:jpeg,jpg,png',
-            'video' => 'mimes:mp4',
+            'video' => 'mimes:mp4|max:10240',
             'proof_document' => 'mimes:jpeg,jpg,png',
          ]);
          if ($r->thumbnail!='') {
@@ -624,8 +671,43 @@ class Master extends Controller
         return view('ui.pages.users.user.change_password',compact('profile'));
      }
 
+     public function changeUserPassword(Request $r,$id){
+
+        $current_password = User::where('id', session('user_session'))->first();
+        
+        $c_pass = $r->current_password;
+        $n_pass = $r->new_password;
+        $confirm_pass = $r->confirm_password;
+
+        if ($c_pass == $current_password->password && $n_pass == $confirm_pass) {
+
+             User::where('id', session('user_session'))->update([
+                 
+                'password' => $confirm_pass,
+                 
+             ]);
+
+             return \Redirect::route('changePassword')->with('message', '
+
+                <div class="alert alert-success" role="alert">
+                  Password Changed Successfully!!!
+                </div>
+  
+                ');
+             
+        }else{
+            return \Redirect::route('changePassword')->with('message', '
+                <div class="alert alert-danger" role="alert">
+                  Something Went wrong
+                </div>
+            ');
+       
+        }
+        
+     }
+
     public function paymentSettings(Request $r){
-        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->where('transection_type',0)->get();
+        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('transection_type',0)->where('user_id',session('user_session'))->get();
         $payment_gateways = PaymentGateway::where('status',1)->get();
         return view('ui.pages.users.user.payment_settings',compact('payment_methods','payment_gateways'));
     }
@@ -652,10 +734,50 @@ class Master extends Controller
     }
 
 
+    public function deletePaymentMethod(Request $r, $id){
+        
+        UserPaymentMethod::destroy(array('id',$id));
+        
+        return redirect()->back()->with('message','
+            <div class="alert alert-success" role="alert">
+               Method Deleted successfully
+            </div>
+            ');
+    }
+
+
     //-------------------------- Payment Gateway --------------------------------------
 
+    public function checkout(){
+
+        \Stripe\Stripe::setApiKey('sk_test_51IQArsEXyED6aSlyyAiPCQo8XR2Gwt3W5K6o8ngmQgOsbvmZykUbS5VHeNoUXjSDh4vHQrmmtvGUOuICVVo9UdD900rlZhrVoX');
+                
+        $amount = session('amount');
+        $amount *= 100;
+        $amount = (int) $amount;
+        
+        $payment_intent = \Stripe\PaymentIntent::create([
+            'description' => 'Stripe Test Payment',
+            'amount' => $amount,
+            'currency' => 'USD',
+            'description' => 'Payment From Mortfund',
+            'payment_method_types' => ['card'],
+        ]);
+        $intent = $payment_intent->client_secret;
+        $charge = PaymentGateway::where('id',4)->first();
+
+        return view('ui.pages.users.user.payment_check',compact('intent','charge'));
+    }
+
+    public function setSession(Request $request){
+        $payment_method = $request->payment_method;
+        $request->session()->put('payment_method', $payment_method);
+
+        return redirect('myAccount/donateMethod/checkout');
+    }
+
     public function donateMethod(Request $r){
-        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->get();
+        $payment_methods = UserPaymentMethod::with('PaymentGateways')->where('user_id',session('user_session'))->where('transection_type',0)->get();
         $payment_gateways = PaymentGateway::where('status',1)->get();
         return view('ui.pages.users.user.donateMethod',compact('payment_methods','payment_gateways'));
     }
@@ -669,11 +791,21 @@ class Master extends Controller
         $fundraiser_id = $r->fundraiser_id;
         $donor_id = $r->donor_id;
         $amount = $r->donation_amount;
+        $name = $r->name;
+        $email = $r->email;
+        $mobile = $r->mobile;
+        $address = $r->address;
+        $current_balance = $r->current_balance;
         
         $r->session()->put('campaing_id', $campaing_id);
         $r->session()->put('fundraiser_id', $fundraiser_id);
         $r->session()->put('donor_id', $donor_id);
         $r->session()->put('amount', $amount);
+        $r->session()->put('name', $name);
+        $r->session()->put('email', $email);
+        $r->session()->put('mobile', $mobile);
+        $r->session()->put('address', $address);
+        $r->session()->put('current_balance', $current_balance);
         // $arr = array('status' => 'true', 'message' => 'Currency Changed');
         // echo json_encode($arr);
         return redirect('myAccount/donateMethod');
@@ -687,15 +819,20 @@ class Master extends Controller
     Transection::create([
             'method_id' => 7,
             'member_id' => session('user_session'),
-            // 'transection_type' => $r->transection_type,
-            // 'name' => $r->name,
-            // 'email' => $paymentDetails['data']['customer']['email'],
-            // 'phone' => $r->phone,
-            // 'address' => $r->address,
+            'transection_type' => 0,
+            'name' => session('name'),
+            'email' => session('email'),
+            'phone' => session('phone'),
+            'address' => session('address'),
             'amount' => session('amount'),
-            // 'charge' => $paymentDetails['data']['fees'],
+            'charge' => session('charge'),
             'campaign_author' => session('fundraiser_id'),
             'campaign_id' => session('campaing_id'),
+            
+        ]);
+
+        User::where('id', session('user_session'))->update([
+            'current_balance' => session('current_balance') + session('amount'),
         ]);
   
          $id = session('campaing_id');
@@ -706,6 +843,34 @@ class Master extends Controller
 
     public function paymentConfirmation(){
         return view('ui.pages.users.user.payment-confirmation');
+    }
+
+    public function withdrawModal($id){
+        $paymentGatewayInfo=PaymentGateway::findOrFail($id);
+        return response()->json($paymentGatewayInfo); 
+    }
+
+    public function withdrawRequest(Request $request){
+      Transection::create([
+            'method_id' => $request->gateway_id,
+            'member_id' => session('user_session'),
+            'transection_type' => 1,
+            'amount' => $request->withdraw_amount,
+            'charge' => $request->charge,
+        ]);
+
+      $c_balance = $request->current_balance;
+      $w_amount = $request->withdraw_amount;
+
+      $curr_balance = $c_balance - $w_amount; 
+
+      User::where('id', session('user_session'))->update([
+            'current_balance' => $curr_balance,
+        ]);
+
+      $msg = 'success !';
+
+      echo json_encode($msg);
     }
  
 }

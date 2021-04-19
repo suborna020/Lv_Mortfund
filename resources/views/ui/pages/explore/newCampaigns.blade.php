@@ -59,7 +59,7 @@
                         <div class="item">
                             <a href="/singleCampaign/{{$new_medical->id}}" style="text-decoration: none;color: inherit">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$new_medical->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$new_medical->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$new_medical->icon}}" aria-hidden="true"></i></i>{{$new_medical->categories->category_name}}</li>
@@ -126,7 +126,7 @@
                         <div class="item">
                             <a href="/singleCampaign/{{$new_emergency->id}}" style="text-decoration: none;color: inherit">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$new_emergency->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$new_emergency->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$new_emergency->icon}}" aria-hidden="true"></i></i>{{$new_emergency->categories->category_name}}</li>
@@ -194,7 +194,7 @@
                         <div class="item">
                             <a href="/singleCampaign/{{$new_education->id}}" style="text-decoration: none;color: inherit">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$new_education->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$new_education->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$new_education->icon}}" aria-hidden="true"></i></i>{{$new_education->categories->category_name}}</li>

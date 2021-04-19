@@ -4,7 +4,7 @@
 <div class="col-md-6 col-xl-3">
     <a href="/singleCampaign/{{$recent->id}}" style="text-decoration: none;color: inherit">
     <div class="card">
-        <img src="uploads/{{$recent->photo}}" class="card-img-top" alt="..." lazy="loading">
+        <img width="100%" height="200px" src="uploads/{{$recent->photo}}" class="card-img-top" alt="..." lazy="loading">
         <div class="card-body">
             <ul>
                 <li><i class="{{$recent->icon}}" aria-hidden="true"></i></i> {{$recent->categories->category_name}}</li>

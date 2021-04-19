@@ -14,7 +14,7 @@
                     <div class="widget-2">
                         <h3>About</h3>
                         @foreach($footer_about as $f_a)
-                        <a href="{{$f_a->link}}" class="link">{{$f_a->footer_link_name}}</a>
+                        <a href="{{url($f_a->link)}}" class="link">{{$f_a->footer_link_name}}</a>
                         @endforeach
                         
                     </div>
@@ -23,7 +23,7 @@
                     <div class="widget-2">
                         <h3>Categories</h3>
                         @foreach($footer_cat as $f_c)
-                        <a href="#" class="link">{{$f_c->footer_link_name}}</a>
+                        <a href="{{url($f_c->link)}}" class="link">{{$f_c->footer_link_name}}</a>
                         @endforeach
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="widget-2">
                         <h3>Links</h3>
                         @foreach($footer_explore as $f_e)
-                        <a href="#" class="link">{{$f_e->footer_link_name}}</a>
+                        <a href="{{url($f_e->link)}}" class="link">{{$f_e->footer_link_name}}</a>
                         @endforeach
                     </div>
                 </div>

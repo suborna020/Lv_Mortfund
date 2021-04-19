@@ -58,7 +58,7 @@
                         @foreach($medical_projects as $medical_project)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$medical_project->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$medical_project->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$medical_project->icon}}" aria-hidden="true"></i></i>{{$medical_project->categories->category_name}}</li>
@@ -123,7 +123,7 @@
                         @foreach($emergency_projects as $emergency_project)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$emergency_project->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$emergency_project->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$emergency_project->icon}}" aria-hidden="true"></i></i>{{$emergency_project->categories->category_name}}</li>
@@ -189,7 +189,7 @@
                         @foreach($education_projects as $education_project)
                         <div class="item">
                             <div class="card">
-                                <img src="{{asset('uploads/'.$education_project->photo)}}" class="card-img-top" alt="...">
+                                <img width="100%" height="200px" src="{{asset('uploads/'.$education_project->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <ul>
                                     <li><i class="{{$education_project->icon}}" aria-hidden="true"></i></i>{{$education_project->categories->category_name}}</li>
