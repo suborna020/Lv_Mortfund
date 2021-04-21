@@ -8,35 +8,26 @@ function getAllData() {
         success: function (data) {
             // console.log(fundRaiseCategories);
             var getHtml = "";
-            $.each(data, function (key, allData) {
+            $.each(data , function (key, allData) {
                 getHtml += `
-                    <tr>
-                        <th scope="row">${Number(key) + 1}</th>
-                        <td>${allData.company_name} </td>
-                        <td>${allData.image_size}</td>
-                        <td>${
-                            allData.impression == null
-                                ? "0"
-                                : allData.impression
-                        }</td>
-                        <td>${
-                            allData.no_of_clicks == null
-                                ? "0"
-                                : allData.no_of_clicks
-                        }</td>
-                        
-
-                        <td>
-                            <div>
-                            <span onclick='getEditableData(${
-                                allData.id
-                            })'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
-                            <span onclick='destroyData(${
-                                allData.id
-                            })'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-                            </div>
-                        </td>
-                    </tr>`;
+                                    <tr>
+                                        <th scope="row">${Number(key) + 1}</th>
+                                        <td>${allData.company_name}</td>
+                                        <td>${allData.image_size}</td>
+                                        <td>${allData.impression == null ? "0" : allData.impression}
+                                        </td>
+                                        <td>${
+                                            allData.no_of_clicks == null
+                                                ? "0"
+                                                : allData.no_of_clicks}
+                                        </td>
+                                        <td>
+                                            <div>
+                                            <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
+                                            <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
+                                            </div>
+                                        </td>
+                                    </tr> `;
             });
             $(".tableBody").html(getHtml);
         },
@@ -51,7 +42,6 @@ function clearFormData() {
     );
     $(".addButtonShow").show();
     $(".updateButtonShow").hide();
-    $(".editContainer").html("");
 }
 //get edit data  -----------------------------------------------------------------------------
 function getEditableData(id) {
@@ -71,7 +61,7 @@ function getEditableData(id) {
             $(".company_name").val(data.company_name);
             $(".image_size").val(data.image_size);
             $(".link").val(data.link);
-            $(".clickedRowId").html(data.id);
+            $(".clickedAdvertisementId").html(data.id);
 
             var editModalFilesRow = "";
             var editModalFilesRow = `
@@ -90,6 +80,7 @@ function getEditableData(id) {
 }
 $("#advertisementForm").on("submit", function (event) {
     event.preventDefault();
+    console.log("submit prevent success");
 
     const Msg = Swal.mixin({
         toast: true,
@@ -98,7 +89,7 @@ $("#advertisementForm").on("submit", function (event) {
         showConfirmButton: false,
         timer: 1500,
     });
-    var id = $(".clickedRowId").html();
+    var id = $(".clickedAdvertisementId").html();
 
     if (id == "") {
         // add data -----------------------------------------------------------------------------
@@ -111,7 +102,6 @@ $("#advertisementForm").on("submit", function (event) {
             cache: false,
             processData: false,
             success: function (data) {
-                // console.log(data);
                 $(".advertisementModal").modal("hide");
                 clearFormData();
                 getAllData();
@@ -122,6 +112,7 @@ $("#advertisementForm").on("submit", function (event) {
                 });
             },
             error: function (error) {
+                // console.log('check the error path error->resposeJson.errors');
                 Msg.fire({
                     type: "success",
                     icon: "error",
@@ -131,7 +122,7 @@ $("#advertisementForm").on("submit", function (event) {
         });
     } else {
         // edit data  -----------------------------------------------------------------------------
-
+       
         $.ajax({
             url: "/AdvertiseEditSubmit/" + id,
             method: "POST",
@@ -181,9 +172,6 @@ function destroyData(id) {
                 },
             });
         } else {
-
-
         }
     });
-
 }

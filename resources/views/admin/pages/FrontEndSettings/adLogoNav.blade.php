@@ -45,11 +45,12 @@
                             <i class="bi bi-circle-fill boldIcon"></i>Explore
                             <div class="col-lg-2 col-md-2 col-2  ml-auto">
                                 <span data-toggle="modal" data-target=".adLogoNavModal"><i class=" manageIcons fas fa-edit "></i></span>
-                                <button type="button" onclick="categoriesStatusUpdate()" class="btn tableSmallText1 btn-sm smallActiveButton">Active
+                                <button type="button" onclick="categoriesStatusUpdate()" class="btn mt-3 tableSmallText1 btn-sm smallActiveButton">Active
                                 </button>
                             </div>
                         </div>
                     </div>
+                    <button type="button" data-toggle="modal" data-target=".adLogoNavModal" class=" orange_text font-weight-bold btn btn-sm  addNewButton smallText"><i class="fas fa-plus mr-1"></i> Add New </button>
                 </div>
             </div>
 

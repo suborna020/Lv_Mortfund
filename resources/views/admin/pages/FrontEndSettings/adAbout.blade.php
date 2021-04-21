@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-lg-7 col-7 col-sm-7 px-0 d-flex orange_text">
                     <div class="pr-2"><i class="bi bi-info-circle fa-lg"></i></div>
-                    <div class=""> An Image or a vidio can be uploaded</div>
+                    <div class=""> An Image or a video can be uploaded</div>
                 </div>
             </div>
             <br>
@@ -74,7 +74,7 @@
                     </div>
                     <div class=" ml-auto d-flex ">
                         <div>
-                            <button type="button" data-toggle="modal" data-target=".successStoriesListModal" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText"><i class="fas fa-plus mr-1"></i> Add New </button>
+                            <button type="button" data-toggle="modal" data-target=".successStoriesListModal" class=" orange_text font-weight-bold btn  btn-sm addNewButton smallText"><i class="fas fa-plus mr-1"></i> Add New </button>
                         </div>
                     </div>
                 </div>
@@ -120,6 +120,12 @@
                 </div>
             </div>
 
+
+            <br><br>
+            <div class="modalBorder"></div>
+            <div class=" my-4 mx-4 px-5 d-flex">
+                <button type="button" class="ml-auto whiteText btn-lg orangeBackground  font-weight-bold btn">Save Changes</button>
+            </div>
 
             <br>
             {{-- edaitable part  end --}}

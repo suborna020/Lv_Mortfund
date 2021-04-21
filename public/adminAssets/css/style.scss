@@ -125,6 +125,9 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
+.blackText{
+color: black !important;
+}
 .overFlowTable{
     flex-wrap                : nowrap !important;
     overflow-x: auto;
@@ -155,9 +158,6 @@ a:hover {
 .overFlowTable::-webkit-scrollbar-thumb:hover {
     background: #555 !important;
 }
-
-
-
 
 .text-truncate {
     max-width: 150px;
@@ -202,6 +202,9 @@ a:hover {
 .orange_text {
     color: #F36A10;
 }
+.orange_Icon {
+    color: #F36A10 !important;
+}
 
 .blurText {
     color: #a1a6ac;
@@ -224,14 +227,12 @@ a:hover {
     border          : unset !important;
     background-color: #e9ecef61 !important;
 }
+// icon picker css 
 
-// .bootstrap-datepicker-widget{
-//     position: absolute !important;
-//     bottom: 0 !important;
-//     left: -50px !important;
-// }
 
-// ---dashboard page -------------
+
+// common css end 
+// ---dashboard page ------------------------------------------
 // aside bar 
 .sideBarSizeChange {
     margin-left: 0;

@@ -1,3 +1,24 @@
+logo & navbar : generals table
+navigation links : navmanus table
+slider : sliders table
+how it works: how_it_works table
+about: abouts table
+team : teams table
+secondary point:secondary_point table .   left bar hole  colum= 0 , right hole colum= 1 + modal a column 0/1 select option thakte hobe
+counter: counter table a kaj kora lagbena 
+contact : contact_view tabole , delete icon remove korte hobe 
+
+social settings : socials table . status 1 submit korte hobe
+subscription: subscribe table
+terms of ters : terms table
+privacy: privacies table
+login : signuplogin_views table
+footer: footers table 
+footers> about column =  footer_link_abouts table theke
+        categories column =  =footer_link_categories table theke
+        explore = footer_link_explore table
+clientmessages table theke data ekti extra page a show korate hobe
+
 
 @clone new project.
 #/copy the link from github
@@ -50,8 +71,11 @@ add catagory te modal er (catagory icon) likhe (upload photo) button keno deya?
 
 @ Data seed
 php artisan db:seed
-php artisan db:seed --class=FundraiserSeeder
+php artisan db:seed --class=AdminSeeder
 php artisan migrate:refresh --path=/database/migrations/2021_02_08_184701_create_navmenus_table.php
+
+
+
 
 
 

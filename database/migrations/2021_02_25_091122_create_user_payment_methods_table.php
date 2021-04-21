@@ -17,6 +17,9 @@ class CreateUserPaymentMethodsTable extends Migration
             $table->increments('id');
             $table->Integer('user_id');
             $table->Integer('payment_method_id');
+            $table->Integer('transection_type');
+
+            
             $table->timestamps();
         });
     }

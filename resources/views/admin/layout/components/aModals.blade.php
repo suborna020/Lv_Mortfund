@@ -32,10 +32,12 @@
                         <div class="row">
                             <div class="col-lg-5 col-5 col-sm-12">
                                 <h5>Category Icon </h5>
-                                <div class=" customFileInput">
-                                    <input type="file" class="fileName fileInputHtml iconInput" name="icon" accept="image/*" required>
-                                    <button type="button" id="iconName" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton "><i class="fas fa-plus "></i> Upload Photo</button>
+                                <div>
+                                    <input type="text" name="icon" class="icon icon-class-input singleItem" value="fa fa-music" required />
+                                    <button type="button" class="btn btn-primary whiteText  backgroundCerulean  font-weight-bold btn picker-button">Upload Icon</button>
+
                                 </div>
+
                             </div>
                             <div class="col-lg-7 col-7 col-sm-12">
                                 <h5>Status </h5>
@@ -48,9 +50,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container" id="catergoryModalFilesContainer">
-
-                        </div>
                     </div>
                 </div>
                 <div class="modalBorder"></div>
@@ -61,6 +60,25 @@
                 </div>
             </div>
         </form>
+    </div>
+</div>
+<div id="iconPicker" class="modal fade" style="z-index: 20000;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            </div>
+
+            <div class="modal-body">
+                <div>
+
+                    <ul class="iconPickerPlace">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {{-- adAllFundraise  ---------------------------------------------------------}}
@@ -97,7 +115,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-12 ">
                                 <div class="input-group mb-2">
-                                    <input type="text" class="form-control formInputValue location" name="location" placeholder="Enter Location" required value="USA">
+                                    <input type="text" class="form-control formInputValue location" name="location" placeholder="Enter Location" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-geo-alt-fill fa-lg blurText"></i>
@@ -109,7 +127,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-12 ">
                                 <div class="input-group mb-2">
-                                    <input type="text" class="form-control formInputValue title" name="title" placeholder="Enter Title" required value="save Amazon">
+                                    <input type="text" class="form-control formInputValue title" name="title" placeholder="Enter Title" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-align-top blurText"></i>
@@ -121,7 +139,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control formInputValue benificiary_name" name="benificiary_name" placeholder="Enter benficiary name" required value="Charles McAvoy">
+                                    <input type="text" class="form-control formInputValue benificiary_name" name="benificiary_name" placeholder="Enter benficiary name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-person-fill  fa-lg blurText"></i>
@@ -133,12 +151,12 @@
                         <div class="row ">
                             <div class="col-lg-7 col-7 col-sm-12">
                                 <div class="input-group mb-2">
-                                    <input type="text" class="form-control formInputValue needed_amount" name="needed_amount" placeholder="Enter the amount needed in USD" required value="111">
+                                    <input type="text" class="form-control formInputValue needed_amount" name="needed_amount" placeholder="Enter the amount needed in USD" required>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-5 col-sm-12">
                                 <div class="input-group mb-2">
-                                    <input data-date-format="dd/mm/yyyy" class="form-control datepicker formInputValue deadline" placeholder="Enter Deadline" name="deadline" required value="5/11/2020">
+                                    <input data-date-format="dd/mm/yyyy" class="form-control datepicker formInputValue deadline" placeholder="Enter Deadline" name="deadline" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-calendar4 fa-lg blurText"></i>
@@ -191,7 +209,7 @@
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow"><i class="fas fa-plus mr-1"></i>Add Fundraiser</button>
                     {{-- for edit    --}}
                     <span class="AllFundClickedId" style="display:none"></span>
-                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" onclick="fundRaiseEditedSubmit()" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Fundraiser</button>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Fundraiser</button>
                 </div>
             </div>
         </form>
@@ -215,7 +233,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-12 ">
                                 <div class="input-group mb-2">
-                                    <input type="text" class="form-control formInputValue title" name="title" placeholder="Enter Title" required value="Lorem ipsum dolor sit amet amet">
+                                    <input type="text" class="form-control formInputValue title" name="title" placeholder="Enter Title" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-align-top blurText"></i>
@@ -233,7 +251,7 @@
                             </div>
                             <div class="col-lg-6 col-6 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control formInputValue author_name" name="author_name" placeholder="Author name" required value="John Campbell">
+                                    <input type="text" class="form-control formInputValue author_name" name="author_name" placeholder="Author name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-person-fill  fa-lg blurText"></i>
@@ -245,7 +263,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-12 ">
                                 <div class="input-group mb-2 myTextArea">
-                                    <textarea class="form-control formInputValue story" placeholder="Write the story within 50 words" name="story" style="line-height: unset" required>Lorem ipsum dolor sit amet</textarea>
+                                    <textarea class="form-control formInputValue story" placeholder="Write the story within 50 words" name="story" style="line-height: unset" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +286,7 @@
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow"><i class="fas fa-plus mr-1"></i>Add Success Story</button>
                     {{-- for edit    --}}
                     <span class="clickedRowId" style="display:none"></span>
-                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" onclick="fundRaiseEditedSubmit()" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Fundraiser</button>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Fundraiser</button>
                 </div>
             </div>
         </form>
@@ -333,55 +351,14 @@
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add Language</button>
                     {{-- for edit    --}}
                     <span class="clickedRowId formInputValue" style="display:none"></span>
-                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" onclick="fundRaiseEditedSubmit()" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Language</button>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Language</button>
 
                 </div>
             </div>
         </form>
     </div>
 </div>
-
-{{--  adLogoNav modal   --}}
-<div class="modal fade myAddNewModal adLogoNavModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <form   class=" " method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                    <div class="container-fluid rightContainer px-2 pb-4">
-                      
-                        <div class="row mt-4">
-                            <div class="col-lg-12 col-md-12 col-12 ">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <i class="bi bi-globe blurText"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modalBorder"></div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Save Changes</button>
-
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-{{-- end ------------------------------------------------------------------------------------------------ --}}
-
+{{-- adadvertisement -----------------------  --}}
 <div class="modal fade myAddNewModal advertisementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form id="advertisementForm" method="post" enctype="multipart/form-data">
@@ -446,9 +423,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container editContainer">
+                        <div class="container editContainer formInputValue">
                             {{-- new html here  --}}
-    
+
                         </div>
                     </div>
 
@@ -457,11 +434,184 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add Advertisement</button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
-                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" onclick="fundRaiseEditedSubmit()" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Advertisement</button>
+                    <span class="clickedAdvertisementId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update Advertisement</button>
 
                 </div>
             </div>
         </form>
     </div>
 </div>
+{{-- adLogoNav modal   --}}
+<div class="modal fade myAddNewModal adLogoNavModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+
+                        <div class="row mt-4">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- adSlider modal   --}}
+<div class="modal fade myAddNewModal adSliderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+
+                        <div class="row mt-2">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Title" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <textarea class="form-control formInputValue customizeInputField" rows="3" name="message" placeholder="Enter Subtitle"></textarea>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row tableSmallText1 ">
+                            <div class="col-lg-5 col-5 col-sm-5">
+                                <div class=" customFileInput">
+                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Slider Photo</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-7 col-sm-7 px-0 d-flex orange_text">
+                                <div class="pr-2"><i class="bi bi-info-circle fa-lg"></i></div>
+                                <div>Image will be resized into 1920*1080</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- adhowitworks-----------------------  --}}
+<div class="modal fade myAddNewModal adHowItWorksModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+
+                        <div class="row mt-3">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Title" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <textarea class="form-control formInputValue customizeInputField" rows="3" name="message" placeholder="Sort Description"></textarea>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-12 col-sm-12">
+                                <button type="button" class="btn btn-primary whiteText  backgroundCerulean  font-weight-bold btn picker-button"><i class="fas fa-plus "></i>Choose Icon</button>
+                                <input type="text" name="icon" class="btn blackText text-truncate icon icon-class-input singleItem" value="fa fa-music" required />
+                               
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- end ------------------------------------------------------------------------------------------------ --}}

@@ -81,3 +81,4 @@ $("#datepicker").datepicker("setDate", new Date());
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
+// $('.social-icon').iconpicker();

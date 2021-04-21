@@ -84,7 +84,7 @@
                         <img src="{{asset("adminAssets/img/withdrowLog.svg")}}" alt="icon" class=" smallBoxIcon" />
                     </div>
                     <p>Withdrow Log</p>
-                    <h3>00</h3>
+                    <h3> {{(count($WithdrawLogBox))?? '0' }}</h3>
                 </div>
             </div>
         </div>

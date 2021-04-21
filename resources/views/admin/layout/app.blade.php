@@ -6,10 +6,15 @@
     <title>MORTFUND ADMIN</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ url('plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css')}}">
+
+    
+    
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -35,7 +40,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js" ></script>
     {{-- for sweetalert2   --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
@@ -48,6 +54,10 @@
     {{-- fancybox  --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    {{-- <link rel="stylesheet" href="{{ url('adminAssets/css/fontawesome-iconpicker.min.css')}}"> --}}
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed  ">
     @include('admin.layout.components.aModals')
@@ -106,25 +116,21 @@
     <script src="{{ url('dist/js/demo.js')}}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ url('dist/js/pages/dashboard.js')}}"></script>
-    <!-- myinclude -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    {{-- must include  --}}
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
-
-    {{-- end  --}}
     {{-- for datatable   --}}
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
-    <script src="{{ url('adminAssets/js/myDataTable.js') }}"></script>
+ 
+    {{-- end test  --}}
+    {{-- <script src="{{ url('adminAssets/js/fontawesome-iconpicker.js')}}"></script> --}}
+    
+
     {{-- myIncluded  --}}
+    <script src="{{ url('adminAssets/js/myDataTable.js') }}"></script>
     <script src="{{ url('adminAssets/js/aAuthentication.js') }}"></script>
     <script src="{{ url('adminAssets/js/custom.js') }}"></script>
-
-
-
-
+    <script src="{{ url('adminAssets/js/IconPicker.js') }}"></script>
+  
+    
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {

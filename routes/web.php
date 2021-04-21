@@ -188,6 +188,14 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     Route::get('WithdrawSystem/adWithdrawLog','App\Http\Controllers\AdWithdrawSystem@adWithdrawLog');
     Route::get('WithdrawAllMethod','App\Http\Controllers\AdWithdrawSystem@WithdrawAllMethod');
     Route::get('/WithdrawStatusUpdate/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawStatusUpdate');
+    Route::get('adWithdrawRequestsData','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequestsData');
+    Route::get('/WithdrawRequestStatusUpdate/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawRequestStatusUpdate');
+    Route::post('/WithdrawDelete/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawDelete');
+    Route::get('WithdrawLogData','App\Http\Controllers\AdWithdrawSystem@WithdrawLogData');
+
+
+
+
     
 
     //Donate

@@ -119,6 +119,10 @@ a:hover {
   font-size: 1rem;
 }
 
+.blackText {
+  color: black !important;
+}
+
 .overFlowTable {
   -ms-flex-wrap: nowrap !important;
       flex-wrap: nowrap !important;
@@ -197,6 +201,10 @@ a:hover {
 
 .orange_text {
   color: #F36A10;
+}
+
+.orange_Icon {
+  color: #F36A10 !important;
 }
 
 .blurText {

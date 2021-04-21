@@ -10,6 +10,7 @@ function getAllData() {
         },
     });
 }
+
 getAllData();
 
 var charts = {
@@ -47,7 +48,7 @@ var charts = {
                
             });
         });
-        // console.log(weekdayValueMap);
+        console.log('data values ',weekdayValueMap);
 
 
 
@@ -93,7 +94,7 @@ var charts = {
                         {
                             ticks: {
                                 min: 0,
-                                max: Math.max(...totalData[1]) +2, // The response got from the ajax request containing max limit for y axis //max: response.max,
+                                max: Math.max(...totalData[1]) +2 , // The response got from the ajax request containing max limit for y axis //max: response.max,
                                 maxTicksLimit: 5,
                             },
                             gridLines: {

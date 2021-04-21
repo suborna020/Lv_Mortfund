@@ -36,7 +36,6 @@ class AdminOperation extends Controller
     {
         // return Carbon::now()->endOfWeek();
         $dbData =  Transection::where('transection_type', '=','0')
-                ->where('status', '=','1')
                 ->whereBetween('created_at', [Carbon::now()->startOfWeek(Carbon::SUNDAY), Carbon::now()->endOfWeek(Carbon::SATURDAY)])
                 ->selectRaw('Date(created_at) sameDate,  sum(amount) sameDateSumData')
                 ->groupBy('sameDate')

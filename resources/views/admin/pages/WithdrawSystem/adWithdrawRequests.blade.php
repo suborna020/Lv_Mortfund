@@ -32,7 +32,7 @@
                             <th scope="col" class="col_1">#</th>
                             <th scope="col">Method</th>
                             <th scope="col">User</th>
-                            <th scope="col">Payment Detail </th>
+                            <th scope="col">Transection ID </th>
                             <th scope="col">Payable Amount</th>
                             <th scope="col">Charge</th>
                             <th scope="col">Requested At</th>
@@ -40,8 +40,8 @@
                             <th scope="col" class="spaceForManage">Manage</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody class="tableBody">
+                        {{--  <tr>
                             <th scope="row">1</th>
                             <td>Paypal</td>
                             <td>Yameed Irteza</td>
@@ -56,23 +56,8 @@
                                     <span><i class=" manageIcons fa-lg fas fa-times"></i></span>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Paypal</td>
-                            <td>Yameed Irteza</td>
-                            <td>123456789</td>
-                            <td>$20.00</td>
-                            <td>$2.10</td>
-                            <td>09 Sep,2021</td>
-                            <td>3 days</td>
-                            <td>
-                                <div>
-                                    <span><i class=" manageIcons fas fa-lg fa-check"></i></span>
-                                    <span><i class=" manageIcons fa-lg fas fa-times"></i></span>
-                                </div>
-                            </td>
-                        </tr>
+                        </tr>  --}}
+                      
                     </tbody>
                 </table>
 

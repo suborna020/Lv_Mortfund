@@ -1,2 +1,5 @@
-1 . Migration files 
+1 . Migration files correction
 2. database values are like $12.00 , somewhere 12.00$ somewhere 2.00
+3.Double column delete in each and every table 
+3.delete extra tables
+

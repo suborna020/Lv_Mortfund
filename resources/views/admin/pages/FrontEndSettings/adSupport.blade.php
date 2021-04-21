@@ -62,7 +62,7 @@
             </div>
             <div class="row  my-4 coloredInputsContainer">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <form method="post" id="" enctype="multipart/form-data">
+                    <form method="post"  enctype="multipart/form-data">
                         @csrf
                         <div class="input-group mt-3">
                             <input type="text" class="form-control " name="username" placeholder="Enter Subscription title">

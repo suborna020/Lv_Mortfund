@@ -32,10 +32,13 @@
                                     <td>Lorem ipsum, dolor sit amet</td>
                                     <td>
                                         <div class="d-flex">
-                                            <div class="howItWImage text-truncate ">MyIcon.png</div>
+                                           
                                             <div class=" customFileInput howItWFileUpDiv">
-                                                <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                                                <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Icon </button>
+                                                {{--  <input type="text" name="icon" class="btn blackText text-truncate icon icon-class-input singleItem" value="fa fa-music" required />
+                                                <button type="button" class="btn btn-primary whiteText  backgroundCerulean  font-weight-bold btn picker-button"><i class="fas fa-plus mr-2"></i>Choose Icon</button>  --}}
+                                                   <div class="howItWImage text-truncate ">MyIcon.png</div>   
+                                                {{-- <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
+                                                <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Icon </button>  --}}
                                             </div>
 
 
@@ -45,7 +48,7 @@
 
                                     <td>
                                         <div>
-                                            <span><i class=" manageIcons fa-lg fas fa-edit"></i></span>
+                                            <span data-toggle="modal" data-target=".adHowItWorksModal"><i class=" manageIcons fa-lg fas fa-edit"></i></span>
                                             <span><i class=" manageIcons fa-lg fas fa-trash"></i></span>
                                         </div>
                                     </td>
