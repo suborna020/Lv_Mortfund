@@ -100,16 +100,18 @@ a:hover {
     background: #F36A10;
     width     : 44%;
 }
-.smallActiveButton{
+
+.smallActiveButton {
     background-color: #F8800B;
-    color: white !important;
-    border-radius: 8px !important;
-    text-align: center !important;
-    padding: 1px 10px !important;
-    border-color: unset !important;
-    padding: 0px 9px !important;
-    font-size: .8rem !important;
+    color           : white !important;
+    border-radius   : 8px !important;
+    text-align      : center !important;
+    padding         : 1px 10px !important;
+    border-color    : unset !important;
+    padding         : 0px 9px !important;
+    font-size       : .8rem !important;
 }
+
 .loginLogo {
     width: 66%;
 }
@@ -125,27 +127,30 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
-.blackText{
-color: black !important;
+
+.blackText {
+    color: black !important;
 }
-.overFlowTable{
-    flex-wrap                : nowrap !important;
-    overflow-x: auto;
+
+.overFlowTable {
+    flex-wrap  : nowrap !important;
+    overflow-x : auto;
     white-space: nowrap;
 }
 
-.resizeNone{
+.resizeNone {
     resize: none;
 }
+
 .overFlowTable::-webkit-scrollbar {
     width : 5px !important;
-    height: 7px  !important;
+    height: 7px !important;
 }
 
 /* Track */
 .overFlowTable::-webkit-scrollbar-track {
-    background   : #f1f1f1  !important;
-    border-radius: 10px  !important;
+    background   : #f1f1f1 !important;
+    border-radius: 10px !important;
 }
 
 /* Handle */
@@ -162,9 +167,11 @@ color: black !important;
 .text-truncate {
     max-width: 150px;
 }
-.smallText{
+
+.smallText {
     font-size: .8rem !important;
 }
+
 .pRelative {
     position: relative;
 }
@@ -202,6 +209,7 @@ color: black !important;
 .orange_text {
     color: #F36A10;
 }
+
 .orange_Icon {
     color: #F36A10 !important;
 }
@@ -227,6 +235,7 @@ color: black !important;
     border          : unset !important;
     background-color: #e9ecef61 !important;
 }
+
 // icon picker css 
 
 
@@ -424,6 +433,7 @@ nav .menu-open .extend_icon {
     margin-bottom            : 10px;
     // -webkit-font-smoothing: antialiased;
 }
+
 #adminDashboard::-webkit-scrollbar {
     width : 5px !important;
     height: 7px;
@@ -829,7 +839,8 @@ nav .menu-open .extend_icon {
     border          : unset !important;
     height          : calc(2.25rem + 15px);
 }
-.customizeInputField{
+
+.customizeInputField {
     background-color: #e9ecef61 !important;
     border          : unset !important;
 }
@@ -959,7 +970,7 @@ nav .menu-open .extend_icon {
 }
 
 .FrontSettingsContainer .small-box {
-   min-height: 12rem;
+    min-height: 12rem;
 }
 
 .boldIcon {
@@ -967,40 +978,114 @@ nav .menu-open .extend_icon {
     margin: 0 8px;
 
 }
-.coverImageContainer{
-    height: 100%;
+
+.coverImageContainer {
+    height             : 100%;
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
+    justify-content    : center;
+    align-items        : center;
 }
-.roundLogo{
-    width: 100px;
-    height: 100px;
-    border: 3px solid #0000000d;
+
+.roundLogo {
+    width        : 100px;
+    height       : 100px;
+    border       : 3px solid #0000000d;
     border-radius: 100%;
-    padding: 10px;
+    padding      : 10px;
 }
-.howItWImage{
+
+.howItWImage {
     margin-right: 8px;
 }
-.howItWFileUpDiv{
-    margin: unset;
+
+.howItWFileUpDiv {
+    margin      : unset;
     margin-right: 79px;
 }
 
-.howItWFileUpDiv .fileName{
+.howItWFileUpDiv .fileName {
     max-width: 151px;
 }
-.howItWFileUpDiv .copiedFilenameButton{
-     left:unset;
+
+.howItWFileUpDiv .copiedFilenameButton {
+    left     : unset;
     min-width: unset;
     min-width: 151px;
     font-size: .8rem !important;
-    overflow: hidden;
-    height: 32px;
+    overflow : hidden;
+    height   : 32px;
 }
+
 .adAboutContainer .text-truncate {
     max-width: 60%;
 }
+
+// summernote design ----------------------
+.mysummernote .input-icons {
+    width        : 100%;
+    margin-bottom: 1rem;
+    margin-top   : 1rem;
+    position     : relative;
+    outline      : none;
+}
+
+.mysummernote .input-icons i {
+    position : absolute;
+    right    : 10px;
+    top      : 12px;
+    font-size: 20px;
+    color    : #cfcfcf;
+}
+
+.mysummernote .input-field {
+    width           : 100%;
+    padding         : 10px;
+    outline         : none;
+    font-weight     : bold;
+    border          : none;
+    border-radius   : 5px;
+    color           : #000;
+    align-items     : center;
+    background-color: #f8f8f8;
+}
+
+.mysummernote .input-field::placeholder {
+    color: #000;
+}
+
+.summernote-bg {
+    background-color: #f8f8f8 !important;
+}
+
+.summernote-btn {
+    background-color: #f8800b !important;
+    color           : #fff !important;
+    font-weight     : bold !important;
+}
+
+.summernote-btn:hover {
+    color: #000 !important;
+}
+
+/* custome css for summernote */
+.note-editable {
+    background-color: #f8f8f8 !important;
+}
+
+.note-editor.note-airframe,
+.note-editor.note-frame {
+    border: none !important;
+}
+
+.note-placeholder {
+    color      : #000 !important;
+    font-weight: bold !important;
+}
+
+//.mysummernote .note-toolbar {
+//     position     : absolute;
+//     bottom       : -40px;
+//     border-bottom: none;
+// }

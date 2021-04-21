@@ -6,9 +6,7 @@ $(document).on('submit', '.database_operation', function() {
         if (resp.status == 'true') {
             // alert(resp.message);
             const Msg = Swal.mixin({
-                toast: true
-                , position: 'top-end'
-                , icon: 'success'
+                icon: 'success'
                 , showConfirmButton: false
                 , timer: 1500
             })

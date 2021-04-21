@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class="">
-                            <button type="button" data-toggle="modal" data-target=".AddNewLanguage" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New Testimonials</button>
+                            <button type="button" data-toggle="modal" data-target=".adTestimonials" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New Testimonials</button>
                         </div>
                     </div>
                 </div>
@@ -85,6 +85,7 @@
 
 
 </div>
+
 
 {{-- <script src="{{ url('adminAssets/js/LanguageManager/AdLanguageManager.js') }}"></script> --}}
 

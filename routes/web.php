@@ -235,6 +235,9 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
 
  // frontEndSettings
  Route::get('FrontEndSettings/adLogoNav','App\Http\Controllers\AdFrontEndSettings@adLogoNav');
+  //--------------------Logo & Fabicon
+  Route::post('/update-logo-fabicon/{id}', 'App\Http\Controllers\FrontendController@updateLogoFabicon');
+
 
 
  Route::get('FrontEndSettings/adSlider','App\Http\Controllers\AdFrontEndSettings@adSlider');

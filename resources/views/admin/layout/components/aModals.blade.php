@@ -1,4 +1,4 @@
-{{-- adCategory ------------------------------------------------------------------------  --}}
+{{-- adCategory Modal------------------------------------------------------------------------  --}}
 <div class="modal fade myAddNewModal AddNewCategory categoriesEditedSubmit" id="AddNewCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form method="post" id="categoriesAddData" enctype="multipart/form-data">
@@ -293,7 +293,7 @@
     </div>
 </div>
 {{-- adLanguage page  --}}
-<div class="modal fade myAddNewModal AddNewLanguage" id="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade myAddNewModal AddNewLanguage"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form id="AddNewLanguageForm" class=" RecentFundraisersForm" method="post" enctype="multipart/form-data">
             @csrf
@@ -458,10 +458,22 @@
 
                     <div class="container-fluid rightContainer px-2 pb-4">
 
-                        <div class="row mt-4">
+                        <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control  formInputValue" name="languag_name" placeholder="Enter Link" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -499,7 +511,6 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="container-fluid rightContainer px-2 pb-4">
-
                         <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
@@ -595,11 +606,513 @@
                             <div class="col-lg-12 col-12 col-sm-12">
                                 <button type="button" class="btn btn-primary whiteText  backgroundCerulean  font-weight-bold btn picker-button"><i class="fas fa-plus "></i>Choose Icon</button>
                                 <input type="text" name="icon" class="btn blackText text-truncate icon icon-class-input singleItem" value="fa fa-music" required />
-                               
+
 
                             </div>
                         </div>
 
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- adabout   --}}
+<div class="modal fade myAddNewModal secondaryPointsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+                        <div class="row mt-2">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-12 col-12 col-sm-12">
+                                <div class="form-group">
+                                    <select class="form-control  status" name="status" required>
+                                        <option selected="true" value="" disabled>Select</option>
+                                        <option value="0">Left Column</option>
+                                        <option value="1">Right Column</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- adTeam   --}}
+<div class="modal fade myAddNewModal bigModal adTeamModal " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="max-width: 589px !important;">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content" style="margin-top:unset !important">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </div>
+                <div class="modal-body pt-1 pb-0">
+                    <div class="container-fluid tableSmallText1  px-1 pb-3">
+                        <div class="row tableSmallText1 mb-5 ">
+                            <div class="col-lg-5 col-5 col-sm-5">
+                                <div class=" customFileInput">
+                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Display Photo</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Member Name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Designation" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Facebook URL" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Twitter URL" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Linkedin URL" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Instagram URL" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer py-2">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="AllFundClickedId" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{--  adTestimonials  --}}
+<div class="modal fade myAddNewModal bigModal adTestimonials " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="max-width: 589px !important;">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content" style="margin-top:unset !important">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </div>
+                <div class="modal-body pt-1 pb-0">
+                    <div class="container-fluid tableSmallText1  px-1 pb-3">
+                        <div class="row tableSmallText1 mb-5 ">
+                            <div class="col-lg-5 col-5 col-sm-5">
+                                <div class=" customFileInput">
+                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Display Photo</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Author Name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Designation" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Company name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control formInputValue customizeInputField" rows="5" id="textArea" name="message"  placeholder="Type Authors Text"></textarea>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer py-2">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="AllFundClickedId" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- adSocialSettingsModal-----------------------  --}}
+<div class="modal fade myAddNewModal SocialSettingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+                        
+                        <div class="row mt-1 mb-4">
+                            <div class="col-lg-12 col-12 col-sm-12">
+                                <button type="button" class="btn btn-primary whiteText  backgroundCerulean  font-weight-bold btn picker-button"><i class="fas fa-plus "></i>Choose Icon</button>
+                                <input type="text" name="icon" class="btn blackText text-truncate icon icon-class-input singleItem" value="fa fa-music" required />
+                            </div>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Social Media Name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Social Media Link" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{--  adSupportModal  --}}
+<div class="modal fade myAddNewModal adSupportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content" style="margin-top:unset !important">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </div>
+                <div class="modal-body pt-1 pb-0">
+                    <div class="container-fluid tableSmallText1  px-1 pb-3">
+                       
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Question" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control formInputValue customizeInputField" rows="6"  name="message"  placeholder="Type Answer"></textarea>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer py-2">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="AllFundClickedId" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- adFooterAbout   --}}
+<div class="modal fade myAddNewModal FooterAboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+
+                        <div class="row mt-1">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Footer Name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control  formInputValue" name="languag_name" placeholder="Enter Footer Link" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- adFooterCategories   --}}
+<div class="modal fade myAddNewModal adFooterCategories" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+
+                        <div class="row mt-1">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Footer Name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control  formInputValue" name="languag_name" placeholder="Enter Footer Link" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modalBorder"></div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
+                    {{-- for edit    --}}
+                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- adFooterExplore   --}}
+<div class="modal fade myAddNewModal adFooterExplore" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class=" " method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="container-fluid rightContainer px-2 pb-4">
+
+                        <div class="row mt-1">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Footer Name" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-lg-12 col-md-12 col-12 ">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control  formInputValue" name="languag_name" placeholder="Enter Footer Link" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="bi bi-globe blurText"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modalBorder"></div>

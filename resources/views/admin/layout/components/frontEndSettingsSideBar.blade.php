@@ -53,14 +53,14 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item ">
+            {{--  <li class="nav-item ">
                 <a href="{{ url('FrontEndSettings/adCounter')}}" class="nav-link ">                
                         <img src="{{asset("adminAssets/img/Counter.svg")}}" alt="icon" class="asideBarIcon " />
                     <p>
                         Counter
                     </p>
                 </a>
-            </li>
+            </li>  --}}
             <li class="nav-item ">
                 <a href="{{ url('FrontEndSettings/adContact')}}" class="nav-link ">
                     <i class="fas fa-address-book fa-lg mr-2  "></i>
