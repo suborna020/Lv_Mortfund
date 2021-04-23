@@ -236,7 +236,7 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
  Route::get('FrontEndSettings/adLogoNav','App\Http\Controllers\AdFrontEndSettings@adLogoNav');
   //--------------------Logo & Fabicon
   Route::post('/update-logo-fabicon/{id}', 'App\Http\Controllers\FrontendController@updateLogoFabicon');
-
+//   navManus------------------------------------------------------------------------------------------------------
   Route::get('navManusData','App\Http\Controllers\FrontendController@allData');
   Route::get('navManusEditableData/{id}', 'App\Http\Controllers\FrontendController@editableData');
   Route::post('navManusAdd','App\Http\Controllers\FrontendController@addSubmit');
@@ -254,6 +254,21 @@ Route::get('HowItWorksEditableData/{id}', 'App\Http\Controllers\FrontendControll
 Route::post('HowItWorksAdd','App\Http\Controllers\FrontendController@HowItWorksaddSubmit');
 Route::post('HowItWorksEditSubmit/{id}','App\Http\Controllers\FrontendController@HowItWorkseditSubmit');
 Route::post('/HowItWorksDelete/{id}', 'App\Http\Controllers\FrontendController@HowItWorksdelete');
+// about ------------------------------------
+Route::post('/updateAbout/{id}', 'App\Http\Controllers\FrontendController@updateAbout');
+// about  secondary points AboutSecondary ------------------------
+Route::get('AboutSecondaryData','App\Http\Controllers\FrontendController@AboutSecondaryallData');
+Route::get('AboutSecondaryEditableData/{id}', 'App\Http\Controllers\FrontendController@AboutSecondaryeditableData');
+Route::post('AboutSecondaryAdd','App\Http\Controllers\FrontendController@AboutSecondaryaddSubmit');
+Route::post('AboutSecondaryEditSubmit/{id}','App\Http\Controllers\FrontendController@AboutSecondaryeditSubmit');
+Route::post('/AboutSecondaryDelete/{id}', 'App\Http\Controllers\FrontendController@AboutSecondarydelete');
+// Team ------------------------------
+Route::get('TeamData','App\Http\Controllers\FrontendController@TeamallData');
+Route::get('TeamEditableData/{id}', 'App\Http\Controllers\FrontendController@TeameditableData');
+Route::post('TeamAdd','App\Http\Controllers\FrontendController@TeamaddSubmit');
+Route::post('TeamEditSubmit/{id}','App\Http\Controllers\FrontendController@TeameditSubmit');
+Route::post('/TeamDelete/{id}', 'App\Http\Controllers\FrontendController@Teamdelete');
+    
 
 
 
@@ -284,6 +299,20 @@ Route::post('/HowItWorksDelete/{id}', 'App\Http\Controllers\FrontendController@H
 
 });
 //----------------------- user routes -----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/sign-up','App\Http\Controllers\Master@userSignup')->name('sign-up');
 

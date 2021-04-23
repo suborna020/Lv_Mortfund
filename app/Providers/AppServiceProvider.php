@@ -29,6 +29,8 @@ use App\Models\SuccessStory;
 use App\Models\WithdrawRequest;
 use App\Models\NewsletterMail;
 use App\Models\PaymentGateway;
+use App\Models\About;
+
 use DB;
 
 
@@ -104,6 +106,7 @@ class AppServiceProvider extends ServiceProvider
                 $FundraisersBox = Fundraiser::all();
                 $CategoriesBox = Category::all();
                 $successStoriesBox = SuccessStory::all();
+                
                 $WithdrawRequestsBox=DB::table('transections')
                     ->where('transection_type','1')
                     ->get();
@@ -115,6 +118,8 @@ class AppServiceProvider extends ServiceProvider
                 ->get();
                 $newsletterMail=NewsletterMail::all();
                 $paymentGatewaysBox=PaymentGateway::all();
+                $aboutBox =About::where('id',1)->first();
+
 
 
     
@@ -127,7 +132,7 @@ class AppServiceProvider extends ServiceProvider
                 ->with('FundOnProgressBox',$FundOnProgressBox)
                 ->with('newsletterMail',$newsletterMail )
                 ->with('paymentGatewaysBox',$paymentGatewaysBox )
-
+                ->with('aboutBox',$aboutBox )
                 ;
                
             }

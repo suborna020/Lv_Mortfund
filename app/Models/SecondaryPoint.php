@@ -10,7 +10,7 @@ class SecondaryPoint extends Model
     use HasFactory;
     protected $table = 'secondary_points';
     protected $fillable = [
-        'id',
+       
         'secondary_point',
         'column',
     ];

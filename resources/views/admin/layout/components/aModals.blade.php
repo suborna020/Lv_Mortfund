@@ -634,7 +634,7 @@
 {{-- adabout   --}}
 <div class="modal fade myAddNewModal secondaryPointsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="secondaryPointsForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -649,7 +649,7 @@
                         <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
+                                    <input type="text" class="form-control secondary_point formInputValue" name="secondary_point" placeholder="Enter Text" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -661,7 +661,7 @@
                         <div class="row ">
                             <div class="col-md-12 col-12 col-sm-12">
                                 <div class="form-group">
-                                    <select class="form-control  status" name="status" required>
+                                    <select class="form-control  column" name="column" required>
                                         <option selected="true" value="" disabled>Select</option>
                                         <option value="0">Left Column</option>
                                         <option value="1">Right Column</option>
@@ -686,11 +686,11 @@
 {{-- adTeam   --}}
 <div class="modal fade myAddNewModal bigModal adTeamModal " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="max-width: 589px !important;">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="adTeamForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content" style="margin-top:unset !important">
                 <div class="modal-header">
-                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -700,7 +700,7 @@
                         <div class="row tableSmallText1 mb-5 ">
                             <div class="col-lg-5 col-5 col-sm-5">
                                 <div class=" customFileInput">
-                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <input type="file" class="fileName formInputValue formFileInput " name="photo" accept="image/*" required>
                                     <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Display Photo</button>
                                 </div>
                             </div>
@@ -708,7 +708,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Member Name" required>
+                                    <input type="text" class="form-control member_name formInputValue" name="member_name" placeholder="Enter Member Name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -720,7 +720,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Designation" required>
+                                    <input type="text" class="form-control formInputValue member_designation" name="member_designation" placeholder="Enter Designation" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -732,7 +732,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Facebook URL" required>
+                                    <input type="text" class="form-control facebook_link formInputValue" name="facebook_link" placeholder="Enter Facebook URL" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -744,7 +744,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Twitter URL" required>
+                                    <input type="text" class="form-control twitter_link formInputValue" name="twitter_link" placeholder="Enter Twitter URL" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -756,7 +756,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Linkedin URL" required>
+                                    <input type="text" class="form-control linkedin_link formInputValue" name="linkedin_link" placeholder="Enter Linkedin URL" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -768,7 +768,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Instagram URL" required>
+                                    <input type="text" class="form-control instagram_link formInputValue" name="instagram_link" placeholder="Enter Instagram URL" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -776,6 +776,10 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="container editContainer">
+                            {{-- new html here  --}}
+
                         </div>
                     </div>
                 </div>
@@ -797,7 +801,7 @@
             @csrf
             <div class="modal-content" style="margin-top:unset !important">
                 <div class="modal-header">
-                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -934,7 +938,7 @@
             @csrf
             <div class="modal-content" style="margin-top:unset !important">
                 <div class="modal-header">
-                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

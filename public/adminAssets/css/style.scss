@@ -235,7 +235,9 @@ a:hover {
     border          : unset !important;
     background-color: #e9ecef61 !important;
 }
-
+textarea.form-control{
+    overflow: hidden !important;
+}
 // icon picker css 
 
 

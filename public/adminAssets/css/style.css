@@ -228,6 +228,10 @@ a:hover {
   background-color: #e9ecef61 !important;
 }
 
+textarea.form-control {
+  overflow: hidden !important;
+}
+
 .sideBarSizeChange {
   margin-left: 0;
   width: 4.6rem !important;
