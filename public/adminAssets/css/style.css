@@ -970,6 +970,7 @@ nav .menu-open .extend_icon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-height: 14.8rem;
 }
 
 .roundLogo {

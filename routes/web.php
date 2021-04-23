@@ -218,10 +218,9 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
     // LanguageManager
     Route::get('adLanguageManager','App\Http\Controllers\AdLanguageManager@adLanguageManager');
     Route::get('adLanguageManagerData','App\Http\Controllers\AdLanguageManager@adLanguageManagerData');
-    Route::get('/adLanguageStatusUpdate/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageStatusUpdate');
-    
-    Route::post('/adLanguageDelete/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageDelete');
     Route::get('getEditableLngContent/{id}', 'App\Http\Controllers\AdLanguageManager@getEditableLngContent');
+    Route::get('/adLanguageStatusUpdate/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageStatusUpdate');
+    Route::post('/adLanguageDelete/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageDelete');
     Route::post('languageAddSubmit','App\Http\Controllers\AdLanguageManager@languageAddSubmit');
     Route::post('languageEditSubmit/{id}','App\Http\Controllers\AdLanguageManager@languageEditSubmit');
     // Advertisement
@@ -237,6 +236,25 @@ Route::group(['middleware'=>'adminAuthentication'],function(){
  Route::get('FrontEndSettings/adLogoNav','App\Http\Controllers\AdFrontEndSettings@adLogoNav');
   //--------------------Logo & Fabicon
   Route::post('/update-logo-fabicon/{id}', 'App\Http\Controllers\FrontendController@updateLogoFabicon');
+
+  Route::get('navManusData','App\Http\Controllers\FrontendController@allData');
+  Route::get('navManusEditableData/{id}', 'App\Http\Controllers\FrontendController@editableData');
+  Route::post('navManusAdd','App\Http\Controllers\FrontendController@addSubmit');
+  Route::post('navManusEditSubmit/{id}','App\Http\Controllers\FrontendController@editSubmit');
+  Route::post('/navManusDelete/{id}', 'App\Http\Controllers\FrontendController@delete');
+//   slider----------------------------------------
+Route::get('sliderData','App\Http\Controllers\FrontendController@SliderallData');
+Route::get('sliderEditableData/{id}', 'App\Http\Controllers\FrontendController@SlidereditableData');
+Route::post('sliderAdd','App\Http\Controllers\FrontendController@SlideraddSubmit');
+Route::post('sliderEditSubmit/{id}','App\Http\Controllers\FrontendController@SlidereditSubmit');
+Route::post('/sliderDelete/{id}', 'App\Http\Controllers\FrontendController@Sliderdelete');
+// how it works -----------------------------
+Route::get('HowItWorksData','App\Http\Controllers\FrontendController@HowItWorksallData');
+Route::get('HowItWorksEditableData/{id}', 'App\Http\Controllers\FrontendController@HowItWorkseditableData');
+Route::post('HowItWorksAdd','App\Http\Controllers\FrontendController@HowItWorksaddSubmit');
+Route::post('HowItWorksEditSubmit/{id}','App\Http\Controllers\FrontendController@HowItWorkseditSubmit');
+Route::post('/HowItWorksDelete/{id}', 'App\Http\Controllers\FrontendController@HowItWorksdelete');
+
 
 
 

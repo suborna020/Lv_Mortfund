@@ -15,7 +15,7 @@ class Navmenu extends Model
 
     protected $fillable = [
         'menu_item',
-        'parent',
+        'link',
         'status',
     ];
 

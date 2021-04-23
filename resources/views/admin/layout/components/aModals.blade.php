@@ -445,7 +445,7 @@
 {{-- adLogoNav modal   --}}
 <div class="modal fade myAddNewModal adLogoNavModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="adLogoNavForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -461,7 +461,7 @@
                         <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
+                                    <input type="text" class="form-control menu_item formInputValue" name="menu_item" placeholder="Enter Text" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -473,7 +473,7 @@
                         <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control  formInputValue" name="languag_name" placeholder="Enter Link" required>
+                                    <input type="text" class="form-control link formInputValue" name="link" placeholder="Enter Link" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -488,7 +488,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -499,7 +499,7 @@
 {{-- adSlider modal   --}}
 <div class="modal fade myAddNewModal adSliderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="adSliderForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -511,10 +511,15 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="container-fluid rightContainer px-2 pb-4">
+                        <div class="container editContainer formInputValue">
+                            {{-- new html here  --}}
+                        </div>
                         <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Title" required>
+                                    <input type="text" class="form-control slider_title formInputValue" name="slider_title" placeholder="Enter Title" required>
+                                    
+
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -526,7 +531,7 @@
                         <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <textarea class="form-control formInputValue customizeInputField" rows="3" name="message" placeholder="Enter Subtitle"></textarea>
+                                    <textarea class="form-control formInputValue customizeInputField slide_sub_title" rows="3" name="slide_sub_title" placeholder="Enter Subtitle"></textarea>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
@@ -538,7 +543,7 @@
                         <div class="row tableSmallText1 ">
                             <div class="col-lg-5 col-5 col-sm-5">
                                 <div class=" customFileInput">
-                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <input type="file" class="fileName formInputValue formFileInput " name="slider_photo" accept="image/*" required>
                                     <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Slider Photo</button>
                                 </div>
                             </div>
@@ -554,7 +559,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -565,7 +570,7 @@
 {{-- adhowitworks-----------------------  --}}
 <div class="modal fade myAddNewModal adHowItWorksModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" enctype="multipart/form-data">
+        <form id="adHowItWorksForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -581,7 +586,8 @@
                         <div class="row mt-3">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Title" required>
+                                    <input type="text" class="form-control title formInputValue" name="title" placeholder="Enter Title" required>
+                                   
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -593,7 +599,7 @@
                         <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <textarea class="form-control formInputValue customizeInputField" rows="3" name="message" placeholder="Sort Description"></textarea>
+                                    <textarea class="form-control formInputValue customizeInputField short_description" rows="3" name="short_description" placeholder="Sort Description"></textarea>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
@@ -605,7 +611,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-12 col-sm-12">
                                 <button type="button" class="btn btn-primary whiteText  backgroundCerulean  font-weight-bold btn picker-button"><i class="fas fa-plus "></i>Choose Icon</button>
-                                <input type="text" name="icon" class="btn blackText text-truncate icon icon-class-input singleItem" value="fa fa-music" required />
+                                <input type="text" name="icon" class="btn blackText text-truncate icon icon-class-input singleItem " value="fa fa-music" required />
 
 
                             </div>
@@ -617,7 +623,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -669,7 +675,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -913,7 +919,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -1011,7 +1017,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -1065,7 +1071,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -1119,7 +1125,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedRowId formInputValue" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>

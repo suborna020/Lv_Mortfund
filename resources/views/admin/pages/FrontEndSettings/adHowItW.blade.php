@@ -22,32 +22,23 @@
                                     <th scope="col" class="col_1">#</th>
                                     <th scope="col">Title</th>
                                     <th scope="col" style="width: 46%;">Icon</th>
-
                                     <th scope="col" class="spaceForManage">Manage</th>
                                 </tr>
                             </thead>
-                            <tbody class="FundRaiseTableBody">
-                                <tr>
+                            <tbody class="tableBody">
+                                {{-- <tr>
                                     <th scope="row">1</th>
                                     <td>Lorem ipsum, dolor sit amet</td>
                                     <td>
                                         <i class="fas fa-plus fa-2x"></i>
-                                       {{--  <div class="d-flex">
-                                            <div class=" customFileInput howItWFileUpDiv">
-                                                 <input type="text" name="icon" class="btn blackText text-truncate icon icon-class-input singleItem" value="fa fa-music" required />
-                                                <button type="button" class="btn btn-primary whiteText  backgroundCerulean  font-weight-bold btn picker-button"><i class="fas fa-plus mr-2"></i>Choose Icon</button> 
-                                            </div>
-                                        </div> --}}
                                     </td>
-
-
                                     <td>
                                         <div>
                                             <span data-toggle="modal" data-target=".adHowItWorksModal"><i class=" manageIcons fa-lg fas fa-edit"></i></span>
                                             <span><i class=" manageIcons fa-lg fas fa-trash"></i></span>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -65,6 +56,6 @@
 
 </div>
 
-{{-- <script src="{{ url('adminAssets/js/Advertisement/adAdvertisement.js') }}"></script> --}}
+<script src="{{ url('adminAssets/js/FrontEndSettings/adHowItWorks.js') }}"></script>
 
 @endsection
