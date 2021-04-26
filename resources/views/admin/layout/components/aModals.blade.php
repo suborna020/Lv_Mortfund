@@ -797,7 +797,7 @@
 {{--  adTestimonials  --}}
 <div class="modal fade myAddNewModal bigModal adTestimonials " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="max-width: 589px !important;">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="TestimonialsForm" class=" " method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content" style="margin-top:unset !important">
                 <div class="modal-header">
@@ -811,7 +811,7 @@
                         <div class="row tableSmallText1 mb-5 ">
                             <div class="col-lg-5 col-5 col-sm-5">
                                 <div class=" customFileInput">
-                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <input type="file" class="fileName formInputValue formFileInput photo" name="photo" accept="image/*" required>
                                     <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Display Photo</button>
                                 </div>
                             </div>
@@ -819,7 +819,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Author Name" required>
+                                    <input type="text" class="form-control author_name formInputValue" name="author_name" placeholder="Enter Author Name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -831,7 +831,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Designation" required>
+                                    <input type="text" class="form-control designation formInputValue" name="designation" placeholder="Enter Designation" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -843,7 +843,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Company name" required>
+                                    <input type="text" class="form-control company_name formInputValue" name="company_name" placeholder="Enter Company name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -853,7 +853,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control formInputValue customizeInputField" rows="5" id="textArea" name="message"  placeholder="Type Authors Text"></textarea>
+                            <textarea class="form-control formInputValue customizeInputField authors_text" rows="5"  name="authors_text"  placeholder="Type Authors Text"></textarea>
+                        </div>
+                        <div class="container editContainer">
+                            {{-- new html here  --}}
+
                         </div>
                        
                     </div>
@@ -862,7 +866,7 @@
                 <div class="modal-footer py-2">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="AllFundClickedId" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
                 </div>
             </div>

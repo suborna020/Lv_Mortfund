@@ -270,6 +270,15 @@ Route::post('PrivacyPolicyAddData','App\Http\Controllers\AdPrivacyPolicyControll
 // Loginsignup 
 Route::post('LoginSignupAddData','App\Http\Controllers\AdLoginSignupController@AddSubmit');
 Route::post('LoginSignupEditSubmit/{id}','App\Http\Controllers\AdLoginSignupController@EditSubmit');
+// Footer 
+Route::post('FooterAddData','App\Http\Controllers\AdFooterController@AddSubmit');
+Route::post('FooterEditSubmit/{id}','App\Http\Controllers\AdFooterController@EditSubmit');
+// testimonials ------------------
+Route::get('TestimonialsAllData','App\Http\Controllers\AdTestimonialsController@AllData');
+Route::get('TestimonialsEditableData/{id}', 'App\Http\Controllers\AdTestimonialsController@EditableData');
+Route::post('TestimonialsAddData','App\Http\Controllers\AdTestimonialsController@AddSubmit');
+Route::post('TestimonialsEditSubmit/{id}','App\Http\Controllers\AdTestimonialsController@EditSubmit');
+Route::post('/TestimonialsDelete/{id}', 'App\Http\Controllers\AdTestimonialsController@Delete');
 
 
 

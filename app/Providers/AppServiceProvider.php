@@ -120,6 +120,8 @@ class AppServiceProvider extends ServiceProvider
                 $aboutBox =About::first();
                 $ContactView =ContactView::first();
                 $Subscribe =Subscribe::first();
+                $Footer = Footer::first();
+
                 
                 $SignupLoginView = SignupLoginView::first();
 
@@ -137,6 +139,8 @@ class AppServiceProvider extends ServiceProvider
                 ->with('ContactView',$ContactView )
                 ->with('Subscribe',$Subscribe )
                 ->with('SignupLoginView',$SignupLoginView )
+                ->with('Footer',$Footer )
+
 
 
 

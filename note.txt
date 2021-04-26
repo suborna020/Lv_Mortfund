@@ -55,7 +55,7 @@ php artisan config:cache
 composer install
 
 	
-php artisan make:controller FrontendController
+php artisan make:controller AdTestimonialsController
 
 @recieve settings:
 1souse control->masssge->cnt+enter>pull

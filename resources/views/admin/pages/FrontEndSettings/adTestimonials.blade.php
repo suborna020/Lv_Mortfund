@@ -50,7 +50,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="tableBody">
-                                    <tr>
+                                    {{-- <tr>
                                         <th scope="row">1</th>
                                         <td>Lorem ipsum dt.</td>
                                         <td>Lorem ipsu.</td>
@@ -67,7 +67,7 @@
                                                 <span><i class=" manageIcons fa-lg  fas fa-trash"></i></span>
                                             </div>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
 
 
                                 </tbody>
@@ -87,7 +87,5 @@
 </div>
 
 
-{{-- <script src="{{ url('adminAssets/js/LanguageManager/AdLanguageManager.js') }}"></script> --}}
-
-
+<script src="{{ url('adminAssets/js/FrontEndSettings/adTestimonials.js') }}"></script>
 @endsection
