@@ -242,6 +242,10 @@ Route::get('FrontEndSettings/adFooter','App\Http\Controllers\AdFrontEndSettings@
 Route::get('FrontEndSettings/adLogoNav','App\Http\Controllers\AdFrontEndSettings@adLogoNav');
 //--------------------Logo & Fabicon
 Route::post('/update-logo-fabicon/{id}', 'App\Http\Controllers\FrontendController@updateLogoFabicon');
+
+
+Route::post('LogoNavAddData','App\Http\Controllers\AdLogoNavController@AddSubmit');
+Route::post('LogoNavSubmit/{id}','App\Http\Controllers\AdLogoNavController@EditSubmit');
 //navManus-----------------------------------------------------------------------------
 Route::get('navManusData','App\Http\Controllers\FrontendController@allData');
 Route::get('navManusEditableData/{id}', 'App\Http\Controllers\FrontendController@editableData');

@@ -26,6 +26,9 @@ php artisan make:controller AdSupportController
 php artisan make:controller FooterAboutController
 php artisan make:controller FooterCategoriesController
 php artisan make:controller FooterExploreController
+php artisan make:controller AdLogoNavController
+
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @clone new project.
 #/copy the link from github

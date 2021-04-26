@@ -129,6 +129,7 @@ class AppServiceProvider extends ServiceProvider
                 $Footer = Footer::first();
                 $Terms = Terms::first();
                 $SignupLoginView = SignupLoginView::first();
+                $generalBox = General::first();
                 
                 $Privacy = Privacy::first();
 
@@ -149,6 +150,8 @@ class AppServiceProvider extends ServiceProvider
                 ->with('Footer',$Footer )
                 ->with('Terms',$Terms )
                 ->with('Privacy',$Privacy )
+                ->with('generalBox',$generalBox )
+
 
 
 
