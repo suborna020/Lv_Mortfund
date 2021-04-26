@@ -27,6 +27,13 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-lg-12 col-12  d-flex orange_text justify-content-center">
+                            <div class="pr-2"><i class="bi bi-info-circle fa-lg"></i></div>
+                            <div>Keep Desable  AddBlocker For  Page Functionality</div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class="">
                             <button type="button" data-toggle="modal" data-target=".adTeamModal" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New Member</button>

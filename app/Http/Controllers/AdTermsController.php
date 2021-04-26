@@ -36,6 +36,20 @@ class AdTermsController extends Controller
         
     }
     public function EditSubmit(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'text' => 'required',
+        ]);
+        if ($validator->passes()) {
+            $title = $request->title;
+            $text = $request->text;
+            $data = [
+                'title'=>$title,
+                'text'=>$text,
+            ];
+            Terms::findOrFail($id)->update($data);
+            return response()->json($data);
+        }
    
     }
     public function Delete( Request $request ,$id){

@@ -33,6 +33,12 @@ use App\Models\About;
 use App\Models\ContactView;
 use App\Models\Subscribe;
 use App\Models\SignupLoginView;
+use App\Models\Terms;
+use App\Models\Privacy;
+
+
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -121,9 +127,10 @@ class AppServiceProvider extends ServiceProvider
                 $ContactView =ContactView::first();
                 $Subscribe =Subscribe::first();
                 $Footer = Footer::first();
-
-                
+                $Terms = Terms::first();
                 $SignupLoginView = SignupLoginView::first();
+                
+                $Privacy = Privacy::first();
 
 
              $view->with('userInfoBox',$userInfoBox)
@@ -140,6 +147,10 @@ class AppServiceProvider extends ServiceProvider
                 ->with('Subscribe',$Subscribe )
                 ->with('SignupLoginView',$SignupLoginView )
                 ->with('Footer',$Footer )
+                ->with('Terms',$Terms )
+                ->with('Privacy',$Privacy )
+
+
 
 
 

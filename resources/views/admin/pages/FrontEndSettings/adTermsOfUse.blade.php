@@ -15,15 +15,17 @@
 
                                 <div class="input-icons" style="width: 92%;">
                                     <i class="fas fa-text-height"></i>
-                                    <input type="text" class="input-field" name="title" placeholder="Enter title" />
+                                    <input type="text" class="input-field" name="title" placeholder="Enter title" value="{{($Terms->title)?? '' }}"  required/>
                                 </div>
                                 {{-- summernote  --}}
-                                <textarea class="input-field summernote-bg MyEditorSummernote1" name="text"></textarea>
+                                <textarea class="input-field summernote-bg MyEditorSummernote1" name="text" required>{{($Terms->text)?? '' }}</textarea>
 
                                 <!-- footer-->
 
                                 <div style="height: 5px;  background-color: #f8f8f8; margin: 2rem 0 1rem 0;"></div>
                                 <div class="d-flex align-items-end justify-content-end">
+                                    <input class=" displayNone PickedDataId " type="text " value="{{($Terms->id)?? '' }}">
+
                                     <button type="submit" class="btn summernote-btn">Save Changes</button>
                                 </div>
                             </form>

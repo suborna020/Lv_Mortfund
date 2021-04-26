@@ -263,10 +263,16 @@ Route::post('contactEditSubmit/{id}','App\Http\Controllers\AdContactController@E
 // Subscription 
 Route::post('SubscriptionAddData','App\Http\Controllers\AdSubscriptionController@AddSubmit');
 Route::post('SubscriptionEditSubmit/{id}','App\Http\Controllers\AdSubscriptionController@EditSubmit');
+
 // adTermsOfUse --------------------
 Route::post('TermsOfUseAddData','App\Http\Controllers\AdTermsController@AddSubmit');
+Route::post('TermsOfUseEditSubmit/{id}','App\Http\Controllers\AdTermsController@EditSubmit');
 // Privacy Policy
 Route::post('PrivacyPolicyAddData','App\Http\Controllers\AdPrivacyPolicyController@AddSubmit');
+Route::post('PrivacyPolicyEditSubmit/{id}','App\Http\Controllers\AdPrivacyPolicyController@EditSubmit');
+
+
+
 // Loginsignup 
 Route::post('LoginSignupAddData','App\Http\Controllers\AdLoginSignupController@AddSubmit');
 Route::post('LoginSignupEditSubmit/{id}','App\Http\Controllers\AdLoginSignupController@EditSubmit');

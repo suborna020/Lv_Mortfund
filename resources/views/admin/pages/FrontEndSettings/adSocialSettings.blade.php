@@ -5,6 +5,7 @@
     <div class="row justify-content-end">
         <div class="col-10 pl-5">
             {{-- edaitable part  --}}
+            
             <div class="row ">
                 <div class="col-lg-12 col-12 d-flex">
                     <div class=" mr-auto">
@@ -18,6 +19,12 @@
                 </div>
             </div>
             <br>
+            <div class="row">
+                <div class="col-lg-12 col-12  d-flex orange_text justify-content-center">
+                        <div class="pr-2"><i class="bi bi-info-circle fa-lg"></i></div>
+                        <div>Keep Desable  AddBlocker For  Page Functionality</div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-12 col-12 ">
                     <div class=" small-box RightContainerTable ">
