@@ -3,25 +3,22 @@ function getAllData() {
     $.ajax({
         type: "GET",
         DataType: "json",
-        url: "/HowItWorksData",
+        url: "/FooterCategoriesAllData",
         success: function (data) {
             // console.log(fundRaiseCategories);
             var getHtml = "";
             $.each(data, function (key, allData) {
                 getHtml += `
-                            <tr>
-                                <th scope="row">${Number(key)+1}</th>
-                                <td>${allData.title} </td>
-                                <td>
-                                    <i class="${allData.icon} fa-2x manageIcons"></i>
-                                </td>
-                                <td>
-                                    <div>
-                                        <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit "></i></span>
-                                        <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash"></i>
+                            <div class="row mt-2">
+                            <div class=" col-12 d-flex">
+                                <i class="bi bi-circle-fill boldIcon"></i>${allData.menu_item} 
+                                <div class="col-lg-2 col-md-2 col-2 ml-auto">
+                                    <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit "></i></span>
+                                        <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash"></i></span>
                                     </div>
-                                </td>
-                            </tr>
+                                </div>
+                            </div>
+                           
                         `;
             });
             $(".tableBody").html(getHtml);
@@ -33,31 +30,29 @@ function clearFormData() {
     $('.formInputValue').html('').val('');
     $('.addButtonShow').show();
     $('.updateButtonShow').hide();
-    // $('.editContainer').html('');
 }
 //get edit data  -----------------------------------------------------------------------------
 function getEditableData(id) {
     // alert(id);
-    $('.adHowItWorksModal').modal('show');
+    $('.adFooterCategories').modal('show');
     $.ajax({
         type: "GET"
         , DataType: 'json'
-        , url: "/HowItWorksEditableData/" + id
+        , url: "/FooterCategoriesEditableData/" + id
         , success: function (data) {
             // alert(data.category_id);
             $('.updateButtonShow').show();
             $('.addButtonShow').hide();
 
-            // $('.formFileInput').removeAttr('required');
-            $('.title').val(data.title);
-            $('.icon').val(data.icon);
-            $('.short_description').val(data.short_description);
+            // $('.formInputValue').removeAttr('required');
+            $('.menu_item').val(data.menu_item);
+            $('.link').val(data.link);
             $('.clickedId').html(data.id);
 
         }
     })
 }
-$('#adHowItWorksForm').on('submit', function (event) {
+$('#FooterCategoriesForm').on('submit', function (event) {
     event.preventDefault();
 
     const Msg = Swal.mixin({
@@ -72,7 +67,7 @@ $('#adHowItWorksForm').on('submit', function (event) {
     if (id == "") {
         // add data -----------------------------------------------------------------------------
         $.ajax({
-            url: "/HowItWorksAdd"
+            url: "/FooterCategoriesAddData"
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -81,7 +76,7 @@ $('#adHowItWorksForm').on('submit', function (event) {
             , processData: false
             , success: function (data) {
                 // console.log(data);
-                $('.adHowItWorksModal').modal('hide');
+                $('.adFooterCategories').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -103,7 +98,7 @@ $('#adHowItWorksForm').on('submit', function (event) {
         // edit data  -----------------------------------------------------------------------------
 
         $.ajax({
-            url: "/HowItWorksEditSubmit/" + id
+            url: "/FooterCategoriesEditSubmit/" + id
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -111,7 +106,7 @@ $('#adHowItWorksForm').on('submit', function (event) {
             , cache: false
             , processData: false
             , success: function (data) {
-                $('.adHowItWorksModal').modal('hide');
+                $('.adFooterCategories').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -145,7 +140,7 @@ function destroyData(id) {
             $.ajax({
                 type: "POST"
                 , DataType: 'json'
-                , url: "/HowItWorksDelete/" + id
+                , url: "/FooterCategoriesDelete/" + id
                 , success: function (data) {
                     getAllData();
                 }

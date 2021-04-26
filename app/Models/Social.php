@@ -9,8 +9,11 @@ class Social extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'question',
-        'answer',
+        'social_name',
+        'link',
+        'social_photo',
+        'status',
+        
 
     ];
 }

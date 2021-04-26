@@ -3,7 +3,7 @@ function getAllData() {
     $.ajax({
         type: "GET",
         DataType: "json",
-        url: "/navManusData",
+        url: "/FooterExploreAllData",
         success: function (data) {
             // console.log(fundRaiseCategories);
             var getHtml = "";
@@ -34,11 +34,11 @@ function clearFormData() {
 //get edit data  -----------------------------------------------------------------------------
 function getEditableData(id) {
     // alert(id);
-    $('.adLogoNavModal').modal('show');
+    $('.adFooterExplore').modal('show');
     $.ajax({
         type: "GET"
         , DataType: 'json'
-        , url: "/navManusEditableData/" + id
+        , url: "/FooterExploreEditableData/" + id
         , success: function (data) {
             // alert(data.category_id);
             $('.updateButtonShow').show();
@@ -52,7 +52,7 @@ function getEditableData(id) {
         }
     })
 }
-$('#adLogoNavForm').on('submit', function (event) {
+$('#FooterExploreForm').on('submit', function (event) {
     event.preventDefault();
 
     const Msg = Swal.mixin({
@@ -67,7 +67,7 @@ $('#adLogoNavForm').on('submit', function (event) {
     if (id == "") {
         // add data -----------------------------------------------------------------------------
         $.ajax({
-            url: "/navManusAdd"
+            url: "/FooterExploreAddData"
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -76,7 +76,7 @@ $('#adLogoNavForm').on('submit', function (event) {
             , processData: false
             , success: function (data) {
                 // console.log(data);
-                $('.adLogoNavModal').modal('hide');
+                $('.adFooterExplore').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -98,7 +98,7 @@ $('#adLogoNavForm').on('submit', function (event) {
         // edit data  -----------------------------------------------------------------------------
 
         $.ajax({
-            url: "/navManusEditSubmit/" + id
+            url: "/FooterExploreEditSubmit/" + id
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -106,7 +106,7 @@ $('#adLogoNavForm').on('submit', function (event) {
             , cache: false
             , processData: false
             , success: function (data) {
-                $('.adLogoNavModal').modal('hide');
+                $('.adFooterExplore').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -140,7 +140,7 @@ function destroyData(id) {
             $.ajax({
                 type: "POST"
                 , DataType: 'json'
-                , url: "/navManusDelete/" + id
+                , url: "/FooterExploreDelete/" + id
                 , success: function (data) {
                     getAllData();
                 }

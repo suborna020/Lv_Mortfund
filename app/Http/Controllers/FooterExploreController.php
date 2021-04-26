@@ -6,58 +6,58 @@ use Illuminate\Http\Request;
 use Session;
 use Validator,Redirect,Response,File;
 use DB;
-use App\Models\Support;
+use App\Models\FooterLinkExplore;
 
-
-class AdSupportController extends Controller
+class FooterExploreController extends Controller
 {
     //--------------------------------------------------------------------------------//
     public function AllData(){
-        $data=Support::orderBy('id','DESC')->get();
+        $data=FooterLinkExplore::orderBy('id','DESC')->get();
         return response()->json($data); 
     }
     public function EditableData($id){
-        $data=Support::findOrFail($id);
+        $data=FooterLinkExplore::findOrFail($id);
         return response()->json($data); 
     }
     public function AddSubmit(Request $request){
         $validator = Validator::make($request->all(), [
-            'question' => 'required',
-            'answer' => 'required',
+            'footer_link_name' => 'required',
+            'link' => 'required',
         ]);
         if ($validator->passes()) {
-            $question = $request->question;
-            $answer = $request->answer;
+            $footer_link_name = $request->footer_link_name;
+            $link = $request->link;
+            $status = '1';
     
             $data = [
-                'question'=>$question,
-                'answer'=>$answer,
+                'footer_link_name'=>$footer_link_name,
+                'link'=>$link,
+                'status'=>$status,
     
             ];
-            Support::create($data);
+            FooterLinkExplore::create($data);
             return response()->json($data);
         }
     }
     public function EditSubmit(Request $request,$id){
         $validator = Validator::make($request->all(), [
-            'question' => 'required',
-            'answer' => 'required',
+            'footer_link_name' => 'required',
+            'link' => 'required',
         ]);
         if ($validator->passes()) {
-            $question = $request->question;
-            $answer = $request->answer;
+            $footer_link_name = $request->footer_link_name;
+            $link = $request->link;
     
             $data = [
-                'question'=>$question,
-                'answer'=>$answer,
-    
+                'footer_link_name'=>$footer_link_name,
+                'link'=>$link,
             ];
-            Support::findOrFail($id)->update($data);
+            FooterLinkExplore::findOrFail($id)->update($data);
             return response()->json($data);
         }
     }
     public function Delete( Request $request ,$id){
-        $data=Support::findOrFail($id)->delete(); 
+        $data=FooterLinkExplore::findOrFail($id)->delete(); 
         return response()->json($data);
     }
 }

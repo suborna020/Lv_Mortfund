@@ -3,22 +3,23 @@ function getAllData() {
     $.ajax({
         type: "GET",
         DataType: "json",
-        url: "/navManusData",
+        url: "/SupportAllData",
         success: function (data) {
             // console.log(fundRaiseCategories);
             var getHtml = "";
             $.each(data, function (key, allData) {
                 getHtml += `
-                            <div class="row mt-2">
-                            <div class=" col-12 d-flex">
-                                <i class="bi bi-circle-fill boldIcon"></i>${allData.menu_item} 
-                                <div class="col-lg-2 col-md-2 col-2 ml-auto">
-                                    <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit "></i></span>
-                                        <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash"></i></span>
-                                    </div>
-                                </div>
+                        <tr>
+                        <th scope="row">${Number(key)+1}</th>
+                        <td>${allData.question}</td>
+                        <td>${allData.answer}</td>
+                        <td>
+                            <div>
+                            <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit "></i></span>
+                            <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash"></i>
                             </div>
-                           
+                        </td>
+                    </tr>
                         `;
             });
             $(".tableBody").html(getHtml);
@@ -34,25 +35,25 @@ function clearFormData() {
 //get edit data  -----------------------------------------------------------------------------
 function getEditableData(id) {
     // alert(id);
-    $('.adLogoNavModal').modal('show');
+    $('.adSupportModal').modal('show');
     $.ajax({
         type: "GET"
         , DataType: 'json'
-        , url: "/navManusEditableData/" + id
+        , url: "/SupportEditableData/" + id
         , success: function (data) {
             // alert(data.category_id);
             $('.updateButtonShow').show();
             $('.addButtonShow').hide();
 
             // $('.formInputValue').removeAttr('required');
-            $('.menu_item').val(data.menu_item);
-            $('.link').val(data.link);
+            $('.question').val(data.question);
+            $('.answer').val(data.answer);
             $('.clickedId').html(data.id);
 
         }
     })
 }
-$('#adLogoNavForm').on('submit', function (event) {
+$('#SupportForm').on('submit', function (event) {
     event.preventDefault();
 
     const Msg = Swal.mixin({
@@ -67,7 +68,7 @@ $('#adLogoNavForm').on('submit', function (event) {
     if (id == "") {
         // add data -----------------------------------------------------------------------------
         $.ajax({
-            url: "/navManusAdd"
+            url: "/SupportAddData"
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -76,7 +77,7 @@ $('#adLogoNavForm').on('submit', function (event) {
             , processData: false
             , success: function (data) {
                 // console.log(data);
-                $('.adLogoNavModal').modal('hide');
+                $('.adSupportModal').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -98,7 +99,7 @@ $('#adLogoNavForm').on('submit', function (event) {
         // edit data  -----------------------------------------------------------------------------
 
         $.ajax({
-            url: "/navManusEditSubmit/" + id
+            url: "/SupportEditSubmit/" + id
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -106,7 +107,7 @@ $('#adLogoNavForm').on('submit', function (event) {
             , cache: false
             , processData: false
             , success: function (data) {
-                $('.adLogoNavModal').modal('hide');
+                $('.adSupportModal').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -140,7 +141,7 @@ function destroyData(id) {
             $.ajax({
                 type: "POST"
                 , DataType: 'json'
-                , url: "/navManusDelete/" + id
+                , url: "/SupportDelete/" + id
                 , success: function (data) {
                     getAllData();
                 }

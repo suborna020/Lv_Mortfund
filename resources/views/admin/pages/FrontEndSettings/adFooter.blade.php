@@ -5,9 +5,9 @@
     <div class="row justify-content-end">
         <div class="col-10 pl-5 coloredInputsContainer">
             {{-- edaitable part  --}}
-                <form id="FooterForm" class="mysummernote" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <form id="FooterForm" class="mysummernote" method="post" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row  mt-3">
                     <div class="col-lg-6 col-md-6 col-6">
                         <div class="input-group ">
@@ -56,82 +56,64 @@
                     </div>
                 </div>
                 <div class="row tableSmallText1 mt-4">
+
                     <div class=" col-4 ">
                         <h6>About</h6>
-                        <div class="row my-2">
-                            <div class=" col-12 px-2 d-flex">
-                                <div>
-                                    <i class="bi bi-circle-fill boldIcon"></i>
-                                    How it Works
+                        <div class="AboutTableBody">
+                            {{--  <div class="row my-2">
+                                <div class=" col-12 px-2 d-flex">
+                                    <div>
+                                        <i class="bi bi-circle-fill boldIcon"></i>
+                                        How it Works
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-2 ml-1 d-flex">
+                                        <span><i class=" manageIcons fas fa-edit "></i></span>
+                                        <span><i class=" manageIcons fas fa-trash"></i></span>
+                                    </div>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-2 ml-1 d-flex">
-                                    <span><i class=" manageIcons fas fa-edit "></i></span>
-                                    <span><i class=" manageIcons fas fa-trash"></i></span>
-                                </div>
-                            </div>
+                            </div>  --}}
                         </div>
-                        <div class="row my-2">
-                            <div class=" col-12 px-2 px-2 d-flex">
-                                <i class="bi bi-circle-fill boldIcon"></i>Explore
-                                <div class="col-lg-2 col-md-2 col-2  ml-1 d-flex">
-                                    <span><i class=" manageIcons fas fa-edit "></i></span>
-                                    <span><i class=" manageIcons fas fa-trash"></i></span>
-                                </div>
-                            </div>
-                        </div>
+
                         <div>
                             <button type="button" data-toggle="modal" data-target=".FooterAboutModal" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
                         </div>
                     </div>
                     <div class=" col-4 ">
                         <h6>Categories</h6>
-                        <div class="row my-2">
-                            <div class=" col-12 px-2 d-flex">
-                                <div>
-                                    <i class="bi bi-circle-fill boldIcon"></i>
-                                    How it Works
+                        <div class="categoriesTableBody">
+                            {{--  <div class="row my-2">
+                                <div class=" col-12 px-2 d-flex">
+                                    <div>
+                                        <i class="bi bi-circle-fill boldIcon"></i>
+                                        How it Works
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-2 ml-1 d-flex">
+                                        <span><i class=" manageIcons fas fa-edit "></i></span>
+                                        <span><i class=" manageIcons fas fa-trash"></i></span>
+                                    </div>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-2 ml-1 d-flex">
-                                    <span><i class=" manageIcons fas fa-edit "></i></span>
-                                    <span><i class=" manageIcons fas fa-trash"></i></span>
-                                </div>
-                            </div>
+                            </div>  --}}
                         </div>
-                        <div class="row my-2">
-                            <div class=" col-12 px-2 d-flex">
-                                <i class="bi bi-circle-fill boldIcon"></i>Explore
-                                <div class="col-lg-2 col-md-2 col-2  ml-1 d-flex">
-                                    <span><i class=" manageIcons fas fa-edit "></i></span>
-                                    <span><i class=" manageIcons fas fa-trash"></i></span>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div>
                             <button type="button" data-toggle="modal" data-target=".adFooterCategories" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
                         </div>
                     </div>
                     <div class=" col-4 ">
                         <h6>Explore</h6>
-                        <div class="row my-2">
-                            <div class=" col-12 px-2 d-flex">
-                                <div>
-                                    <i class="bi bi-circle-fill boldIcon"></i>
-                                    How it Works
+                        <div class="exploreTableBody">
+                            {{--  <div class="row my-2">
+                                <div class=" col-12 px-2 d-flex">
+                                    <div>
+                                        <i class="bi bi-circle-fill boldIcon"></i>
+                                        How it Works
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-2 ml-1 d-flex">
+                                        <span><i class=" manageIcons fas fa-edit "></i></span>
+                                        <span><i class=" manageIcons fas fa-trash"></i></span>
+                                    </div>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-2 ml-1 d-flex">
-                                    <span><i class=" manageIcons fas fa-edit "></i></span>
-                                    <span><i class=" manageIcons fas fa-trash"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row my-2">
-                            <div class=" col-12 px-2 d-flex">
-                                <i class="bi bi-circle-fill boldIcon"></i>Explore
-                                <div class="col-lg-2 col-md-2 col-2  ml-1 d-flex">
-                                    <span><i class=" manageIcons fas fa-edit "></i></span>
-                                    <span><i class=" manageIcons fas fa-trash"></i></span>
-                                </div>
-                            </div>
+                            </div>  --}}
                         </div>
                         <div>
                             <button type="button" data-toggle="modal" data-target=".adFooterExplore" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
@@ -158,5 +140,9 @@
 
 </div>
 <script src="{{ url('adminAssets/js/FrontEndSettings/adFooter.js') }}"></script>
+{{-- <script src="{{ url('adminAssets/js/FrontEndSettings/adFooterAbout.js') }}"></script>
+<script src="{{ url('adminAssets/js/FrontEndSettings/adFooterCategories.js') }}"></script>
+<script src="{{ url('adminAssets/js/FrontEndSettings/adFooterExplore.js') }}"></script> --}}
+
 
 @endsection

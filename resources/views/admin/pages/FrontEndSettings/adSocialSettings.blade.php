@@ -38,8 +38,8 @@
                                     <th scope="col" class="spaceForManage">Manage</th>
                                 </tr>
                             </thead>
-                            <tbody class="FundRaiseTableBody">
-                                <tr>
+                            <tbody class="tableBody">
+                                {{--  <tr>
                                     <th scope="row">1</th>
                                     <td>Facebook</td>
                                     <td class="text-truncate">http/Lorem ipsum, dolor sit amet</td>
@@ -54,7 +54,7 @@
                                             <span><i class=" manageIcons fa-lg fas fa-trash"></i></span>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr>  --}}
                             </tbody>
                         </table>
                     </div>
@@ -72,6 +72,6 @@
 
 </div>
 
-{{-- <script src="{{ url('adminAssets/js/Advertisement/adAdvertisement.js') }}"></script> --}}
+<script src="{{ url('adminAssets/js/FrontEndSettings/adSocialSettings.js') }}"></script>
 
 @endsection
