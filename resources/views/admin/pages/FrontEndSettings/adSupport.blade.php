@@ -62,10 +62,12 @@
             </div>
             <div class="row  my-4 coloredInputsContainer">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <form method="post"  enctype="multipart/form-data">
+                    <form id="SubscribeForm" method="post"  enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                         <div class="input-group mt-3">
-                            <input type="text" class="form-control " name="username" placeholder="Enter Subscription title">
+                            <input type="text" class="form-control " name="title" placeholder="Enter Subscription title" value="{{($Subscribe->title)?? '' }}">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <i class="bi bi-align-top fa-lg blurText"></i>
@@ -73,15 +75,15 @@
                             </div>
                         </div>
                         <div class="form-group input-group mt-3">
-                            <textarea class="form-control formInputValue customizeInputField" rows="3" id="textArea" name="message" placeholder="Enter Subscription text"></textarea>
+                            <textarea class="form-control formInputValue customizeInputField" rows="3"  name="sub_title" placeholder="Enter Subscription text">{{($Subscribe->sub_title)?? '' }}</textarea>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
                                 </div>
                             </div>
                         </div>
-
-                        <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold ml-auto d-flex"><i class="fas fa-plus mr-1"></i>Save</button>
+                        <input class=" displayNone PickedDataId " type="text " value="{{($Subscribe->id)?? '' }}">
+                        <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold ml-auto d-flex"><i class="fas fa-plus mr-1"></i>Save Changes</button>
                     </form>
                 </div>
             </div>
@@ -93,6 +95,6 @@
 
 </div>
 
-{{-- <script src="{{ url('adminAssets/js/Advertisement/adAdvertisement.js') }}"></script> --}}
+<script src="{{ url('adminAssets/js/FrontEndSettings/adSubscribe.js') }}"></script>
 
 @endsection

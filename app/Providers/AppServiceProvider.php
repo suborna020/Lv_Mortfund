@@ -5,12 +5,12 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Carbon;
-use App\Models\Admin;
 use Illuminate\Http\Request;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\View;
-
+use DB;
+use App\Models\Admin;
 use App\Models\User;
 use App\Models\General;
 use App\Models\Navmenu;
@@ -30,10 +30,9 @@ use App\Models\WithdrawRequest;
 use App\Models\NewsletterMail;
 use App\Models\PaymentGateway;
 use App\Models\About;
-
-use DB;
-
-
+use App\Models\ContactView;
+use App\Models\Subscribe;
+use App\Models\SignupLoginView;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -118,11 +117,13 @@ class AppServiceProvider extends ServiceProvider
                 ->get();
                 $newsletterMail=NewsletterMail::all();
                 $paymentGatewaysBox=PaymentGateway::all();
-                $aboutBox =About::where('id',1)->first();
+                $aboutBox =About::first();
+                $ContactView =ContactView::first();
+                $Subscribe =Subscribe::first();
+                
+                $SignupLoginView = SignupLoginView::first();
 
 
-
-    
              $view->with('userInfoBox',$userInfoBox)
                 ->with('FundraisersBox',$FundraisersBox)
                 ->with('CategoriesBox',$CategoriesBox)
@@ -133,6 +134,12 @@ class AppServiceProvider extends ServiceProvider
                 ->with('newsletterMail',$newsletterMail )
                 ->with('paymentGatewaysBox',$paymentGatewaysBox )
                 ->with('aboutBox',$aboutBox )
+                ->with('ContactView',$ContactView )
+                ->with('Subscribe',$Subscribe )
+                ->with('SignupLoginView',$SignupLoginView )
+
+
+
                 ;
                
             }

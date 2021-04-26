@@ -1,4 +1,4 @@
-$('#contactForm').on('submit', function (event) {
+$('#SubscribeForm').on('submit', function (event) {
     event.preventDefault();
 
     const Msg = Swal.mixin({
@@ -13,7 +13,7 @@ $('#contactForm').on('submit', function (event) {
     if (id == "") {
         // add data -----------------------------------------------------------------------------
         $.ajax({
-            url: "/contactAddData"
+            url: "/SubscriptionAddData"
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -40,7 +40,7 @@ $('#contactForm').on('submit', function (event) {
         // edit data  -----------------------------------------------------------------------------
 
         $.ajax({
-            url: "/contactEditSubmit/" + id
+            url: "/SubscriptionEditSubmit/" + id
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'

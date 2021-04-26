@@ -255,7 +255,25 @@ Route::post('HowItWorksAdd','App\Http\Controllers\FrontendController@HowItWorksa
 Route::post('HowItWorksEditSubmit/{id}','App\Http\Controllers\FrontendController@HowItWorkseditSubmit');
 Route::post('/HowItWorksDelete/{id}', 'App\Http\Controllers\FrontendController@HowItWorksdelete');
 // about ------------------------------------
-Route::post('/updateAbout/{id}', 'App\Http\Controllers\FrontendController@updateAbout');
+Route::post('AboutAddData','App\Http\Controllers\AdAboutController@AddSubmit');
+Route::post('AboutEditSubmit/{id}','App\Http\Controllers\AdAboutController@EditSubmit');
+// contact -----------------------------------
+Route::post('contactAddData','App\Http\Controllers\AdContactController@AddSubmit');
+Route::post('contactEditSubmit/{id}','App\Http\Controllers\AdContactController@EditSubmit');
+// Subscription 
+Route::post('SubscriptionAddData','App\Http\Controllers\AdSubscriptionController@AddSubmit');
+Route::post('SubscriptionEditSubmit/{id}','App\Http\Controllers\AdSubscriptionController@EditSubmit');
+// adTermsOfUse --------------------
+Route::post('TermsOfUseAddData','App\Http\Controllers\AdTermsController@AddSubmit');
+// Privacy Policy
+Route::post('PrivacyPolicyAddData','App\Http\Controllers\AdPrivacyPolicyController@AddSubmit');
+// Loginsignup 
+Route::post('LoginSignupAddData','App\Http\Controllers\AdLoginSignupController@AddSubmit');
+Route::post('LoginSignupEditSubmit/{id}','App\Http\Controllers\AdLoginSignupController@EditSubmit');
+
+
+
+
 // about  secondary points AboutSecondary ------------------------
 Route::get('AboutSecondaryData','App\Http\Controllers\FrontendController@AboutSecondaryallData');
 Route::get('AboutSecondaryEditableData/{id}', 'App\Http\Controllers\FrontendController@AboutSecondaryeditableData');

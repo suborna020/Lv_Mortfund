@@ -6,12 +6,12 @@
         <div class="col-10 pl-5 coloredInputsContainer adAboutContainer">
             {{-- edaitable part  --}}
 
-            <form action="{{url('/updateAbout/'.($aboutBox->id))}}" method="post" enctype="multipart/form-data">
+            <form  id="aboutForm" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row ">
                     <div class="col-lg-5 col-5 col-sm-5">
                         <div class=" customFileInput">
-                            <input type="file" class="fileName formInputValue formFileInput" name="image_video" accept="image/*">
+                            <input type="file" class="fileName  " name="image_video" accept="image/*">
                             <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload About Image/Photo</button>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                 <div class="row mt-4 ">
                     <div class="col-lg-10 col-md-10 col-10">
                         <div class="form-group input-group">
-                            <textarea class="form-control formInputValue customizeInputField" rows="4" name="about_primary_text" placeholder="Enter about text" required>{{($aboutBox->about_primary_text)?? '' }}</textarea>
+                            <textarea class="form-control  customizeInputField" rows="4" name="about_primary_text" placeholder="Enter about text" required>{{($aboutBox->about_primary_text)?? '' }}</textarea>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
@@ -71,7 +71,7 @@
                 <div class="row mt-4 ">
                     <div class="col-lg-10 col-md-10 col-10">
                         <div class="form-group input-group">
-                            <textarea class="form-control formInputValue customizeInputField" rows="4" name="secondary_text" placeholder="Enter about secondary text" required>{{($aboutBox->secondary_text)?? '' }}</textarea>
+                            <textarea class="form-control  customizeInputField" rows="4" name="secondary_text" placeholder="Enter about secondary text" required>{{($aboutBox->secondary_text)?? '' }}</textarea>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
@@ -131,6 +131,8 @@
                 <br><br>
                 <div class="modalBorder"></div>
                 <div class=" my-4 mx-4 px-5 d-flex">
+                    <input class=" displayNone PickedDataId " type="text " value="{{($aboutBox->id)?? '' }}">
+                    {{-- <span class="clickedId " style="display:unset">{{($aboutBox->id)?? ''}}</span> --}}
                     <button type="submit" class=" btn ml-auto whiteText btn-lg orangeBackground  font-weight-bold btn">Save Changes</button>
                 </div>
             </form>
@@ -144,6 +146,8 @@
 </div>
 
 <script src="{{ url('adminAssets/js/FrontEndSettings/adAboutSecondaryPoint.js') }}"></script>
+<script src="{{ url('adminAssets/js/FrontEndSettings/frontSettingsAbout.js') }}"></script>
+
 
 
 @endsection

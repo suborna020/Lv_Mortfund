@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class WithdrawMethod extends Model
 {
     use HasFactory;
+    // protected $fillable = [
+    //     'question',
+    //     'answer',
+
+    // ];
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrivaciesTable extends Migration
+class CreateSupportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePrivaciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('privacies', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title')->nullable();
-            $table->longText('text')->nullable();
+        Schema::create('supports', function (Blueprint $table) {
+            $table->id();
+            $table->string('question');
+            $table->string('answer');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatePrivaciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('privacies');
+        Schema::dropIfExists('supports');
     }
 }

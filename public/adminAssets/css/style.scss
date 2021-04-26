@@ -31,6 +31,7 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
     background: #002C58;
 }
+// end 
 
 
 
@@ -127,7 +128,9 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
-
+.displayNone{
+    display: none;
+}
 .blackText {
     color: black !important;
 }
@@ -1080,6 +1083,7 @@ nav .menu-open .extend_icon {
 .note-editor.note-airframe,
 .note-editor.note-frame {
     border: none !important;
+    width: 100%;
 }
 
 .note-placeholder {
