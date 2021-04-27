@@ -51,8 +51,6 @@
             </div>
 
         </div>
-        {{-- <br>admin session no :{{$admin_sessionData}} --}}
-        {{-- user name :{{$userInfoBox->admin_name}} --}}
 
     </div>
     <!-- /.row -->

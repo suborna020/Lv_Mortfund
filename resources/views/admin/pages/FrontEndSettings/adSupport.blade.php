@@ -12,7 +12,7 @@
                     </div>
                     <div class=" ml-auto d-flex ">
                         <div>
-                            <button type="button" data-toggle="modal" data-target=".successStoriesListModal" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New </button>
+                            <button type="button" data-toggle="modal" data-target=".adSupportModal" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New </button>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
             </div>
             <div class="row  my-4 coloredInputsContainer">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <form method="post" id="" enctype="multipart/form-data">
+                    <form method="post"  enctype="multipart/form-data">
                         @csrf
                         <div class="input-group mt-3">
                             <input type="text" class="form-control " name="username" placeholder="Enter Subscription title">

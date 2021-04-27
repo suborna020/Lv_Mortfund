@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" data-toggle="modal" data-target=".successStoriesListModal" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
+                        <button type="button" data-toggle="modal" data-target=".FooterAboutModal" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
                     </div>
                 </div>
                 <div class=" col-4 ">
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" data-toggle="modal" data-target=".successStoriesListModal" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
+                        <button type="button" data-toggle="modal" data-target=".adFooterCategories" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
                     </div>
                 </div>
                 <div class=" col-4 ">
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" data-toggle="modal" data-target=".successStoriesListModal" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
+                        <button type="button" data-toggle="modal" data-target=".adFooterExplore" class=" orange_text font-weight-bold btn  btn-block addNewButton smallText" style="width: fit-content;"><i class="fas fa-plus mr-1"></i> Add New </button>
                     </div>
                 </div>
             </div>

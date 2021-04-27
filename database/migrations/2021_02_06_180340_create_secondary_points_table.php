@@ -16,8 +16,10 @@ class CreateSecondaryPointsTable extends Migration
         Schema::create('secondary_points', function (Blueprint $table) {
             $table->increments('id');
             $table->string('secondary_point')->nullable();
+            $table->string('column')->nullable();
             $table->timestamps();
         });
+        
     }
 
     /**

@@ -47,15 +47,10 @@ class AdFundraisers extends Controller
         if ($validator->passes()) {
             $category_name = $request->category_name;
             $status = $request->status;
-            // process of getting file name
-            $file = $request->file('icon'); //name="name"
-            $iconFileName=date('mdYHis').uniqid()."-".$file->getClientOriginalName();
-            $path=$file->move(public_path('uploads'), $iconFileName);
-
-
+            $icon = $request->icon;
             $data = [
                 'category_name'=>$category_name
-                ,'icon'=>$iconFileName
+                ,'icon'=>$icon
                 ,'status'=>$status
             ];  
             // return $data;
@@ -82,16 +77,12 @@ class AdFundraisers extends Controller
             //$dummyData=['category_name'=>'a','icon'=>'b','background_image'=>'c','slug'=>'a','status'=>'d'];
             $category_name = $request->category_name;
             $status = $request->status;
+            $icon = $request->icon;
             $data = [
                 'category_name'=>$category_name
+                ,'icon'=>$icon
                 ,'status'=>$status
             ];  
-            if(($request->file('icon'))!=null){
-                $file = $request->file('icon'); //name="name"
-                $iconFileName=date('mdYHis').uniqid()."-".$file->getClientOriginalName();
-                $path=$file->move(public_path('uploads'), $iconFileName);
-                $data['icon']=$iconFileName;
-            } 
             Category::findOrFail($id)->update($data);
            
             return response()->json($data);

@@ -19,6 +19,7 @@ class CreateAboutsTable extends Migration
             $table->string('about_primary_title')->nullable();
             $table->longText('about_primary_text')->nullable();
             $table->string('about_secondary_title')->nullable();
+            $table->string('secondary_text')->nullable();
             $table->timestamps();
         });
     }

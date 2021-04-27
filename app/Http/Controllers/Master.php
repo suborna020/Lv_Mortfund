@@ -30,6 +30,8 @@ use App\Models\HowItWorks;
 use App\Models\SuccessStory;
 use App\Models\ContactView;
 use App\Models\About;
+use App\Models\support;
+use App\Models\Terms;
 use App\Models\Team;
 use App\Models\Privacy;
 use App\Models\SecondaryPoint;
@@ -272,11 +274,13 @@ class Master extends Controller
     }
 
     public function terms(){
-        return view('ui.pages.terms.terms');
+        $terms = Terms::where('id',1)->first();
+        return view('ui.pages.terms.terms',compact('terms'));
     }
 
     public function support(){
-        return view('ui.pages.faq.faq');
+        $supports = support::where('status',0)->get();
+        return view('ui.pages.faq.faq',compact('supports'));
     }
 
     public function about(){
@@ -547,6 +551,7 @@ class Master extends Controller
                 $user_info->address = $request->address;
                 $user_info->username = $request->username;
                 $user_info->password = $request->password;
+                // $user_info->password = Hash::make($request->password);
                 $user_info->status = 1;
                 $user_info->save();
                 $arr = array('status' => 'true', 'message' => 'Signup Successful', 'reload' => url('login'));
@@ -570,8 +575,11 @@ class Master extends Controller
 
 
     public function userLogin_sub(Request $request){
+
+        // Hash::check('password', $request->password);
         
-        $user_info = User::where('username', $request->username)->where('password',$request->password)->get()->toArray();
+        // $user_info = User::where('username', $request->username)->where(Hash::check('password', $request->password))->get()->toArray();
+        $user_info = User::where('username', $request->username)->where('password', $request->password)->get()->toArray();
         if ($user_info) {
             if ($user_info[0]['status'] == 1) {
                 // $user_info return all data in 0 indexed array . so $user_info child field access a 0 index ullekh korte hobe 
@@ -796,6 +804,7 @@ class Master extends Controller
         $mobile = $r->mobile;
         $address = $r->address;
         $current_balance = $r->current_balance;
+        $charge = $r->charge;
         
         $r->session()->put('campaing_id', $campaing_id);
         $r->session()->put('fundraiser_id', $fundraiser_id);
@@ -806,6 +815,7 @@ class Master extends Controller
         $r->session()->put('mobile', $mobile);
         $r->session()->put('address', $address);
         $r->session()->put('current_balance', $current_balance);
+        $r->session()->put('charge', $charge);
         // $arr = array('status' => 'true', 'message' => 'Currency Changed');
         // echo json_encode($arr);
         return redirect('myAccount/donateMethod');

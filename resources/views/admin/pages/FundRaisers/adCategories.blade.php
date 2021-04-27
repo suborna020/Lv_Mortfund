@@ -24,6 +24,7 @@
                 <div>
                     <button type="button" class=" searchButton whiteText  backgroundCerulean  font-weight-bold btn searchFormButton"> Search Category</button>
                 </div>
+               
                 <div>
                 </div>
             </div>

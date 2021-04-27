@@ -67,7 +67,7 @@
                 <div class="col-12 col-md-8">
                     <div class="card">
                         <div class="card-body">
-                            {{session('payment_method')}}
+                            
                             <h5 class="font-weight-bold">Payment Methods</h5>
                             <h6 class="mb-4 font-weight-bold">please fill up your credentials for atleast one of the gateways</h6>
                             <div class="container">
@@ -86,7 +86,8 @@
                                                     class="btn btn-sm">Pay Now</button> -->
                                                 <form action="{{url('setPaymentMethod')}}" method="POST">
                                                     @csrf
-                                                    <input type="text" name="payment_method" value="{{$payment_method->PaymentGateways->id}}">
+                                                    <input type="hidden" name="payment_method" value="{{$payment_method->PaymentGateways->id}}">
+                                                    <input type="hidden" name="charge" value="{{$payment_method->PaymentGateways->charge}}">
 
                                                     <button type="submit"
                                                     style="overflow:hidden;background-color: #f8800b; padding: 3px 18px; color: #fff; font-weight: 500;"

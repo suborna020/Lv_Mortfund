@@ -5,43 +5,32 @@
     <div class="row justify-content-end">
         <div class="col-10 pl-5">
             {{-- edaitable part  --}}
-            <div class="row   coloredInputsContainer">
-                <div class="col-12">
-                    <form method="post" id="" enctype="multipart/form-data">
-                        @csrf
-                        <div class="input-group mt-1" style="width: 92%;">
-                            <input type="text" class="form-control " name="username" placeholder="Enter  title">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <i class="bi bi-align-top fa-lg blurText"></i>
+            <div class="mysummernote">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="form-group">
+                                <!-- input feild -->
+                                <div class="input-icons" style="width: 92%;">
+                                    <i class="fas fa-text-height"></i>
+                                    <input class="input-field" type="text" placeholder="Enter title" />
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group input-group mt-3">
-                            <textarea class="form-control formInputValue resizeNone customizeInputField" rows="12" id="textArea" name="message" placeholder="Enter  text" ></textarea>
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <i class="bi bi-text-center fa-lg bigIcon blurText"></i>
-                                </div>
-                            </div>
-                        </div>
+                                <!-- text editor -->
+                                <div class="summernote-bg MyEditorSummernote1"></div>
 
-                        <br><br>
-                        <div class="modalBorder"></div>
-                        <div class=" my-4 mx-4 px-5 d-flex">
-                            <button type="button" class="ml-auto whiteText btn-lg orangeBackground  font-weight-bold btn">Save Changes</button>
+                                <!-- footer-->
+                                <div style="height: 5px;  background-color: #f8f8f8; margin: 2rem 0 1rem 0;"></div>
+                                <div class="d-flex align-items-end justify-content-end">
+                                    <button type="submit" class="btn summernote-btn">Save Changes</button>
+                                </div>
+                            </form>
                         </div>
-            
-                        <br>
-                    </form>
+                    </div>
                 </div>
             </div>
             {{-- edaitable part  end --}}
         </div>
-
     </div>
-
-
 </div>
 
 {{-- <script src="{{ url('adminAssets/js/Advertisement/adAdvertisement.js') }}"></script> --}}

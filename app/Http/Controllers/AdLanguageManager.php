@@ -28,8 +28,8 @@ class AdLanguageManager extends Controller
           $data->status=$status;
           $data->update();
         return response()->json($data); 
-      }
-      public function getEditableLngContent($id){
+    }
+    public function getEditableLngContent($id){
         $data=Language::findOrFail($id);
         return response()->json($data); 
     }

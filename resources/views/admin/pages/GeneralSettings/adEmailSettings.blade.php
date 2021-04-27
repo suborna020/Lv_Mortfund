@@ -60,7 +60,7 @@
                                 <input type="text" class="form-control formInputValue" placeholder="Subject" id="subject" name="subject">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control formInputValue customizeInputField" rows="5" id="textArea" name="message"></textarea>
+                                <textarea class="form-control formInputValue customizeInputField" rows="5" id="textArea" name="message"  placeholder="Type here......"></textarea>
                             </div>
 
                             <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold "><i class="fas fa-plus mr-1"></i>Send</button>

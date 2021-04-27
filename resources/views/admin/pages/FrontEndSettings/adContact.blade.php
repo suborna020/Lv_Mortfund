@@ -112,6 +112,12 @@
                     <span><i class=" manageIcons fas fa-trash"></i></span>
                 </div>
             </div>
+            <br><br>
+            <div class="modalBorder"></div>
+            <div class=" my-4 mx-4 px-5 d-flex">
+                <button type="button" class="ml-auto whiteText btn-lg orangeBackground  font-weight-bold btn">Save Changes</button>
+            </div>
+
             <br>
             {{-- edaitable part  end --}}
         </div>

@@ -12,7 +12,7 @@
                     </div>
                     <div class=" ml-auto d-flex ">
                         <div>
-                            <button type="button" data-toggle="modal" data-target=".successStoriesListModal" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New </button>
+                            <button type="button" data-toggle="modal" data-target=".SocialSettingsModal" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New </button>
                         </div>
                     </div>
                 </div>

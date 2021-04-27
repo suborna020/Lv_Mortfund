@@ -192,7 +192,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{(request()->is('adLanguageManager')) ? 'menu-is-opening menu-open' : '' }}">
+                {{-- <li class="nav-item {{(request()->is('adLanguageManager')) ? 'menu-is-opening menu-open' : '' }}">
                     <a href="{{ url('adLanguageManager')}}" class="nav-link">
                         <p class=" {{ (request()->is('adLanguageManager')) ? 'selectedNavLink' : '' }}"></p>
                         <img src="{{asset("adminAssets/img/language.svg")}}" alt="icon" class="asideBarIcon " />
@@ -200,7 +200,7 @@
                             Language Manager
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item {{ (request()->is('adAdvertisement')) ? 'menu-is-opening menu-open' : '' }}">
                     <a href="{{ url('adAdvertisement')}}" class="nav-link">
                         <p class=" {{ (request()->is('adAdvertisement')) ? 'selectedNavLink' : '' }}"></p>

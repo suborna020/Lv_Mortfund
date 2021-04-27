@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class General extends Model
 {
     use HasFactory;
+    protected $table = 'generals';
     protected $fillable = [
         'website_logo',
         'short_note_1',
@@ -19,5 +20,5 @@ class General extends Model
         'website_email',
         'website_phone',
     ];
-    
+
 }

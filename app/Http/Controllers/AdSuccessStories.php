@@ -67,19 +67,19 @@ class AdSuccessStories extends Controller
             if(($request->file('author_photo'))!=null){
                 // process of getting file name
                  $authorPhotoFile = $request->file('author_photo'); //name="thumbnail"
-                 $authorPhotoName =$authorPhotoFile->getClientOriginalName();
+                 $authorPhotoName =date('mdYHis').uniqid().$authorPhotoFile->getClientOriginalName();
                  //move file to a folder
-                 $path=$authorPhotoFile->move(public_path('images/authorPhoto'), $authorPhotoName);
+                 $path=$authorPhotoFile->move(public_path('images'), $authorPhotoName);
                  //getting file path
-                 $author_photo = 'images/authorPhoto/'.$authorPhotoName;
+                 $author_photo = 'images/'.$authorPhotoName;
                  $data['author_photo']=$author_photo;
             }
  
             if(($request->file('photo'))!=null){
                   $successPhotoFile = $request->file('photo'); //name="thumbnail"
-                  $successPhotoFileName =$successPhotoFile->getClientOriginalName();
-                  $path=$successPhotoFile->move(public_path('images/successStoriesPhoto'), $successPhotoFileName);
-                  $photo = 'images/successStoriesPhoto/'.$successPhotoFileName;
+                  $successPhotoFileName =date('mdYHis').uniqid().$successPhotoFile->getClientOriginalName();
+                  $path=$successPhotoFile->move(public_path('images'), $successPhotoFileName);
+                  $photo = 'images/'.$successPhotoFileName;
                   $data['photo']=$photo;
             }
                 //dd($data);
@@ -105,19 +105,19 @@ class AdSuccessStories extends Controller
             if(($request->file('author_photo'))!=null){
                 // process of getting file name
                  $authorPhotoFile = $request->file('author_photo'); //name="thumbnail"
-                 $authorPhotoName =$authorPhotoFile->getClientOriginalName();
+                 $authorPhotoName =date('mdYHis').uniqid().$authorPhotoFile->getClientOriginalName();
                  //move file to a folder
-                 $path=$authorPhotoFile->move(public_path('images/authorPhoto'), $authorPhotoName);
+                 $path=$authorPhotoFile->move(public_path('images'), $authorPhotoName);
                  //getting file path
-                 $author_photo = 'images/authorPhoto/'.$authorPhotoName;
+                 $author_photo = 'images/'.$authorPhotoName;
                  $data['author_photo']=$author_photo;
             }
  
             if(($request->file('photo'))!=null){
                   $successPhotoFile = $request->file('photo'); //name="thumbnail"
-                  $successPhotoFileName =$successPhotoFile->getClientOriginalName();
-                  $path=$successPhotoFile->move(public_path('images/successStoriesPhoto'), $successPhotoFileName);
-                  $photo = 'images/successStoriesPhoto/'.$successPhotoFileName;
+                  $successPhotoFileName =date('mdYHis').uniqid().$successPhotoFile->getClientOriginalName();
+                  $path=$successPhotoFile->move(public_path('images'), $successPhotoFileName);
+                  $photo = 'images/'.$successPhotoFileName;
                   $data['photo']=$photo;
             }
             SuccessStory::findOrFail($id)->update($data);

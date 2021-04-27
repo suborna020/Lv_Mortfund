@@ -81,3 +81,27 @@ $("#datepicker").datepicker("setDate", new Date());
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
+// $('.social-icon').iconpicker();
+// summernote 
+$(document).ready(function () {
+    $('.MyEditorSummernote1').summernote();
+
+});
+$('.MyEditorSummernote1').summernote({
+    height: '50vh', // set editor height
+    minHeight: null,
+    maxHeight: '50vh',
+    focus: true,
+    placeholder: 'Enter text',
+     toolbar: [
+        ["style", ["style"]],
+        ["font", ["bold", "underline", "clear"]],
+        ["fontname", ["fontname"]],
+        ["color", ["color"]],
+        ["para", ["ul", "ol", "paragraph"]],
+        ["table", ["table"]],
+        //["insert", ["link", "picture", "video"]],
+        ["view", ["fullscreen", "codeview"]]
+
+    ],
+});

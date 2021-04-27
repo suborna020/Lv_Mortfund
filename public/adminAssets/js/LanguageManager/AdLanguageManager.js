@@ -177,7 +177,6 @@ $('.AllFundRaiseCheckBox').change(function () {
                                         <span class="d-flex"><i class="bi bigIcon fa-lg bi-chevron-expand manageIcons rotate"></i></span>
                                         <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
                                         <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-
                                     </div>
                                 </td>
                         </tr>`;
@@ -214,7 +213,6 @@ $('.AllFundRaiseCheckBox').change(function () {
                                         <span class="d-flex"><i class="bi bigIcon fa-lg bi-chevron-expand manageIcons rotate"></i></span>
                                         <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit fa-lg"></i></span>
                                         <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash fa-lg"></i></span>
-
                                     </div>
                                 </td>
                         </tr>`;

@@ -22,34 +22,23 @@
                                     <th scope="col" class="col_1">#</th>
                                     <th scope="col">Title</th>
                                     <th scope="col" style="width: 46%;">Icon</th>
-
                                     <th scope="col" class="spaceForManage">Manage</th>
                                 </tr>
                             </thead>
-                            <tbody class="FundRaiseTableBody">
-                                <tr>
+                            <tbody class="tableBody">
+                                {{-- <tr>
                                     <th scope="row">1</th>
                                     <td>Lorem ipsum, dolor sit amet</td>
                                     <td>
-                                        <div class="d-flex">
-                                            <div class="howItWImage text-truncate ">MyIcon.png</div>
-                                            <div class=" customFileInput howItWFileUpDiv">
-                                                <input type="file" class="fileName formInputValue fileInput " name="photo" accept="image/*" required>
-                                                <button type="button" class=" whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Icon </button>
-                                            </div>
-
-
-                                        </div>
+                                        <i class="fas fa-plus fa-2x"></i>
                                     </td>
-
-
                                     <td>
                                         <div>
-                                            <span><i class=" manageIcons fa-lg fas fa-edit"></i></span>
+                                            <span data-toggle="modal" data-target=".adHowItWorksModal"><i class=" manageIcons fa-lg fas fa-edit"></i></span>
                                             <span><i class=" manageIcons fa-lg fas fa-trash"></i></span>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -67,6 +56,6 @@
 
 </div>
 
-{{-- <script src="{{ url('adminAssets/js/Advertisement/adAdvertisement.js') }}"></script> --}}
+<script src="{{ url('adminAssets/js/FrontEndSettings/adHowItWorks.js') }}"></script>
 
 @endsection
