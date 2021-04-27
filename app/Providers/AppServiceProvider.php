@@ -5,12 +5,12 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Carbon;
-use App\Models\Admin;
 use Illuminate\Http\Request;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\View;
-
+use DB;
+use App\Models\Admin;
 use App\Models\User;
 use App\Models\General;
 use App\Models\Navmenu;
@@ -29,7 +29,18 @@ use App\Models\SuccessStory;
 use App\Models\WithdrawRequest;
 use App\Models\NewsletterMail;
 use App\Models\PaymentGateway;
+<<<<<<< HEAD
 use DB;
+=======
+use App\Models\About;
+use App\Models\ContactView;
+use App\Models\Subscribe;
+use App\Models\SignupLoginView;
+use App\Models\Terms;
+use App\Models\Privacy;
+
+
+>>>>>>> 3a5341334267104e1303a144acaf273327f3b140
 
 
 
@@ -104,6 +115,10 @@ class AppServiceProvider extends ServiceProvider
                 $FundraisersBox = Fundraiser::all();
                 $CategoriesBox = Category::all();
                 $successStoriesBox = SuccessStory::all();
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 3a5341334267104e1303a144acaf273327f3b140
                 $WithdrawRequestsBox=DB::table('transections')
                     ->where('transection_type','1')
                     ->get();
@@ -115,9 +130,17 @@ class AppServiceProvider extends ServiceProvider
                 ->get();
                 $newsletterMail=NewsletterMail::all();
                 $paymentGatewaysBox=PaymentGateway::all();
+                $aboutBox =About::first();
+                $ContactView =ContactView::first();
+                $Subscribe =Subscribe::first();
+                $Footer = Footer::first();
+                $Terms = Terms::first();
+                $SignupLoginView = SignupLoginView::first();
+                $generalBox = General::first();
+                
+                $Privacy = Privacy::first();
 
 
-    
              $view->with('userInfoBox',$userInfoBox)
                 ->with('FundraisersBox',$FundraisersBox)
                 ->with('CategoriesBox',$CategoriesBox)
@@ -127,6 +150,20 @@ class AppServiceProvider extends ServiceProvider
                 ->with('FundOnProgressBox',$FundOnProgressBox)
                 ->with('newsletterMail',$newsletterMail )
                 ->with('paymentGatewaysBox',$paymentGatewaysBox )
+                ->with('aboutBox',$aboutBox )
+                ->with('ContactView',$ContactView )
+                ->with('Subscribe',$Subscribe )
+                ->with('SignupLoginView',$SignupLoginView )
+                ->with('Footer',$Footer )
+                ->with('Terms',$Terms )
+                ->with('Privacy',$Privacy )
+                ->with('generalBox',$generalBox )
+
+
+
+
+
+
 
                 ;
                

@@ -13,7 +13,7 @@ function getAllData() {
                                 <th scope="row">${Number(key)+1}</th>
                                 <td>${allData.title} </td>
                                 <td>
-                                    <i class="${allData.icon} manageIcons"></i>
+                                    <i class="${allData.icon} fa-2x manageIcons"></i>
                                 </td>
                                 <td>
                                     <div>

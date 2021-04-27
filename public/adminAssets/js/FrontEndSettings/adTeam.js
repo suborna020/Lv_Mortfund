@@ -3,21 +3,33 @@ function getAllData() {
     $.ajax({
         type: "GET",
         DataType: "json",
-        url: "/navManusData",
+        url: "/TeamData",
         success: function (data) {
             // console.log(fundRaiseCategories);
             var getHtml = "";
             $.each(data, function (key, allData) {
                 getHtml += `
-                            <div class="row mt-2">
-                            <div class=" col-12 d-flex">
-                                <i class="bi bi-circle-fill boldIcon"></i>${allData.menu_item} 
-                                <div class="col-lg-2 col-md-2 col-2 ml-auto">
+                            <tr>
+                                <th scope="row">${Number(key)+1}</th>
+                                <td>${allData.member_name}</td>
+                                <td>${allData.member_designation}</td>
+                                <td class="text-truncate">${allData.facebook_link}</td>
+                                <td class="text-truncate">${allData.linkedin_link}</td>
+                                <td class="text-truncate">${allData.twitter_link}</td>
+                                <td class="text-truncate">${allData.instagram_link}</td>
+                                <td>
+                                    <a href="../uploads/${allData.photo}" data-fancybox>
+                                        <img src="../uploads/${allData.photo}" class="smallRoundPic" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <div>
                                     <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit "></i></span>
-                                        <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash"></i></span>
+                                    <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash"></i>
                                     </div>
-                                </div>
-                            </div>
+                                </td>
+                            </tr>
+                              
                            
                         `;
             });
@@ -30,29 +42,47 @@ function clearFormData() {
     $('.formInputValue').html('').val('');
     $('.addButtonShow').show();
     $('.updateButtonShow').hide();
+    $('.editContainer').html('');
 }
 //get edit data  -----------------------------------------------------------------------------
 function getEditableData(id) {
     // alert(id);
-    $('.adLogoNavModal').modal('show');
+    $('.adTeamModal').modal('show');
     $.ajax({
         type: "GET"
         , DataType: 'json'
-        , url: "/navManusEditableData/" + id
+        , url: "/TeamEditableData/" + id
         , success: function (data) {
             // alert(data.category_id);
             $('.updateButtonShow').show();
             $('.addButtonShow').hide();
 
-            // $('.formInputValue').removeAttr('required');
-            $('.menu_item').val(data.menu_item);
-            $('.link').val(data.link);
+            $('.formFileInput').removeAttr('required');
+            $('.member_name').val(data.member_name);
+            $('.member_designation').val(data.member_designation);
+            $('.facebook_link').val(data.facebook_link);
+            $('.twitter_link').val(data.twitter_link);
+            $('.linkedin_link').val(data.linkedin_link);
+            $('.instagram_link').val(data.instagram_link);
+
             $('.clickedId').html(data.id);
+            var editModalFilesRow = ""
+            var editModalFilesRow = `
+                        <div class="row px-2">
+                            <div class="col-lg-4 col-4 mb-2 smallHeadline my-auto"> Photo </div>
+                                <div class="col-lg-8 col-8 mb-2 ">
+                                    <a href="../uploads/${data.photo}" data-fancybox>
+                                    <img src="../uploads/${data.photo}" class="  mediumFileSize" />
+                                    </a>
+                                </div>
+                        </div>
+                    `
+            $('.editContainer').html(editModalFilesRow);
 
         }
     })
 }
-$('#adLogoNavForm').on('submit', function (event) {
+$('#adTeamForm').on('submit', function (event) {
     event.preventDefault();
 
     const Msg = Swal.mixin({
@@ -67,7 +97,7 @@ $('#adLogoNavForm').on('submit', function (event) {
     if (id == "") {
         // add data -----------------------------------------------------------------------------
         $.ajax({
-            url: "/navManusAdd"
+            url: "/TeamAdd"
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -76,7 +106,7 @@ $('#adLogoNavForm').on('submit', function (event) {
             , processData: false
             , success: function (data) {
                 // console.log(data);
-                $('.adLogoNavModal').modal('hide');
+                $('.adTeamModal').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -98,7 +128,7 @@ $('#adLogoNavForm').on('submit', function (event) {
         // edit data  -----------------------------------------------------------------------------
 
         $.ajax({
-            url: "/navManusEditSubmit/" + id
+            url: "/TeamEditSubmit/" + id
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -106,7 +136,7 @@ $('#adLogoNavForm').on('submit', function (event) {
             , cache: false
             , processData: false
             , success: function (data) {
-                $('.adLogoNavModal').modal('hide');
+                $('.adTeamModal').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -140,7 +170,7 @@ function destroyData(id) {
             $.ajax({
                 type: "POST"
                 , DataType: 'json'
-                , url: "/navManusDelete/" + id
+                , url: "/TeamDelete/" + id
                 , success: function (data) {
                     getAllData();
                 }

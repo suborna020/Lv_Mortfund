@@ -122,168 +122,249 @@ Route::get('/caches/',[\App\Http\Controllers\CachesController::class,'cachesM'])
 Route::get('/clear/',[\App\Http\Controllers\CachesController::class,'clearCachesM']);
 
 Route::group(['middleware'=>'adminAuthentication'],function(){
-    Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
-    Route::get('/adminChart','App\Http\Controllers\AdminOperation@adminChart');
-    Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
-    Route::post('/mail-to-subscribe', 'App\Http\Controllers\FPController@subSendMail');
+Route::get('/aDashboard','App\Http\Controllers\AdminOperation@aDashboardM')->name('aDashboardM');
+Route::get('/adminChart','App\Http\Controllers\AdminOperation@adminChart');
+Route::get('/aLogout','App\Http\Controllers\AdminOperation@aLogoutM')->name('aLogout');
+Route::post('/mail-to-subscribe', 'App\Http\Controllers\FPController@subSendMail');
 
-    //Fundraisers 
-    Route::get('Fundraisers/adCategories','App\Http\Controllers\AdFundraisers@adCategories');
-    Route::get('Fundraisers/adAllFundRaise','App\Http\Controllers\AdFundraisers@adAllFundRaise');
-    Route::get('Fundraisers/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
-    Route::get('Fundraisers/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
-    Route::get('Fundraisers/adPending','App\Http\Controllers\AdFundraisers@adPending');
-    Route::get('Fundraisers/adOnProgress','App\Http\Controllers\AdFundraisers@adOnProgress');
-    Route::get('Fundraisers/adPrivate','App\Http\Controllers\AdFundraisers@adPrivate');
-    
-
-
-    //Fundraisers -> Categories
-    Route::get('/fundRaiseCategoriesData', 'App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
-    Route::post('categoriesAddData','App\Http\Controllers\AdFundraisers@categoriesAddData');
-    Route::get('categoriesEditData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesEditData');
-    Route::post('categoriesEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@categoriesEditedSubmit');
-    Route::get('/categoriesStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@categoriesStatusUpdate');
-    Route::post('/categoriesDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesDestroyData');
-     //Fundraisers -> AllFundRaise
-     Route::get('/AllFundRaiseData', 'App\Http\Controllers\AdFundraisers@AllFundRaiseData');
-    Route::get('AllFundRaiseEditData/{id}', 'App\Http\Controllers\AdFundraisers@AllFundRaiseEditData');
-    Route::get('fundRaiseEditData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseEditData');
-    Route::post('fundRaiseEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@fundRaiseEditedSubmit');
-    Route::get('/fundRaiseStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseStatusUpdate');
-    Route::post('/fundRaiseDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseDestroyData');
-    Route::get('/fundRaiseRecentListUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentListUpdate');
-    
-     //Fundraisers -> Recent
-    Route::get('/fundRaiseRecentData', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentData');
-    Route::post('fundRecentAddData','App\Http\Controllers\AdFundraisers@fundRecentAddData');
-    //    other edit delete  are same --
-     //Fundraisers -> urgent
-    Route::get('/fundRaiseUrgentData', 'App\Http\Controllers\AdFundraisers@fundRaiseUrgentData');
-    Route::post('fundUrgentAddData','App\Http\Controllers\AdFundraisers@fundUrgentAddData');
-     //Fundraisers -> pending
-     Route::get('/fundRaisePendingData', 'App\Http\Controllers\AdFundraisers@fundRaisePendingData');
-    //Fundraisers -> OnProgress
-    Route::get('/fundOnProgressData', 'App\Http\Controllers\AdFundraisers@fundOnProgressData');
-    //Fundraisers -> Private
-    Route::get('/fundRaisePrivateData', 'App\Http\Controllers\AdFundraisers@fundRaisePrivateData');
-    Route::get('/fundRaisePrivateListUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaisePrivateListUpdate');
-    Route::post('fundPrivateAddData','App\Http\Controllers\AdFundraisers@fundPrivateAddData');
-    //Success Stories -> stories
-    Route::get('/stories', 'App\Http\Controllers\AdSuccessStories@stories');
-    Route::get('getEditableStory/{id}', 'App\Http\Controllers\AdSuccessStories@getEditableStory');
-    Route::post('addSuccessStoriesData','App\Http\Controllers\AdSuccessStories@addSuccessStoriesData');
-    Route::post('editSuccessStoriesData/{id}','App\Http\Controllers\AdSuccessStories@editSuccessStoriesData');
-    Route::post('/successStoriesDestroyData/{id}', 'App\Http\Controllers\AdSuccessStories@successStoriesDestroyData');
-
-
-    
+//Fundraisers 
+Route::get('Fundraisers/adCategories','App\Http\Controllers\AdFundraisers@adCategories');
+Route::get('Fundraisers/adAllFundRaise','App\Http\Controllers\AdFundraisers@adAllFundRaise');
+Route::get('Fundraisers/adRecent','App\Http\Controllers\AdFundraisers@adRecent');
+Route::get('Fundraisers/adUrgent','App\Http\Controllers\AdFundraisers@adUrgent');
+Route::get('Fundraisers/adPending','App\Http\Controllers\AdFundraisers@adPending');
+Route::get('Fundraisers/adOnProgress','App\Http\Controllers\AdFundraisers@adOnProgress');
+Route::get('Fundraisers/adPrivate','App\Http\Controllers\AdFundraisers@adPrivate');
 
 
 
+//Fundraisers -> Categories
+Route::get('/fundRaiseCategoriesData', 'App\Http\Controllers\AdFundraisers@fundRaiseCategoriesData');
+Route::post('categoriesAddData','App\Http\Controllers\AdFundraisers@categoriesAddData');
+Route::get('categoriesEditData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesEditData');
+Route::post('categoriesEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@categoriesEditedSubmit');
+Route::get('/categoriesStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@categoriesStatusUpdate');
+Route::post('/categoriesDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@categoriesDestroyData');
+//Fundraisers -> AllFundRaise
+Route::get('/AllFundRaiseData', 'App\Http\Controllers\AdFundraisers@AllFundRaiseData');
+Route::get('AllFundRaiseEditData/{id}', 'App\Http\Controllers\AdFundraisers@AllFundRaiseEditData');
+Route::get('fundRaiseEditData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseEditData');
+Route::post('fundRaiseEditedSubmit/{id}','App\Http\Controllers\AdFundraisers@fundRaiseEditedSubmit');
+Route::get('/fundRaiseStatusUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseStatusUpdate');
+Route::post('/fundRaiseDestroyData/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseDestroyData');
+Route::get('/fundRaiseRecentListUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentListUpdate');
 
-    // Withdraw System
-    Route::get('WithdrawSystem/adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
-    Route::get('WithdrawSystem/adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');
-    Route::get('WithdrawSystem/adWithdrawLog','App\Http\Controllers\AdWithdrawSystem@adWithdrawLog');
-    Route::get('WithdrawAllMethod','App\Http\Controllers\AdWithdrawSystem@WithdrawAllMethod');
-    Route::get('/WithdrawStatusUpdate/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawStatusUpdate');
-    Route::get('adWithdrawRequestsData','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequestsData');
-    Route::get('/WithdrawRequestStatusUpdate/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawRequestStatusUpdate');
-    Route::post('/WithdrawDelete/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawDelete');
-    Route::get('WithdrawLogData','App\Http\Controllers\AdWithdrawSystem@WithdrawLogData');
+//Fundraisers -> Recent
+Route::get('/fundRaiseRecentData', 'App\Http\Controllers\AdFundraisers@fundRaiseRecentData');
+Route::post('fundRecentAddData','App\Http\Controllers\AdFundraisers@fundRecentAddData');
+//    other edit delete  are same --
+//Fundraisers -> urgent
+Route::get('/fundRaiseUrgentData', 'App\Http\Controllers\AdFundraisers@fundRaiseUrgentData');
+Route::post('fundUrgentAddData','App\Http\Controllers\AdFundraisers@fundUrgentAddData');
+//Fundraisers -> pending
+Route::get('/fundRaisePendingData', 'App\Http\Controllers\AdFundraisers@fundRaisePendingData');
+//Fundraisers -> OnProgress
+Route::get('/fundOnProgressData', 'App\Http\Controllers\AdFundraisers@fundOnProgressData');
+//Fundraisers -> Private
+Route::get('/fundRaisePrivateData', 'App\Http\Controllers\AdFundraisers@fundRaisePrivateData');
+Route::get('/fundRaisePrivateListUpdate/{id}', 'App\Http\Controllers\AdFundraisers@fundRaisePrivateListUpdate');
+Route::post('fundPrivateAddData','App\Http\Controllers\AdFundraisers@fundPrivateAddData');
+//Success Stories -> stories
+Route::get('/stories', 'App\Http\Controllers\AdSuccessStories@stories');
+Route::get('getEditableStory/{id}', 'App\Http\Controllers\AdSuccessStories@getEditableStory');
+Route::post('addSuccessStoriesData','App\Http\Controllers\AdSuccessStories@addSuccessStoriesData');
+Route::post('editSuccessStoriesData/{id}','App\Http\Controllers\AdSuccessStories@editSuccessStoriesData');
+Route::post('/successStoriesDestroyData/{id}', 'App\Http\Controllers\AdSuccessStories@successStoriesDestroyData');
+
+// Withdraw System
+Route::get('WithdrawSystem/adWithdrawMethods','App\Http\Controllers\AdWithdrawSystem@adWithdrawMethods');
+Route::get('WithdrawSystem/adWithdrawRequests','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequests');
+Route::get('WithdrawSystem/adWithdrawLog','App\Http\Controllers\AdWithdrawSystem@adWithdrawLog');
+Route::get('WithdrawAllMethod','App\Http\Controllers\AdWithdrawSystem@WithdrawAllMethod');
+Route::get('/WithdrawStatusUpdate/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawStatusUpdate');
+Route::get('adWithdrawRequestsData','App\Http\Controllers\AdWithdrawSystem@adWithdrawRequestsData');
+Route::get('/WithdrawRequestStatusUpdate/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawRequestStatusUpdate');
+Route::post('/WithdrawDelete/{id}', 'App\Http\Controllers\AdWithdrawSystem@WithdrawDelete');
+Route::get('WithdrawLogData','App\Http\Controllers\AdWithdrawSystem@WithdrawLogData');
+
+//Donate
+Route::get('Donate/adPaymentGateways','App\Http\Controllers\AdDonate@adPaymentGateways');
+Route::get('Donate/adDonateHistory','App\Http\Controllers\AdDonate@adDonateHistory');
+Route::get('donateAllData','App\Http\Controllers\AdDonate@donateAllData');
+
+//SuccessStories
+Route::get('SuccessStories/adSuccessCategory','App\Http\Controllers\AdSuccessStories@adSuccessCategory');
+Route::get('adSuccessCategoryData','App\Http\Controllers\AdSuccessStories@adSuccessCategoryData');
+Route::get('SuccessStories/adStories','App\Http\Controllers\AdSuccessStories@adStories');
+
+//MemberSettings
+Route::get('MemberSttings/adAllMembers','App\Http\Controllers\AdMemberSettings@adAllMembers');
+Route::get('MemberSttings/adReportedMembers','App\Http\Controllers\AdMemberSettings@adReportedMembers');
+Route::get('adAllMembersData','App\Http\Controllers\AdMemberSettings@adAllMembersData');
+Route::get('adReportedMembersData','App\Http\Controllers\AdMemberSettings@adReportedMembersData');
 
 
+// LanguageManager
+Route::get('adLanguageManager','App\Http\Controllers\AdLanguageManager@adLanguageManager');
+Route::get('adLanguageManagerData','App\Http\Controllers\AdLanguageManager@adLanguageManagerData');
+Route::get('getEditableLngContent/{id}', 'App\Http\Controllers\AdLanguageManager@getEditableLngContent');
+Route::get('/adLanguageStatusUpdate/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageStatusUpdate');
+Route::post('/adLanguageDelete/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageDelete');
+Route::post('languageAddSubmit','App\Http\Controllers\AdLanguageManager@languageAddSubmit');
+Route::post('languageEditSubmit/{id}','App\Http\Controllers\AdLanguageManager@languageEditSubmit');
+// Advertisement
+Route::get('adAdvertisement','App\Http\Controllers\AdAdvertisement@adAdvertisement');
+Route::get('adAdvertisementData','App\Http\Controllers\AdAdvertisement@adAdvertisementData');
+Route::get('getEditableAdvertiseData/{id}', 'App\Http\Controllers\AdAdvertisement@getEditableAdvertiseData');
+Route::post('AdvertiseSubmit','App\Http\Controllers\AdAdvertisement@AdvertiseSubmit');
+Route::post('AdvertiseEditSubmit/{id}','App\Http\Controllers\AdAdvertisement@AdvertiseEditSubmit');
+Route::post('advertiseDelete/{id}', 'App\Http\Controllers\AdAdvertisement@advertiseDelete');
 
 
-    
+// frontEndSettings---------------------------------
+/////////////////////View works//////////////////////////////
+Route::get('FrontEndSettings/adSlider','App\Http\Controllers\AdFrontEndSettings@adSlider');
+Route::get('FrontEndSettings/adHowItW','App\Http\Controllers\AdFrontEndSettings@adHowItW');
+Route::get('FrontEndSettings/adAbout','App\Http\Controllers\AdFrontEndSettings@adAbout');
+Route::get('FrontEndSettings/adTeam','App\Http\Controllers\AdFrontEndSettings@adTeam');
+Route::get('FrontEndSettings/adTestimonials','App\Http\Controllers\AdFrontEndSettings@adTestimonials');
+Route::get('FrontEndSettings/adCounter','App\Http\Controllers\AdFrontEndSettings@adCounter');
+Route::get('FrontEndSettings/adContact','App\Http\Controllers\AdFrontEndSettings@adContact');
+Route::get('FrontEndSettings/adSocialSettings','App\Http\Controllers\AdFrontEndSettings@adSocialSettings');
+Route::get('FrontEndSettings/adSupport','App\Http\Controllers\AdFrontEndSettings@adSupport');
+Route::get('FrontEndSettings/adTermsOfUse','App\Http\Controllers\AdFrontEndSettings@adTermsOfUse');
+Route::get('FrontEndSettings/adPrivacyPolicy','App\Http\Controllers\AdFrontEndSettings@adPrivacyPolicy');
+Route::get('FrontEndSettings/adLoginSignup','App\Http\Controllers\AdFrontEndSettings@adLoginSignup');
+Route::get('FrontEndSettings/adFooter','App\Http\Controllers\AdFrontEndSettings@adFooter');
 
-    //Donate
-    Route::get('Donate/adPaymentGateways','App\Http\Controllers\AdDonate@adPaymentGateways');
-    Route::get('Donate/adDonateHistory','App\Http\Controllers\AdDonate@adDonateHistory');
-    Route::get('donateAllData','App\Http\Controllers\AdDonate@donateAllData');
+// data works --------------
 
-    //SuccessStories
-    Route::get('SuccessStories/adSuccessCategory','App\Http\Controllers\AdSuccessStories@adSuccessCategory');
-    Route::get('adSuccessCategoryData','App\Http\Controllers\AdSuccessStories@adSuccessCategoryData');
-    Route::get('SuccessStories/adStories','App\Http\Controllers\AdSuccessStories@adStories');
-
-    //MemberSettings
-    Route::get('MemberSttings/adAllMembers','App\Http\Controllers\AdMemberSettings@adAllMembers');
-    Route::get('MemberSttings/adReportedMembers','App\Http\Controllers\AdMemberSettings@adReportedMembers');
-    Route::get('adAllMembersData','App\Http\Controllers\AdMemberSettings@adAllMembersData');
-    Route::get('adReportedMembersData','App\Http\Controllers\AdMemberSettings@adReportedMembersData');
-
-
-    // LanguageManager
-    Route::get('adLanguageManager','App\Http\Controllers\AdLanguageManager@adLanguageManager');
-    Route::get('adLanguageManagerData','App\Http\Controllers\AdLanguageManager@adLanguageManagerData');
-    Route::get('getEditableLngContent/{id}', 'App\Http\Controllers\AdLanguageManager@getEditableLngContent');
-    Route::get('/adLanguageStatusUpdate/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageStatusUpdate');
-    Route::post('/adLanguageDelete/{id}', 'App\Http\Controllers\AdLanguageManager@adLanguageDelete');
-    Route::post('languageAddSubmit','App\Http\Controllers\AdLanguageManager@languageAddSubmit');
-    Route::post('languageEditSubmit/{id}','App\Http\Controllers\AdLanguageManager@languageEditSubmit');
-    // Advertisement
-    Route::get('adAdvertisement','App\Http\Controllers\AdAdvertisement@adAdvertisement');
-    Route::get('adAdvertisementData','App\Http\Controllers\AdAdvertisement@adAdvertisementData');
-    Route::get('getEditableAdvertiseData/{id}', 'App\Http\Controllers\AdAdvertisement@getEditableAdvertiseData');
-    Route::post('AdvertiseSubmit','App\Http\Controllers\AdAdvertisement@AdvertiseSubmit');
-    Route::post('AdvertiseEditSubmit/{id}','App\Http\Controllers\AdAdvertisement@AdvertiseEditSubmit');
-    Route::post('advertiseDelete/{id}', 'App\Http\Controllers\AdAdvertisement@advertiseDelete');
+Route::get('FrontEndSettings/adLogoNav','App\Http\Controllers\AdFrontEndSettings@adLogoNav');
+//--------------------Logo & Fabicon
+Route::post('/update-logo-fabicon/{id}', 'App\Http\Controllers\FrontendController@updateLogoFabicon');
 
 
- // frontEndSettings
- Route::get('FrontEndSettings/adLogoNav','App\Http\Controllers\AdFrontEndSettings@adLogoNav');
-  //--------------------Logo & Fabicon
-  Route::post('/update-logo-fabicon/{id}', 'App\Http\Controllers\FrontendController@updateLogoFabicon');
+Route::post('LogoNavAddData','App\Http\Controllers\AdLogoNavController@AddSubmit');
+Route::post('LogoNavSubmit/{id}','App\Http\Controllers\AdLogoNavController@EditSubmit');
+//navManus-----------------------------------------------------------------------------
+Route::get('navManusData','App\Http\Controllers\FrontendController@allData');
+Route::get('navManusEditableData/{id}', 'App\Http\Controllers\FrontendController@editableData');
+Route::post('navManusAdd','App\Http\Controllers\FrontendController@addSubmit');
+Route::post('navManusEditSubmit/{id}','App\Http\Controllers\FrontendController@editSubmit');
+Route::post('/navManusDelete/{id}', 'App\Http\Controllers\FrontendController@delete');
 
-  Route::get('navManusData','App\Http\Controllers\FrontendController@allData');
-  Route::get('navManusEditableData/{id}', 'App\Http\Controllers\FrontendController@editableData');
-  Route::post('navManusAdd','App\Http\Controllers\FrontendController@addSubmit');
-  Route::post('navManusEditSubmit/{id}','App\Http\Controllers\FrontendController@editSubmit');
-  Route::post('/navManusDelete/{id}', 'App\Http\Controllers\FrontendController@delete');
-//   slider----------------------------------------
+//slider----------------------------------------
 Route::get('sliderData','App\Http\Controllers\FrontendController@SliderallData');
 Route::get('sliderEditableData/{id}', 'App\Http\Controllers\FrontendController@SlidereditableData');
 Route::post('sliderAdd','App\Http\Controllers\FrontendController@SlideraddSubmit');
 Route::post('sliderEditSubmit/{id}','App\Http\Controllers\FrontendController@SlidereditSubmit');
 Route::post('/sliderDelete/{id}', 'App\Http\Controllers\FrontendController@Sliderdelete');
-// how it works -----------------------------
+//how it works -----------------------------
 Route::get('HowItWorksData','App\Http\Controllers\FrontendController@HowItWorksallData');
 Route::get('HowItWorksEditableData/{id}', 'App\Http\Controllers\FrontendController@HowItWorkseditableData');
 Route::post('HowItWorksAdd','App\Http\Controllers\FrontendController@HowItWorksaddSubmit');
 Route::post('HowItWorksEditSubmit/{id}','App\Http\Controllers\FrontendController@HowItWorkseditSubmit');
 Route::post('/HowItWorksDelete/{id}', 'App\Http\Controllers\FrontendController@HowItWorksdelete');
 
+// about ------------------------------------
+Route::post('AboutAddData','App\Http\Controllers\AdAboutController@AddSubmit');
+Route::post('AboutEditSubmit/{id}','App\Http\Controllers\AdAboutController@EditSubmit');
+
+// about  secondary points AboutSecondary ------------------------
+Route::get('AboutSecondaryData','App\Http\Controllers\FrontendController@AboutSecondaryallData');
+Route::get('AboutSecondaryEditableData/{id}', 'App\Http\Controllers\FrontendController@AboutSecondaryeditableData');
+Route::post('AboutSecondaryAdd','App\Http\Controllers\FrontendController@AboutSecondaryaddSubmit');
+Route::post('AboutSecondaryEditSubmit/{id}','App\Http\Controllers\FrontendController@AboutSecondaryeditSubmit');
+Route::post('/AboutSecondaryDelete/{id}', 'App\Http\Controllers\FrontendController@AboutSecondarydelete');
+// Subscription 
+Route::post('SubscriptionAddData','App\Http\Controllers\AdSubscriptionController@AddSubmit');
+Route::post('SubscriptionEditSubmit/{id}','App\Http\Controllers\AdSubscriptionController@EditSubmit');
+
+// Team ------------------------------
+Route::get('TeamData','App\Http\Controllers\FrontendController@TeamallData');
+Route::get('TeamEditableData/{id}', 'App\Http\Controllers\FrontendController@TeameditableData');
+Route::post('TeamAdd','App\Http\Controllers\FrontendController@TeamaddSubmit');
+Route::post('TeamEditSubmit/{id}','App\Http\Controllers\FrontendController@TeameditSubmit');
+Route::post('/TeamDelete/{id}', 'App\Http\Controllers\FrontendController@Teamdelete');
+
+// testimonials ------------------
+Route::get('TestimonialsAllData','App\Http\Controllers\AdTestimonialsController@AllData');
+Route::get('TestimonialsEditableData/{id}', 'App\Http\Controllers\AdTestimonialsController@EditableData');
+Route::post('TestimonialsAddData','App\Http\Controllers\AdTestimonialsController@AddSubmit');
+Route::post('TestimonialsEditSubmit/{id}','App\Http\Controllers\AdTestimonialsController@EditSubmit');
+Route::post('/TestimonialsDelete/{id}', 'App\Http\Controllers\AdTestimonialsController@Delete');
+
+// contact -----------------------------------
+Route::post('contactAddData','App\Http\Controllers\AdContactController@AddSubmit');
+Route::post('contactEditSubmit/{id}','App\Http\Controllers\AdContactController@EditSubmit');
+
+// adTermsOfUse --------------------
+Route::post('TermsOfUseAddData','App\Http\Controllers\AdTermsController@AddSubmit');
+Route::post('TermsOfUseEditSubmit/{id}','App\Http\Controllers\AdTermsController@EditSubmit');
+// Privacy Policy
+Route::post('PrivacyPolicyAddData','App\Http\Controllers\AdPrivacyPolicyController@AddSubmit');
+Route::post('PrivacyPolicyEditSubmit/{id}','App\Http\Controllers\AdPrivacyPolicyController@EditSubmit');
+
+// Loginsignup 
+Route::post('LoginSignupAddData','App\Http\Controllers\AdLoginSignupController@AddSubmit');
+Route::post('LoginSignupEditSubmit/{id}','App\Http\Controllers\AdLoginSignupController@EditSubmit');
+// Footer 
+Route::post('FooterAddData','App\Http\Controllers\AdFooterController@AddSubmit');
+Route::post('FooterEditSubmit/{id}','App\Http\Controllers\AdFooterController@EditSubmit');
+// working flow //////////////////////
+// SocialSettings 
+Route::get('SocialSettingsAllData','App\Http\Controllers\AdSocialSettingsController@AllData');
+Route::get('SocialSettingsEditableData/{id}', 'App\Http\Controllers\AdSocialSettingsController@EditableData');
+Route::post('SocialSettingsAddData','App\Http\Controllers\AdSocialSettingsController@AddSubmit');
+Route::post('SocialSettingsEditSubmit/{id}','App\Http\Controllers\AdSocialSettingsController@EditSubmit');
+Route::post('/SocialSettingsDelete/{id}', 'App\Http\Controllers\AdSocialSettingsController@Delete');
+// Support 
+Route::get('SupportAllData','App\Http\Controllers\AdSupportController@AllData');
+Route::get('SupportEditableData/{id}', 'App\Http\Controllers\AdSupportController@EditableData');
+Route::post('SupportAddData','App\Http\Controllers\AdSupportController@AddSubmit');
+Route::post('SupportEditSubmit/{id}','App\Http\Controllers\AdSupportController@EditSubmit');
+Route::post('/SupportDelete/{id}', 'App\Http\Controllers\AdSupportController@Delete');
+// FooterAbout
+Route::get('FooterAboutAllData','App\Http\Controllers\FooterAboutController@AllData');
+Route::get('FooterAboutEditableData/{id}', 'App\Http\Controllers\FooterAboutController@EditableData');
+Route::post('FooterAboutAddData','App\Http\Controllers\FooterAboutController@AddSubmit');
+Route::post('FooterAboutEditSubmit/{id}','App\Http\Controllers\FooterAboutController@EditSubmit');
+Route::post('/FooterAboutDelete/{id}', 'App\Http\Controllers\FooterAboutController@Delete');
+// FooterCategories
+Route::get('FooterCategoriesAllData','App\Http\Controllers\FooterCategoriesController@AllData');
+Route::get('FooterCategoriesEditableData/{id}', 'App\Http\Controllers\FooterCategoriesController@EditableData');
+Route::post('FooterCategoriesAddData','App\Http\Controllers\FooterCategoriesController@AddSubmit');
+Route::post('FooterCategoriesEditSubmit/{id}','App\Http\Controllers\FooterCategoriesController@EditSubmit');
+Route::post('/FooterCategoriesDelete/{id}', 'App\Http\Controllers\FooterCategoriesController@Delete');
+// FooterExplore
+Route::get('FooterExploreAllData','App\Http\Controllers\FooterExploreController@AllData');
+Route::get('FooterExploreEditableData/{id}', 'App\Http\Controllers\FooterExploreController@EditableData');
+Route::post('FooterExploreAddData','App\Http\Controllers\FooterExploreController@AddSubmit');
+Route::post('FooterExploreEditSubmit/{id}','App\Http\Controllers\FooterExploreController@EditSubmit');
+Route::post('/FooterExploreDelete/{id}', 'App\Http\Controllers\FooterExploreController@Delete');
+// frontend settings end ----------------------
 
 
-
- Route::get('FrontEndSettings/adSlider','App\Http\Controllers\AdFrontEndSettings@adSlider');
- Route::get('FrontEndSettings/adHowItW','App\Http\Controllers\AdFrontEndSettings@adHowItW');
- Route::get('FrontEndSettings/adAbout','App\Http\Controllers\AdFrontEndSettings@adAbout');
- Route::get('FrontEndSettings/adTeam','App\Http\Controllers\AdFrontEndSettings@adTeam');
- Route::get('FrontEndSettings/adTestimonials','App\Http\Controllers\AdFrontEndSettings@adTestimonials');
- Route::get('FrontEndSettings/adCounter','App\Http\Controllers\AdFrontEndSettings@adCounter');
- Route::get('FrontEndSettings/adContact','App\Http\Controllers\AdFrontEndSettings@adContact');
- Route::get('FrontEndSettings/adSocialSettings','App\Http\Controllers\AdFrontEndSettings@adSocialSettings');
- Route::get('FrontEndSettings/adSupport','App\Http\Controllers\AdFrontEndSettings@adSupport');
- Route::get('FrontEndSettings/adTermsOfUse','App\Http\Controllers\AdFrontEndSettings@adTermsOfUse');
- Route::get('FrontEndSettings/adPrivacyPolicy','App\Http\Controllers\AdFrontEndSettings@adPrivacyPolicy');
- Route::get('FrontEndSettings/adLoginSignup','App\Http\Controllers\AdFrontEndSettings@adLoginSignup');
- Route::get('FrontEndSettings/adFooter','App\Http\Controllers\AdFrontEndSettings@adFooter');
-
-
-
- 
-
-    // GeneralSettings
-    Route::get('GeneralSettings/adBasicSettings','App\Http\Controllers\AdGeneralSettings@adBasicSettings');
-    Route::get('GeneralSettings/adEmailSettings','App\Http\Controllers\AdGeneralSettings@adEmailSettings');
-    Route::get('GeneralSettings/adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
-    
-
+// GeneralSettings
+Route::get('GeneralSettings/adBasicSettings','App\Http\Controllers\AdGeneralSettings@adBasicSettings');
+Route::get('GeneralSettings/adEmailSettings','App\Http\Controllers\AdGeneralSettings@adEmailSettings');
+Route::get('GeneralSettings/adSmsSettings','App\Http\Controllers\AdGeneralSettings@adSmsSettings');
 });
 //----------------------- user routes -----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/sign-up','App\Http\Controllers\Master@userSignup')->name('sign-up');
 

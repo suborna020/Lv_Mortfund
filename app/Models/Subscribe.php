@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Subscribe extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'sub_title',
+        'input_placeholder',
+        'submit_button_text',
+
+    ];
 }

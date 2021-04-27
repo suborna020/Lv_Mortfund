@@ -27,6 +27,13 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-lg-12 col-12  d-flex orange_text justify-content-center">
+                            <div class="pr-2"><i class="bi bi-info-circle fa-lg"></i></div>
+                            <div>Keep Desable  AddBlocker For  Page Functionality</div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
                     <div class="col-lg-12 col-12 ">
                         <div class="">
                             <button type="button" data-toggle="modal" data-target=".adTeamModal" class=" orange_text font-weight-bold btn  btn-block addNewButton"><i class="fas fa-plus mr-1"></i> Add New Member</button>
@@ -52,7 +59,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="tableBody">
-                                    <tr>
+                                    {{--  <tr>
                                         <th scope="row">1</th>
                                         <td>Lorem ipsum dolor sit amet.</td>
                                         <td>Lorem ipsum dolor sit amet.</td>
@@ -71,7 +78,7 @@
                                                 <span><i class=" manageIcons fa-lg  fas fa-trash"></i></span>
                                             </div>
                                         </td>
-                                    </tr>
+                                    </tr>  --}}
 
 
                                 </tbody>
@@ -90,7 +97,7 @@
 
 </div>
 
-{{-- <script src="{{ url('adminAssets/js/LanguageManager/AdLanguageManager.js') }}"></script> --}}
+<script src="{{ url('adminAssets/js/FrontEndSettings/adTeam.js') }}"></script>
 
 
 @endsection

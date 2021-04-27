@@ -634,7 +634,7 @@
 {{-- adabout   --}}
 <div class="modal fade myAddNewModal secondaryPointsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="secondaryPointsForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -649,7 +649,7 @@
                         <div class="row mt-2">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Text" required>
+                                    <input type="text" class="form-control secondary_point formInputValue" name="secondary_point" placeholder="Enter Text" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -661,7 +661,7 @@
                         <div class="row ">
                             <div class="col-md-12 col-12 col-sm-12">
                                 <div class="form-group">
-                                    <select class="form-control  status" name="status" required>
+                                    <select class="form-control  column" name="column" required>
                                         <option selected="true" value="" disabled>Select</option>
                                         <option value="0">Left Column</option>
                                         <option value="1">Right Column</option>
@@ -686,11 +686,11 @@
 {{-- adTeam   --}}
 <div class="modal fade myAddNewModal bigModal adTeamModal " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="max-width: 589px !important;">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="adTeamForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content" style="margin-top:unset !important">
                 <div class="modal-header">
-                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -700,7 +700,7 @@
                         <div class="row tableSmallText1 mb-5 ">
                             <div class="col-lg-5 col-5 col-sm-5">
                                 <div class=" customFileInput">
-                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <input type="file" class="fileName formInputValue formFileInput " name="photo" accept="image/*" required>
                                     <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Display Photo</button>
                                 </div>
                             </div>
@@ -708,7 +708,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Member Name" required>
+                                    <input type="text" class="form-control member_name formInputValue" name="member_name" placeholder="Enter Member Name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -720,7 +720,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Designation" required>
+                                    <input type="text" class="form-control formInputValue member_designation" name="member_designation" placeholder="Enter Designation" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -732,7 +732,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Facebook URL" required>
+                                    <input type="text" class="form-control facebook_link formInputValue" name="facebook_link" placeholder="Enter Facebook URL" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -744,7 +744,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Twitter URL" required>
+                                    <input type="text" class="form-control twitter_link formInputValue" name="twitter_link" placeholder="Enter Twitter URL" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -756,7 +756,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Linkedin URL" required>
+                                    <input type="text" class="form-control linkedin_link formInputValue" name="linkedin_link" placeholder="Enter Linkedin URL" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -768,7 +768,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Instagram URL" required>
+                                    <input type="text" class="form-control instagram_link formInputValue" name="instagram_link" placeholder="Enter Instagram URL" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -776,6 +776,10 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="container editContainer">
+                            {{-- new html here  --}}
+
                         </div>
                     </div>
                 </div>
@@ -793,11 +797,11 @@
 {{--  adTestimonials  --}}
 <div class="modal fade myAddNewModal bigModal adTestimonials " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="max-width: 589px !important;">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="TestimonialsForm" class=" " method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content" style="margin-top:unset !important">
                 <div class="modal-header">
-                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -807,7 +811,7 @@
                         <div class="row tableSmallText1 mb-5 ">
                             <div class="col-lg-5 col-5 col-sm-5">
                                 <div class=" customFileInput">
-                                    <input type="file" class="fileName formInputValue formFileInput" name="image" accept="image/*" required>
+                                    <input type="file" class="fileName formInputValue formFileInput photo" name="photo" accept="image/*" required>
                                     <button type="button" class="btn whiteText  backgroundCerulean  font-weight-bold  copiedFilename copiedFilenameButton  AdPhotoButton"><i class="fas fa-plus mr-1"></i> Upload Display Photo</button>
                                 </div>
                             </div>
@@ -815,7 +819,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Author Name" required>
+                                    <input type="text" class="form-control author_name formInputValue" name="author_name" placeholder="Enter Author Name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -827,7 +831,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Designation" required>
+                                    <input type="text" class="form-control designation formInputValue" name="designation" placeholder="Enter Designation" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -839,7 +843,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Company name" required>
+                                    <input type="text" class="form-control company_name formInputValue" name="company_name" placeholder="Enter Company name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -849,7 +853,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control formInputValue customizeInputField" rows="5" id="textArea" name="message"  placeholder="Type Authors Text"></textarea>
+                            <textarea class="form-control formInputValue customizeInputField authors_text" rows="5"  name="authors_text"  placeholder="Type Authors Text"></textarea>
+                        </div>
+                        <div class="container editContainer">
+                            {{-- new html here  --}}
+
                         </div>
                        
                     </div>
@@ -858,7 +866,7 @@
                 <div class="modal-footer py-2">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="AllFundClickedId" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
                 </div>
             </div>
@@ -868,7 +876,7 @@
 {{-- adSocialSettingsModal-----------------------  --}}
 <div class="modal fade myAddNewModal SocialSettingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" enctype="multipart/form-data">
+        <form id="SocialSettingsForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -884,14 +892,14 @@
                         <div class="row mt-1 mb-4">
                             <div class="col-lg-12 col-12 col-sm-12">
                                 <button type="button" class="btn btn-primary whiteText  backgroundCerulean  font-weight-bold btn picker-button"><i class="fas fa-plus "></i>Choose Icon</button>
-                                <input type="text" name="icon" class="btn blackText text-truncate icon icon-class-input singleItem" value="fa fa-music" required />
+                                <input type="text" name="social_photo" class="btn blackText formInputValue text-truncate social_photo icon-class-input singleItem" value="fa fa-music" required />
                             </div>
                         </div>
 
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Social Media Name" required>
+                                    <input type="text" class="form-control social_name formInputValue" name="social_name" placeholder="Enter Social Media Name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -903,7 +911,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Social Media Link" required>
+                                    <input type="text" class="form-control link formInputValue" name="link" placeholder="Enter Social Media Link" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -930,11 +938,12 @@
 {{--  adSupportModal  --}}
 <div class="modal fade myAddNewModal adSupportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="SupportForm" method="post" enctype="multipart/form-data">
+
             @csrf
             <div class="modal-content" style="margin-top:unset !important">
                 <div class="modal-header">
-                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="fundRecentClearData()">
+                    <button type="button" class="close py-0" data-dismiss="modal" aria-label="Close" onclick="clearFormData()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -945,7 +954,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Question" required>
+                                    <input type="text" class="form-control question formInputValue" name="question" placeholder="Enter Question" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -955,7 +964,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control formInputValue customizeInputField" rows="6"  name="message"  placeholder="Type Answer"></textarea>
+                            <textarea class="form-control formInputValue answer customizeInputField" rows="6"  name="answer"  placeholder="Type Answer"></textarea>
                         </div>
                        
                     </div>
@@ -964,7 +973,7 @@
                 <div class="modal-footer py-2">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold btn addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="AllFundClickedId" style="display:none"></span>
+                    <span class="clickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
                 </div>
             </div>
@@ -974,7 +983,7 @@
 {{-- adFooterAbout   --}}
 <div class="modal fade myAddNewModal FooterAboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="FooterAboutForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -990,7 +999,7 @@
                         <div class="row mt-1">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Footer Name" required>
+                                    <input type="text" class="form-control about_footer_link_name formInputValue" name="footer_link_name" placeholder="Enter Footer Name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -1002,7 +1011,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control  formInputValue" name="languag_name" placeholder="Enter Footer Link" required>
+                                    <input type="text" class="form-control about_link formInputValue" name="link" placeholder="Enter Footer Link" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -1017,7 +1026,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedId formInputValue" style="display:none"></span>
+                    <span class="aboutClickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -1028,7 +1037,7 @@
 {{-- adFooterCategories   --}}
 <div class="modal fade myAddNewModal adFooterCategories" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="FooterCategoriesForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -1044,7 +1053,7 @@
                         <div class="row mt-1">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Footer Name" required>
+                                    <input type="text" class="form-control categories_footer_link_name formInputValue" name="footer_link_name" placeholder="Enter Footer Name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -1056,7 +1065,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control  formInputValue" name="languag_name" placeholder="Enter Footer Link" required>
+                                    <input type="text" class="form-control categories_link formInputValue" name="link" placeholder="Enter Footer Link" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -1071,7 +1080,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedId formInputValue" style="display:none"></span>
+                    <span class="categoriesClickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>
@@ -1082,7 +1091,7 @@
 {{-- adFooterExplore   --}}
 <div class="modal fade myAddNewModal adFooterExplore" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class=" " method="post" enctype="multipart/form-data">
+        <form id="FooterExploreForm" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -1098,7 +1107,7 @@
                         <div class="row mt-1">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control language_name formInputValue" name="languag_name" placeholder="Enter Footer Name" required>
+                                    <input type="text" class="form-control Explore_footer_link_name formInputValue" name="footer_link_name" placeholder="Enter Footer Name" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -1110,7 +1119,7 @@
                         <div class="row ">
                             <div class="col-lg-12 col-md-12 col-12 ">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control  formInputValue" name="languag_name" placeholder="Enter Footer Link" required>
+                                    <input type="text" class="form-control Explore_link formInputValue" name="link" placeholder="Enter Footer Link" required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <i class="bi bi-globe blurText"></i>
@@ -1125,7 +1134,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn whiteText btn-lg orangeBackground  font-weight-bold  addButtonShow"><i class="fas fa-plus mr-1"></i>Add </button>
                     {{-- for edit    --}}
-                    <span class="clickedId formInputValue" style="display:none"></span>
+                    <span class="ExploreClickedId formInputValue" style="display:none"></span>
                     <button type="submit" class=" btn whiteText btn-lg orangeBackground  font-weight-bold btn updateButtonShow" style="display: none"><i class="fas fa-plus mr-1 "></i>Update </button>
 
                 </div>

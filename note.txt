@@ -19,7 +19,17 @@ footers> about column =  footer_link_abouts table theke
         explore = footer_link_explore table
 clientmessages table theke data ekti extra page a show korate hobe
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	
+php artisan make:controller AdSocialSettingsController
+php artisan make:controller AdSupportController
+php artisan make:controller FooterAboutController
+php artisan make:controller FooterCategoriesController
+php artisan make:controller FooterExploreController
+php artisan make:controller AdLogoNavController
 
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @clone new project.
 #/copy the link from github
 #git clone https://github.com/suborna020/Lv_Mortfund.git
@@ -54,8 +64,9 @@ php artisan config:cache
 @if someone added a package to your git project .after pull you have to run a command like:
 composer install
 
-	
-php artisan make:controller FrontendController
+
+
+
 
 @recieve settings:
 1souse control->masssge->cnt+enter>pull

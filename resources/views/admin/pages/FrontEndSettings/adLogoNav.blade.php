@@ -5,26 +5,26 @@
     <div class="row justify-content-end">
         <div class="col-9 ">
             {{-- edaitable part  --}}
-            <form action="{{url('/update-logo-fabicon/'.($general->id))}}" method="post" enctype="multipart/form-data">
+            <form  id="NavForm" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-5">
                     <div class="col-lg-5 col-5 mx-4">
                         <div class="small-box d-flex coverImageContainer">
-                            <img src="../{{($general->website_logo)?? '0' }}" alt=" image" class=" img-fluid" />
+                            <img src="../{{($generalBox->website_logo)?? '0' }}" alt=" image" class=" img-fluid" />
                         </div>
                         <div class=" customFileInput justifyCenter">
                             <input type="file" class="fileName formInputValue fileInput " name="website_logo" accept="image/*">
-                            <button type="button" class="text-truncate whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Logo Photo </button>
+                            <button type="button" class="text-truncate whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton  photoButton iconName"><i class="fas fa-plus "></i> Choose Logo Photo </button>
                         </div>
                     </div>
                     <div class="col-lg-5 col-5 mx-4">
                         <div class="small-box d-flex coverImageContainer">
-                            <img src="../{{($general->website_favicon)?? '0' }}" alt=" image" class="img-rounded roundLogo" />
+                            <img src="../{{($generalBox->website_favicon)?? '0' }}" alt=" image" class="img-rounded roundLogo" />
 
                         </div>
                         <div class=" customFileInput justifyCenter">
                             <input type="file" class="fileName formInputValue fileInput " name="website_favicon" accept="image/*">
-                            <button type="button" class="text-truncate whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton formInputValue photoButton iconName"><i class="fas fa-plus "></i> Choose Favicon </button>
+                            <button type="button" class="text-truncate whiteText  backgroundCerulean  font-weight-bold btn copiedFilename copiedFilenameButton  photoButton iconName"><i class="fas fa-plus "></i> Choose Favicon </button>
                         </div>
                     </div>
                 </div><br>
@@ -61,6 +61,8 @@
                 <br><br>
                 <div class="modalBorder"></div>
                 <div class=" my-4 mx-4 px-5 d-flex">
+                    <input class=" displayNone PickedDataId " type="text " value="{{($generalBox->id)?? '' }}">
+
                     <button type="submit" class=" btn ml-auto whiteText btn-lg orangeBackground  font-weight-bold btn">Save Changes</button>
                 </div>
 
@@ -75,5 +77,7 @@
 </div>
 
 <script src="{{ url('adminAssets/js/FrontEndSettings/adLogoNav.js') }}"></script>
+<script src="{{ url('adminAssets/js/FrontEndSettings/adLogoNavUpload.js') }}"></script>
+
 
 @endsection

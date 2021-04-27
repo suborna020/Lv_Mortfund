@@ -31,6 +31,7 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
     background: #002C58;
 }
+// end 
 
 
 
@@ -127,7 +128,9 @@ a:hover {
 .tableSmallText1 {
     font-size: 1rem;
 }
-
+.displayNone{
+    display: none;
+}
 .blackText {
     color: black !important;
 }
@@ -235,7 +238,9 @@ a:hover {
     border          : unset !important;
     background-color: #e9ecef61 !important;
 }
-
+textarea.form-control{
+    overflow: hidden !important;
+}
 // icon picker css 
 
 
@@ -1078,9 +1083,6 @@ nav .menu-open .extend_icon {
 .note-editor.note-airframe,
 .note-editor.note-frame {
     border: none !important;
-}
-
-.note-placeholder {
     color      : #000 !important;
     font-weight: bold !important;
 }

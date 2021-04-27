@@ -56,12 +56,12 @@ function getEditableData(id) {
             var editModalFilesRow = ""
             var editModalFilesRow = `
                         <div class="row px-2">
-                        <div class="col-lg-4 col-4 mb-2 smallHeadline my-auto">slider Photo </div>
-                        <div class="col-lg-8 col-8 mb-2 ">
-                            <a href="../${data.slider_photo} " data-fancybox>
-                            <img src="../${data.slider_photo}" class="  mediumFileSize" />
-                            </a>
-                        </div>
+                            <div class="col-lg-4 col-4 mb-2 smallHeadline my-auto">slider Photo </div>
+                                <div class="col-lg-8 col-8 mb-2 ">
+                                    <a href="../${data.slider_photo} " data-fancybox>
+                                    <img src="../${data.slider_photo}" class="  mediumFileSize" />
+                                    </a>
+                                </div>
                         </div>
                     `
             $('.editContainer').html(editModalFilesRow);

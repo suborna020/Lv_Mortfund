@@ -3,21 +3,31 @@ function getAllData() {
     $.ajax({
         type: "GET",
         DataType: "json",
-        url: "/navManusData",
+        url: "/TestimonialsAllData",
         success: function (data) {
             // console.log(fundRaiseCategories);
             var getHtml = "";
             $.each(data, function (key, allData) {
                 getHtml += `
-                            <div class="row mt-2">
-                            <div class=" col-12 d-flex">
-                                <i class="bi bi-circle-fill boldIcon"></i>${allData.menu_item} 
-                                <div class="col-lg-2 col-md-2 col-2 ml-auto">
-                                    <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit "></i></span>
-                                        <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash"></i></span>
-                                    </div>
+                            <tr>
+                            <th scope="row">${Number(key)+1}</th>
+                            <td> ${allData.author_name}</td>
+                            <td>${allData.designation}</td>
+                            <td > ${allData.company_name}</td>
+                            <td class="text-truncate">${allData.authors_text}</td>
+                            <td>
+                                <a href="../${allData.photo}"  data-fancybox>
+                                    <img src="../${allData.photo}"  class="smallRoundPic" />
+                                </a>
+                            </td>
+                            <td>
+                                <div>
+                                <span onclick='getEditableData(${allData.id})'><i class=" manageIcons fas fa-edit "></i></span>
+                                <span onclick='destroyData(${allData.id})'><i class=" manageIcons fas fa-trash"></i>
                                 </div>
-                            </div>
+                            </td>
+                        </tr>
+                              
                            
                         `;
             });
@@ -30,29 +40,46 @@ function clearFormData() {
     $('.formInputValue').html('').val('');
     $('.addButtonShow').show();
     $('.updateButtonShow').hide();
+    $('.editContainer').html('');
 }
 //get edit data  -----------------------------------------------------------------------------
 function getEditableData(id) {
     // alert(id);
-    $('.adLogoNavModal').modal('show');
+    $('.adTestimonials').modal('show');
     $.ajax({
         type: "GET"
         , DataType: 'json'
-        , url: "/navManusEditableData/" + id
+        , url: "/TestimonialsEditableData/" + id
         , success: function (data) {
             // alert(data.category_id);
             $('.updateButtonShow').show();
             $('.addButtonShow').hide();
 
-            // $('.formInputValue').removeAttr('required');
-            $('.menu_item').val(data.menu_item);
-            $('.link').val(data.link);
+            $('.formFileInput').removeAttr('required');
+
+            $('.author_name').val(data.author_name);
+            $('.designation').val(data.designation);
+            $('.company_name').val(data.company_name);
+            $('.authors_text').val(data.authors_text);
+
             $('.clickedId').html(data.id);
+            var editModalFilesRow = ""
+            var editModalFilesRow = `
+                        <div class="row px-2">
+                            <div class="col-lg-4 col-4 mb-2 smallHeadline my-auto"> Photo </div>
+                                <div class="col-lg-8 col-8 mb-2 ">
+                                    <a href="../${data.photo}"  data-fancybox>
+                                    <img src="../${data.photo}"  class="  mediumFileSize" />
+                                    </a>
+                                </div>
+                        </div>
+                    `
+            $('.editContainer').html(editModalFilesRow);
 
         }
     })
 }
-$('#adLogoNavForm').on('submit', function (event) {
+$('#TestimonialsForm').on('submit', function (event) {
     event.preventDefault();
 
     const Msg = Swal.mixin({
@@ -66,8 +93,9 @@ $('#adLogoNavForm').on('submit', function (event) {
 
     if (id == "") {
         // add data -----------------------------------------------------------------------------
+        alert('add');
         $.ajax({
-            url: "/navManusAdd"
+            url: "/TestimonialsAddData"
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -76,7 +104,7 @@ $('#adLogoNavForm').on('submit', function (event) {
             , processData: false
             , success: function (data) {
                 // console.log(data);
-                $('.adLogoNavModal').modal('hide');
+                $('.adTestimonials').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -98,7 +126,7 @@ $('#adLogoNavForm').on('submit', function (event) {
         // edit data  -----------------------------------------------------------------------------
 
         $.ajax({
-            url: "/navManusEditSubmit/" + id
+            url: "/TestimonialsEditSubmit/" + id
             , method: "POST"
             , data: new FormData(this)
             , dataType: 'JSON'
@@ -106,7 +134,7 @@ $('#adLogoNavForm').on('submit', function (event) {
             , cache: false
             , processData: false
             , success: function (data) {
-                $('.adLogoNavModal').modal('hide');
+                $('.adTestimonials').modal('hide');
                 clearFormData();
                 getAllData();
                 Msg.fire({
@@ -140,7 +168,7 @@ function destroyData(id) {
             $.ajax({
                 type: "POST"
                 , DataType: 'json'
-                , url: "/navManusDelete/" + id
+                , url: "/TestimonialsDelete/" + id
                 , success: function (data) {
                     getAllData();
                 }
