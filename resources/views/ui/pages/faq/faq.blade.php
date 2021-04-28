@@ -1,5 +1,15 @@
 @extends('ui.layout.app')
 
+@section('head-script')
+
+<style type="text/css">
+  .answer{
+    display: none;
+  }
+</style>
+
+@endsection
+
 @section('content')
  <section class="breadcrumb-bg">
         <div class="container">
@@ -52,29 +62,21 @@
                 <div id="accordion">
                   <div class="card m-2">
                     <button
-                      class="btn w-100"
-                      data-toggle="collapse"
-                      data-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
+                      class="btn w-100 question"
                       style="background-color: #f8800b"
                     >
                       <div
                         class="p-1 text-center d-flex justify-content-center align-items-center"
-                        id="headingOne"
                       >
                         <h6 class="mb-0" style="color: #fff">
-                          {{$support->question}}<i class="fas fa-plus mx-3" style="color: #fff"></i>
+                          {{$support->question}}<i class="fas fa-plus mx-3 icon" style="color: #fff"></i>
                         </h6>
                         
                       </div>
                     </button>
 
                     <div
-                      id="collapseOne"
-                      class="collapse"
-                      aria-labelledby="headingOne"
-                      data-parent="#accordion"
+                      class="answer"
                       style="background-color: #fff6ee"
                     >
                       <div class="card-body">
@@ -96,19 +98,14 @@
 
 </section>
 
-<script>
-    document.querySelectorAll('button').forEach((elem) => {
-      elem.addEventListener('click', function () {
-        const icon = this.querySelector('i');
-        const text = this.querySelector('span');
-        if (icon.classList.contains('fa-plus')) {
-          icon.classList.remove('fa-plus');
-          icon.classList.add('fa-minus');
-        } else {
-          icon.classList.remove('fa-minus');
-          icon.classList.add('fa-plus');
-        }
-      });
-    })
-  </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('.question').click(function(){
+    // $(this).css("border-left","5px solid red");
+    $(this).next('.answer').slideToggle('500');
+    $(this).find('.icon').toggleClass('fas fa-plus fas fa-minus');
+  });
+});
+</script>
+ 
 @endsection

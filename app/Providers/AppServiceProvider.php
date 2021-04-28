@@ -29,9 +29,6 @@ use App\Models\SuccessStory;
 use App\Models\WithdrawRequest;
 use App\Models\NewsletterMail;
 use App\Models\PaymentGateway;
-<<<<<<< HEAD
-use DB;
-=======
 use App\Models\About;
 use App\Models\ContactView;
 use App\Models\Subscribe;
@@ -40,7 +37,6 @@ use App\Models\Terms;
 use App\Models\Privacy;
 
 
->>>>>>> 3a5341334267104e1303a144acaf273327f3b140
 
 
 
@@ -115,10 +111,7 @@ class AppServiceProvider extends ServiceProvider
                 $FundraisersBox = Fundraiser::all();
                 $CategoriesBox = Category::all();
                 $successStoriesBox = SuccessStory::all();
-<<<<<<< HEAD
-=======
                 
->>>>>>> 3a5341334267104e1303a144acaf273327f3b140
                 $WithdrawRequestsBox=DB::table('transections')
                     ->where('transection_type','1')
                     ->get();
